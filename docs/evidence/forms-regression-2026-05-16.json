@@ -1,0 +1,363 @@
+{
+  "runAt": "2026-05-16T14:33:35.193Z",
+  "target": "https://maksimfrelikh.ru",
+  "scope": "focused frontend UX/runtime regression: forms and validation only",
+  "credentialsSanitized": true,
+  "qaEntities": {
+    "storeCode": "QA-FORM-202605161433",
+    "storeName": "QA Forms Store 202605161433",
+    "productPlu": "961433",
+    "productName": "QA Forms Product 202605161433",
+    "productShort": "QAProd1433",
+    "categoryName": "QA Forms Category 202605161433",
+    "scaleCode": "QA-SCALE-202605161433",
+    "scaleName": "QA Forms Scale 202605161433",
+    "inviteEmail": "qa-forms-202605161433@example.invalid"
+  },
+  "checks": [
+    {
+      "name": "Login form required-fields validation",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/",
+      "alert": "Введите email и пароль."
+    },
+    {
+      "name": "Login HTML5 invalid email blocks submit",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/"
+    },
+    {
+      "name": "Admin login reaches dashboard",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/",
+      "heading": "Добро пожаловать, QA Admin"
+    },
+    {
+      "name": "Store create required fields show inline error",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store-create",
+      "alert": "Store code and name are required."
+    },
+    {
+      "name": "Store create invalid timezone validation",
+      "status": "FAIL",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "",
+      "acceptedInvalidTimezone": true,
+      "refreshRecovers": "Refresh keeps created store details with invalid timezone value"
+    },
+    {
+      "name": "Store create success navigates to details",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "createdStoreId": "[captured]"
+    },
+    {
+      "name": "Store duplicate code backend error shown without clearing form",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store-create",
+      "alert": "Store code already exists",
+      "codeValueRetained": true
+    },
+    {
+      "name": "Store create cancel returns to stores list",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#stores"
+    },
+    {
+      "name": "Product create required fields show inline error",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#product-create",
+      "alert": "defaultPluCode, name, shortName, unit and status are required."
+    },
+    {
+      "name": "Product image invalid GIF validation shown client-side",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#product-create",
+      "alert": "GIF images are not supported. Upload JPG, PNG or WebP."
+    },
+    {
+      "name": "Product create success returns to products list",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#products"
+    },
+    {
+      "name": "Product duplicate PLU backend error shown and form state retained",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#product-create",
+      "alert": "Product defaultPluCode already exists",
+      "pluRetained": true
+    },
+    {
+      "name": "Product create cancel returns to products list",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#products"
+    },
+    {
+      "name": "Invite form required email validation",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#users-access",
+      "alert": "Email is required."
+    },
+    {
+      "name": "Invite form HTML5 invalid email blocks submit",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#users-access"
+    },
+    {
+      "name": "Invite create success resets fields and does not expose token in production UI",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#users-access",
+      "statusText": "Invite for [QA_INVITE_EMAIL] expires 5/23/2026, 2:33:00 PM.Invite created. The invite token is not shown in production."
+    },
+    {
+      "name": "Category root required name validation shown",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "Category name is required."
+    },
+    {
+      "name": "Category create success resets root form and shows notice",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "notice": "Root category created."
+    },
+    {
+      "name": "Category duplicate/name backend error displayed or safe success notice",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "",
+      "notice": "Root category created."
+    },
+    {
+      "name": "Scale device create required fields validation shown",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "Device code and name are required."
+    },
+    {
+      "name": "Scale device create success resets fields and shows one-time token notice (token not captured)",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "tokenCaptured": false
+    },
+    {
+      "name": "Scale device duplicate code backend error displayed and form retained",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "Scale device code already exists",
+      "codeRetained": true
+    },
+    {
+      "name": "Banner upload unsupported file validation shown client-side",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "Unsupported banner format. Upload JPG, PNG or WebP."
+    },
+    {
+      "name": "Product placement submit disabled until category and product selected",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a"
+    },
+    {
+      "name": "Inline price form coverage",
+      "status": "BLOCKED",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "reason": "No placed products/prices available in created store without extending business flow/publishing scope"
+    },
+    {
+      "name": "Product edit required fields validation shown and stays on edit form",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#product-edit:219a43a2-a8d9-40b5-abe7-c141ebac2557",
+      "alert": "defaultPluCode, name, shortName, unit and status are required.",
+      "refreshRecovers": "Form reloads original product on refresh"
+    },
+    {
+      "name": "Product edit refresh recovers from unsaved invalid/stale form state",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#product-edit:219a43a2-a8d9-40b5-abe7-c141ebac2557"
+    },
+    {
+      "name": "Store edit required fields validation shown and stays on edit form",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store-edit:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "alert": "Store code and name are required."
+    },
+    {
+      "name": "Store edit cancel returns to store details and discards invalid input",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a"
+    },
+    {
+      "name": "Operator login reaches dashboard",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/",
+      "heading": "Добро пожаловать, QA Operator"
+    },
+    {
+      "name": "Operator cannot access admin store create form",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store-create",
+      "heading": "Assigned stores"
+    },
+    {
+      "name": "Operator products page create/edit form availability",
+      "status": "OBSERVED",
+      "route": "https://maksimfrelikh.ru/#products",
+      "note": "Create product button visibility checked for role relevance"
+    },
+    {
+      "name": "Operator store detail form coverage",
+      "status": "BLOCKED",
+      "reason": "Operator account has no assigned stores visible"
+    },
+    {
+      "name": "Store create duplicate-submit prevention/loading and network failure display",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store-create",
+      "interceptedPostCount": 1,
+      "saveDisabledDuringSubmit": true,
+      "alert": "Backend недоступен. Проверьте, что сервер запущен, и повторите попытку.",
+      "dataCreated": false
+    },
+    {
+      "name": "Category archive confirm dialog dismiss keeps edit form open without saving",
+      "status": "PASS",
+      "route": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "dialogSeen": true,
+      "stillEditing": true,
+      "dataChanged": false
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-UX-001",
+      "title": "Store form accepts invalid timezone and creates store without validation",
+      "severity": "Medium",
+      "area": "Stores / create form",
+      "route": "#store-create",
+      "form": "Create store",
+      "steps": [
+        "Open Stores > Create store as admin",
+        "Enter unique QA store code and name",
+        "Set Timezone to Invalid/Timezone",
+        "Submit Save store"
+      ],
+      "expected": "Form rejects the invalid timezone with an inline validation/backend validation message and stays on the create form.",
+      "actual": "Store is created successfully and SPA navigates to store details.",
+      "network": "POST store create returned success; no validation error surfaced in UI.",
+      "refreshRecovers": "No; refresh stays on the created store detail route because invalid data was persisted.",
+      "userImpact": "Admins can persist malformed timezone values, which can confuse operators and may break date/time expectations for store data."
+    }
+  ],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+      "url": "https://maksimfrelikh.ru/#store-create"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+      "url": "https://maksimfrelikh.ru/#product-create"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+      "url": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "url": "https://maksimfrelikh.ru/#store-create"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "https://maksimfrelikh.ru/"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "url": "https://maksimfrelikh.ru/#store-create"
+    }
+  ],
+  "failedRequests": [
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "status": 409,
+      "method": "POST"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/products",
+      "status": 409,
+      "method": "POST"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores/031f2a8b-3a3b-49b5-afec-e971efb3be7a/scales",
+      "status": 409,
+      "method": "POST"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET",
+      "source": "supplement"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET",
+      "source": "supplement"
+    }
+  ],
+  "notes": [],
+  "finalRoute": "https://maksimfrelikh.ru/#stores",
+  "updatedAt": "2026-05-16T14:36:19.360Z"
+}

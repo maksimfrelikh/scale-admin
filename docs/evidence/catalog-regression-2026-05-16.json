@@ -1,0 +1,107 @@
+{
+  "scope": "Focused frontend UX/runtime regression for catalog, placements, and prices behavior only",
+  "target": "https://maksimfrelikh.ru",
+  "date": "2026-05-16",
+  "credentialsSanitized": true,
+  "browser": "Playwright Chromium headless",
+  "storesTested": [
+    {
+      "storeId": "031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "purpose": "QA catalog/prices store with catalog endpoints returning 200"
+    },
+    {
+      "storeId": "adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "purpose": "Active store without active catalog; verified UI error state for catalog/prices 404"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Production health",
+      "status": "PASS",
+      "observation": "GET /api/health returned 200 status ok"
+    },
+    {
+      "name": "Products list navigation",
+      "status": "PASS",
+      "route": "/#products",
+      "network": ["GET /api/products?take=50 -> 200"]
+    },
+    {
+      "name": "Product edit/detail navigation and browser back",
+      "status": "PASS",
+      "route": "/#product-edit:3cee0f49-fb88-45d1-9f24-b511474c386d",
+      "observation": "Edit route opened product form; browser back restored products list."
+    },
+    {
+      "name": "Category create duplicate-submit/cache invalidation",
+      "status": "PASS",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "network": ["POST /api/stores/{storeId}/catalog/categories -> 200", "GET /api/stores/{storeId}/catalog/categories -> 200"],
+      "observation": "Double-click create produced one POST; new QA category rendered and persisted after refresh."
+    },
+    {
+      "name": "Category edit save/cache/refresh",
+      "status": "FAIL",
+      "bug": "BUG-UX-002",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "network": ["PATCH /api/stores/{storeId}/catalog/categories/55957074-d2d6-425d-b526-52f4347221b5 -> 200", "GET /api/stores/{storeId}/catalog/categories -> 200"],
+      "refreshRecovers": false
+    },
+    {
+      "name": "Placement create duplicate-submit/cache invalidation",
+      "status": "PASS",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "network": ["POST /api/stores/{storeId}/catalog/placements -> 200", "GET /api/stores/{storeId}/catalog/placements?... -> 200"],
+      "observation": "Double-click add produced one POST; placement/prices queries invalidated."
+    },
+    {
+      "name": "Prices list rendering after placement mutation",
+      "status": "PASS",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "network": ["GET /api/stores/{storeId}/prices -> 200"],
+      "observation": "Placed product appeared in prices table with editable price input."
+    },
+    {
+      "name": "Price create/edit duplicate-submit/cache/refresh",
+      "status": "PASS",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "network": ["PUT /api/stores/{storeId}/prices/{productId} -> 200", "GET /api/stores/{storeId}/prices -> 200"],
+      "observation": "Double-click save produced one PUT; refreshed input value matched API currentPrice.price."
+    },
+    {
+      "name": "Invalid price UI behavior",
+      "status": "PASS",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "observation": "Negative numeric value kept Save disabled; no invalid PUT was sent."
+    },
+    {
+      "name": "Refresh/back-forward after edits",
+      "status": "PASS",
+      "observation": "Products list back navigation restored list; store page refresh preserved created category, placement, and price state except BUG-UX-002 edit persistence failure."
+    },
+    {
+      "name": "Archived/inactive product/category handling",
+      "status": "PASS",
+      "observation": "Placement UI explicitly states archived/inactive products and categories are unavailable for active placements; active product selector excluded inactive/archived controls during tested flow."
+    },
+    {
+      "name": "Operator assigned-store catalog behavior",
+      "status": "BLOCKED",
+      "observation": "Operator account showed Assigned stores page but no assigned stores available, so assigned-store catalog behavior could not be exercised. No admin-only create/global/user controls were shown on operator stores page."
+    },
+    {
+      "name": "Unexpected network/runtime errors",
+      "status": "PASS_WITH_NOTES",
+      "observation": "No unexpected failed API requests during the final focused admin mutation pass. Expected unauthenticated session probes appeared only before login. Direct operator access to an unassigned store returned 403 as expected."
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-UX-002",
+      "title": "Category edit returns success but saved values are not persisted or rendered",
+      "severity": "High",
+      "route": "/#store:031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+      "refreshRecovers": false
+    }
+  ]
+}

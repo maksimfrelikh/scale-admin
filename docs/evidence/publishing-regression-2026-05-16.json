@@ -1,0 +1,373 @@
+{
+  "runId": "20260516151112",
+  "target": "https://maksimfrelikh.ru",
+  "scope": "publishing-validation-version-ui",
+  "startedAt": "2026-05-16T15:11:12.390Z",
+  "qaEntities": {
+    "storeId": "10ea1987-c828-4c41-8b82-d44b1fea3821",
+    "storeCode": "QA-PUB-20260516151112",
+    "categoryId": "f609515f-a7e9-4fc5-916a-ba2043220c8a",
+    "productId": "5ad83001-b633-4a36-9d41-2f0a603f620f",
+    "placementId": "6f23323c-26cc-4d3a-95c9-822a40d59556",
+    "product2Id": "d8cd71ed-ca05-4062-befe-5fccd416b25b",
+    "placement2Id": "0a50921c-b1e5-4f67-bebd-471cd419f76b"
+  },
+  "checks": [
+    {
+      "name": "admin-login",
+      "status": "PASS",
+      "observation": "Admin session opened; credentials not recorded."
+    },
+    {
+      "name": "route-load",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "observation": "Publishing section rendered on store detail page."
+    },
+    {
+      "name": "validation-api-error-display",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "observation": "Validation API failure was shown in alert area."
+    },
+    {
+      "name": "blocking-errors-display-and-publish-disabled",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "validationPostCount": 1,
+      "sawValidating": true,
+      "duplicateClickObservation": "single validation POST while loading",
+      "observation": "Missing active positive price produced blocking error and disabled publish.",
+      "validationExcerpt": "Publication blocked1 blocking errors · 1 warnings1 categories · 1 active products · 0 active bannersBlocking errorsACTIVE_PLACEMENT_PRICE_MISSINGActive placement product does not have an active positive price for the store.CatalogProductPlacement · 6f23323c-26cc-4d3a-95c9-822a40d59556WarningsNO_ACTIVE_ADVERTISING_BANNERSCatalog has no active advertising banners; publishing can continue without ads.AdvertisingBanner"
+    },
+    {
+      "name": "warnings-display-and-publish-enabled",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "observation": "Valid catalog without banners showed warning and enabled publish.",
+      "validationExcerpt": "Ready to publish0 blocking errors · 1 warnings1 categories · 1 active products · 0 active bannersBlocking errorsNo blocking errors found.WarningsNO_ACTIVE_ADVERTISING_BANNERSCatalog has no active advertising banners; publishing can continue without ads.AdvertisingBanner"
+    },
+    {
+      "name": "stale-validation-after-catalog-change",
+      "status": "FAIL",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "observation": "After an unpriced active placement was added behind a Ready validation, displayed validation state and publish availability were checked.",
+      "stillReady": true,
+      "publishStillEnabled": true,
+      "stalePublishError": "Catalog has blocking validation errors and cannot be published",
+      "refreshRecoveryExpected": "Refresh clears local validation state and disables publish until validation is rerun."
+    },
+    {
+      "name": "refresh-after-stale-validation",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "observation": "Refresh recovered stale validation UI by clearing validation result and disabling publish.",
+      "validationEmptyAfterRefresh": true,
+      "publishDisabledAfterRefresh": true
+    },
+    {
+      "name": "publish-success-version-history-and-duplicate-click",
+      "status": "PASS",
+      "route": "/#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "publishPostCount": 1,
+      "sawPublishing": true,
+      "versionRows": 1,
+      "successText": "Published version v1 at 5/16/2026, 5:11:16 PM.",
+      "currentCard": "Current published catalogv1 (61998b55-903c-4b34-98e2-96b0503a223c)Published at 5/16/2026, 5:11:16 PM"
+    },
+    {
+      "name": "browser-back-forward-after-publish",
+      "status": "PASS",
+      "afterBackHash": "",
+      "afterForwardHash": "#store:10ea1987-c828-4c41-8b82-d44b1fea3821",
+      "publishingStillRendered": true
+    },
+    {
+      "name": "refresh-after-publish-version-data",
+      "status": "PASS",
+      "rowsAfterRefresh": 1,
+      "cardAfterRefresh": "Current published catalogv1 (61998b55-903c-4b34-98e2-96b0503a223c)Published at 5/16/2026, 5:11:16 PM"
+    },
+    {
+      "name": "operator-assigned-store-publishing-behavior",
+      "status": "BLOCKED",
+      "observation": "Operator account had no assigned stores visible via /api/stores."
+    }
+  ],
+  "network": [
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/stores",
+      "status": 201
+    },
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/categories",
+      "status": 201
+    },
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/products",
+      "status": 201
+    },
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/categories",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements?categoryId=f609515f-a7e9-4fc5-916a-ba2043220c8a&status=active",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-validation",
+      "status": 500
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/categories",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements?categoryId=f609515f-a7e9-4fc5-916a-ba2043220c8a&status=active",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-validation",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "api-setup",
+      "method": "PUT",
+      "path": "/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices/5ad83001-b633-4a36-9d41-2f0a603f620f",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-validation",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/products",
+      "status": 201
+    },
+    {
+      "via": "api-setup",
+      "method": "POST",
+      "path": "/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-publish",
+      "status": 400
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/categories",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements?categoryId=f609515f-a7e9-4fc5-916a-ba2043220c8a&status=active",
+      "status": 200
+    },
+    {
+      "via": "api-setup",
+      "method": "PUT",
+      "path": "/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices/d8cd71ed-ca05-4062-befe-5fccd416b25b",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-validation",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "POST",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-publish",
+      "status": 201
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/publishing/catalog-versions",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/categories",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/prices",
+      "status": 200
+    },
+    {
+      "via": "browser",
+      "method": "GET",
+      "url": "/api/stores/10ea1987-c828-4c41-8b82-d44b1fea3821/catalog/placements?categoryId=f609515f-a7e9-4fc5-916a-ba2043220c8a&status=active",
+      "status": 200
+    },
+    {
+      "via": "api-read",
+      "method": "GET",
+      "path": "/stores",
+      "status": 200
+    }
+  ],
+  "bugs": [
+    {
+      "key": "stale-validation-publish-enabled-after-catalog-change",
+      "severity": "Medium"
+    }
+  ],
+  "operator": {
+    "assignedStoreAvailable": false
+  },
+  "finishedAt": "2026-05-16T15:11:18.975Z"
+}

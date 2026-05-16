@@ -1,0 +1,958 @@
+[
+  {
+    "role": "admin",
+    "observations": [
+      {
+        "label": "after login",
+        "url": "https://maksimfrelikh.ru/",
+        "hash": "",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Fleet overview"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Create store",
+        "url": "https://maksimfrelikh.ru/#store-create",
+        "hash": "#store-create",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "New store"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Global Logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "active": [
+          "Global Logs"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Global Logs"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Users & Access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "active": [
+          "Users & Access"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Invites, roles and operator stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #global-logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "active": [
+          "Global Logs"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Global Logs"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #global-logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "active": [
+          "Global Logs"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Global Logs"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #users-access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "active": [
+          "Users & Access"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Invites, roles and operator stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #users-access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "active": [
+          "Users & Access"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Invites, roles and operator stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #does-not-exist",
+        "url": "https://maksimfrelikh.ru/#does-not-exist",
+        "hash": "#does-not-exist",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Fleet overview"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #does-not-exist",
+        "url": "https://maksimfrelikh.ru/#does-not-exist",
+        "hash": "#does-not-exist",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Fleet overview"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #store:",
+        "url": "https://maksimfrelikh.ru/#store:",
+        "hash": "#store:",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [],
+        "alerts": [
+          "Cannot GET /api/stores/publishing/catalog-versions"
+        ],
+        "loading": []
+      },
+      {
+        "label": "refresh #store:",
+        "url": "https://maksimfrelikh.ru/#store:",
+        "hash": "#store:",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [],
+        "alerts": [
+          "Cannot GET /api/stores/publishing/catalog-versions"
+        ],
+        "loading": []
+      },
+      {
+        "label": "direct open #product-edit:does-not-exist",
+        "url": "https://maksimfrelikh.ru/#product-edit:does-not-exist",
+        "hash": "#product-edit:does-not-exist",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [],
+        "alerts": [
+          "Internal server error"
+        ],
+        "loading": []
+      },
+      {
+        "label": "refresh #product-edit:does-not-exist",
+        "url": "https://maksimfrelikh.ru/#product-edit:does-not-exist",
+        "hash": "#product-edit:does-not-exist",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [],
+        "alerts": [
+          "Internal server error"
+        ],
+        "loading": []
+      },
+      {
+        "label": "history back 1",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "history back 2",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "history forward 1",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "second tab stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "second tab products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "first tab after second tab navigation",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after logout from stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [
+          "Сессия формы истекла. Обновите страницу и повторите действие."
+        ],
+        "loading": []
+      },
+      {
+        "label": "after logout refresh same hash",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared then nav products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [
+          "Требуется авторизация. Войдите в систему и повторите запрос."
+        ],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared then nav stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Admin"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared refresh",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [],
+        "h1": [
+          "Вход в систему"
+        ],
+        "h2": [],
+        "alerts": [],
+        "loading": []
+      }
+    ],
+    "consoleEvents": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      }
+    ],
+    "failedRequests": [],
+    "httpErrors": [
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      },
+      {
+        "status": 404,
+        "url": "https://maksimfrelikh.ru/api/stores//publishing/catalog-versions"
+      },
+      {
+        "status": 404,
+        "url": "https://maksimfrelikh.ru/api/stores//publishing/catalog-versions"
+      },
+      {
+        "status": 500,
+        "url": "https://maksimfrelikh.ru/api/products/does-not-exist"
+      },
+      {
+        "status": 500,
+        "url": "https://maksimfrelikh.ru/api/products/does-not-exist"
+      },
+      {
+        "status": 403,
+        "url": "https://maksimfrelikh.ru/api/auth/logout"
+      },
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/products?take=100"
+      },
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      }
+    ]
+  },
+  {
+    "role": "operator",
+    "observations": [
+      {
+        "label": "after login",
+        "url": "https://maksimfrelikh.ru/",
+        "hash": "",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Assigned stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "nav Products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #global-logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "active": [],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Users & Access is admin-only"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #global-logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "active": [],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Users & Access is admin-only"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #users-access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "active": [],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Users & Access is admin-only"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #users-access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "active": [],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Users & Access is admin-only"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #does-not-exist",
+        "url": "https://maksimfrelikh.ru/#does-not-exist",
+        "hash": "#does-not-exist",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Assigned stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "refresh #does-not-exist",
+        "url": "https://maksimfrelikh.ru/#does-not-exist",
+        "hash": "#does-not-exist",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Assigned stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "direct open #store:",
+        "url": "https://maksimfrelikh.ru/#store:",
+        "hash": "#store:",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [],
+        "alerts": [
+          "Cannot GET /api/stores/publishing/catalog-versions"
+        ],
+        "loading": []
+      },
+      {
+        "label": "refresh #store:",
+        "url": "https://maksimfrelikh.ru/#store:",
+        "hash": "#store:",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [],
+        "alerts": [
+          "Cannot GET /api/stores/publishing/catalog-versions"
+        ],
+        "loading": []
+      },
+      {
+        "label": "direct open #product-edit:does-not-exist",
+        "url": "https://maksimfrelikh.ru/#product-edit:does-not-exist",
+        "hash": "#product-edit:does-not-exist",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [],
+        "alerts": [
+          "Internal server error"
+        ],
+        "loading": []
+      },
+      {
+        "label": "refresh #product-edit:does-not-exist",
+        "url": "https://maksimfrelikh.ru/#product-edit:does-not-exist",
+        "hash": "#product-edit:does-not-exist",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [],
+        "alerts": [
+          "Internal server error"
+        ],
+        "loading": []
+      },
+      {
+        "label": "history back 1",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "history back 2",
+        "url": "https://maksimfrelikh.ru/",
+        "hash": "",
+        "active": [
+          "Overview"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Assigned stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "history forward 1",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "second tab stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "second tab products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "first tab after second tab navigation",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after logout from stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [
+          "Сессия формы истекла. Обновите страницу и повторите действие."
+        ],
+        "loading": []
+      },
+      {
+        "label": "after logout refresh same hash",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared then nav products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "active": [
+          "Products"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Product catalog"
+        ],
+        "alerts": [
+          "Требуется авторизация. Войдите в систему и повторите запрос."
+        ],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared then nav stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [
+          "Stores"
+        ],
+        "h1": [
+          "Добро пожаловать, QA Operator"
+        ],
+        "h2": [
+          "Stores"
+        ],
+        "alerts": [],
+        "loading": []
+      },
+      {
+        "label": "after cookies cleared refresh",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "active": [],
+        "h1": [
+          "Вход в систему"
+        ],
+        "h2": [],
+        "alerts": [],
+        "loading": []
+      }
+    ],
+    "consoleEvents": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      }
+    ],
+    "failedRequests": [],
+    "httpErrors": [
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      },
+      {
+        "status": 404,
+        "url": "https://maksimfrelikh.ru/api/stores//publishing/catalog-versions"
+      },
+      {
+        "status": 404,
+        "url": "https://maksimfrelikh.ru/api/stores//publishing/catalog-versions"
+      },
+      {
+        "status": 500,
+        "url": "https://maksimfrelikh.ru/api/products/does-not-exist"
+      },
+      {
+        "status": 500,
+        "url": "https://maksimfrelikh.ru/api/products/does-not-exist"
+      },
+      {
+        "status": 403,
+        "url": "https://maksimfrelikh.ru/api/auth/logout"
+      },
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/products?take=100"
+      },
+      {
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      }
+    ]
+  }
+]

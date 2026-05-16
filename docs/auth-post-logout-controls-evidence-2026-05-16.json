@@ -1,0 +1,180 @@
+{
+  "target": "https://maksimfrelikh.ru",
+  "executedAt": "2026-05-16T13:46:13.932Z",
+  "results": [
+    {
+      "role": "admin",
+      "stale": {
+        "url": "/#stores",
+        "hash": "#stores",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · "
+      },
+      "visibleButtons": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "Refresh",
+        "Create store",
+        "Details",
+        "Edit",
+        "Details"
+      ],
+      "afterRefreshClick": {
+        "url": "/#stores",
+        "hash": "#stores",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\nТребуется авторизация. Войдите в систему и повторите запрос.\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nAC"
+      },
+      "afterProductsNav": {
+        "url": "/#products",
+        "hash": "#products",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nТребуется авторизация. Войдите в систему и повторите запрос."
+      },
+      "events": [
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "method": "POST",
+          "url": "/api/auth/login",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/admin/dashboard",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/stores",
+          "status": 200
+        },
+        {
+          "method": "POST",
+          "url": "/api/auth/logout",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/stores",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/products",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "role": "operator",
+      "stale": {
+        "url": "/#stores",
+        "hash": "#stores",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+      },
+      "visibleButtons": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Refresh"
+      ],
+      "afterRefreshClick": {
+        "url": "/#stores",
+        "hash": "#stores",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nТребуется авторизация. Войдите в систему и повторите запрос."
+      },
+      "afterProductsNav": {
+        "url": "/#products",
+        "hash": "#products",
+        "loginVisible": false,
+        "dashboardVisible": true,
+        "logoutVisible": true,
+        "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nТребуется авторизация. Войдите в систему и повторите запрос."
+      },
+      "events": [
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "method": "POST",
+          "url": "/api/auth/login",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/stores",
+          "status": 200
+        },
+        {
+          "method": "POST",
+          "url": "/api/auth/logout",
+          "status": 200
+        },
+        {
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/stores",
+          "status": 401
+        },
+        {
+          "method": "GET",
+          "url": "/api/products",
+          "status": 401
+        }
+      ]
+    }
+  ]
+}

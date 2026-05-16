@@ -1,0 +1,2514 @@
+{
+  "meta": {
+    "target": "https://maksimfrelikh.ru",
+    "scope": "focused RBAC frontend UX/runtime regression",
+    "date": "2026-05-16",
+    "credentialsRedacted": true
+  },
+  "checks": [
+    {
+      "id": "admin-session",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/",
+        "hash": "",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN DASHBOARD\n\nFleet overview\n\nStores, scale health, published versions and recent sync failures.\n\nRefresh dashboard\nSTORES\n40\nSCALES\n14\nSCALES WITH ERRORS\n9\nWITHOUT SYNCHRONIZATION\n14\nLatest published versions\nQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\nMain catalog · v1\n5/16/2026, 5:11:16 PM\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nUAT 2026-05-15 Phase 9 20260515203808 Catalog · v999\n5/15/2026, 10:38:09 PM\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nUAT 2026-05-15 Phase 9 20260515203808 Catalog · v1\n5/15/2026, 10:38:09 PM\nP9A20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Assigned\nUAT 2026-05-15 Phase 9 20260515203720 Catalog · v999\n5/15/2026, 10:37:21 PM\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\nUAT Phase 8 Catalog 20260515202922 · v1\n5/15/2026, 10:29:22 PM\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\nUAT Phase 8 Catalog 20260515202759 · v1\n5/15/2026, 10:27:59 PM\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\nUAT Phase 7 Catalog 20260515201636 · v2\n5/15/2026, 10:16:36 PM\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\nUAT Phase 7 Catalog 20260515201636 · v1\n5/15/2026, 10:16:36 PM\nUAT20260515P6UNPUBLISHED20260515201102826 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201102826 Store\nMain catalog · v1\n5/15/2026, 10:11:02 PM\nUAT20260515P6UNPUBLISHED20260515201044689 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201044689 Store\nMain catalog · v1\n5/15/2026, 10:10:45 PM\nLatest sync errors\nP9S20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Scale\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nUAT Phase 9 simulated ACK error\n5/15/2026, 10:38:09 PM\nOpen store\nUATPH820260515202922-BLOCKED · UAT Phase 8 Blocked Scale 20260515202922\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\ndevice_blocked\n5/15/2026, 10:29:24 PM\nOpen store\nUATPH820260515202922-ACTIVE · UAT Phase 8 Active Scale 20260515202922\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\ninvalid_credentials\n5/15/2026, 10:29:24 PM\nOpen store\nUATPH820260515202759-BLOCKED · UAT Phase 8 Blocked Scale 20260515202759\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\ndevice_blocked\n5/15/2026, 10:28:00 PM\nOpen store\nUATPH820260515202759-ACTIVE · UAT Phase 8 Active Scale 20260515202759\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\ninvalid_credentials\n5/15/2026, 10:28:00 PM\nOpen store\nUAT-P7-ACTIVE-20260515201636 · UAT Phase 7 Active Scale 20260515201636\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\nUAT Phase 7 simulated scale package apply failure\n5/15/2026, 10:16:36 PM\nOpen store\nUAT-P7-INACTIVE-20260515201636 · UAT Phase 7 Inactive Scale 20260515201636\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\ndevice_inactive\n5/15/2026, 10:16:36 PM\nOpen store\nUAT-P7-BLOCKED-20260515201636 · UAT Phase 7 Blocked Scale 20260515201636\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\ndevice_blocked\n5/15/2026, 10:16:36 PM\nOpen store\nUATP6SCALEUNPUB20260515201045701 · UAT 2026-05-15 Phase 6 UNPUB Scale\nUAT20260515P6UNPUBLISHED20260515201044689 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201044689 Store\ninvalid_credentials\n5/15/2026, 10:10:45 PM\nOpen store\nProblematic scales\n\nHighlighted scales have a sync error, missing sync or outdated catalog.\n\nQA-FORM-202605161433 · QA Forms Store 202605161433\n\nQA-SCALE-202605161433 · QA Forms Scale 202605161433\nACTIVE\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n—\nLAST SYNC\n—\nOpen store\n\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\n\nP9S20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Scale\nACTIVE\nLATEST SYNC ERROR\nOUTDATED CATALOG VERSION\nCURRENT VERSION\ned84e6e4-4c6b-40e1-9da0-71f72e64a74c\nEXPECTED VERSION\nf192b9dd-8549-456b-a1b0-8d89f987050c\nLAST SYNC\n5/15/2026, 10:38:09 PM\nUAT Phase 9 simulated ACK error\nOpen store\n\nP9A20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Assigned\n\nP9S20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Scale\nACTIVE\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n33ee17fc-9f99-4587-a3dd-becaeab235a4\nLAST SYNC\n—\nOpen store\n\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\n\nUATPH820260515202922-BLOCKED · UAT Phase 8 Blocked Scale 20260515202922\nBLOCKED\nLATEST SYNC ERROR\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n5bfc73b0-a5b7-400a-97d8-70729ecce7cc\nLAST SYNC\n—\ndevice_blocked\nOpen store\n\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\n\nUATPH820260515202922-ACTIVE · UAT Phase 8 Active Scale 20260515202922\nACTIVE\nLATEST SYNC ERROR\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n5bfc73b0-a5b7-400a-97d8-70729ecce7cc\nLAST SYNC\n—\ninvalid_credentials\nOpen store\n\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\n\nUATPH820260515202759-BLOCKED · UAT Phase 8 Blocked Scale 20260515202759\nBLOCKED\nLATEST SYNC ERROR\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n89f28c7f-3091-476f-896a-7734d816a71d\nLAST SYNC\n—\ndevice_blocked\nOpen store\n\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\n\nUATPH820260515202759-ACTIVE · UAT Phase 8 Active Scale 20260515202759\nACTIVE\nLATEST SYNC ERROR\nMISSING SYNC\nCURRENT VERSION\n—\nEXPECTED VERSION\n89f28c7f-3091-476f-896a-7734d816a71d\nLAST SYNC\n—\ninvalid_credentials\nOpen store\n\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\n\nUAT-P7-ACTIVE-20260515201636 · UAT Phase 7 Active Scale 20260515201636\nACTIVE\nLATEST SYNC ERROR\nOUTDATED CATALOG VERSION\nCURRENT VERSION\n252379e6-fa03-445f-bdae-df66426c71bd\nEXPECTED VERSION\nf529eefe-77d3-4a8d-8a67-73a7b9ace288\nLAST SYNC\n5/15/2026, 10:16:36 PM\nUAT Phase 7 simulated scale package apply failure\nOpen",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Create store",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Global Logs",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Users & Access",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh dashboard",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open store",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Global logs",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Users & access",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": [
+          "UAT Phase 9 simulated ACK error",
+          "device_blocked",
+          "invalid_credentials",
+          "device_blocked",
+          "invalid_credentials",
+          "UAT Phase 7 simulated scale package apply failure",
+          "device_inactive",
+          "device_blocked",
+          "invalid_credentials",
+          "UAT Phase 9 simulated ACK error",
+          "device_blocked",
+          "invalid_credentials",
+          "device_blocked",
+          "invalid_credentials",
+          "UAT Phase 7 simulated scale package apply failure",
+          "device_inactive",
+          "device_blocked"
+        ]
+      },
+      "session": {
+        "status": 200,
+        "ok": true,
+        "body": "[redacted session body]"
+      }
+    },
+    {
+      "id": "admin-stores-api",
+      "status": 200,
+      "count": 40,
+      "storeIds": [
+        "adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "33842f2d-3af2-4c7f-987d-03c8e2f1440b",
+        "031f2a8b-3a3b-49b5-afec-e971efb3be7a",
+        "cdf2e02e-365c-4f0f-83fc-0f30639cec16",
+        "ed463ff6-5e4b-4b5a-9a93-cd6cf0b7ba37",
+        "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "c11a9e8b-3668-45b0-b8fb-ac8a48359381",
+        "10ea1987-c828-4c41-8b82-d44b1fea3821",
+        "21a4e45c-1c52-4f0f-b2ac-854b32bbd7a4",
+        "9624578d-a8c9-45a4-8dbf-006c961c0adf",
+        "1b28a00c-b4bf-454c-b1c0-43428ee60e76",
+        "2f686ecd-90b5-4e9d-87ea-43ea93efa76e",
+        "5e8b8ffc-bfce-436d-ba8c-cf8f55fdf4d4",
+        "435de0ee-9c38-409c-9359-5237f09bf4ea",
+        "68558068-8fa7-4de5-a527-b4ecaf7d8200",
+        "32552567-495c-4505-b12a-270148880198",
+        "c223a7cd-43cc-4404-a765-d3a0e4f4af1c",
+        "6a2281d5-a181-4867-82f7-14e4fd4af0ce",
+        "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+        "4453df00-c96b-409f-91f5-c0797fecffc4",
+        "d06e91a9-a657-42aa-ad05-60e248a94bd8",
+        "915f56f4-ee77-453a-af3a-b4b303334d94",
+        "ccdd492d-363a-4b1a-b3cc-f7f9723e7b2e",
+        "c1ed9a9b-641b-4b05-a2b0-e8f0259b90dd",
+        "f7192e98-2623-41b1-b23b-2bdc39dbaa86",
+        "d9738504-b293-4948-ab61-d49e718c8e76",
+        "c07af962-ec5c-4a10-b34c-3c9b18b6d202",
+        "feda2132-37a9-423b-8ca4-45992f8136ee",
+        "c26c08f0-201e-46bc-88ef-03c6f110aced",
+        "f683779b-421b-48db-9f9b-e6c93cbd0db9",
+        "efe41db4-0437-4cf0-ba8d-832491c7b7d5",
+        "a50a66d7-04ae-421c-b454-bcd673806dd7",
+        "d36bfc74-3551-4d0c-9a1d-999025651fb4",
+        "8dcc26d0-f0ae-45fa-a5d5-9a5a458ec28e",
+        "f4440def-3d5e-41e3-a4fa-d682a07225b3",
+        "5fe1e7f0-e6e4-4ea7-b092-8a0a0a176a5c",
+        "413221d5-0f7c-427e-875d-d7b2a3dcc21e",
+        "a91e0f68-4ed4-4c4c-bedc-bf605d33c39b",
+        "94012c3b-074a-4bb6-8510-12b3e8fad03c",
+        "0d18f0ea-c415-4335-b4a6-373139262ee0"
+      ]
+    },
+    {
+      "id": "admin-users-access-visible",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nUSERS & ACCESS\n\nInvites, roles and operator stores\n\nCreate admin/operator invites, change roles, block users and manage operator store assignments.\n\nInclude deleted\nRefresh users\n\nCREATE INVITE\n\nSend this one-time token to the invited user through a secure channel.\n\nEmail\nFull name\nRole\noperator\nadmin\nExpires at\nCreate invite\n\n[operator-email]\n\nQA Operator\n\nCreated 5/16/2026, 3:37:41 PM · Last login 5/16/2026, 5:16:03 PM\n\nACTIVE\nRole\noperator\nadmin\nBlock\nOperator store access\nChoose store\nSTORE-002 · Manager Verify Store 002\nQA-FORM-202605161432 · QA Forms Store 202605161432\nQA-FORM-202605161433 · QA Forms Store 202605161433\nQA-PUB-20260516150746 · QA Publishing Regression 20260516150746\nQA-PUB-20260516150853 · QA Publishing Regression 20260516150853\nQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\nQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\nSTORE-001 · Sample Store 001\nTASK013-A · Task 013 Store A\nTASK013-B · Task 013 Store B\nTASK016-ACTIVE · Task 016 Updated Store\nT17A-1778790425 · Task 017 Store A Edited\nT17B-1778790425 · Task 017 Store B\nTASK018-ALLOWED · Task 018 Allowed Store\nTASK018-DENIED · Task 018 Denied Store\nTASK019-STORE · Task 019 Store\nTASK021-STORE · Task 021 Store\nUAT20260515P4195540 · UAT 2026-05-15 Phase 4 20260515195540 Store\nUAT20260515P6ARCH_CATEGORY20260515201044864 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201044864 Store\nUAT20260515P6ARCH_CATEGORY20260515201102985 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201102985 Store\nUAT20260515P6ARCH_PRODUCT20260515201031155 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201031155 Store\nUAT20260515P6ARCH_PRODUCT20260515201044318 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201044318 Store\nUAT20260515P6ARCH_PRODUCT20260515201102847 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201102847 Store\nUAT20260515P6BAD_BANNER20260515201044311 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201044311 Store\nUAT20260515P6BAD_BANNER20260515201102726 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201102726 Store\nUAT20260515P6NO_PRICE20260515201030137 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201030137 Store\nUAT20260515P6NO_PRICE20260515201044159 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201044159 Store\nUAT20260515P6NO_PRICE20260515201102770 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201102770 Store\nUAT20260515P6UNPUBLISHED20260515201044689 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201044689 Store\nUAT20260515P6UNPUBLISHED20260515201102826 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201102826 Store\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\nUATPH820260515202759F · UAT 2026-05-15 Phase 8 Foreign Store 20260515202759\nUATPH820260515202922F · UAT 2026-05-15 Phase 8 Foreign Store 20260515202922\nP9A20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Assigned\nP9B20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Foreign\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nP9B20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Foreign\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\nAssign store\nQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\nRevoke\n\n[admin-email]\n\nQA Admin\n\nCreated 5/16/2026, 3:37:40 PM · Last login 5/16/2026, 5:21:33 PM\n\nACTIVE\nRole\noperator\nadmin\nBlock\n\nuat-phase9-operator-20260515203808@example.com\n\nUAT 2026-05-15 Phase 9 20260515203808 Operator\n\nCreated 5/15/2026, 10:38:08 PM · Last login 5/15/2026, 10:38:08 PM\n\nACTIVE\nRole\noperator\nadmin\nBlock\nOperator store access\nChoose store\nSTORE-002 · Manager Verify Store 002\nQA-FORM-202605161432 · QA Forms Store 202605161432\nQA-FORM-202605161433 · QA Forms Store 202605161433\nQA-PUB-20260516150746 · QA Publishing Regression 20260516150746\nQA-PUB-20260516150853 · QA Publishing Regression 20260516150853\nQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\nQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\nQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\nSTORE-001 · Sample Store 001\nTASK013-A · Task 013 Store A\nTASK013-B · Task 013 Store B\nTASK016-ACTIVE · Task 016 Updated Store\nT17A-1778790425 · Task 017 Store A Edited\nT17B-1778790425 · Task 017 Store B\nTASK018-ALLOWED · Task 018 Allowed Store\nTASK018-DENIED · Task 018 Denied Store\nTASK019-STORE · Task 019 Store\nTASK021-STORE · Task 021 Store\nUAT20260515P4195540 · UAT 2026-05-15 Phase 4 20260515195540 Store\nUAT20260515P6ARCH_CATEGORY20260515201044864 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201044864 Store\nUAT20260515P6ARCH_CATEGORY20260515201102985 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201102985 Store\nUAT20260515P6ARCH_PRODUCT20260515201031155 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201031155 Store\nUAT20260515P6ARCH_PRODUCT20260515201044318 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201044318 Store\nUAT20260515P6ARCH_PRODUCT20260515201102847 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201102847 Store\nUAT20260515P6BAD_BANNER20260515201044311 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201044311 Store\nUAT20260515P6BAD_BANNER20260515201102726 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201102726 Store\nUAT20260515P6NO_PRICE20260515201030137 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201030137 Store\nUAT20260515P6NO_PRICE20260515201044159 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201044159 Store\nUAT20260515P6NO_PRICE20260515201102770 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201102770 Store\nUAT20260515P6UNPUBLISHED20260515201044689 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201044689 Store\nUAT20260515P6UNPUBLISHED20260515201102826 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201102826 Store\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 As",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Create store",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Global Logs",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Users & Access",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Refresh users",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Create invite",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Unblock",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Unblock",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Unblock",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Unblock",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Assign store",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Revoke",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Block",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": "checkbox",
+            "name": null,
+            "disabled": false,
+            "label": "Include deleted"
+          },
+          {
+            "tag": "INPUT",
+            "type": "email",
+            "name": null,
+            "disabled": false,
+            "label": "Email"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Full name"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "INPUT",
+            "type": "datetime-local",
+            "name": null,
+            "disabled": false,
+            "label": "Expires at"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store to assign"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Role\noperator\nadmin"
+          }
+        ],
+        "alerts": []
+      }
+    },
+    {
+      "id": "admin-global-logs-visible",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN ONLY\n\nGlobal Logs\n\nRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not exposed.\n\nRefresh logs\nStore\nAll stores\nSTORE-002 · Manager Verify Store 002\nQA-FORM-202605161432 · QA Forms Store 202605161432\nQA-FORM-202605161433 · QA Forms Store 202605161433\nQA-PUB-20260516150746 · QA Publishing Regression 20260516150746\nQA-PUB-20260516150853 · QA Publishing Regression 20260516150853\nQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\nQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\nQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\nSTORE-001 · Sample Store 001\nTASK013-A · Task 013 Store A\nTASK013-B · Task 013 Store B\nTASK016-ACTIVE · Task 016 Updated Store\nT17A-1778790425 · Task 017 Store A Edited\nT17B-1778790425 · Task 017 Store B\nTASK018-ALLOWED · Task 018 Allowed Store\nTASK018-DENIED · Task 018 Denied Store\nTASK019-STORE · Task 019 Store\nTASK021-STORE · Task 021 Store\nUAT20260515P4195540 · UAT 2026-05-15 Phase 4 20260515195540 Store\nUAT20260515P6ARCH_CATEGORY20260515201044864 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201044864 Store\nUAT20260515P6ARCH_CATEGORY20260515201102985 · UAT 2026-05-15 Phase 6 ARCH_CATEGORY 20260515201102985 Store\nUAT20260515P6ARCH_PRODUCT20260515201031155 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201031155 Store\nUAT20260515P6ARCH_PRODUCT20260515201044318 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201044318 Store\nUAT20260515P6ARCH_PRODUCT20260515201102847 · UAT 2026-05-15 Phase 6 ARCH_PRODUCT 20260515201102847 Store\nUAT20260515P6BAD_BANNER20260515201044311 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201044311 Store\nUAT20260515P6BAD_BANNER20260515201102726 · UAT 2026-05-15 Phase 6 BAD_BANNER 20260515201102726 Store\nUAT20260515P6NO_PRICE20260515201030137 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201030137 Store\nUAT20260515P6NO_PRICE20260515201044159 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201044159 Store\nUAT20260515P6NO_PRICE20260515201102770 · UAT 2026-05-15 Phase 6 NO_PRICE 20260515201102770 Store\nUAT20260515P6UNPUBLISHED20260515201044689 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201044689 Store\nUAT20260515P6UNPUBLISHED20260515201102826 · UAT 2026-05-15 Phase 6 UNPUBLISHED 20260515201102826 Store\nUATPH820260515202759A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202759\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\nUATPH820260515202759F · UAT 2026-05-15 Phase 8 Foreign Store 20260515202759\nUATPH820260515202922F · UAT 2026-05-15 Phase 8 Foreign Store 20260515202922\nP9A20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Assigned\nP9B20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Foreign\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nP9B20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Foreign\nUAT-P7-20260515201636 · UAT Phase 7 Store 20260515201636\nEntity type\nAction / audit status\nSync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror\nFrom date\nTo date\nClear filters\nAuditLog entries\nTIME\tSTORE\tACTOR\tENTITY\tACTION\n5/16/2026, 5:21:33 PM\tGlobal\tQA Admin\tUserSession\n292df5b5-88aa-4781-a0cb-7e23197625fd\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:21:10 PM\tGlobal\tQA Admin\tUserSession\n863e066b-d95d-4b64-845a-a97006c5f2d5\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:16:03 PM\tGlobal\tQA Operator\tUserSession\n0362db1c-79c5-405b-ad70-f80b09d687fa\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:15:28 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tLocal Admin\tUserStoreAccess\ne94606f4-fc89-439c-835c-e9b8a7291003\n\tUSER_STORE_ACCESS.GRANTED\n5/16/2026, 5:15:05 PM\tGlobal\tLocal Admin\tUserSession\n72e4962c-c5ab-4b5b-869c-2c932d8181f1\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:11:18 PM\tGlobal\tQA Operator\tUserSession\n05470454-f492-4654-b4d0-020a55ebe775\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:11:16 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tCatalogVersion\n61998b55-903c-4b34-98e2-96b0503a223c\n\tCATALOG_VERSION.PUBLISHED\n5/16/2026, 5:11:16 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tStoreProductPrice\nfffa9f25-5d5d-405e-85c5-6adfcfed85c2\n\tPRICE.CREATED\n5/16/2026, 5:11:15 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tCatalogProductPlacement\n0a50921c-b1e5-4f67-bebd-471cd419f76b\n\tPLACEMENT.CREATED\n5/16/2026, 5:11:15 PM\tGlobal\tQA Admin\tProduct\nd8cd71ed-ca05-4062-befe-5fccd416b25b\n\tPRODUCT.CREATED\n5/16/2026, 5:11:15 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tStoreProductPrice\nd51df4be-dcc8-4097-96d6-39c2f197e39a\n\tPRICE.CREATED\n5/16/2026, 5:11:13 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tCatalogProductPlacement\n6f23323c-26cc-4d3a-95c9-822a40d59556\n\tPLACEMENT.CREATED\n5/16/2026, 5:11:13 PM\tGlobal\tQA Admin\tProduct\n5ad83001-b633-4a36-9d41-2f0a603f620f\n\tPRODUCT.CREATED\n5/16/2026, 5:11:13 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tCategory\nf609515f-a7e9-4fc5-916a-ba2043220c8a\n\tCATEGORY.CREATED\n5/16/2026, 5:11:13 PM\tQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\tQA Admin\tStore\n10ea1987-c828-4c41-8b82-d44b1fea3821\n\tSTORE.CREATED\n5/16/2026, 5:11:13 PM\tGlobal\tQA Admin\tUserSession\ndfe52ac1-c26d-42f6-800d-3b17c430b268\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:11:13 PM\tGlobal\tQA Admin\tUserSession\n19523396-cedf-4554-98e1-0a71d52fd6a6\n\tAUTH.LOGIN_SUCCEEDED\n5/16/2026, 5:10:20 PM\tQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\tQA Admin\tStoreProductPrice\n818102cc-9db3-412b-a52a-536fc4d95cfb\n\tPRICE.CREATED\n5/16/2026, 5:10:18 PM\tQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\tQA Admin\tCatalogProductPlacement\naa13aafb-225a-4084-af93-ff50d6b85c40\n\tPLACEMENT.CREATED\n5/16/2026, 5:10:18 PM\tGlobal\tQA Admin\tProduct\ncfcb85b0-f09b-429c-b0fa-b6310174bdd1\n\tPRODU",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Create store",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Global Logs",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Users & Access",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh logs",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Clear filters",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Store\nAll stores\nSTORE-002 · Manager Verify Store 002\nQA-FORM-202605161432 · QA Forms Store 202605161432\nQA-FORM-2026051"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Entity type"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Action / audit status"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Sync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "From date"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "To date"
+          }
+        ],
+        "alerts": [
+          "UAT Phase 9 simulated ACK error",
+          "missing_credentials",
+          "missing_credentials",
+          "missing_credentials",
+          "missing_credentials",
+          "device_blocked",
+          "invalid_credentials",
+          "device_blocked",
+          "invalid_credentials",
+          "UAT Phase 7 simulated scale package apply failure",
+          "device_inactive",
+          "device_blocked",
+          "invalid_credentials",
+          "invalid_credentials",
+          "invalid_credentials"
+        ]
+      }
+    },
+    {
+      "id": "operator-session",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/",
+        "hash": "",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh stores",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open catalog",
+            "disabled": false,
+            "cls": ""
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      },
+      "session": {
+        "status": 200,
+        "ok": true,
+        "body": "[redacted session body]"
+      }
+    },
+    {
+      "id": "operator-stores-api",
+      "status": 200,
+      "count": 1,
+      "storeIds": [
+        "e73ba6bd-abb9-4596-9289-cca474fb2ec1"
+      ],
+      "storeNames": [
+        "QA Publishing Regression 20260516150944"
+      ]
+    },
+    {
+      "label": "operator direct users-access",
+      "hash": "#users-access",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "hash": "#users-access",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nACCESS DENIED\n\nUsers & Access is admin-only\n\nOperators cannot open user management controls. Ask an admin if your account needs additional store access.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      },
+      "network": []
+    },
+    {
+      "label": "operator direct global-logs",
+      "hash": "#global-logs",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "hash": "#global-logs",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nACCESS DENIED\n\nUsers & Access is admin-only\n\nOperators cannot open user management controls. Ask an admin if your account needs additional store access.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      },
+      "network": []
+    },
+    {
+      "label": "operator direct store-create",
+      "hash": "#store-create",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store-create",
+        "hash": "#store-create",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh stores",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open catalog",
+            "disabled": false,
+            "cls": ""
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      },
+      "network": []
+    },
+    {
+      "label": "operator direct assigned store-edit",
+      "hash": "#store-edit:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store-edit:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "hash": "#store-edit:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh stores",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Open catalog",
+            "disabled": false,
+            "cls": ""
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      },
+      "network": []
+    },
+    {
+      "label": "operator assigned store details",
+      "hash": "#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "hash": "#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n← Back to stores\n\nSTORE DETAILS\n\nQA Publishing Regression 20260516150944\n\nQA-PUB-20260516150944\n\nACTIVE\nADDRESS\nQA evidence entity\nTIMEZONE\nEurope/Amsterdam\nPUBLISHED CATALOG\nNo published version\nCREATED\n5/16/2026, 5:09:44 PM\nUPDATED\n5/16/2026, 5:09:44 PM\n\nCATALOG TAB\n\nActive catalog categories\n\nManage the category tree used by prices, product placements and publishing.\n\nRefresh catalog\nMain catalog\nACTIVE\nCatalog ID: ab84f2e4-644d-41cf-a30f-7b29bb6be807\nName\nShort name\nStatus\nactive\ninactive\narchived\nCreate root category\nArchiving warning: categories with status archived or inactive cannot accept active product placements. If active products are already placed here, validation/publishing can be blocked until placements are moved or deactivated.\n\nPRODUCT PLACEMENTS\n\nProducts in selected category\n\nSearch active master products, add them to active categories, and reorder by sortOrder.\n\nCategory\nQA Publishing Category 20260516150944\nSearch product\nProduct\nChoose active product\n1001 · Apples Red Weighted\n1002 · Bananas Weighted\n2001 · Milk Bottle 1L\n961433 · QA Forms Product 202605161433\n96150746 · QA Publishing Product 20260516150746\n96150853 · QA Publishing Product 20260516150853\n96150944 · QA Publishing Product 20260516150944\n96151018 · QA Publishing Product 20260516151018\n96151112 · QA Publishing Product 20260516151112\n86151112 · QA Publishing Unpriced Product 20260516151112\nAdd to category\n\nArchived/inactive products and archived/inactive categories are intentionally unavailable for active placements.\n\nQA Publishing Product 20260516150944\n\nPLU 96150944 · Order: 0 · ACTIVE\n\n↑\n↓\nQA Publishing Category 20260516150944\nACTIVE\n\nShort: QA Pub Cat 20260516150944 · Order: 0\n\nd6fddace-5885-471e-9855-5d9bfff26810\n↑\n↓\nSelected\nAdd child\nEdit\n\nADVERTISING TAB\n\nAdvertising banners\n\nUpload JPG, PNG or WebP banners up to 2 MB.\n\nRefresh banners\nBanner uploads, status changes and order changes require a new catalog publication before scales receive them.\nNew banner status\nactive\ninactive\narchived\nUpload banner image\nNo advertising banners yet.\n\nSCALE DEVICES\n\nStore scale devices\n\nPublication and sync status for this store.\n\nRefresh devices\nNo scale devices registered for this store.\n\nPRICES TAB\n\nStore product prices\n\nProducts from the active catalog for this store.\n\nRefresh prices\nSearch\nCategory\nAll categories\nQA Publishing Category 20260516150944\nPrice status\nAll products\nMissing price only\nWith price only\nPRODUCT NAME\tSHORT NAME\tPLU\tSKU/BARCODE\tCATEGORY\tCURRENT PRICE\tUNIT\tSTATUS\tUPDATEDAT\nQA Publishing Product 20260516150944\nNO PRICE\n\tQA Pub Product 20260516150944\t96150944\t—\tQA Publishing Category 20260516150944\t\nSave\n\tpiece\tACTIVE\t—\n\nVERSIONS / PUBLISHING\n\nValidate and publish catalog versions\n\nAfter a catalog is published, later changes require a new validation and a new version.\n\nCurrent published catalog\nNo published version\nOperators can monitor the published version and scale sync status. Publishing controls are admin-only.\nVersion history\n\nPublished versions include version number, publication date, publisher and package checksum.\n\nRefresh history\nNo published versions yet.\n\nSTORE LOGS\n\nLogs\n\nActivity scoped to this store. Operators only reach stores assigned to them.\n\nRefresh logs\nEntity type\nAction / audit status\nSync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror\nFrom date\nTo date\nClear filters\nAuditLog entries\nTIME\tSTORE\tACTOR\tENTITY\tACTION\n5/16/2026, 5:15:28 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tLocal Admin\tUserStoreAccess\ne94606f4-fc89-439c-835c-e9b8a7291003\n\tUSER_STORE_ACCESS.GRANTED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tCatalogProductPlacement\n4cd4d265-30bc-456b-9ea7-59578f9b582d\n\tPLACEMENT.CREATED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tCategory\nd6fddace-5885-471e-9855-5d9bfff26810\n\tCATEGORY.CREATED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tStore\ne73ba6bd-abb9-4596-9289-cca474fb2ec1\n\tSTORE.CREATED\nScaleSyncLog entries\nNo scale sync logs for the selected filters.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "← Back to stores",
+            "disabled": false,
+            "cls": "link-button"
+          },
+          {
+            "text": "Refresh catalog",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Create root category",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Add to category",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "↑",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↓",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↑",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↓",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Selected",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Add child",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Refresh banners",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh devices",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh prices",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Save",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Refresh history",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh logs",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Clear filters",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Name"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Short name"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Status\nactive\ninactive\narchived"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Category\nQA Publishing Category 20260516150944"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Search product"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Product\nChoose active product\n1001 · Apples Red Weighted\n1002 · Bananas Weighted\n2001 · Milk Bottle 1L\n961433 · QA Forms"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "New banner status\nactive\ninactive\narchived"
+          },
+          {
+            "tag": "INPUT",
+            "type": "file",
+            "name": null,
+            "disabled": false,
+            "label": "Upload banner image"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Search"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Category\nAll categories\nQA Publishing Category 20260516150944"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Price status\nAll products\nMissing price only\nWith price only"
+          },
+          {
+            "tag": "INPUT",
+            "type": "number",
+            "name": null,
+            "disabled": false,
+            "label": "Price for QA Publishing Product 20260516150944"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Entity type"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Action / audit status"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Sync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "From date"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "To date"
+          }
+        ],
+        "alerts": []
+      },
+      "network": [
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/products?status=active&take=10",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/advertising/banners",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/catalog/categories",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/logs",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/catalog/placements?categoryId=d6fddace-5885-471e-9855-5d9bfff26810&status=active",
+          "status": 200,
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "id": "operator-assigned-store-controls",
+      "route": "#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "controls": {
+        "hasEditStoreButton": false,
+        "hasPublishingButton": false,
+        "hasCatalogText": true,
+        "hasPricesText": true,
+        "hasBannerUpload": true,
+        "formInputLabels": [
+          "Name",
+          "Short name",
+          "Status\nactive\ninactive\narchived",
+          "Category\nQA Publishing Category 20260516150944",
+          "Search product",
+          "Product\nChoose active product\n1001 · Apples Red Weighted\n1002 · Bananas Weighted\n2001 · Milk Bottle 1L\n961433 · QA Forms",
+          "New banner status\nactive\ninactive\narchived",
+          "Upload banner image",
+          "Search",
+          "Category\nAll categories\nQA Publishing Category 20260516150944",
+          "Price status\nAll products\nMissing price only\nWith price only",
+          "Price for QA Publishing Product 20260516150944",
+          "Entity type",
+          "Action / audit status",
+          "Sync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror",
+          "From date",
+          "To date"
+        ],
+        "visibleButtons": [
+          {
+            "text": "Logout",
+            "disabled": false
+          },
+          {
+            "text": "Overview",
+            "disabled": false
+          },
+          {
+            "text": "Stores",
+            "disabled": false
+          },
+          {
+            "text": "Products",
+            "disabled": false
+          },
+          {
+            "text": "← Back to stores",
+            "disabled": false
+          },
+          {
+            "text": "Refresh catalog",
+            "disabled": false
+          },
+          {
+            "text": "Create root category",
+            "disabled": false
+          },
+          {
+            "text": "Add to category",
+            "disabled": true
+          },
+          {
+            "text": "↑",
+            "disabled": true
+          },
+          {
+            "text": "↓",
+            "disabled": true
+          },
+          {
+            "text": "↑",
+            "disabled": true
+          },
+          {
+            "text": "↓",
+            "disabled": true
+          },
+          {
+            "text": "Selected",
+            "disabled": false
+          },
+          {
+            "text": "Add child",
+            "disabled": false
+          },
+          {
+            "text": "Edit",
+            "disabled": false
+          },
+          {
+            "text": "Refresh banners",
+            "disabled": false
+          },
+          {
+            "text": "Refresh devices",
+            "disabled": false
+          },
+          {
+            "text": "Refresh prices",
+            "disabled": false
+          },
+          {
+            "text": "Save",
+            "disabled": true
+          },
+          {
+            "text": "Refresh history",
+            "disabled": false
+          },
+          {
+            "text": "Refresh logs",
+            "disabled": false
+          },
+          {
+            "text": "Clear filters",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "label": "operator direct foreign store details after assigned store",
+      "hash": "#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "hash": "#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n← Back to stores\nНедостаточно прав для выполнения запроса.\nНедостаточно прав для выполнения запроса.\n\nSTORE DETAILS\n\nQA Publishing Regression 20260516150944\n\nQA-PUB-20260516150944\n\nACTIVE\nADDRESS\nQA evidence entity\nTIMEZONE\nEurope/Amsterdam\nPUBLISHED CATALOG\nNo published version\nCREATED\n5/16/2026, 5:09:44 PM\nUPDATED\n5/16/2026, 5:09:44 PM\n\nCATALOG TAB\n\nActive catalog categories\n\nManage the category tree used by prices, product placements and publishing.\n\nRefresh catalog\nMain catalog\nACTIVE\nCatalog ID: ab84f2e4-644d-41cf-a30f-7b29bb6be807\nName\nShort name\nStatus\nactive\ninactive\narchived\nCreate root category\nArchiving warning: categories with status archived or inactive cannot accept active product placements. If active products are already placed here, validation/publishing can be blocked until placements are moved or deactivated.\n\nPRODUCT PLACEMENTS\n\nProducts in selected category\n\nSearch active master products, add them to active categories, and reorder by sortOrder.\n\nCategory\nQA Publishing Category 20260516150944\nSearch product\nProduct\nChoose active product\n1001 · Apples Red Weighted\n1002 · Bananas Weighted\n2001 · Milk Bottle 1L\n961433 · QA Forms Product 202605161433\n96150746 · QA Publishing Product 20260516150746\n96150853 · QA Publishing Product 20260516150853\n96150944 · QA Publishing Product 20260516150944\n96151018 · QA Publishing Product 20260516151018\n96151112 · QA Publishing Product 20260516151112\n86151112 · QA Publishing Unpriced Product 20260516151112\nAdd to category\n\nArchived/inactive products and archived/inactive categories are intentionally unavailable for active placements.\n\nQA Publishing Product 20260516150944\n\nPLU 96150944 · Order: 0 · ACTIVE\n\n↑\n↓\nQA Publishing Category 20260516150944\nACTIVE\n\nShort: QA Pub Cat 20260516150944 · Order: 0\n\nd6fddace-5885-471e-9855-5d9bfff26810\n↑\n↓\nSelected\nAdd child\nEdit\n\nADVERTISING TAB\n\nAdvertising banners\n\nUpload JPG, PNG or WebP banners up to 2 MB.\n\nRefresh banners\nBanner uploads, status changes and order changes require a new catalog publication before scales receive them.\nNew banner status\nactive\ninactive\narchived\nUpload banner image\nNo advertising banners yet.\n\nSCALE DEVICES\n\nStore scale devices\n\nPublication and sync status for this store.\n\nRefresh devices\nNo scale devices registered for this store.\n\nPRICES TAB\n\nStore product prices\n\nProducts from the active catalog for this store.\n\nRefresh prices\nSearch\nCategory\nAll categories\nQA Publishing Category 20260516150944\nPrice status\nAll products\nMissing price only\nWith price only\nPRODUCT NAME\tSHORT NAME\tPLU\tSKU/BARCODE\tCATEGORY\tCURRENT PRICE\tUNIT\tSTATUS\tUPDATEDAT\nQA Publishing Product 20260516150944\nNO PRICE\n\tQA Pub Product 20260516150944\t96150944\t—\tQA Publishing Category 20260516150944\t\nSave\n\tpiece\tACTIVE\t—\n\nVERSIONS / PUBLISHING\n\nValidate and publish catalog versions\n\nAfter a catalog is published, later changes require a new validation and a new version.\n\nCurrent published catalog\nNo published version\nOperators can monitor the published version and scale sync status. Publishing controls are admin-only.\nVersion history\n\nPublished versions include version number, publication date, publisher and package checksum.\n\nRefresh history\nNo published versions yet.\n\nSTORE LOGS\n\nLogs\n\nActivity scoped to this store. Operators only reach stores assigned to them.\n\nRefresh logs\nEntity type\nAction / audit status\nSync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror\nFrom date\nTo date\nClear filters\nAuditLog entries\nTIME\tSTORE\tACTOR\tENTITY\tACTION\n5/16/2026, 5:15:28 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tLocal Admin\tUserStoreAccess\ne94606f4-fc89-439c-835c-e9b8a7291003\n\tUSER_STORE_ACCESS.GRANTED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tCatalogProductPlacement\n4cd4d265-30bc-456b-9ea7-59578f9b582d\n\tPLACEMENT.CREATED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tCategory\nd6fddace-5885-471e-9855-5d9bfff26810\n\tCATEGORY.CREATED\n5/16/2026, 5:09:44 PM\tQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\tQA Admin\tStore\ne73ba6bd-abb9-4596-9289-cca474fb2ec1\n\tSTORE.CREATED\nScaleSyncLog entries\nNo scale sync logs for the selected filters.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "← Back to stores",
+            "disabled": false,
+            "cls": "link-button"
+          },
+          {
+            "text": "Refresh catalog",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Create root category",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Add to category",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "↑",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↓",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↑",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "↓",
+            "disabled": true,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Selected",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Add child",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Refresh banners",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh devices",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh prices",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Save",
+            "disabled": true,
+            "cls": ""
+          },
+          {
+            "text": "Refresh history",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Refresh logs",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Clear filters",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Name"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Short name"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Status\nactive\ninactive\narchived"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Category\nQA Publishing Category 20260516150944"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Search product"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Product\nChoose active product\n1001 · Apples Red Weighted\n1002 · Bananas Weighted\n2001 · Milk Bottle 1L\n961433 · QA Forms"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "New banner status\nactive\ninactive\narchived"
+          },
+          {
+            "tag": "INPUT",
+            "type": "file",
+            "name": null,
+            "disabled": false,
+            "label": "Upload banner image"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Search"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Category\nAll categories\nQA Publishing Category 20260516150944"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Price status\nAll products\nMissing price only\nWith price only"
+          },
+          {
+            "tag": "INPUT",
+            "type": "number",
+            "name": null,
+            "disabled": false,
+            "label": "Price for QA Publishing Product 20260516150944"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Entity type"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Action / audit status"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Sync status\nAny sync status\nno_update\nupdate_available\npackage_delivered\nack_received\nauth_failed\nerror"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "From date"
+          },
+          {
+            "tag": "INPUT",
+            "type": "date",
+            "name": null,
+            "disabled": false,
+            "label": "To date"
+          }
+        ],
+        "alerts": [
+          "Недостаточно прав для выполнения запроса.",
+          "Недостаточно прав для выполнения запроса."
+        ]
+      },
+      "network": [
+        {
+          "url": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96",
+          "status": 403,
+          "method": "GET"
+        },
+        {
+          "url": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/publishing/catalog-versions",
+          "status": 403,
+          "method": "GET"
+        }
+      ],
+      "beforeForbiddenHeading": "QA Publishing Regression 20260516150944"
+    },
+    {
+      "id": "operator-refresh-on-foreign-store-forbidden",
+      "route": "#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "hash": "#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n← Back to stores\nНедостаточно прав для выполнения запроса.\nНедостаточно прав для выполнения запроса.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "← Back to stores",
+            "disabled": false,
+            "cls": "link-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": [
+          "Недостаточно прав для выполнения запроса.",
+          "Недостаточно прав для выполнения запроса."
+        ]
+      }
+    },
+    {
+      "id": "operator-recovery-click-stores-after-foreign-403",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Details",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      }
+    },
+    {
+      "id": "operator-browser-back-after-recovery",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "hash": "#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n← Back to stores\nНедостаточно прав для выполнения запроса.\nНедостаточно прав для выполнения запроса.",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "← Back to stores",
+            "disabled": false,
+            "cls": "link-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": [
+          "Недостаточно прав для выполнения запроса.",
+          "Недостаточно прав для выполнения запроса."
+        ]
+      }
+    },
+    {
+      "id": "operator-browser-forward-after-forbidden",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "hash": "#stores",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Refresh",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Details",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [],
+        "alerts": []
+      }
+    },
+    {
+      "label": "operator products list",
+      "hash": "#products",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#products",
+        "hash": "#products",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nPLU\tNAME\tSHORT NAME\tSKU\tBARCODE\tUNIT\tSTATUS\tACTIONS\n1001\tApples Red Weighted\tRed Apples\tAPL-RED-001\t4600000000011\tkg\tACTIVE\tEdit\n1002\tBananas Weighted\tBananas\tBAN-001\t4600000000028\tkg\tACTIVE\tEdit\n2001\tMilk Bottle 1L\tMilk 1L\tMILK-1L-001\t4600000000035\tpiece\tACTIVE\tEdit\n961433\tQA Forms Product 202605161433\tQAProd1433\t—\t—\tkg\tACTIVE\tEdit\n96150746\tQA Publishing Product 20260516150746\tQA Pub Product 20260516150746\t—\t—\tpiece\tACTIVE\tEdit\n96150853\tQA Publishing Product 20260516150853\tQA Pub Product 20260516150853\t—\t—\tpiece\tACTIVE\tEdit\n96150944\tQA Publishing Product 20260516150944\tQA Pub Product 20260516150944\t—\t—\tpiece\tACTIVE\tEdit\n96151018\tQA Publishing Product 20260516151018\tQA Pub Product 20260516151018\t—\t—\tpiece\tACTIVE\tEdit\n96151112\tQA Publishing Product 20260516151112\tQA Pub Product 20260516151112\t—\t—\tpiece\tACTIVE\tEdit\n86151112\tQA Publishing Unpriced Product 20260516151112\tQA Unpriced 20260516151112\t—\t—\tpiece\tACTIVE\tEdit\nTASK021-PLU-001\tTask 021 Gala Apples Updated\tGala Apples\tTASK021-SKU-001\t4600000000211\tkg\tACTIVE\tEdit\nTASK021-PLU-OP\tTask 021 Operator Pears\tOp Pears Updated\tTASK021-SKU-OP\t4600000000212\tpiece\tACTIVE\tEdit\nUATPLU15195540\tUAT 2026-05-15 Phase 4 20260515195540 Product\tUAT P4 Product\tSKU-20260515195540\t—\tpiece\tACTIVE\tEdit\nP50515200213\tUAT 2026-05-15 Phase 5 20260515200213 Product\tUAT P5 Product\tUAT-P5-20260515200213\t—\tpiece\tACTIVE\tEdit\nP6AC20260515201044\tUAT 2026-05-15 Phase 6 ARCH_CATEGORY Product\tP6 ARCH_CATEGORY\t—\t—\tpiece\tACTIVE\tEdit\nP6AC20260515201102\tUAT 2026-05-15 Phase 6 ARCH_CATEGORY Product\tP6 ARCH_CATEGORY\t—\t—\tpiece\tACTIVE\tEdit\nP6AP20260515201031\tUAT 2026-05-15 Phase 6 ARCH_PRODUCT Product\tP6 ARCH_PRODUCT\t—\t—\tpiece\tACTIVE\tEdit\nP6AP20260515201044\tUAT 2026-05-15 Phase 6 ARCH_PRODUCT Product\tP6 ARCH_PRODUCT\t—\t—\tpiece\tARCHIVED\tEdit\nP6AP20260515201102\tUAT 2026-05-15 Phase 6 ARCH_PRODUCT Product\tP6 ARCH_PRODUCT\t—\t—\tpiece\tARCHIVED\tEdit\nP6DUP20260515201045\tUAT 2026-05-15 Phase 6 DUPLICATE_FIRST Product\tP6 DUPLICATE_FIRST\t—\t—\tpiece\tACTIVE\tEdit\nP6DUP20260515201102\tUAT 2026-05-15 Phase 6 DUPLICATE_FIRST Product\tP6 DUPLICATE_FIRST\t—\t—\tpiece\tACTIVE\tEdit\nP6DUPX20260515201045\tUAT 2026-05-15 Phase 6 DUPLICATE_UPDATE_TARGET Product\tP6 DUPLICATE_UPDATE_TARGET\t—\t—\tpiece\tACTIVE\tEdit\nP6DUPX20260515201102\tUAT 2026-05-15 Phase 6 DUPLICATE_UPDATE_TARGET Product\tP6 DUPLICATE_UPDATE_TARGET\t—\t—\tpiece\tACTIVE\tEdit\nP6NP20260515201030\tUAT 2026-05-15 Phase 6 NO_PRICE Product\tP6 NO_PRICE\t—\t—\tpiece\tACTIVE\tEdit\nP6NP20260515201044\tUAT 2026-05-15 Phase 6 NO_PRICE Product\tP6 NO_PRICE\t—\t—\tpiece\tACTIVE\tEdit\nP6NP20260515201102\tUAT 2026-05-15 Phase 6 NO_PRICE Product\tP6 NO_PRICE\t—\t—\tpiece\tACTIVE\tEdit\nP6DRAFT20260515201045\tUAT 2026-05-15 Phase 6 UNPUBLISHED_DRAFT Product\tP6 UNPUBLISHED_DRAFT\t—\t—\tpiece\tACTIVE\tEdit\nP6DRAFT20260515201102\tUAT 2026-05-15 Phase 6 UNPUBLISHED_DRAFT Product\tP6 UNPUBLISHED_DRAFT\t—\t—\tpiece\tACTIVE\tEdit\nP6UP20260515201044\tUAT 2026-05-15 Phase 6 UNPUBLISHED_PUBLISHED Product\tP6 UNPUBLISHED_PUBLISHED\t—\t—\tpiece\tACTIVE\tEdit\nP6UP20260515201102\tUAT 2026-05-15 Phase 6 UNPUBLISHED_PUBLISHED Product\tP6 UNPUBLISHED_PUBLISHED\t—\t—\tpiece\tACTIVE\tEdit\nP920260515203720\tUAT 2026-05-15 Phase 9 20260515203720 Product\tP9 20260515203720\t—\t—\tkg\tACTIVE\tEdit\nP920260515203808\tUAT 2026-05-15 Phase 9 20260515203808 Product\tP9 20260515203808\t—\t—\tkg\tACTIVE\tEdit",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "Refresh",
+            "disabled": false,
+            "cls": "secondary-button"
+          },
+          {
+            "text": "Create product",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Search",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          },
+          {
+            "text": "Edit",
+            "disabled": false,
+            "cls": "secondary-button table-action"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Search"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Status\nAll statuses\nactive\ninactive\narchived"
+          }
+        ],
+        "alerts": []
+      },
+      "network": [
+        {
+          "url": "/api/products?take=100",
+          "status": 200,
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "label": "operator direct product-create",
+      "hash": "#product-create",
+      "snapshot": {
+        "title": "Scale Admin",
+        "url": "https://maksimfrelikh.ru/#product-create",
+        "hash": "#product-create",
+        "text": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n← Back to products\n\nCREATE PRODUCT\n\nNew product\nPLU / defaultPluCode *\nName *\nShort name *\nUnit *\nkg\ng\npiece\nStatus *\nactive\ninactive\narchived\nSKU\nBarcode\nImage URL\nDescription\nProduct image upload\n\nUpload JPG, PNG or WebP up to 2 MB. The uploaded public URL is saved to Image URL when you save the product.\n\nSave product\nCancel",
+        "buttons": [
+          {
+            "text": "Logout",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Overview",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Stores",
+            "disabled": false,
+            "cls": "nav-button"
+          },
+          {
+            "text": "Products",
+            "disabled": false,
+            "cls": "nav-button nav-button-active"
+          },
+          {
+            "text": "← Back to products",
+            "disabled": false,
+            "cls": "link-button"
+          },
+          {
+            "text": "Save product",
+            "disabled": false,
+            "cls": ""
+          },
+          {
+            "text": "Cancel",
+            "disabled": false,
+            "cls": "secondary-button"
+          }
+        ],
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "PLU / defaultPluCode *"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Name *"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Short name *"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Unit *\nkg\ng\npiece"
+          },
+          {
+            "tag": "SELECT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Status *\nactive\ninactive\narchived"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "SKU"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Barcode"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Image URL"
+          },
+          {
+            "tag": "INPUT",
+            "type": null,
+            "name": null,
+            "disabled": false,
+            "label": "Description"
+          },
+          {
+            "tag": "INPUT",
+            "type": "file",
+            "name": null,
+            "disabled": false,
+            "label": "Product image upload"
+          }
+        ],
+        "alerts": []
+      },
+      "network": []
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-UX-004",
+      "severity": "Low",
+      "title": "Operator Global Logs route shows Users & Access access-denied copy",
+      "evidenceCheck": "operator direct global-logs"
+    },
+    {
+      "id": "BUG-UX-005",
+      "severity": "Medium",
+      "title": "Operator direct admin-only store form routes silently render overview while forbidden hash remains",
+      "evidenceChecks": [
+        "operator direct store-create",
+        "operator direct assigned store-edit"
+      ]
+    },
+    {
+      "id": "BUG-UX-006",
+      "severity": "High",
+      "title": "Operator foreign-store 403 can leave stale assigned-store details and controls visible",
+      "evidenceChecks": [
+        "operator direct foreign store details after assigned store",
+        "operator-refresh-on-foreign-store-forbidden"
+      ]
+    }
+  ],
+  "blockers": [],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    }
+  ],
+  "pageErrors": []
+}

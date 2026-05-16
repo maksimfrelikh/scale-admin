@@ -1,0 +1,978 @@
+{
+  "runAt": "2026-05-16T16:52:04.374Z",
+  "target": "https://maksimfrelikh.ru",
+  "scope": "focused frontend UX/runtime regression: long-session, cache consistency, multi-tab behavior",
+  "credentialsRedacted": true,
+  "checks": [
+    {
+      "name": "admin-login",
+      "status": "PASS",
+      "observations": {
+        "pageReached": "Dashboard"
+      }
+    },
+    {
+      "name": "multiple-tabs-same-session-open",
+      "status": "PASS",
+      "observations": {
+        "tabs": [
+          "#stores",
+          "#products"
+        ]
+      }
+    },
+    {
+      "name": "baseline-refresh-shows-created-store-in-second-tab",
+      "status": "PASS",
+      "observations": {
+        "route": "#stores"
+      }
+    },
+    {
+      "name": "cross-tab-store-list-after-edit-without-refresh",
+      "status": "FAIL",
+      "observations": {
+        "route": "#stores",
+        "staleOldNameVisible": true
+      }
+    },
+    {
+      "name": "stale-rtk-data-after-route-switch-away-and-back",
+      "status": "FAIL",
+      "observations": {
+        "route": "#stores",
+        "staleOldNameVisible": true
+      }
+    },
+    {
+      "name": "browser-back-forward-after-store-mutation",
+      "status": "FAIL",
+      "observations": {
+        "route": "#stores",
+        "staleOldNameVisible": true
+      }
+    },
+    {
+      "name": "hard-refresh-recovers-store-list-cache",
+      "status": "PASS",
+      "observations": {
+        "route": "#stores",
+        "newNameVisible": true
+      }
+    },
+    {
+      "name": "cross-tab-store-detail-cache-after-edit",
+      "status": "FAIL",
+      "observations": {
+        "route": "#store:dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+        "staleDetail": true,
+        "staleAfterRouteReturn": true,
+        "refreshRecovered": true
+      }
+    },
+    {
+      "name": "long-lived-open-stores-tab-after-background-edit",
+      "status": "FAIL",
+      "observations": {
+        "idleMs": 65000,
+        "staleOldNameVisible": true
+      }
+    },
+    {
+      "name": "background-logout-request-from-another-tab",
+      "status": "PASS",
+      "observations": {
+        "httpStatus": 200
+      }
+    },
+    {
+      "name": "other-tab-after-logout-before-interaction",
+      "status": "FAIL",
+      "observations": {
+        "route": "#stores",
+        "protectedUiStillVisible": true
+      }
+    },
+    {
+      "name": "stale-tab-interaction-after-logout-401-handling",
+      "status": "FAIL",
+      "observations": {
+        "observed401s": 1,
+        "remainedOnProtectedRoute": true
+      }
+    },
+    {
+      "name": "hard-refresh-recovers-after-cross-tab-logout",
+      "status": "PASS",
+      "observations": {
+        "loginVisible": true
+      }
+    },
+    {
+      "name": "operator-other-tab-after-logout-spot-check",
+      "status": "FAIL",
+      "observations": {
+        "protectedUiStillVisible": true
+      }
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-UX-011",
+      "title": "Store list remains stale in another open tab after store edit and route/history navigation",
+      "route": "#stores",
+      "severity": "Medium",
+      "reproduction": [
+        "Open admin session in two tabs",
+        "Load Stores in tab B",
+        "Edit store name in tab A",
+        "Return to Stores in tab B via route switch/back-forward without hard refresh"
+      ],
+      "expected": "Tab B should revalidate or clearly refresh cached store list after another tab mutates store data, especially after route return/history navigation.",
+      "actual": "Tab B kept showing the old store name until hard refresh/manual refresh.",
+      "refreshRecovers": true,
+      "networkObservation": "No automatic /api/stores revalidation was observed in the stale tab during route return/history checks."
+    },
+    {
+      "id": "BUG-UX-012",
+      "title": "Store detail page remains stale in another open tab after store edit",
+      "route": "#store:dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "severity": "Medium",
+      "reproduction": [
+        "Open same store detail in tab C",
+        "Edit that store name in tab A",
+        "Return to the detail route in tab C without hard refresh"
+      ],
+      "expected": "Store detail should revalidate or show current data after another tab edits the same entity.",
+      "actual": "Store detail kept showing the previous name until hard refresh.",
+      "refreshRecovers": true,
+      "networkObservation": "No automatic /api/stores/:id revalidation was observed in stale tab before hard refresh."
+    },
+    {
+      "id": "BUG-UX-013",
+      "title": "Other open tabs keep protected dashboard UI after logout and do not redirect on 401",
+      "route": "#stores",
+      "severity": "High",
+      "reproduction": [
+        "Open same admin account in multiple tabs",
+        "Invalidate/logout the session from another tab",
+        "Return to tab B on Stores",
+        "Click protected Refresh action"
+      ],
+      "expected": "All tabs should transition to unauthenticated state after logout/session invalidation, and a 401 should clear protected UI or route to login.",
+      "actual": "Tab B retained protected dashboard UI after logout. Protected interaction produced 401 but the SPA stayed on the protected route with an inline auth error until hard refresh.",
+      "refreshRecovers": true,
+      "networkObservation": "1 HTTP 401 response(s) observed in stale tab after logout."
+    }
+  ],
+  "createdQaData": [
+    {
+      "type": "store",
+      "code": "QA-CACHE-327800",
+      "initialName": "QA Cache Session 327800 A",
+      "id": "dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "mutationMethod": "authenticated fetch from browser tab"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "page": "admin-tab-A",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "page": "admin-tab-B",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "page": "admin-tab-B",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "page": "operator-tab-A",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "network": [
+    {
+      "page": "admin-tab-A",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "page": "admin-tab-A",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-A",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-A",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-A",
+      "method": "GET",
+      "path": "/api/admin/dashboard",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/admin/dashboard",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "POST",
+      "path": "/api/stores",
+      "status": 201,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "PATCH",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "PATCH",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-C",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "PATCH",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/catalog/categories",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/advertising/banners",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/logs",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/products",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/stores/dd5ede61-14bc-4f4c-939f-cf9c8f73bebc/prices",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-mutator-tab",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "page": "admin-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-B",
+      "method": "GET",
+      "path": "/api/auth/session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-B",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-B",
+      "method": "GET",
+      "path": "/api/stores",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "GET",
+      "path": "/api/auth/csrf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "page": "operator-tab-A",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "status": 200,
+      "ok": true
+    }
+  ]
+}

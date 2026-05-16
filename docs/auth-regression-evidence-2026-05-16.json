@@ -1,0 +1,1045 @@
+{
+  "target": "https://maksimfrelikh.ru",
+  "executedAt": "2026-05-16T13:44:40.124Z",
+  "directNoSession": [
+    {
+      "hash": "#stores",
+      "summary": {
+        "url": "/#stores",
+        "hash": "#stores",
+        "title": "Scale Admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "storesVisible": false,
+        "logoutVisible": false,
+        "bodySample": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin"
+      },
+      "events": [
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/csrf",
+          "status": 200
+        }
+      ],
+      "consoles": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+        }
+      ]
+    },
+    {
+      "hash": "#products",
+      "summary": {
+        "url": "/#products",
+        "hash": "#products",
+        "title": "Scale Admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "storesVisible": false,
+        "logoutVisible": false,
+        "bodySample": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin"
+      },
+      "events": [
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/csrf",
+          "status": 200
+        }
+      ],
+      "consoles": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+        }
+      ]
+    },
+    {
+      "hash": "#users-access",
+      "summary": {
+        "url": "/#users-access",
+        "hash": "#users-access",
+        "title": "Scale Admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "storesVisible": false,
+        "logoutVisible": false,
+        "bodySample": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin"
+      },
+      "events": [
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/session",
+          "status": 401
+        },
+        {
+          "type": "response",
+          "method": "GET",
+          "url": "/api/auth/csrf",
+          "status": 200
+        }
+      ],
+      "consoles": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "role": "admin",
+      "login": {
+        "summary": {
+          "url": "/",
+          "hash": "",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN DASHBOARD\n\nFleet overview\n\nStores, scale health, published versions and recent sync failures.\n\nRefresh dashboard\nSTORES\n33\nSCALES\n13\nSCALES WITH ERRORS\n9\nWITHOUT SYNCHRONIZATION\n13\nLatest published versions\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nUAT 2026-05-15 Phase 9 20260515203808 Catalog · v999\n5/15/2026, 10:38:09 PM\nP9A20260515203808 · UAT 2026-05-15 Phase 9 20260515203808 Assigned\nUAT 2026-05-15 Phase 9 20260515203808 Catalog · v1\n5/15/2026, 10:38:09 PM\nP9A20260515203720 · UAT 2026-05-15 Phase 9 20260515203720 Assigned\nUAT 2026-05-15 Phase 9 20260515203720 Catalog · v999\n5/15/2026, 10:37:21 PM\nUATPH820260515202922A · UAT 2026-05-15 Phase 8 Assigned Store 20260515202922\nUAT Phase 8 Catalog "
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/admin/dashboard",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "refreshWhileLoggedIn": {
+        "summary": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/admin/dashboard",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "logoutFromStores": {
+        "beforeLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "logoutResponses": [
+          {
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "afterLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "postLogoutButtonClick": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/admin/dashboard",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "hardRefreshAfterLogout": {
+        "summary": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": true,
+          "dashboardVisible": false,
+          "storesVisible": false,
+          "logoutVisible": false,
+          "bodySample": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin"
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/admin/dashboard",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          }
+        ]
+      },
+      "backForwardAfterLogout": {
+        "logoutResponses": [
+          {
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "afterLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "afterBack": {
+          "url": "/#products",
+          "hash": "#products",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nPLU\tNAME\tSHORT NAME\tSKU\tBARCODE\tUNIT\tSTATUS\tACTIONS\n1001\tApples Red Weighted\tRed Apples\tAPL-RED-001\t4600000000011\tkg\tACTIVE\tEdit\n1002\tBananas Weighted\tBananas\tBAN-001\t4600000000028\tkg\tACTIVE\tEdit\n2001\tMilk Bottle 1L\tMilk 1L\tMILK-1L-001\t4600000000035\tpiece\tACTIVE\tEdit\nTASK021-PLU-001\tTask 021 Gala Apples Updated\tGala Apples\tTASK021-SKU-001\t4600000000211\tkg\tACTIVE\tEdit\nTASK021-PLU-OP\tTask 021 Operator Pears\tOp Pears Updated\tTASK021-SKU-OP\t4600000000212\tpiece\tACTIVE\tEdit\nUATPLU15195540\tUAT 2026-05-15 Phase 4 20260515195540 Product\tUAT P4 Product\tSKU-20"
+        },
+        "afterForward": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [redacted-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nSTORE-001\n\nSample Store 001\n\nLocal development sample store · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-A\n\nTask 013 Store A\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK013-B\n\nTask 013 Store B\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nTASK016-ACTIVE\n\nTask 016 Updated Store\n\nUpdated Task Street · Europe/Amsterdam\n\nINACTIVE\nDetails\nEdit\n\nT17A-1778790425\n\nTask 017 Store A Edited\n\nA2A test address A · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nT17B-1778790425\n\nTask 017 Store B\n\nA2A test address B · Europe/Moscow\n\nACTIVE\nDetail"
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/admin/dashboard",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/products",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "staleInvalidation": null
+    },
+    {
+      "role": "operator",
+      "login": {
+        "summary": {
+          "url": "/",
+          "hash": "",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\nNo stores are assigned to your account."
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "refreshWhileLoggedIn": {
+        "summary": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "logoutFromStores": {
+        "beforeLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "logoutResponses": [
+          {
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "afterLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "postLogoutButtonClick": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "hardRefreshAfterLogout": {
+        "summary": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": true,
+          "dashboardVisible": false,
+          "storesVisible": false,
+          "logoutVisible": false,
+          "bodySample": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin"
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          }
+        ]
+      },
+      "backForwardAfterLogout": {
+        "logoutResponses": [
+          {
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "afterLogout": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "afterBack": {
+          "url": "/#products",
+          "hash": "#products",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nPLU\tNAME\tSHORT NAME\tSKU\tBARCODE\tUNIT\tSTATUS\tACTIONS\n1001\tApples Red Weighted\tRed Apples\tAPL-RED-001\t4600000000011\tkg\tACTIVE\tEdit\n1002\tBananas Weighted\tBananas\tBAN-001\t4600000000028\tkg\tACTIVE\tEdit\n2001\tMilk Bottle 1L\tMilk 1L\tMILK-1L-001\t4600000000035\tpiece\tACTIVE\tEdit\nTASK021-PLU-001\tTask 021 Gala Apples Updated\tGala Apples\tTASK021-SKU-001\t4600000000211\tkg\tACTIVE\tEdit\nTASK021-PLU-OP\tTask 021 Operator Pears\tOp Pears Updated\tTASK021-SKU-OP\t4600000000212\tpiece\tACTIVE\tEdit\nUATPLU15195540\tUAT 2026-05-15 Phase 4 20260515195540 Product\tUAT P4 Produc"
+        },
+        "afterForward": {
+          "url": "/#stores",
+          "hash": "#stores",
+          "title": "Scale Admin",
+          "loginVisible": false,
+          "dashboardVisible": true,
+          "storesVisible": true,
+          "logoutVisible": true,
+          "bodySample": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [redacted-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nNo stores available."
+        },
+        "events": [
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/csrf",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/login",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/stores",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/products",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "POST",
+            "url": "/api/auth/logout",
+            "status": 200
+          },
+          {
+            "type": "response",
+            "method": "GET",
+            "url": "/api/auth/session",
+            "status": 401
+          }
+        ],
+        "consoles": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          },
+          {
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+          }
+        ]
+      },
+      "staleInvalidation": null
+    }
+  ]
+}

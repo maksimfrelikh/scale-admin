@@ -1,0 +1,225 @@
+{
+  "runAt": "2026-05-16T15:31:06.695Z",
+  "target": "https://maksimfrelikh.ru",
+  "scope": "frontend UX/runtime error/loading/failed-request recovery",
+  "accountsTested": [
+    "admin",
+    "operator"
+  ],
+  "credentialHandling": "Credentials/passwords/tokens were not written to evidence; screenshots were not retained.",
+  "summary": {
+    "totalChecks": 13,
+    "failedChecks": 2,
+    "bugKeys": [
+      "401-stale-authenticated-ui"
+    ]
+  },
+  "checks": [
+    {
+      "id": "unauth-page-load",
+      "role": "anonymous",
+      "route": "/",
+      "result": "PASS",
+      "observation": "SCALE ADMIN\n\nChecking session...\nLoading protected session state via RTK Query."
+    },
+    {
+      "id": "login-401-invalid",
+      "role": "anonymous",
+      "route": "/",
+      "result": "PASS",
+      "httpStatus": 401,
+      "buttonDisabledDuringPending": false,
+      "observation": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nНеверный email или пароль.\nLogin"
+    },
+    {
+      "id": "admin-login-dashboard",
+      "role": "admin",
+      "route": "/",
+      "result": "PASS",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN DASHBOARD\n\nFleet overview\n\nStores, scale health, published versions and recent sync failures.\n\nRefreshing...\nLoading admin dashboard..."
+    },
+    {
+      "id": "admin-stores-empty-or-list-state",
+      "role": "admin",
+      "route": "#stores",
+      "result": "PASS",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefreshing...\nCreate store\nLoading stores via RTK Query..."
+    },
+    {
+      "id": "network-failure-retry-stores",
+      "role": "admin",
+      "route": "#stores",
+      "result": "PASS",
+      "networkAborted": true,
+      "failureObservation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\nBackend недоступен. Проверьте, что сервер запущен, и повторите попытку.",
+      "recoveryObservation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nQA-FORM-202605161432\n\nQA Forms Store 202605161432\n\nQA address · Invalid/Timezone\n\nACTIVE\nDetails\nEdit\n\nQA-FORM-202605161433\n\nQA Forms Store 202605161433\n\nQA address · Invalid/Timezone\n\nACTIVE\nDetails\nEdit\n\nQA-PUB-20260516150746\n\nQA Publishing Regression 20260516150746\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails\nEdit\n\nQA-PUB-20260516150853\n\nQA Publishing Regression 20260516150853\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDet",
+      "refreshRecovers": true
+    },
+    {
+      "id": "admin-401-session-expiry-recovery",
+      "role": "admin",
+      "route": "#stores",
+      "result": "FAIL",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\nТребуется авторизация. Войдите в систему и повторите запрос.\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nQA-FORM-202605161432\n\nQA Forms Store 202605161432\n\nQA address · Invalid/Timezone\n\nACTIVE\nDetails\nEdit\n\nQA-FORM-202605161433\n\nQA Forms Store 202605161433\n\nQA address · Invalid/Timezone\n\nACTIVE\nDetails\nEdit\n\nQA-PUB-20260516150746\n\nQA Publishing Regression 20260516150746\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails\nEdit\n\nQA-PUB-20260516150853\n\nQA Publishing Regression 20260516150853\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails\nEdit\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails\nEdit\n\nQA-P",
+      "refreshObservation": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin",
+      "refreshRecovers": true
+    },
+    {
+      "id": "admin-pending-duplicate-click-409",
+      "role": "admin",
+      "route": "#store-create",
+      "result": "PASS",
+      "postCount": 1,
+      "disabledSoon": true,
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n← Back to stores\n\nCREATE STORE\n\nNew store\nStore code\nStore name\nAddress\nTimezone\nStatus\nactive\ninactive\narchived\nStore code already exists\nSave store\nCancel"
+    },
+    {
+      "id": "admin-400-validation-store-create",
+      "role": "admin",
+      "route": "#store-create",
+      "result": "PASS",
+      "httpStatus": 400,
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n← Back to stores\n\nCREATE STORE\n\nNew store\nStore code\nStore name\nAddress\nTimezone\nStatus\nactive\ninactive\narchived\nStore timezone must be at most 128 characters\nSave store\nCancel"
+    },
+    {
+      "id": "admin-404-product-edit",
+      "role": "admin",
+      "route": "#product-edit:<nonexistent-uuid>",
+      "result": "PASS",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for [admin-email] · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\nProduct not found"
+    },
+    {
+      "id": "operator-login-dashboard",
+      "role": "operator",
+      "route": "/",
+      "result": "PASS",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefreshing...\nLoading assigned stores..."
+    },
+    {
+      "id": "operator-client-403-admin-route",
+      "role": "operator",
+      "route": "#users-access",
+      "result": "PASS",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nACCESS DENIED\n\nUsers & Access is admin-only\n\nOperators cannot open user management controls. Ask an admin if your account needs additional store access."
+    },
+    {
+      "id": "operator-network-failure-retry-stores",
+      "role": "operator",
+      "route": "#stores",
+      "result": "PASS",
+      "failureObservation": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nBackend недоступен. Проверьте, что сервер запущен, и повторите попытку.",
+      "recoveryObservation": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails",
+      "refreshRecovers": true
+    },
+    {
+      "id": "operator-401-session-expiry-recovery",
+      "role": "operator",
+      "route": "#stores",
+      "result": "FAIL",
+      "observation": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for [operator-email] · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\nТребуется авторизация. Войдите в систему и повторите запрос.\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails",
+      "refreshObservation": "SCALE ADMIN\n\nВход в систему\n\nВойдите, чтобы открыть защищённую панель администрирования.\n\nEmail\nPassword\nLogin",
+      "refreshRecovers": true
+    }
+  ],
+  "confirmedBugs": [
+    {
+      "id": "BUG-UX-007",
+      "key": "401-stale-authenticated-ui",
+      "severity": "High",
+      "roles": [
+        "admin",
+        "operator"
+      ],
+      "routes": [
+        "#stores"
+      ]
+    }
+  ],
+  "failedRequests": [
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "GET",
+      "failure": "net::ERR_FAILED"
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "GET",
+      "failure": "net::ERR_FAILED"
+    }
+  ],
+  "httpErrors": [
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/login",
+      "method": "POST",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "POST",
+      "status": 409
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/products/00000000-0000-4000-8000-000000000000",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/stores",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "method": "GET",
+      "status": 401
+    }
+  ],
+  "consoleErrorSummary": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "pageErrors": []
+}
