@@ -233,8 +233,7 @@ function shouldClearProtectedState(args: string | FetchArgs, error: FetchBaseQue
 
   return !path.startsWith('/auth/csrf')
     && !path.startsWith('/auth/login')
-    && !path.startsWith('/auth/logout')
-    && !path.startsWith('/auth/session');
+    && !path.startsWith('/auth/logout');
 }
 
 const backendBaseQuery: BaseQueryFn<string | FetchArgs, unknown, ApiError> = async (
