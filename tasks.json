@@ -1323,7 +1323,7 @@
         "Confirm panel heading corresponds to forbidden route"
       ],
       "dependencies": [],
-      "status": "pending",
+      "status": "done",
       "related_bugs": [
         "BUG-UX-004"
       ],

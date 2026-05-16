@@ -1989,3 +1989,31 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-060`.
+
+## 2026-05-16T22:33:00+02:00 — TASK-053 — route-specific admin-only access-denied copy
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Implemented route-specific access-denied copy for operator visits to admin-only Global Logs and Users & Access routes.
+- Global Logs now shows a Global Logs-specific admin-only message instead of the Users & Access copy.
+- Users & Access keeps its own admin-only message.
+- Manager inspected scope and confirmed only `frontend/src/main.tsx` changed for implementation.
+- Marked TASK-053 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `105574b TASK-053 route-specific access denied copy`.
+- Changed files inspected: `frontend/src/main.tsx`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused source check: `TASK_053_MANAGER_SOURCE_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-053` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-053`.
