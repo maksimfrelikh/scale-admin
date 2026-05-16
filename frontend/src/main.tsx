@@ -3038,7 +3038,14 @@ function Dashboard({ user }: { user: AuthUser }) {
       return;
     }
 
-    await logout({ csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap().catch(() => undefined);
+    try {
+      await logout({ csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap();
+      if (window.location.hash) {
+        window.location.hash = '';
+      }
+    } catch {
+      // RTK Query exposes the logout error through logoutError for rendering below.
+    }
   }
 
   const displayName = user.fullName || user.email;

@@ -1,4 +1,4 @@
-import { backendApi } from '../../shared/api/backendApi';
+import { backendApi, type ApiError } from '../../shared/api/backendApi';
 
 export type UserRole = 'admin' | 'operator';
 export type UserStatus = 'active' | 'blocked' | string;
@@ -50,8 +50,20 @@ export const authApi = backendApi.injectEndpoints({
     getCsrfToken: builder.query<CsrfResponse, void>({
       query: () => '/auth/csrf',
     }),
-    getSession: builder.query<SessionResponse, void>({
-      query: () => '/auth/session',
+    getSession: builder.query<SessionResponse | null, void>({
+      async queryFn(_arg, _queryApi, _extraOptions, baseQuery) {
+        const result = await baseQuery('/auth/session');
+
+        if (result.error) {
+          const error = result.error as ApiError;
+          if (error.status === 401) {
+            return { data: null };
+          }
+          return { error };
+        }
+
+        return { data: result.data as SessionResponse };
+      },
       providesTags: ['Session'],
     }),
     login: builder.mutation<LoginResponse, LoginRequest>({
@@ -73,6 +85,14 @@ export const authApi = backendApi.injectEndpoints({
           [csrfHeaderName]: csrfToken,
         },
       }),
+      async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(backendApi.util.resetApiState());
+        } catch {
+          // Keep the current session state if the logout request itself fails.
+        }
+      },
       invalidatesTags: ['Session'],
     }),
   }),

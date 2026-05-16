@@ -107,6 +107,23 @@ function normalizeError(error: FetchBaseQueryError): ApiError {
   };
 }
 
+function requestPath(args: string | FetchArgs): string {
+  return typeof args === 'string' ? args : args.url;
+}
+
+function shouldClearProtectedState(args: string | FetchArgs, error: FetchBaseQueryError): boolean {
+  if (error.status !== 401) {
+    return false;
+  }
+
+  const path = requestPath(args);
+
+  return !path.startsWith('/auth/csrf')
+    && !path.startsWith('/auth/login')
+    && !path.startsWith('/auth/logout')
+    && !path.startsWith('/auth/session');
+}
+
 const backendBaseQuery: BaseQueryFn<string | FetchArgs, unknown, ApiError> = async (
   args,
   api,
@@ -115,6 +132,10 @@ const backendBaseQuery: BaseQueryFn<string | FetchArgs, unknown, ApiError> = asy
   const result = await rawBaseQuery(args, api, extraOptions);
 
   if (result.error) {
+    if (shouldClearProtectedState(args, result.error)) {
+      api.dispatch(backendApi.util.resetApiState());
+    }
+
     return { error: normalizeError(result.error) };
   }
 
