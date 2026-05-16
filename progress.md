@@ -2045,3 +2045,32 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-054`.
+
+
+## 2026-05-16T22:49:21+02:00 — TASK-055 — clear stale store details after forbidden route
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Fixed Store Details rendering so a foreign-store 403 no longer displays stale details from the previously assigned store.
+- Store details, edit action, and child tabs now render only when there is no route-store error and the resolved store id matches the current route store id.
+- Catalog versions loading is skipped until the route store resolves, preventing stale version/tab state.
+- Manager inspected scope and confirmed only `frontend/src/main.tsx` changed for the implementation.
+- Marked TASK-055 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `e03686c fix(frontend): clear stale store details on route error`.
+- Changed files inspected: `frontend/src/main.tsx`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused source gate: `TASK_055_SOURCE_GATE_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-055` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-055`.
