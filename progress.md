@@ -1760,3 +1760,32 @@ Evidence:
 
 Next:
 - TASK-050 is unblocked after TASK-049 final gate passes.
+
+
+## 2026-05-16T20:34:07+02:00 — TASK-050 — protected 401 session handling
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Frontend implemented normalized protected 401 handling in commit `9d79fc2 TASK-050 handle session 401 as protected state loss`.
+- `/auth/session` 401 responses now clear protected RTK Query state instead of being excluded, allowing mounted SPA session invalidation to reset protected caches, clear protected navigation hash, broadcast `session-cleared`, and render login.
+- Preserved exclusions for `/auth/csrf`, `/auth/login`, and `/auth/logout` so login failures and logout handling remain isolated.
+- Manager inspected scope and confirmed only `frontend/src/shared/api/backendApi.ts` changed.
+- Marked TASK-050 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `9d79fc2 TASK-050 handle session 401 as protected state loss`.
+- Changed files inspected: `frontend/src/shared/api/backendApi.ts`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Focused static check: `TASK_050_STATIC_CHECK=PASS`.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-050` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-050`.

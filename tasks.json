@@ -1245,7 +1245,7 @@
       "dependencies": [
         "TASK-048"
       ],
-      "status": "pending",
+      "status": "done",
       "related_bugs": [
         "BUG-UX-007"
       ],
