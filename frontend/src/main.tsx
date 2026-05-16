@@ -104,31 +104,13 @@ import {
   useUnblockUserMutation,
   type ManagedUser,
 } from './features/users/usersApi';
+import {
+  hashFromView,
+  isValidRouteId,
+  type DashboardView,
+  viewFromHash as dashboardViewFromHash,
+} from './routeState';
 import './styles.css';
-
-type DashboardView =
-  | { name: 'overview' }
-  | { name: 'stores' }
-  | { name: 'store-details'; storeId: string }
-  | { name: 'store-create' }
-  | { name: 'store-edit'; storeId: string }
-  | { name: 'products' }
-  | { name: 'product-create' }
-  | { name: 'product-edit'; productId: string }
-  | { name: 'route-not-found'; returnTo: 'stores' | 'products'; message: string }
-  | { name: 'users-access' }
-  | { name: 'global-logs' };
-
-const uuidRouteIdPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-function readValidatedHashId(hash: string, prefix: string): string | null {
-  if (!hash.startsWith(prefix)) {
-    return null;
-  }
-
-  const rawId = hash.slice(prefix.length).trim();
-  return uuidRouteIdPattern.test(rawId) ? rawId : null;
-}
 
 function HealthStatus() {
   const { data: health, error, isLoading, isFetching, refetch } = useGetHealthQuery();
@@ -538,16 +520,24 @@ function StoreLogsTab({ storeId }: { storeId: string }) {
 }
 
 function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: string; onNavigate: (view: DashboardView) => void }) {
+  const hasValidStoreId = isValidRouteId(storeId);
   const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
+    skip: !hasValidStoreId,
     refetchOnFocus: true,
     refetchOnReconnect: true,
     refetchOnMountOrArgChange: true,
   });
-  const { currentData: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(storeId);
+  const { currentData: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(storeId, {
+    skip: !hasValidStoreId,
+  });
   const store = currentData?.store;
   const currentVersion = versionsData?.currentVersion ?? null;
   const errorMessage = error && 'message' in error ? error.message : null;
   const versionsErrorMessage = versionsError && 'message' in versionsError ? versionsError.message : null;
+
+  if (!hasValidStoreId) {
+    return <RouteNotFoundPanel returnTo="stores" message="The store link is empty or malformed. Open a store from the list instead." onNavigate={onNavigate} />;
+  }
 
   return (
     <section className="panel store-details-panel" aria-labelledby="store-details-title">
@@ -2300,8 +2290,15 @@ function ProductForm({ mode, product, onCancel, onSaved }: { mode: 'create' | 'e
 }
 
 function ProductEditRoute({ productId, onNavigate }: { productId: string; onNavigate: (view: DashboardView) => void }) {
-  const { currentData, error, isLoading } = useGetProductQuery(productId);
+  const hasValidProductId = isValidRouteId(productId);
+  const { currentData, error, isLoading } = useGetProductQuery(productId, {
+    skip: !hasValidProductId,
+  });
   const errorMessage = error && 'message' in error ? error.message : null;
+
+  if (!hasValidProductId) {
+    return <RouteNotFoundPanel returnTo="products" message="The product edit link is empty or malformed. Open a product from the list instead." onNavigate={onNavigate} />;
+  }
 
   if (isLoading) {
     return <section className="panel"><div className="status status-loading">Loading product for editing...</div></section>;
@@ -2421,12 +2418,18 @@ function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'
 }
 
 function StoreEditRoute({ storeId, onNavigate }: { storeId: string; onNavigate: (view: DashboardView) => void }) {
+  const hasValidStoreId = isValidRouteId(storeId);
   const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
+    skip: !hasValidStoreId,
     refetchOnFocus: true,
     refetchOnReconnect: true,
     refetchOnMountOrArgChange: true,
   });
   const errorMessage = error && 'message' in error ? error.message : null;
+
+  if (!hasValidStoreId) {
+    return <RouteNotFoundPanel returnTo="stores" message="The store edit link is empty or malformed. Open a store from the list instead." onNavigate={onNavigate} />;
+  }
 
   if (isLoading) {
     return <section className="panel"><div className="status status-loading">Loading store for editing...</div></section>;
@@ -3034,57 +3037,18 @@ function DashboardContent({ user, view, onNavigate }: { user: AuthUser; view: Da
   return <OverviewDashboard user={user} onNavigate={onNavigate} />;
 }
 
-function viewFromHash(): DashboardView {
-  const hash = window.location.hash;
-  if (hash === '#global-logs') return { name: 'global-logs' };
-  if (hash === '#users-access') return { name: 'users-access' };
-  if (hash === '#stores') return { name: 'stores' };
-  if (hash === '#store-create') return { name: 'store-create' };
-  if (hash.startsWith('#store:')) {
-    const storeId = readValidatedHashId(hash, '#store:');
-    return storeId
-      ? { name: 'store-details', storeId }
-      : { name: 'route-not-found', returnTo: 'stores', message: 'The store link is empty or malformed. Open a store from the list instead.' };
-  }
-  if (hash.startsWith('#store-edit:')) {
-    const storeId = readValidatedHashId(hash, '#store-edit:');
-    return storeId
-      ? { name: 'store-edit', storeId }
-      : { name: 'route-not-found', returnTo: 'stores', message: 'The store edit link is empty or malformed. Open a store from the list instead.' };
-  }
-  if (hash === '#products') return { name: 'products' };
-  if (hash === '#product-create') return { name: 'product-create' };
-  if (hash.startsWith('#product-edit:')) {
-    const productId = readValidatedHashId(hash, '#product-edit:');
-    return productId
-      ? { name: 'product-edit', productId }
-      : { name: 'route-not-found', returnTo: 'products', message: 'The product edit link is empty or malformed. Open a product from the list instead.' };
-  }
-  return { name: 'overview' };
-}
-
-function hashFromView(view: DashboardView) {
-  if (view.name === 'global-logs') return '#global-logs';
-  if (view.name === 'users-access') return '#users-access';
-  if (view.name === 'stores') return '#stores';
-  if (view.name === 'store-create') return '#store-create';
-  if (view.name === 'store-details') return `#store:${view.storeId}`;
-  if (view.name === 'store-edit') return `#store-edit:${view.storeId}`;
-  if (view.name === 'products') return '#products';
-  if (view.name === 'product-create') return '#product-create';
-  if (view.name === 'product-edit') return `#product-edit:${view.productId}`;
-  if (view.name === 'route-not-found') return `#${view.returnTo}-not-found`;
-  return '';
+function viewFromLocationHash(): DashboardView {
+  return dashboardViewFromHash(window.location.hash);
 }
 
 function Dashboard({ user }: { user: AuthUser }) {
-  const [view, setView] = useState<DashboardView>(viewFromHash);
+  const [view, setView] = useState<DashboardView>(viewFromLocationHash);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [logout, { isLoading: logoutLoading, error: logoutError }] = useLogoutMutation();
 
   useEffect(() => {
     function handleHashChange() {
-      setView(viewFromHash());
+      setView(viewFromLocationHash());
     }
 
     window.addEventListener('hashchange', handleHashChange);
