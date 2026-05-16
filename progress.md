@@ -1960,3 +1960,32 @@ Notes:
 
 Next:
 - Task branch was pushed, merged into main, main was pushed, runtime lock was removed, and the after-task gate is next.
+
+## 2026-05-16T22:25:00+02:00 — TASK-060 — malformed hash route recovery
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Hardened SPA hash route parsing for malformed/empty store and product IDs.
+- Added shared route validation in `frontend/src/routeState.ts` so invalid `#store:`, `#store-edit:` and `#product-edit:` hashes resolve to meaningful route-not-found panels instead of broken/stale UI.
+- Added defensive RTK Query skip guards for invalid store/product IDs so malformed routes do not issue backend detail/catalog requests.
+- Preserved safe navigation back to stores/products and existing TASK-056 route-safety behavior.
+- Manager inspected scope and confirmed implementation stayed inside TASK-060 frontend routing scope.
+- Marked TASK-060 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `0831ed4 TASK-060 harden malformed hash routes`.
+- Changed files inspected: `frontend/src/main.tsx`, `frontend/src/routeState.ts`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused manager static check: `TASK_060_MANAGER_STATIC_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-060` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-060`.
