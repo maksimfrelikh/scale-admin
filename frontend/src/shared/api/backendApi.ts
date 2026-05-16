@@ -36,6 +36,7 @@ type StoreListChangedEvent = {
   id: string;
   type: 'store-list-changed';
   at: number;
+  storeId?: string;
 };
 
 let authSessionBroadcastChannel: BroadcastChannel | null = null;
@@ -73,8 +74,8 @@ function createAuthSessionEvent(type: AuthSessionEvent['type']): AuthSessionEven
   return { id: createEventId(), type, at: Date.now() };
 }
 
-function createStoreListChangedEvent(): StoreListChangedEvent {
-  return { id: createEventId(), type: 'store-list-changed', at: Date.now() };
+function createStoreListChangedEvent(storeId?: string): StoreListChangedEvent {
+  return { id: createEventId(), type: 'store-list-changed', at: Date.now(), storeId };
 }
 
 function readAuthSessionEvent(rawValue: string | null): AuthSessionEvent | null {
@@ -109,6 +110,7 @@ function readStoreListChangedEvent(rawValue: string | null): StoreListChangedEve
       typeof parsed.id === 'string'
       && typeof parsed.at === 'number'
       && parsed.type === 'store-list-changed'
+      && (typeof parsed.storeId === 'undefined' || typeof parsed.storeId === 'string')
     ) {
       return parsed as StoreListChangedEvent;
     }
@@ -171,8 +173,8 @@ export function subscribeAuthSessionEvents(listener: (event: AuthSessionEvent) =
   };
 }
 
-export function publishStoreListChangedEvent() {
-  const event = createStoreListChangedEvent();
+export function publishStoreListChangedEvent(storeId?: string) {
+  const event = createStoreListChangedEvent(storeId);
 
   getStoreListChangedBroadcastChannel()?.postMessage(event);
 

@@ -77,10 +77,10 @@ export const storesApi = backendApi.injectEndpoints({
         { type: 'Stores', id: storeId },
         { type: 'Stores', id: 'LIST' },
       ],
-      async onQueryStarted(_request, { queryFulfilled }) {
+      async onQueryStarted({ storeId }, { queryFulfilled }) {
         try {
           await queryFulfilled;
-          publishStoreListChangedEvent();
+          publishStoreListChangedEvent(storeId);
         } catch {
           // Failed mutations do not change store lists.
         }

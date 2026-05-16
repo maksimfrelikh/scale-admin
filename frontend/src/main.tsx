@@ -538,7 +538,11 @@ function StoreLogsTab({ storeId }: { storeId: string }) {
 }
 
 function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: string; onNavigate: (view: DashboardView) => void }) {
-  const { currentData, error, isLoading } = useGetStoreQuery(storeId);
+  const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+    refetchOnMountOrArgChange: true,
+  });
   const { currentData: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(storeId);
   const store = currentData?.store;
   const currentVersion = versionsData?.currentVersion ?? null;
@@ -2417,7 +2421,11 @@ function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'
 }
 
 function StoreEditRoute({ storeId, onNavigate }: { storeId: string; onNavigate: (view: DashboardView) => void }) {
-  const { currentData, error, isLoading } = useGetStoreQuery(storeId);
+  const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+    refetchOnMountOrArgChange: true,
+  });
   const errorMessage = error && 'message' in error ? error.message : null;
 
   if (isLoading) {
@@ -3139,8 +3147,11 @@ function App() {
     store.dispatch(backendApi.util.invalidateTags(['Session']));
   }), []);
 
-  useEffect(() => subscribeStoreListChangedEvents(() => {
-    store.dispatch(backendApi.util.invalidateTags([{ type: 'Stores', id: 'LIST' }]));
+  useEffect(() => subscribeStoreListChangedEvents((event) => {
+    store.dispatch(backendApi.util.invalidateTags([
+      { type: 'Stores', id: 'LIST' },
+      ...(event.storeId ? [{ type: 'Stores' as const, id: event.storeId }] : []),
+    ]));
   }), []);
 
   const { data: session, isLoading, isFetching, error } = useGetSessionQuery();
