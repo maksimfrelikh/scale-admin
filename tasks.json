@@ -1422,7 +1422,7 @@
         "Confirm filters/tables scroll correctly"
       ],
       "dependencies": [],
-      "status": "pending",
+      "status": "done",
       "related_bugs": [
         "BUG-UX-008"
       ],

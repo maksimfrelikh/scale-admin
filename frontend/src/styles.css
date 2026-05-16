@@ -1325,6 +1325,8 @@ select:focus {
 }
 
 .logs-tab {
+  min-width: 0;
+  max-width: 100%;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid #dce4f3;
@@ -1337,18 +1339,29 @@ select:focus {
 
 .logs-filters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: 1rem;
   align-items: end;
+  max-width: 100%;
   margin: 1rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.logs-filters label {
+  min-width: 0;
 }
 
 .logs-grid {
   display: grid;
   gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .logs-card {
+  min-width: 0;
+  max-width: 100%;
   padding: 1rem;
   border: 1px solid #dce4f3;
   border-radius: 18px;
@@ -1356,11 +1369,13 @@ select:focus {
 }
 
 .logs-table-wrap {
+  max-width: 100%;
   overflow-x: auto;
   margin-top: 0.75rem;
   border: 1px solid #dce4f3;
   border-radius: 14px;
   background: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .logs-table {

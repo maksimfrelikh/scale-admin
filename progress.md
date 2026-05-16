@@ -1818,3 +1818,31 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-056`.
+
+## 2026-05-16T20:52:39+02:00 — TASK-057 — Global Logs responsive layout
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Fixed Global Logs responsive CSS so log containers can shrink within mobile/tablet viewports.
+- Filters now use bounded mobile columns and can scroll inside their container.
+- Log cards and table wrappers are constrained to viewport width; wide log tables retain internal horizontal scrolling instead of causing page-level overflow.
+- Manager inspected scope and confirmed implementation stayed inside TASK-057 frontend responsive layout scope.
+- Marked TASK-057 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `e23b09e TASK-057 Fix global logs responsive layout`.
+- Changed files inspected: `frontend/src/styles.css`.
+- Focused static responsive evidence: filters use `minmax(min(180px, 100%), 1fr)`; filters have `overflow-x: auto`; log cards use `min-width: 0` and `max-width: 100%`; table wrappers use `max-width: 100%` and `overflow-x: auto`; log tables retain internal `min-width: 860px`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-057` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Live viewport browser testing was not available in the delegated runtime, so manager accepted focused static CSS evidence plus build/typecheck/Docker verification for the responsive constraints.
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-057`.
