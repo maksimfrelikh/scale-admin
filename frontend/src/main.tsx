@@ -3,6 +3,11 @@ import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { store } from './app/store';
 import {
+  backendApi,
+  clearProtectedClientState,
+  subscribeAuthSessionEvents,
+} from './shared/api/backendApi';
+import {
   useGetCsrfTokenQuery,
   useGetSessionQuery,
   useLoginMutation,
@@ -3040,9 +3045,6 @@ function Dashboard({ user }: { user: AuthUser }) {
 
     try {
       await logout({ csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap();
-      if (window.location.hash) {
-        window.location.hash = '';
-      }
     } catch {
       // RTK Query exposes the logout error through logoutError for rendering below.
     }
@@ -3074,6 +3076,15 @@ function Dashboard({ user }: { user: AuthUser }) {
 }
 
 function App() {
+  useEffect(() => subscribeAuthSessionEvents((event) => {
+    if (event.type === 'session-cleared') {
+      clearProtectedClientState(store.dispatch, false);
+      return;
+    }
+
+    store.dispatch(backendApi.util.invalidateTags(['Session']));
+  }), []);
+
   const { data: session, isLoading, isFetching, error } = useGetSessionQuery();
   const hasActiveSession = Boolean(session?.user);
 
