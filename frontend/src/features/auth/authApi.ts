@@ -1,4 +1,9 @@
-import { backendApi, type ApiError } from '../../shared/api/backendApi';
+import {
+  backendApi,
+  clearProtectedClientState,
+  publishAuthSessionEvent,
+  type ApiError,
+} from '../../shared/api/backendApi';
 
 export type UserRole = 'admin' | 'operator';
 export type UserStatus = 'active' | 'blocked' | string;
@@ -75,22 +80,68 @@ export const authApi = backendApi.injectEndpoints({
         },
         body: { email, password },
       }),
+      async onQueryStarted(_arg, { queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          publishAuthSessionEvent('session-changed');
+        } catch {
+          // Failed logins must not change auth state in other tabs.
+        }
+      },
       invalidatesTags: ['Session'],
     }),
     logout: builder.mutation<{ revoked: boolean }, LogoutRequest>({
-      query: ({ csrfToken, csrfHeaderName }) => ({
-        url: '/auth/logout',
-        method: 'POST',
-        headers: {
-          [csrfHeaderName]: csrfToken,
-        },
-      }),
+      async queryFn({ csrfToken, csrfHeaderName }, _queryApi, _extraOptions, baseQuery) {
+        const logoutRequest = (token: string, headerName: string) => baseQuery({
+          url: '/auth/logout',
+          method: 'POST',
+          headers: {
+            [headerName]: token,
+          },
+        });
+
+        const resolveAsLoggedOutIfSessionGone = async (error: ApiError) => {
+          if (error.status === 401) {
+            return { data: { revoked: false } };
+          }
+
+          const sessionResult = await baseQuery('/auth/session');
+          if (sessionResult.error && (sessionResult.error as ApiError).status === 401) {
+            return { data: { revoked: false } };
+          }
+
+          return { error };
+        };
+
+        const firstAttempt = await logoutRequest(csrfToken, csrfHeaderName);
+        if (!firstAttempt.error) {
+          return { data: firstAttempt.data as { revoked: boolean } };
+        }
+
+        const firstError = firstAttempt.error as ApiError;
+        if (firstError.status !== 403) {
+          return resolveAsLoggedOutIfSessionGone(firstError);
+        }
+
+        const csrfResult = await baseQuery('/auth/csrf');
+        if (csrfResult.error) {
+          return resolveAsLoggedOutIfSessionGone(firstError);
+        }
+
+        const freshCsrf = csrfResult.data as CsrfResponse;
+        const retryAttempt = await logoutRequest(freshCsrf.csrfToken, freshCsrf.headerName);
+        if (!retryAttempt.error) {
+          return { data: retryAttempt.data as { revoked: boolean } };
+        }
+
+        return resolveAsLoggedOutIfSessionGone(retryAttempt.error as ApiError);
+      },
       async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
         try {
           await queryFulfilled;
-          dispatch(backendApi.util.resetApiState());
+          clearProtectedClientState(dispatch);
         } catch {
-          // Keep the current session state if the logout request itself fails.
+          // Keep the current session state if the logout request itself fails and the session is still active.
         }
       },
       invalidatesTags: ['Session'],
