@@ -1398,7 +1398,7 @@
         "Test malformed/empty hash routes"
       ],
       "dependencies": [],
-      "status": "pending",
+      "status": "done",
       "related_bugs": [
         "BUG-UX-002"
       ],

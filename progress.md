@@ -1789,3 +1789,32 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-050`.
+
+## 2026-05-16T20:44:37+02:00 — TASK-056 — catalog route ID safety and cache refresh
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Added UUID-shaped validation for malformed or empty store/product hash route IDs.
+- Invalid `#store:`, `#store-edit:` and `#product-edit:` links now render a safe not-found panel instead of issuing detail/edit queries with bad IDs.
+- Store/product detail/edit routes use current RTK Query data so stale previous records are not shown after route errors or argument changes.
+- Product and category mutations now invalidate related catalog placement, prices and publishing caches so PATCH updates are reflected in the UI and preserved after refresh.
+- Manager inspected implementation scope and confirmed only TASK-056 frontend files changed.
+- Marked TASK-056 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `7f36cef TASK-056 harden catalog route IDs`.
+- Changed files inspected: `frontend/src/main.tsx`, `frontend/src/features/products/productsApi.ts`, `frontend/src/features/catalog/catalogApi.ts`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused static check: `TASK_056_STATIC_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-056` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-056`.
