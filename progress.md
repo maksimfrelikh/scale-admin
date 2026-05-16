@@ -1736,3 +1736,27 @@ Evidence:
 
 Next:
 - TASK-049 and TASK-050 are unblocked after TASK-048 final gate passes.
+
+## 2026-05-16 20:27 — TASK-049 — multi-tab logout CSRF/session broadcast
+
+Status: done
+Owner: frontend
+Summary:
+- Implemented multi-tab auth/session broadcast using BroadcastChannel with localStorage fallback.
+- Logout now clears protected RTK Query cache and protected hash navigation across open tabs.
+- Logout is idempotent when the session is already unauthenticated.
+- Stale CSRF 403 during logout refreshes CSRF and retries once.
+- Protected 401 responses broadcast stale protected UI clearing to other tabs.
+- Preserved TASK-048 logout/session cache clearing behavior.
+
+Evidence:
+- Implementation commit: `31b8ec7 TASK-049 frontend multi-tab logout handling`.
+- Changed files reviewed: `frontend/src/features/auth/authApi.ts`, `frontend/src/shared/api/backendApi.ts`, `frontend/src/main.tsx`.
+- `git diff --check` passed.
+- `npm --prefix frontend run build` passed.
+- `cd frontend && npm exec tsc -- -b` passed.
+- Focused manager source check passed: `TASK_049_MANAGER_SOURCE_CHECK=PASS`.
+- Docker verification passed: `scripts/openclaw-docker-verify.sh TASK-049` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Next:
+- TASK-050 is unblocked after TASK-049 final gate passes.
