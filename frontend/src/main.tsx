@@ -527,13 +527,13 @@ function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: 
     refetchOnReconnect: true,
     refetchOnMountOrArgChange: true,
   });
-  const { currentData: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(storeId, {
-    skip: !hasValidStoreId,
-  });
-  const store = currentData?.store;
-  const currentVersion = versionsData?.currentVersion ?? null;
   const errorMessage = error && 'message' in error ? error.message : null;
-  const versionsErrorMessage = versionsError && 'message' in versionsError ? versionsError.message : null;
+  const store = !errorMessage && currentData?.store.id === storeId ? currentData.store : null;
+  const { currentData: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(storeId, {
+    skip: !hasValidStoreId || !store,
+  });
+  const currentVersion = versionsData?.currentVersion ?? null;
+  const versionsErrorMessage = store && versionsError && 'message' in versionsError ? versionsError.message : null;
 
   if (!hasValidStoreId) {
     return <RouteNotFoundPanel returnTo="stores" message="The store link is empty or malformed. Open a store from the list instead." onNavigate={onNavigate} />;
