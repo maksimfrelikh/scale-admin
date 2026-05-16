@@ -475,7 +475,7 @@ function GlobalLogsPage({ user }: { user: AuthUser }) {
   const errorMessage = error && 'message' in error ? error.message : null;
 
   if (user.role !== 'admin') {
-    return <AccessDeniedPanel />;
+    return <AccessDeniedPanel route="global-logs" />;
   }
 
   return (
@@ -2462,12 +2462,25 @@ function RouteNotFoundPanel({ returnTo, message, onNavigate }: { returnTo: 'stor
   );
 }
 
-function AccessDeniedPanel() {
+const accessDeniedCopy = {
+  'global-logs': {
+    heading: 'Global Logs is admin-only',
+    description: 'Operators cannot open global audit and scale sync logs. Ask an admin if your account needs global log access.',
+  },
+  'users-access': {
+    heading: 'Users & Access is admin-only',
+    description: 'Operators cannot open user management controls. Ask an admin if your account needs additional store access.',
+  },
+} as const;
+
+function AccessDeniedPanel({ route }: { route: keyof typeof accessDeniedCopy }) {
+  const copy = accessDeniedCopy[route];
+
   return (
     <section className="panel" aria-labelledby="access-denied-title">
       <p className="eyebrow">Access denied</p>
-      <h2 id="access-denied-title">Users & Access is admin-only</h2>
-      <p className="muted">Operators cannot open user management controls. Ask an admin if your account needs additional store access.</p>
+      <h2 id="access-denied-title">{copy.heading}</h2>
+      <p className="muted">{copy.description}</p>
     </section>
   );
 }
@@ -2995,11 +3008,11 @@ function syncSummary(totalDevices: number, problematicCount: number) {
 
 function DashboardContent({ user, view, onNavigate }: { user: AuthUser; view: DashboardView; onNavigate: (view: DashboardView) => void }) {
   if (view.name === 'global-logs') {
-    return user.role === 'admin' ? <GlobalLogsPage user={user} /> : <AccessDeniedPanel />;
+    return user.role === 'admin' ? <GlobalLogsPage user={user} /> : <AccessDeniedPanel route="global-logs" />;
   }
 
   if (view.name === 'users-access') {
-    return user.role === 'admin' ? <UsersAccessPage currentUser={user} /> : <AccessDeniedPanel />;
+    return user.role === 'admin' ? <UsersAccessPage currentUser={user} /> : <AccessDeniedPanel route="users-access" />;
   }
 
   if (view.name === 'stores') {
