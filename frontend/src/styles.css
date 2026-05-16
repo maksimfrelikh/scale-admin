@@ -355,6 +355,36 @@ select:focus {
 
 .details-grid dd {
   margin: 0.35rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.store-details-panel,
+.store-details-panel > *,
+.store-details-panel section {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.store-details-panel {
+  overflow-x: hidden;
+}
+
+.store-details-panel .panel-heading,
+.store-details-panel .action-row,
+.store-details-panel .status,
+.store-details-panel .form-error,
+.store-details-panel .empty-state,
+.store-details-panel .publication-status-card,
+.store-details-panel .validation-summary,
+.store-details-panel .issue-list,
+.store-details-panel .catalog-summary,
+.store-details-panel .category-card,
+.store-details-panel .placement-card,
+.store-details-panel .banner-upload-card,
+.store-details-panel .token-notice {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .store-form {
@@ -408,10 +438,15 @@ select:focus {
 }
 
 .price-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid #dce4f3;
   border-radius: 18px;
   background: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .price-table {
@@ -586,10 +621,15 @@ select:focus {
 }
 
 .version-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid #dce4f3;
   border-radius: 18px;
   background: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .version-table {
@@ -807,10 +847,15 @@ select:focus {
 }
 
 .scale-device-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid #dce4f3;
   border-radius: 18px;
   background: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .scale-device-table {
@@ -1266,10 +1311,15 @@ select:focus {
 }
 
 .banner-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid #dce4f3;
   border-radius: 18px;
   background: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .banner-table {

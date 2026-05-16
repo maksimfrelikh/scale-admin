@@ -541,7 +541,7 @@ function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: 
   const versionsErrorMessage = versionsError && 'message' in versionsError ? versionsError.message : null;
 
   return (
-    <section className="panel" aria-labelledby="store-details-title">
+    <section className="panel store-details-panel" aria-labelledby="store-details-title">
       <button className="link-button" type="button" onClick={() => onNavigate({ name: 'stores' })}>
         ← Back to stores
       </button>
