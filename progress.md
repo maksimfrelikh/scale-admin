@@ -1902,3 +1902,33 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-051`.
+
+## 2026-05-16T21:40:00+02:00 — TASK-052 — store detail cross-tab revalidation
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Implemented frontend cross-tab store detail revalidation for edits made in another tab.
+- Extended the existing store change BroadcastChannel/localStorage event to carry the edited `storeId`.
+- Cross-tab listener now invalidates both the store list and the specific store detail cache tag.
+- Store detail/edit routes refetch on focus, reconnect, and route remount/revisit.
+- Preserved TASK-051 store-list behavior and existing auth/session handling.
+- Manager inspected implementation scope and confirmed changes stayed within TASK-052 frontend cache/revalidation scope.
+- Marked TASK-052 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `d687ac8 TASK-052 revalidate store details across tabs`.
+- Changed files inspected: `frontend/src/shared/api/backendApi.ts`, `frontend/src/features/stores/storesApi.ts`, `frontend/src/main.tsx`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused static check: `TASK_052_MANAGER_SOURCE_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-052` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-052`.
