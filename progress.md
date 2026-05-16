@@ -2017,3 +2017,31 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-053`.
+
+## 2026-05-16T22:41:34+02:00 — TASK-054 — admin-only store form route access denied
+
+Status: done
+Owner: frontend (manager-bound subagent)
+Summary:
+- Added explicit access-denied rendering for operator direct visits to admin-only store form routes.
+- Operators opening `#store-create` or `#store-edit:<id>` no longer silently fall through to the overview dashboard.
+- Admin store create/edit behavior remains unchanged.
+- Manager inspected scope and confirmed implementation stayed inside TASK-054 frontend routing/RBAC scope.
+- Marked TASK-054 `status` as `done` after manager verification and Docker verification passed.
+
+Evidence:
+- Implementation commit inspected: `9797717 TASK-054 show access denied for store form routes`.
+- Changed files inspected: `frontend/src/main.tsx`.
+- Whitespace check: `git diff --check main...HEAD` passed.
+- Focused manager source check: `TASK_054_MANAGER_SOURCE_CHECK=PASS`.
+- Frontend build: `npm --prefix frontend run build` passed.
+- Frontend typecheck: `cd frontend && npm exec tsc -- -b` passed.
+- Docker verification: `scripts/openclaw-docker-verify.sh TASK-054` returned `DOCKER_VERIFY_RESULT=PASS`.
+
+Notes:
+- Docker verification ignored `docker-compose.override.yml` as required by workflow.
+- Docker verification emitted a non-blocking warning: Compose is configured to build using Bake, but buildx is not installed.
+- Runtime `.openclaw/locks/`, `.openclaw/handoffs/`, and `.openclaw/runtime-audit/` artifacts were kept uncommitted.
+
+Next:
+- Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-054`.

@@ -2471,6 +2471,10 @@ const accessDeniedCopy = {
     heading: 'Users & Access is admin-only',
     description: 'Operators cannot open user management controls. Ask an admin if your account needs additional store access.',
   },
+  'store-management': {
+    heading: 'Store management is admin-only',
+    description: 'Operators cannot create or edit stores. Ask an admin if this store needs to be changed.',
+  },
 } as const;
 
 function AccessDeniedPanel({ route }: { route: keyof typeof accessDeniedCopy }) {
@@ -3039,12 +3043,16 @@ function DashboardContent({ user, view, onNavigate }: { user: AuthUser; view: Da
     return <StoreDetails user={user} storeId={view.storeId} onNavigate={onNavigate} />;
   }
 
-  if (view.name === 'store-create' && user.role === 'admin') {
-    return <StoreForm mode="create" onCancel={() => onNavigate({ name: 'stores' })} onSaved={(store) => onNavigate({ name: 'store-details', storeId: store.id })} />;
+  if (view.name === 'store-create') {
+    return user.role === 'admin' ? (
+      <StoreForm mode="create" onCancel={() => onNavigate({ name: 'stores' })} onSaved={(store) => onNavigate({ name: 'store-details', storeId: store.id })} />
+    ) : (
+      <AccessDeniedPanel route="store-management" />
+    );
   }
 
-  if (view.name === 'store-edit' && user.role === 'admin') {
-    return <StoreEditRoute storeId={view.storeId} onNavigate={onNavigate} />;
+  if (view.name === 'store-edit') {
+    return user.role === 'admin' ? <StoreEditRoute storeId={view.storeId} onNavigate={onNavigate} /> : <AccessDeniedPanel route="store-management" />;
   }
 
   return <OverviewDashboard user={user} onNavigate={onNavigate} />;
