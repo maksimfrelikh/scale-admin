@@ -1540,7 +1540,7 @@
         "TASK-048",
         "TASK-050"
       ],
-      "status": "pending",
+      "status": "done",
       "related_bugs": [
         "BUG-UX-001",
         "BUG-UX-007",
