@@ -282,7 +282,7 @@ export class ScalesService {
   }
 
   async checkScaleUpdate(device: { id: string; storeId: string }, currentCatalogVersionId: string | undefined, context: RequestContext) {
-    const requestedVersionId = this.normalizeOptionalUuid(currentCatalogVersionId, 'currentCatalogVersionId');
+    const normalizedRequestedVersionId = this.normalizeOptionalUuid(currentCatalogVersionId, 'currentCatalogVersionId');
     const now = new Date();
 
     const activeCatalog = await this.prisma.storeCatalog.findFirst({
@@ -304,6 +304,19 @@ export class ScalesService {
 
     if (!activeCatalog) {
       throw new NotFoundException('Active store catalog not found');
+    }
+
+    let requestedVersionId: string | null = normalizedRequestedVersionId;
+    let unknownRequestedVersionMessage: string | null = null;
+    if (requestedVersionId !== null) {
+      const existingVersion = await this.prisma.catalogVersion.findUnique({
+        where: { id: requestedVersionId },
+        select: { id: true },
+      });
+      if (!existingVersion) {
+        unknownRequestedVersionMessage = `unknown requestedVersionId: ${requestedVersionId}`;
+        requestedVersionId = null;
+      }
     }
 
     const currentVersion = activeCatalog.currentVersion;
@@ -329,7 +342,7 @@ export class ScalesService {
           requestedVersionId,
           deliveredVersionId: hasUpdate ? currentVersionId : null,
           status: logStatus,
-          errorMessage: null,
+          errorMessage: unknownRequestedVersionMessage,
           requestIp: context.ipAddress,
           userAgent: context.userAgent,
         },
