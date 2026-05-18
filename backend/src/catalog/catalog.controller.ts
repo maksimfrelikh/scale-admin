@@ -34,6 +34,10 @@ type PlacementQuery = {
   status?: string;
 };
 
+type CategoryQuery = {
+  status?: string;
+};
+
 type ReorderPlacementsBody = {
   categoryId?: unknown;
   placementIds?: unknown;
@@ -47,8 +51,8 @@ export class CatalogController {
   constructor(private readonly catalogService: CatalogService) {}
 
   @Get('categories')
-  listCategoryTree(@Param('storeId') storeId: string) {
-    return this.catalogService.listCategoryTree(storeId);
+  listCategoryTree(@Param('storeId') storeId: string, @Query() query: CategoryQuery) {
+    return this.catalogService.listCategoryTree(storeId, { status: query.status });
   }
 
   @Post('categories')

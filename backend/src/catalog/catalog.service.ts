@@ -29,6 +29,10 @@ export type ReorderCategoriesInput = {
   categoryIds: string[];
 };
 
+export type ListCategoryTreeInput = {
+  status?: string;
+};
+
 export type ListPlacementsInput = {
   categoryId?: string;
   status?: string;
@@ -113,10 +117,14 @@ export class CatalogService {
     private readonly auditLogs: AuditLogService,
   ) {}
 
-  async listCategoryTree(storeId: string) {
+  async listCategoryTree(storeId: string, input: ListCategoryTreeInput = {}) {
     const catalog = await this.findActiveCatalog(storeId);
+    const status = input.status ? this.requireCategoryStatus(input.status) : undefined;
     const categories = await this.prisma.category.findMany({
-      where: { catalogId: catalog.id },
+      where: {
+        catalogId: catalog.id,
+        ...(status ? { status } : {}),
+      },
       orderBy: [{ parentId: 'asc' }, { sortOrder: 'asc' }, { name: 'asc' }],
     });
 
@@ -330,6 +338,9 @@ export class CatalogService {
         catalogId: catalog.id,
         ...(categoryId ? { categoryId } : {}),
         ...(status ? { status } : {}),
+        ...(status === 'active'
+          ? { product: { status: 'active' }, category: { status: 'active' } }
+          : {}),
       },
       include: {
         category: { select: { id: true, name: true, shortName: true, status: true } },
