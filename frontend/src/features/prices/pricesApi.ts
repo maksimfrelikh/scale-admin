@@ -1,4 +1,5 @@
 import { backendApi } from '../../shared/api/backendApi';
+import type { AllowedCurrency } from '../../shared/currency';
 
 export type ProductUnit = 'kg' | 'g' | 'piece';
 export type ProductStatus = 'active' | 'inactive' | 'archived';
@@ -69,7 +70,7 @@ type UpdateStoreProductPriceRequest = {
   storeId: string;
   productId: string;
   price: number;
-  currency?: string;
+  currency: AllowedCurrency;
   csrfToken: string;
   csrfHeaderName: string;
 };

@@ -1,0 +1,2 @@
+ERROR:  new row for relation "store_product_prices" violates check constraint "store_product_prices_currency_allowed"
+DETAIL:  Failing row contains (9d90d3e4-57b5-4fd6-a22d-381e199edf73, cce1036c-7381-40bd-adf0-fddbe89cb4f9, f8e3732b-e29f-4342-977d-90d0c2db947e, 10.00, USD, active, 2026-05-18 18:50:43.118, 2026-05-18 19:14:44.396).

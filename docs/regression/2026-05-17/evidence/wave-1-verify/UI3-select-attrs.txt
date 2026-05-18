@@ -1,0 +1,5 @@
+aria-label: Currency for Apples Red Weighted
+disabled: true
+selected value: RUB
+option values: ["RUB"]
+option text: ["RUB"]

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 281
+ETag: W/"119-82TGcoK5L2cA4ptUba5Vb1Bz1qA"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"price":{"id":"9d90d3e4-57b5-4fd6-a22d-381e199edf73","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","price":"10","currency":"RUB","status":"active","createdAt":"2026-05-18T18:50:43.118Z","updatedAt":"2026-05-18T19:14:44.350Z"}}

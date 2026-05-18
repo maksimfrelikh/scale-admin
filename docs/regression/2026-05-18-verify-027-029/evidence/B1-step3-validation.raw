@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 819
+ETag: W/"333-ADpOGlYpBTFtiuRkzXFbl8EdiV4"
+Date: Mon, 18 May 2026 19:15:18 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"catalog":{"id":"400becc1-9dfa-4dd6-8871-c6d57a6c0d31","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","name":"Main Catalog","status":"active","currentVersionId":"42f14ecb-b790-45af-8d22-f42161614af4"},"canPublish":false,"blockingErrors":[{"code":"PRICE_CURRENCY_NOT_SUPPORTED","message":"Active placement price uses an unsupported currency.","entityType":"StoreProductPrice","entityId":"9d90d3e4-57b5-4fd6-a22d-381e199edf73","metadata":{"productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","currency":"USD","allowedCurrencies":["RUB"]}}],"warnings":[{"code":"NO_ACTIVE_ADVERTISING_BANNERS","message":"Catalog has no active advertising banners; publishing can continue without ads.","entityType":"AdvertisingBanner"}],"summary":{"categoryCount":1,"activePlacementCount":2,"activeBannerCount":0,"catalogVersionCount":2}}

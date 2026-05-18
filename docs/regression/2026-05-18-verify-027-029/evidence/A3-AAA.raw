@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 119
+ETag: W/"77-GY85mgfLu+GZcaFPmKVjVnH6i7Y"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"AAA"}

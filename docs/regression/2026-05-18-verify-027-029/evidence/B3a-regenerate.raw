@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 454
+ETag: W/"1c6-5CH9SSif4iDwo37AMgELqsOvZq4"
+Date: Mon, 18 May 2026 19:16:06 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"device":{"id":"336f3a50-a483-48aa-b507-f5bb3824ea31","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","deviceCode":"QA-TEST-001","name":"Test scale H.1","model":null,"status":"active","lastSeenAt":"2026-05-18T18:53:49.366Z","lastSyncAt":null,"currentCatalogVersionId":null,"lastSyncStatus":null,"lastSyncError":null,"createdAt":"2026-05-18T18:53:39.922Z","updatedAt":"2026-05-18T19:16:06.615Z"},"apiToken":"***REDACTED***"}

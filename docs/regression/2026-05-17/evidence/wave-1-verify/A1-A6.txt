@@ -1,0 +1,84 @@
+===== A1: USD → 400 expected =====
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 119
+ETag: W/"77-eZJBiZYSH2EKFYVImeelKZ9X+XY"
+Date: Mon, 18 May 2026 19:14:33 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"USD"}
+===== A2: ZZZ → 400 expected =====
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 119
+ETag: W/"77-mtdzSikHkfTlXc5ZCv8USx47xM0"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"ZZZ"}
+===== A3: AAA → 400 expected =====
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 119
+ETag: W/"77-GY85mgfLu+GZcaFPmKVjVnH6i7Y"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"AAA"}
+===== A4: RUB → 200 expected =====
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 281
+ETag: W/"119-seXDK46qnLr6tXECsmyaBwEMCvw"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"price":{"id":"9d90d3e4-57b5-4fd6-a22d-381e199edf73","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","price":"10","currency":"RUB","status":"active","createdAt":"2026-05-18T18:50:43.118Z","updatedAt":"2026-05-18T19:14:44.295Z"}}
+===== A5: no currency → 200 default RUB expected =====
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 281
+ETag: W/"119-82TGcoK5L2cA4ptUba5Vb1Bz1qA"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"price":{"id":"9d90d3e4-57b5-4fd6-a22d-381e199edf73","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","price":"10","currency":"RUB","status":"active","createdAt":"2026-05-18T18:50:43.118Z","updatedAt":"2026-05-18T19:14:44.350Z"}}
+===== A6: lowercase rub → 200 normalized RUB expected =====
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 281
+ETag: W/"119-OPOjDy0888CSXTNXFQr8UOWgiE0"
+Date: Mon, 18 May 2026 19:14:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"price":{"id":"9d90d3e4-57b5-4fd6-a22d-381e199edf73","storeId":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","price":"10","currency":"RUB","status":"active","createdAt":"2026-05-18T18:50:43.118Z","updatedAt":"2026-05-18T19:14:44.396Z"}}

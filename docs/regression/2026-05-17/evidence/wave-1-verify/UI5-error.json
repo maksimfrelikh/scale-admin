@@ -1,0 +1,26 @@
+{
+  "intercept": [
+    {
+      "original": {
+        "price": 12,
+        "currency": "RUB"
+      },
+      "modified": {
+        "price": 12,
+        "currency": "USD"
+      }
+    }
+  ],
+  "response": {
+    "status": 400,
+    "body": {
+      "message": "Currency not supported",
+      "code": "PRICE_CURRENCY_NOT_SUPPORTED",
+      "allowedCurrencies": [
+        "RUB"
+      ],
+      "received": "USD"
+    }
+  },
+  "inlineErrorText": "Currency not supported"
+}

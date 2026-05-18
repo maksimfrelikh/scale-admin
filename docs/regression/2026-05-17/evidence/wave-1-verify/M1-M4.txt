@@ -1,0 +1,27 @@
+===== M1: row 9d90d3e4 state =====
+                  id                  | currency | price 
+--------------------------------------+----------+-------
+ 9d90d3e4-57b5-4fd6-a22d-381e199edf73 | RUB      | 10.00
+(1 row)
+
+
+===== M2: backfill audit_logs =====
+          action           |                       beforeData                        |                        afterData                        |                                                 metadata                                                 
+---------------------------+---------------------------------------------------------+---------------------------------------------------------+----------------------------------------------------------------------------------------------------------
+ price.currency_backfilled | {"price": 99.99, "status": "active", "currency": "USD"} | {"price": 99.99, "status": "active", "currency": "RUB"} | {"migration": "bug-reg-029-currency-enum-backfill", "productId": "f8e3732b-e29f-4342-977d-90d0c2db947e"}
+(1 row)
+
+
+===== M3: constraint definition =====
+                conname                |       pg_get_constraintdef       
+---------------------------------------+----------------------------------
+ store_product_prices_currency_allowed | CHECK ((currency = 'RUB'::text))
+(1 row)
+
+
+===== M4: prisma migration row =====
+            migration_name             |          started_at           |         finished_at          | rolled_back_at | applied_steps_count 
+---------------------------------------+-------------------------------+------------------------------+----------------+---------------------
+ 20260518182358_currency_enum_backfill | 2026-05-18 18:50:58.695701+00 | 2026-05-18 18:50:58.71029+00 |                |                   1
+(1 row)
+

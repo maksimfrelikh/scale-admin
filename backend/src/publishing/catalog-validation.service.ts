@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { BannerStatus, CategoryStatus, PlacementStatus, Prisma, ProductStatus } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { ALLOWED_CURRENCIES, AllowedCurrency } from '../shared/currency';
 
 export type CatalogValidationSeverity = 'blocking_error' | 'warning';
 
@@ -88,7 +89,7 @@ export class CatalogValidationService {
       }),
       this.prisma.storeProductPrice.findMany({
         where: { storeId: catalog.storeId, status: 'active', price: { gt: new Prisma.Decimal(0) } },
-        select: { productId: true },
+        select: { id: true, productId: true, currency: true },
       }),
       this.prisma.advertisingBanner.findMany({
         where: { storeId: catalog.storeId, status: 'active' },
@@ -218,10 +219,16 @@ export class CatalogValidationService {
   private validatePlacements(
     catalog: ActiveCatalogRecord,
     placements: ActivePlacementRecord[],
-    activePrices: { productId: string }[],
+    activePrices: { id: string; productId: string; currency: string }[],
     blockingErrors: CatalogValidationIssue[],
   ) {
     const pricedProductIds = new Set(activePrices.map((price) => price.productId));
+    const priceByProductId = new Map<string, { id: string; productId: string; currency: string }>();
+    for (const price of activePrices) {
+      if (!priceByProductId.has(price.productId)) {
+        priceByProductId.set(price.productId, price);
+      }
+    }
     const placementsByPlu = new Map<string, ActivePlacementRecord[]>();
 
     for (const placement of placements) {
@@ -289,6 +296,21 @@ export class CatalogValidationService {
           entityId: placement.id,
           metadata: { productId: placement.productId, storeId: catalog.storeId },
         });
+      } else {
+        const price = priceByProductId.get(placement.productId);
+        if (price && !ALLOWED_CURRENCIES.includes(price.currency as AllowedCurrency)) {
+          blockingErrors.push({
+            code: 'PRICE_CURRENCY_NOT_SUPPORTED',
+            message: 'Active placement price uses an unsupported currency.',
+            entityType: 'StoreProductPrice',
+            entityId: price.id,
+            metadata: {
+              productId: price.productId,
+              currency: price.currency,
+              allowedCurrencies: ALLOWED_CURRENCIES,
+            },
+          });
+        }
       }
 
       const plu = placement.product.defaultPluCode?.trim();

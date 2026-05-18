@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:5174
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 1322
+ETag: W/"52a-DqnGTHqS+8z2zuHIVZRl3INI7DQ"
+Date: Mon, 18 May 2026 19:16:06 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"hasUpdate":true,"versionId":"9878e913-d1eb-4019-ae63-2b2a3964ec9d","versionNumber":3,"packageChecksum":"86881ea0151d39362e7fd525fd75dbdaddcfb43c875c8e432a5ea56db333f09c","packageData":{"store":{"id":"cce1036c-7381-40bd-adf0-fddbe89cb4f9","code":"STORE-001","name":"Sample Store 001"},"catalog":{"id":"400becc1-9dfa-4dd6-8871-c6d57a6c0d31","name":"Main Catalog"},"version":{"id":"9878e913-d1eb-4019-ae63-2b2a3964ec9d","checksum":"86881ea0151d39362e7fd525fd75dbdaddcfb43c875c8e432a5ea56db333f09c","publishedAt":"2026-05-18T19:15:44.420Z","versionNumber":3},"categories":[{"id":"d6d61852-0ea8-4dbb-9008-2b2135c2ae07","name":"Test Fruits","items":[{"plu":"1002","sku":"BAN-001","name":"Bananas Weighted","unit":"kg","price":7,"barcode":"4600000000028","currency":"RUB","imageUrl":null,"productId":"bbab4e24-cb19-4a2e-bbcd-bdfeff6afc8e","shortName":"Bananas","sortOrder":0,"description":"Local development sample bananas"},{"plu":"1001","sku":"APL-RED-001","name":"Apples Red Weighted","unit":"kg","price":10,"barcode":"4600000000011","currency":"RUB","imageUrl":null,"productId":"f8e3732b-e29f-4342-977d-90d0c2db947e","shortName":"Red Apples","sortOrder":0,"description":"Local development sample weighted apples"}],"children":[],"shortName":"Test Fruits","sortOrder":0}],"advertising":{"banners":[],"rotationMode":"loop"}}}

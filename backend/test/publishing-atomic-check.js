@@ -79,7 +79,14 @@ function createMockPrisma(seed = {}) {
 }
 
 function createService({ validation, packageData = basePackageData, prisma = createMockPrisma() } = {}) {
-  const packageService = new CatalogPackageService({});
+  const packageService = new CatalogPackageService({}, {});
+  const auditLogs = {
+    create: async (clientOrArgs, maybeArgs) => {
+      const client = maybeArgs ? clientOrArgs : prisma;
+      const args = maybeArgs ?? clientOrArgs;
+      return client.auditLog.create(args);
+    },
+  };
   const validationService = {
     calls: 0,
     validateActiveCatalog: async () => {
@@ -101,7 +108,7 @@ function createService({ validation, packageData = basePackageData, prisma = cre
       return { packageData: clone(packageData), packageChecksum: 'draft-checksum' };
     },
   };
-  return { service: new CatalogPublishingService(prisma, validationService, packageFacade), prisma, validationService, packageFacade };
+  return { service: new CatalogPublishingService(prisma, auditLogs, validationService, packageFacade), prisma, validationService, packageFacade };
 }
 
 async function testValidPublish() {
