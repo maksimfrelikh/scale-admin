@@ -1,0 +1,4272 @@
+{
+  "generatedAt": "2026-05-17T23:20:58.387Z",
+  "target": "https://maksimfrelikh.ru",
+  "viewports": [
+    {
+      "id": "v1366",
+      "label": "1366x768 laptop",
+      "w": 1366,
+      "h": 768
+    },
+    {
+      "id": "v1024",
+      "label": "1024x768 tablet land",
+      "w": 1024,
+      "h": 768
+    },
+    {
+      "id": "v768",
+      "label": "768x1024 tablet port",
+      "w": 768,
+      "h": 1024
+    },
+    {
+      "id": "v414",
+      "label": "414x896 mobile L",
+      "w": 414,
+      "h": 896
+    },
+    {
+      "id": "v375",
+      "label": "375x667 mobile S",
+      "w": 375,
+      "h": 667
+    }
+  ],
+  "pages": [
+    {
+      "id": "A-login",
+      "role": "unauth",
+      "hash": "",
+      "navTo": "/login"
+    },
+    {
+      "id": "B-overview",
+      "role": "admin",
+      "hash": "",
+      "navTo": "/"
+    },
+    {
+      "id": "C-overview",
+      "role": "operator",
+      "hash": "",
+      "navTo": "/"
+    },
+    {
+      "id": "D-stores",
+      "role": "admin",
+      "hash": "#stores",
+      "navTo": "/#stores"
+    },
+    {
+      "id": "E-store-det",
+      "role": "admin",
+      "hash": "#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "navTo": "/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263"
+    },
+    {
+      "id": "F-products",
+      "role": "admin",
+      "hash": "#products",
+      "navTo": "/#products"
+    },
+    {
+      "id": "G-users",
+      "role": "admin",
+      "hash": "#users-access",
+      "navTo": "/#users-access"
+    },
+    {
+      "id": "H-logs",
+      "role": "admin",
+      "hash": "#global-logs",
+      "navTo": "/#global-logs"
+    }
+  ],
+  "results": [
+    {
+      "page": "A-login",
+      "viewport": "v1366",
+      "role": "unauth",
+      "url_target": "https://maksimfrelikh.ru/login",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 768,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Вход в систему",
+        "h2": ""
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/A-login-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "B-overview",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 5385,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/B-overview-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "C-overview",
+      "viewport": "v1366",
+      "role": "operator",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 1062,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Operator",
+        "h2": "Assigned stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/C-overview-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "D-stores",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#stores",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 7812,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#stores",
+      "screenshot": "evidence/block-11/D-stores-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "E-store-det",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 11567,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "scale-device-table",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "main.dashboard-shell > section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 164,
+            "right": 1508,
+            "scrollWidth": 164,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "scale-device-outdated",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > tbody > tr.scale-device-outdated"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 164,
+            "right": 1508,
+            "scrollWidth": 164,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > tbody > tr.scale-device-outdated > td"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "cls": "table-actions",
+            "width": 137,
+            "right": 1494,
+            "scrollWidth": 137,
+            "path": "table.scale-device-table > tbody > tr.scale-device-outdated > td > div.table-actions"
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "cls": "secondary-button",
+            "width": 81,
+            "right": 1438,
+            "scrollWidth": 81,
+            "path": "tbody > tr.scale-device-outdated > td > div.table-actions > button.secondary-button"
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "cls": "secondary-button",
+            "width": 137,
+            "right": 1494,
+            "scrollWidth": 137,
+            "path": "tbody > tr.scale-device-outdated > td > div.table-actions > button.secondary-button"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1508,
+            "scrollWidth": 1288,
+            "path": "section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 164,
+            "right": 1508,
+            "scrollWidth": 164,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "screenshot": "evidence/block-11/E-store-det-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "F-products",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#products",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 4977,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "product-table",
+            "width": 1550,
+            "right": 1770,
+            "scrollWidth": 1550,
+            "path": "div#root > main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1770,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1770,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1481,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1551,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1676,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 94,
+            "right": 1770,
+            "scrollWidth": 94,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1770,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1770,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1481,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1551,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1676,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#products",
+      "screenshot": "evidence/block-11/F-products-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "G-users",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#users-access",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 8749,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#users-access",
+      "screenshot": "evidence/block-11/G-users-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "H-logs",
+      "viewport": "v1366",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#global-logs",
+      "metrics": {
+        "docScrollW": 1366,
+        "docScrollH": 11354,
+        "docClientW": 1366,
+        "viewport": 1366,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#global-logs",
+      "screenshot": "evidence/block-11/H-logs-v1366.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "A-login",
+      "viewport": "v1024",
+      "role": "unauth",
+      "url_target": "https://maksimfrelikh.ru/login",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 768,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Вход в систему",
+        "h2": ""
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/A-login-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "B-overview",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 5377,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/B-overview-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "C-overview",
+      "viewport": "v1024",
+      "role": "operator",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 1054,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Operator",
+        "h2": "Assigned stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/C-overview-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "D-stores",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#stores",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 7804,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#stores",
+      "screenshot": "evidence/block-11/D-stores-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "E-store-det",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 11591,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "scale-device-table",
+            "width": 1288,
+            "right": 1345,
+            "scrollWidth": 1288,
+            "path": "main.dashboard-shell > section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1345,
+            "scrollWidth": 1288,
+            "path": "section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1345,
+            "scrollWidth": 1288,
+            "path": "section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 206,
+            "right": 1181,
+            "scrollWidth": 206,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 164,
+            "right": 1345,
+            "scrollWidth": 164,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1288,
+            "right": 1345,
+            "scrollWidth": 1288,
+            "path": "section.panel.store-details-panel > section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "scale-device-outdated",
+            "width": 1288,
+            "right": 1345,
+            "scrollWidth": 1288,
+            "path": "section.scale-devices-tab > div.scale-device-table-wrap > table.scale-device-table > tbody > tr.scale-device-outdated"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 206,
+            "right": 1181,
+            "scrollWidth": 206,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > tbody > tr.scale-device-outdated > td"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "cls": "sync-status",
+            "width": 179,
+            "right": 1167,
+            "scrollWidth": 179,
+            "path": "table.scale-device-table > tbody > tr.scale-device-outdated > td > div.sync-status"
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "cls": "badge badge-sync-ack_received",
+            "width": 179,
+            "right": 1167,
+            "scrollWidth": 179,
+            "path": "tbody > tr.scale-device-outdated > td > div.sync-status > span.badge.badge-sync-ack_received"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 164,
+            "right": 1345,
+            "scrollWidth": 164,
+            "path": "div.scale-device-table-wrap > table.scale-device-table > tbody > tr.scale-device-outdated > td"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "cls": "table-actions",
+            "width": 137,
+            "right": 1331,
+            "scrollWidth": 137,
+            "path": "table.scale-device-table > tbody > tr.scale-device-outdated > td > div.table-actions"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "screenshot": "evidence/block-11/E-store-det-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "F-products",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#products",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 4969,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "product-table",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "div#root > main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 170,
+            "right": 1158,
+            "scrollWidth": 170,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1318,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1388,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1513,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 94,
+            "right": 1607,
+            "scrollWidth": 94,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 170,
+            "right": 1158,
+            "scrollWidth": 170,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1318,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#products",
+      "screenshot": "evidence/block-11/F-products-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "G-users",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#users-access",
+      "metrics": {
+        "docScrollW": 1039,
+        "docScrollH": 8785,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": true,
+        "overflowDelta": 15,
+        "overflowers": [
+          {
+            "tag": "INPUT",
+            "id": "",
+            "cls": "",
+            "width": 295,
+            "right": 1039,
+            "scrollWidth": 293,
+            "path": "section.panel > form.invite-form > div.invite-grid > label > input"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#users-access",
+      "screenshot": "evidence/block-11/G-users-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "H-logs",
+      "viewport": "v1024",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#global-logs",
+      "metrics": {
+        "docScrollW": 1024,
+        "docScrollH": 11213,
+        "docClientW": 1024,
+        "viewport": 1024,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "logs-table",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.panel > div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#global-logs",
+      "screenshot": "evidence/block-11/H-logs-v1024.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "A-login",
+      "viewport": "v768",
+      "role": "unauth",
+      "url_target": "https://maksimfrelikh.ru/login",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 1024,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Вход в систему",
+        "h2": ""
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/A-login-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "B-overview",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 8713,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/B-overview-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "C-overview",
+      "viewport": "v768",
+      "role": "operator",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 1024,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Operator",
+        "h2": "Assigned stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/C-overview-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "D-stores",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#stores",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 8462,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#stores",
+      "screenshot": "evidence/block-11/D-stores-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "E-store-det",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 13263,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "banner-table",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "main.dashboard-shell > section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 210,
+            "right": 917,
+            "scrollWidth": 210,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 210,
+            "right": 917,
+            "scrollWidth": 210,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "cls": "table-actions",
+            "width": 182,
+            "right": 903,
+            "scrollWidth": 182,
+            "path": "table.banner-table > tbody > tr > td > div.table-actions"
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "cls": "secondary-button table-action",
+            "width": 102,
+            "right": 823,
+            "scrollWidth": 102,
+            "path": "tbody > tr > td > div.table-actions > button.secondary-button.table-action"
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "cls": "secondary-button table-action",
+            "width": 128,
+            "right": 849,
+            "scrollWidth": 128,
+            "path": "tbody > tr > td > div.table-actions > button.secondary-button.table-action"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 917,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 210,
+            "right": 917,
+            "scrollWidth": 210,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "screenshot": "evidence/block-11/E-store-det-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "F-products",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#products",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 5155,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "product-table",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "div#root > main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 271,
+            "right": 988,
+            "scrollWidth": 271,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 170,
+            "right": 1158,
+            "scrollWidth": 170,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1318,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1388,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1513,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 94,
+            "right": 1607,
+            "scrollWidth": 94,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1607,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 271,
+            "right": 988,
+            "scrollWidth": 271,
+            "path": "div.product-table-wrap > table.product-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#products",
+      "screenshot": "evidence/block-11/F-products-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "G-users",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#users-access",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 13178,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#users-access",
+      "screenshot": "evidence/block-11/G-users-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "H-logs",
+      "viewport": "v768",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#global-logs",
+      "metrics": {
+        "docScrollW": 768,
+        "docScrollH": 11250,
+        "docClientW": 768,
+        "viewport": 768,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "logs-table",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.panel > div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "cls": "badge badge-neutral",
+            "width": 208,
+            "right": 977,
+            "scrollWidth": 208,
+            "path": "table.logs-table > tbody > tr > td > span.badge.badge-neutral"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1185,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "cls": "badge badge-neutral",
+            "width": 208,
+            "right": 977,
+            "scrollWidth": 208,
+            "path": "table.logs-table > tbody > tr > td > span.badge.badge-neutral"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1185,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          }
+        ],
+        "tapSmall": [],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#global-logs",
+      "screenshot": "evidence/block-11/H-logs-v768.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "A-login",
+      "viewport": "v414",
+      "role": "unauth",
+      "url_target": "https://maksimfrelikh.ru/login",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 896,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Login",
+            "w": 286,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Вход в систему",
+        "h2": ""
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/A-login-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "B-overview",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 11083,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh dashboard",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 287,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 282,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 282,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 282,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/B-overview-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "C-overview",
+      "viewport": "v414",
+      "role": "operator",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 1287,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh stores",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open catalog",
+            "w": 316,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Operator",
+        "h2": "Assigned stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/C-overview-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "D-stores",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#stores",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 16438,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 316,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#stores",
+      "screenshot": "evidence/block-11/D-stores-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "E-store-det",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 14874,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "banner-table",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "main.dashboard-shell > section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 128,
+            "right": 421,
+            "scrollWidth": 128,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 79,
+            "right": 500,
+            "scrollWidth": 79,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 184,
+            "right": 683,
+            "scrollWidth": 184,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 210,
+            "right": 893,
+            "scrollWidth": 210,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 128,
+            "right": 421,
+            "scrollWidth": 128,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 79,
+            "right": 500,
+            "scrollWidth": 79,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 184,
+            "right": 683,
+            "scrollWidth": 184,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "← Back to stores",
+            "w": 148,
+            "h": 19
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit store",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh catalog",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create root category",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add to category",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 285,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↓",
+            "w": 285,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↓",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Selected",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add child",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 316,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "screenshot": "evidence/block-11/E-store-det-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "F-products",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#products",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 5358,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "product-table",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "div#root > main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 418,
+            "right": 693,
+            "scrollWidth": 418,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 271,
+            "right": 964,
+            "scrollWidth": 271,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 170,
+            "right": 1134,
+            "scrollWidth": 170,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1294,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1364,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1489,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 94,
+            "right": 1583,
+            "scrollWidth": 94,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > tbody > tr"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create product",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Search",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#products",
+      "screenshot": "evidence/block-11/F-products-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "G-users",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#users-access",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 16025,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh users",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create invite",
+            "w": 149,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 282,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 256,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 282,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 256,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 316,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 282,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 256,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#users-access",
+      "screenshot": "evidence/block-11/G-users-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "H-logs",
+      "viewport": "v414",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#global-logs",
+      "metrics": {
+        "docScrollW": 414,
+        "docScrollH": 11702,
+        "docClientW": 414,
+        "viewport": 414,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "logs-table",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.panel > div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 96,
+            "right": 474,
+            "scrollWidth": 96,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 258,
+            "right": 733,
+            "scrollWidth": 258,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1161,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 96,
+            "right": 474,
+            "scrollWidth": 96,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 258,
+            "right": 733,
+            "scrollWidth": 258,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "STRONG",
+            "id": "",
+            "cls": "",
+            "width": 111,
+            "right": 597,
+            "scrollWidth": 0,
+            "path": "table.logs-table > tbody > tr > td > strong"
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "cls": "muted block",
+            "width": 234,
+            "right": 721,
+            "scrollWidth": 234,
+            "path": "table.logs-table > tbody > tr > td > span.muted.block"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh logs",
+            "w": 350,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Clear filters",
+            "w": 350,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#global-logs",
+      "screenshot": "evidence/block-11/H-logs-v414.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "A-login",
+      "viewport": "v375",
+      "role": "unauth",
+      "url_target": "https://maksimfrelikh.ru/login",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 667,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Login",
+            "w": 247,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Вход в систему",
+        "h2": ""
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/A-login-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "B-overview",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 11428,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh dashboard",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 248,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 243,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 243,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open store",
+            "w": 243,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/B-overview-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "C-overview",
+      "viewport": "v375",
+      "role": "operator",
+      "url_target": "https://maksimfrelikh.ru/",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 1380,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh stores",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open catalog",
+            "w": 277,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Operator",
+        "h2": "Assigned stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/login",
+      "screenshot": "evidence/block-11/C-overview-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "D-stores",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#stores",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 17254,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Details",
+            "w": 277,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#stores",
+      "screenshot": "evidence/block-11/D-stores-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "E-store-det",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 14987,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "banner-table",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "main.dashboard-shell > section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 128,
+            "right": 421,
+            "scrollWidth": 128,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 79,
+            "right": 500,
+            "scrollWidth": 79,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 184,
+            "right": 683,
+            "scrollWidth": 184,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 210,
+            "right": 893,
+            "scrollWidth": 210,
+            "path": "div.banner-table-wrap > table.banner-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.panel.store-details-panel > section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 860,
+            "right": 893,
+            "scrollWidth": 860,
+            "path": "section.advertising-tab > div.banner-table-wrap > table.banner-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 128,
+            "right": 421,
+            "scrollWidth": 128,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          },
+          {
+            "tag": "SELECT",
+            "id": "",
+            "cls": "",
+            "width": 100,
+            "right": 407,
+            "scrollWidth": 98,
+            "path": "table.banner-table > tbody > tr > td > select"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 79,
+            "right": 500,
+            "scrollWidth": 79,
+            "path": "div.banner-table-wrap > table.banner-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "← Back to stores",
+            "w": 148,
+            "h": 19
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit store",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh catalog",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create root category",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add to category",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 246,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↓",
+            "w": 246,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↓",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Selected",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add child",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 277,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "↑",
+            "w": 277,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#store:1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+      "screenshot": "evidence/block-11/E-store-det-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "F-products",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#products",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 5376,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "product-table",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "div#root > main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 418,
+            "right": 693,
+            "scrollWidth": 418,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 271,
+            "right": 964,
+            "scrollWidth": 271,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 170,
+            "right": 1134,
+            "scrollWidth": 170,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 160,
+            "right": 1294,
+            "scrollWidth": 160,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 70,
+            "right": 1364,
+            "scrollWidth": 70,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 125,
+            "right": 1489,
+            "scrollWidth": 125,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 94,
+            "right": 1583,
+            "scrollWidth": 94,
+            "path": "div.product-table-wrap > table.product-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "main.dashboard-shell > section.panel > div.product-table-wrap > table.product-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1550,
+            "right": 1583,
+            "scrollWidth": 1550,
+            "path": "section.panel > div.product-table-wrap > table.product-table > tbody > tr"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create product",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Search",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Edit",
+            "w": 61,
+            "h": 37
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#products",
+      "screenshot": "evidence/block-11/F-products-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "G-users",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#users-access",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 16073,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh users",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create invite",
+            "w": 149,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 299,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 265,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 239,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 299,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 299,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 265,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 239,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 299,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Block",
+            "w": 299,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Assign store",
+            "w": 265,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Revoke",
+            "w": 239,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#users-access",
+      "screenshot": "evidence/block-11/G-users-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    },
+    {
+      "page": "H-logs",
+      "viewport": "v375",
+      "role": "admin",
+      "url_target": "https://maksimfrelikh.ru/#global-logs",
+      "metrics": {
+        "docScrollW": 375,
+        "docScrollH": 11607,
+        "docClientW": 375,
+        "viewport": 375,
+        "horizontalOverflow": false,
+        "overflowDelta": 0,
+        "overflowers": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "cls": "logs-table",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.panel > div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table"
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > thead"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > thead > tr"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 218,
+            "right": 379,
+            "scrollWidth": 218,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 96,
+            "right": 474,
+            "scrollWidth": 96,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 258,
+            "right": 733,
+            "scrollWidth": 258,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "cls": "",
+            "width": 429,
+            "right": 1161,
+            "scrollWidth": 429,
+            "path": "div.logs-table-wrap > table.logs-table > thead > tr > th"
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "div.logs-grid > section.logs-card > div.logs-table-wrap > table.logs-table > tbody"
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "cls": "",
+            "width": 1111,
+            "right": 1161,
+            "scrollWidth": 1111,
+            "path": "section.logs-card > div.logs-table-wrap > table.logs-table > tbody > tr"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 218,
+            "right": 379,
+            "scrollWidth": 218,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 96,
+            "right": 474,
+            "scrollWidth": 96,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "cls": "",
+            "width": 258,
+            "right": 733,
+            "scrollWidth": 258,
+            "path": "div.logs-table-wrap > table.logs-table > tbody > tr > td"
+          }
+        ],
+        "tapSmall": [
+          {
+            "tag": "BUTTON",
+            "text": "Logout",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Overview",
+            "w": 116,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Stores",
+            "w": 90,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Products",
+            "w": 112,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Create store",
+            "w": 144,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Global Logs",
+            "w": 137,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Users & Access",
+            "w": 169,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Refresh logs",
+            "w": 311,
+            "h": 43
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Clear filters",
+            "w": 311,
+            "h": 43
+          }
+        ],
+        "hamburger": null,
+        "navLinks": [],
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs"
+      },
+      "url_actual": "https://maksimfrelikh.ru/#global-logs",
+      "screenshot": "evidence/block-11/H-logs-v375.png",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "networkFailures": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 401
+        }
+      ]
+    }
+  ]
+}
