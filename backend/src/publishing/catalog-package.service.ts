@@ -2,6 +2,8 @@ import { createHash } from 'crypto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { AuditLogService } from '../logs/audit-log.service';
+import { ALLOWED_CURRENCIES, AllowedCurrency } from '../shared/currency';
 
 type ActiveCatalogForPackage = {
   id: string;
@@ -42,6 +44,7 @@ type PackagePlacementRecord = {
 };
 
 type PackagePriceRecord = {
+  id: string;
   productId: string;
   price: Prisma.Decimal;
   currency: string;
@@ -106,7 +109,10 @@ export type CatalogPackageData = {
 
 @Injectable()
 export class CatalogPackageService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly auditLogs: AuditLogService,
+  ) {}
 
   async generateActiveCatalogPackage(storeId: string) {
     const catalog = await this.findActiveCatalog(storeId);
@@ -147,7 +153,7 @@ export class CatalogPackageService {
       }),
       this.prisma.storeProductPrice.findMany({
         where: { storeId: catalog.storeId, status: 'active', price: { gt: new Prisma.Decimal(0) } },
-        select: { productId: true, price: true, currency: true },
+        select: { id: true, productId: true, price: true, currency: true },
         orderBy: [{ updatedAt: 'desc' }, { createdAt: 'desc' }, { id: 'asc' }],
       }),
       this.prisma.advertisingBanner.findMany({
@@ -157,7 +163,7 @@ export class CatalogPackageService {
       }),
     ]);
 
-    const packageData = this.buildPackageData(catalog, categories, placements, activePrices, banners);
+    const packageData = await this.buildPackageData(catalog, categories, placements, activePrices, banners);
     const packageChecksum = this.calculatePackageChecksum(packageData);
 
     return { packageData, packageChecksum };
@@ -188,13 +194,13 @@ export class CatalogPackageService {
     return catalog;
   }
 
-  private buildPackageData(
+  private async buildPackageData(
     catalog: ActiveCatalogForPackage,
     categories: PackageCategoryRecord[],
     placements: PackagePlacementRecord[],
     activePrices: PackagePriceRecord[],
     banners: PackageBannerRecord[],
-  ): CatalogPackageData {
+  ): Promise<CatalogPackageData> {
     const priceByProductId = new Map<string, PackagePriceRecord>();
     for (const price of activePrices) {
       if (!priceByProductId.has(price.productId)) {
@@ -207,6 +213,28 @@ export class CatalogPackageService {
       const price = priceByProductId.get(placement.productId);
       if (!price) {
         continue;
+      }
+
+      if (!ALLOWED_CURRENCIES.includes(price.currency as AllowedCurrency)) {
+        await this.auditLogs.create({
+          data: {
+            actorUserId: null,
+            action: 'catalog.publish_invariant_violation',
+            entityType: 'StoreProductPrice',
+            entityId: price.id,
+            storeId: catalog.storeId,
+            metadata: {
+              invariant: 'currency_whitelist',
+              storeId: catalog.storeId,
+              productId: price.productId,
+              receivedCurrency: price.currency,
+              allowedCurrencies: ALLOWED_CURRENCIES,
+            },
+          },
+        });
+        throw new Error(
+          `Internal: price ${price.productId} has unsupported currency ${price.currency} (expected RUB)`,
+        );
       }
 
       const item: CatalogPackageItem = {

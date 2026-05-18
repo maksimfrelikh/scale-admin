@@ -2,6 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { PriceStatus, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
+import { ALLOWED_CURRENCIES, AllowedCurrency } from '../shared/currency';
 
 export type RequestContext = {
   ipAddress?: string;
@@ -260,12 +261,17 @@ export class PricesService {
   }
 
   private requireCurrency(currency: string): string {
-    const normalizedValue = typeof currency === 'string' ? currency.trim().toUpperCase() : '';
-    if (!/^[A-Z]{3}$/.test(normalizedValue)) {
-      throw new BadRequestException('Currency must be a 3-letter ISO code');
+    const normalized = typeof currency === 'string' ? currency.trim().toUpperCase() : '';
+    if (!ALLOWED_CURRENCIES.includes(normalized as AllowedCurrency)) {
+      throw new BadRequestException({
+        message: 'Currency not supported',
+        code: 'PRICE_CURRENCY_NOT_SUPPORTED',
+        allowedCurrencies: ALLOWED_CURRENCIES,
+        received: normalized || null,
+      });
     }
 
-    return normalizedValue;
+    return normalized;
   }
 
   private parseOptionalBoolean(value: string | undefined, fieldName: string): boolean | undefined {
