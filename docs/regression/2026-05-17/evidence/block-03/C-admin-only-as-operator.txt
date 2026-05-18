@@ -1,0 +1,14 @@
+=== Admin-only API as operator ===
+operator GET /api/users -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator GET /api/users/4df893ce-eceb-4f49-be99-fc09590bee43 -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator GET /api/users/c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204 -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator GET /api/invites -> 404 | {"message":"Cannot GET /api/invites","error":"Not Found","statusCode":404}
+operator GET /api/audit-log -> 404 | {"message":"Cannot GET /api/audit-log","error":"Not Found","statusCode":404}
+operator GET /api/global-logs -> 404 | {"message":"Cannot GET /api/global-logs","error":"Not Found","statusCode":404}
+operator GET /api/logs -> 404 | {"message":"Cannot GET /api/logs","error":"Not Found","statusCode":404}
+operator GET /api/audit -> 404 | {"message":"Cannot GET /api/audit","error":"Not Found","statusCode":404}
+operator GET /api/dashboard -> 404 | {"message":"Cannot GET /api/dashboard","error":"Not Found","statusCode":404}
+operator GET /api/storage-access -> 404 | {"message":"Cannot GET /api/storage-access","error":"Not Found","statusCode":404}
+operator GET /api/store-access -> 404 | {"message":"Cannot GET /api/store-access","error":"Not Found","statusCode":404}
+operator GET /api/scale-events -> 404 | {"message":"Cannot GET /api/scale-events","error":"Not Found","statusCode":404}
+operator GET /api/system -> 404 | {"message":"Cannot GET /api/system","error":"Not Found","statusCode":404}

@@ -1,0 +1,279 @@
+{
+  "startedAt": "2026-05-17T20:38:31.676Z",
+  "F": {
+    "F1_csrf_in_B_before": "yho85n...l5t0",
+    "F1_csrf_in_A_after_relogin": "3GeyVB...qEQs",
+    "F1_csrf_changed": true,
+    "F1_B_sees_csrf_after_A_relogin": "matches new",
+    "F1_B_state_change_after_A_relogin": {
+      "status": 201,
+      "body": "{\"store\":{\"id\":\"9a226687-6dd3-4377-99b2-ed3182ba9de4\",\"code\":\"QAMTABF\",\"name\":\"QA-MTAB-F-001\",\"address\":null,\"timezone\":\"Europe/Moscow\",\"status\":\"active\",\"createdAt\":\"2026-05-17T20:38:38.779Z\",\"updatedAt\":\"2026-05-17T20:38:38.779Z\"},\"mainCatalog\":{\"id\":\"81c418af-901d-4b92-955e-6d9862fc526b\",\"storeId",
+      "tokenSent": "3GeyVB...qEQs"
+    },
+    "F1_B_with_explicit_old_csrf": {
+      "status": 403,
+      "body": "{\"message\":\"CSRF token required or invalid\",\"error\":\"Forbidden\",\"code\":\"CSRF_TOKEN_INVALID\",\"statusCode\":403}"
+    }
+  },
+  "G": {
+    "G_idle_snapshots": [
+      {
+        "t": "20:39:50.938",
+        "elapsedSec": 30,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:40:20.944",
+        "elapsedSec": 60,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:40:50.949",
+        "elapsedSec": 90,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:41:20.954",
+        "elapsedSec": 120,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:41:50.962",
+        "elapsedSec": 150,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:42:20.968",
+        "elapsedSec": 180,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:42:50.973",
+        "elapsedSec": 210,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:43:20.978",
+        "elapsedSec": 240,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:43:50.983",
+        "elapsedSec": 270,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:44:20.989",
+        "elapsedSec": 300,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      },
+      {
+        "t": "20:44:50.995",
+        "elapsedSec": 330,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true
+      }
+    ],
+    "G_bg_api_during_idle": [
+      {
+        "t": "20:45:21.053",
+        "s": 401,
+        "u": "/api/auth/session",
+        "m": "GET"
+      },
+      {
+        "t": "20:45:51.066",
+        "s": 401,
+        "u": "/api/auth/session",
+        "m": "GET"
+      },
+      {
+        "t": "20:46:21.080",
+        "s": 401,
+        "u": "/api/auth/session",
+        "m": "GET"
+      },
+      {
+        "t": "20:46:51.095",
+        "s": 401,
+        "u": "/api/auth/session",
+        "m": "GET"
+      },
+      {
+        "t": "20:46:51.230",
+        "s": 401,
+        "u": "/api/auth/session",
+        "m": "GET"
+      },
+      {
+        "t": "20:46:51.263",
+        "s": 200,
+        "u": "/api/auth/csrf",
+        "m": "GET"
+      }
+    ],
+    "G_logout_status": 200,
+    "G_post_logout_polls": [
+      {
+        "t": "20:45:21.053",
+        "elapsedSecSinceLogout": 30,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true,
+        "sess": 401
+      },
+      {
+        "t": "20:45:51.066",
+        "elapsedSecSinceLogout": 60,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true,
+        "sess": 401
+      },
+      {
+        "t": "20:46:21.080",
+        "elapsedSecSinceLogout": 90,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true,
+        "sess": 401
+      },
+      {
+        "t": "20:46:51.095",
+        "elapsedSecSinceLogout": 120,
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": true,
+        "sess": 401
+      }
+    ],
+    "G_A_after_click": {
+      "url": "https://maksimfrelikh.ru/#stores",
+      "h1": "Вход в систему",
+      "body": " Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin ",
+      "onLogin": true
+    }
+  },
+  "H": {
+    "H_pre": {
+      "session_present": true,
+      "csrf_present": true
+    },
+    "H_logout_status": 200,
+    "H_polls_30s": [
+      {
+        "t": "20:38:48.270",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      },
+      {
+        "t": "20:38:53.295",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      },
+      {
+        "t": "20:38:58.327",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      },
+      {
+        "t": "20:39:03.358",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      },
+      {
+        "t": "20:39:08.385",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      },
+      {
+        "t": "20:39:13.408",
+        "A": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": true
+        },
+        "B": {
+          "h1": "Добро пожаловать, QA Admin",
+          "onLogin": false
+        },
+        "sessA": 401,
+        "sessB": 401
+      }
+    ],
+    "H_A_after_click": {
+      "url": "https://maksimfrelikh.ru/#products",
+      "h1": "Вход в систему",
+      "body": " Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin ",
+      "onLogin": true
+    }
+  },
+  "mechanism": {
+    "BUG-UX-001 (logout broadcast)": {
+      "mechanism_found": "none",
+      "evidence": "storage events=0, BroadcastChannel events=0 on 8 channels, no /api/auth/session polling in idle tab",
+      "bug_repro": "BUG-REG-014"
+    },
+    "BUG-UX-011 (stores list freshness)": {
+      "mechanism_found": "none (only via hard refresh)",
+      "evidence": "30s poll: 0 auto-refresh; after Tab A POST /api/stores 201, Tab B sent 0 requests to /api/stores",
+      "bug_repro": "BUG-REG-015"
+    },
+    "BUG-UX-012 (store detail freshness)": {
+      "mechanism_found": "none (only via hard refresh)",
+      "evidence": "30s poll: 0 auto-refresh; after Tab A POST /api/stores/{sid}/catalog/categories 201, Tab B sent 0 requests for category list",
+      "bug_repro": "BUG-REG-016"
+    },
+    "BUG-UX-013 (post-login URL stays /login)": {
+      "mechanism_found": "cosmetic — URL stays /login after auth, hash navigation builds /login#... in BOTH tabs",
+      "evidence": "verified in Block 4 and confirmed here",
+      "bug_repro": "BUG-REG-013"
+    }
+  },
+  "endedAt": "2026-05-17T20:46:54.324Z"
+}

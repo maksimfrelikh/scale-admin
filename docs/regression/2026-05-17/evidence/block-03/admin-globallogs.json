@@ -1,0 +1,178 @@
+{
+  "steps": [
+    {
+      "step": "click Global Logs",
+      "after": "https://maksimfrelikh.ru/dashboard#global-logs",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Global Logs",
+      "apiCalls": [
+        {
+          "m": "GET",
+          "u": "https://maksimfrelikh.ru/api/stores",
+          "s": 200
+        },
+        {
+          "m": "GET",
+          "u": "https://maksimfrelikh.ru/api/logs/global",
+          "s": 200
+        }
+      ]
+    }
+  ],
+  "globalLogsSnippet": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for qa-admin@***.invalid · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN ONLY\n\nGlobal Logs\n\nRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not exposed.\n\nRefresh logs\nStore\nAll stores\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-132959 · QA Cache Session 132959 A\nQA-CACHE-147228 · QA Cache Session 147228 C\nQA-CACHE-195162 · QA Cache Session 195162 D\nQA-CACHE-327800 · QA Cache Session 327800 D\nQA-FORM-202605161432 · QA Forms Store 202605161432\nQA-FORM-202605161433 · QA Forms Store 202605161433\nQA-PUB-20260516150746 · QA Publishing Regression 20260516150746\nQA-PUB-20260516150853 · QA Publishing Regression 20260516150853\nQA-PUB-20260516150944 · QA Publishing Regression 20260516150944\nQA-PUB-20260516151018 · QA Publishing Regression 20260516151018\nQA-PUB-20260516151112 · QA Publishing Regression 20260516151112\nSTORE-001 · Sample Store 001\nTASK013-A · Task 013 Store A\nTASK013-B · Task 013 Store B\nTASK016-ACTIVE · Task 016 Updated Store\nT17A-1778790425 · Task 017 Store A Edited\nT17B-1778790425 · Task 017 Store B\nTASK018-ALLOWED · Task 018 Allowed Store\nTASK018-DEN",
+  "inviteUI": [
+    {
+      "tag": "BUTTON",
+      "text": "Create invite",
+      "href": null
+    }
+  ],
+  "inviteDialogSnippet": "",
+  "allApiCalls": [
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/session",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/stores",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/logs/global",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/session",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/f03c0cc9-9d31-49de-9472-1fcd2e81b41f/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/3e920660-eb74-46d7-8d29-63300aa26845/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/d3e0ae57-5097-48be-a687-5e0080f42086/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/e250cd0e-c606-4662-a5d5-349f51819d2a/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/45e6c456-2e1c-4594-84c5-bbdfdc10ad49/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/7643af38-e96d-4fdc-be70-e7d65546b323/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/7c26d261-4e36-45ff-bcb4-adb9c5d5c67c/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000918/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/571453dd-d1c9-40ce-8d27-8cbc72c4bfff/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/86c18cfe-947c-4bf8-b959-a3585f60b34d/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/975a8599-53f8-4155-9f2b-33c97944acbb/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000921/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/stores",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000916/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000913/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/41835af1-c798-401d-8733-ec1d95b757e6/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/351bee49-cbcd-4d68-859a-fa5ded93ddf0/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/cb7e1101-4c13-4bf0-a327-85a2719ad265/store-accesses",
+      "s": 200
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000888/store-accesses",
+      "s": 200
+    }
+  ]
+}

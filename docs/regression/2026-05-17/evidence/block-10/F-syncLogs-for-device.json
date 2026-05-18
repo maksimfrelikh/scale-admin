@@ -1,0 +1,160 @@
+{
+  "id": "3bb91f44-9257-44cf-a466-bbdef2e77379",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": "5551bc14-df84-4b97-812c-06719c70b67b",
+  "status": "error",
+  "errorMessage": "checksum mismatch",
+  "createdAt": "2026-05-17T22:45:30.054Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "4e4733d0-ef46-43fc-a1d1-12af1a8bdd82",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": "af835e68-6846-499b-a4da-33bc5d78a2bc",
+  "status": "ack_received",
+  "errorMessage": null,
+  "createdAt": "2026-05-17T22:45:20.800Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "d094f7ec-2760-4ce7-8de7-05b5a60f21e5",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": "af835e68-6846-499b-a4da-33bc5d78a2bc",
+  "status": "package_delivered",
+  "errorMessage": null,
+  "createdAt": "2026-05-17T22:44:46.030Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "c18c42c7-2082-4875-af4e-6650a5071448",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": "5551bc14-df84-4b97-812c-06719c70b67b",
+  "deliveredVersionId": "af835e68-6846-499b-a4da-33bc5d78a2bc",
+  "status": "package_delivered",
+  "errorMessage": null,
+  "createdAt": "2026-05-17T22:44:40.374Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "d19f59dc-3bfc-4f54-868d-c121a1332706",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": "af835e68-6846-499b-a4da-33bc5d78a2bc",
+  "deliveredVersionId": null,
+  "status": "no_update",
+  "errorMessage": null,
+  "createdAt": "2026-05-17T22:44:34.591Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "3aa62bdf-0ac5-420e-be45-8777d58aa30d",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": null,
+  "status": "auth_failed",
+  "errorMessage": "device_blocked",
+  "createdAt": "2026-05-17T22:44:22.226Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "c7fbf931-a3d1-487d-a3d0-83dbc74af58e",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": null,
+  "status": "auth_failed",
+  "errorMessage": "invalid_credentials",
+  "createdAt": "2026-05-17T22:44:14.102Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}
+{
+  "id": "0c94ac6c-7e6e-42b1-a779-a254ebfe1722",
+  "scaleDeviceId": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+  "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+  "requestedVersionId": null,
+  "deliveredVersionId": null,
+  "status": "auth_failed",
+  "errorMessage": "invalid_credentials",
+  "createdAt": "2026-05-17T22:42:59.827Z",
+  "scaleDevice": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device"
+  },
+  "store": {
+    "id": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "code": "UAT20260515P4195540",
+    "name": "UAT 2026-05-15 Phase 4 20260515195540 Store"
+  }
+}

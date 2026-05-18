@@ -1,0 +1,40 @@
+=== 1) curl -I http://maksimfrelikh.ru ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:49 GMT
+Content-Type: text/html
+Content-Length: 178
+Connection: keep-alive
+Location: https://maksimfrelikh.ru/
+
+
+=== 2) curl -I http://www.maksimfrelikh.ru ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:49 GMT
+Content-Type: text/html
+Content-Length: 178
+Connection: keep-alive
+Location: https://maksimfrelikh.ru/
+
+
+=== 3) curl -I https://www.maksimfrelikh.ru ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:49 GMT
+Content-Type: text/html
+Content-Length: 178
+Connection: keep-alive
+Location: https://maksimfrelikh.ru/
+
+
+=== 4) curl -I https://maksimfrelikh.ru ===
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:49 GMT
+Content-Type: text/html
+Connection: keep-alive
+Vary: Origin
+Cache-Control: no-cache
+Etag: W/"18c-Bb69P9LJ7adIZlHFWZAjLtkpgjg"
+

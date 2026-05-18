@@ -1,0 +1,10 @@
+=== Operator vs FOREIGN store adc14d18-59b7-43f1-995f-f079c2ef0b96 ===
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96 -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog -> 404 | {"message":"Cannot GET /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog","error":"Not Found","statusCode":404}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/products -> 404 | {"message":"Cannot GET /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/products","error":"Not Found","statusCode":404}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/banners -> 404 | {"message":"Cannot GET /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/banners","error":"Not Found","statusCode":404}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/scales -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/versions -> 404 | {"message":"Cannot GET /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/versions","error":"Not Found","statusCode":404}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/logs -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+GET https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/publications -> 404 | {"message":"Cannot GET /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/publications","error":"Not Found","statusCode":404}

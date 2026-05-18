@@ -1,0 +1,15 @@
+{
+  "rtkInfo": {
+    "keys": [],
+    "endpointPatterns": []
+  },
+  "traffic": [
+    {
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/login",
+      "s": 200,
+      "reqBody": "{\"email\":\"qa-admin@***.invalid\",\"password\":\"***REDACTED***\"}",
+      "respHead": "{\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid\",\"fullName\":\"QA Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-05-31T19:37:42.723Z\"}"
+    }
+  ]
+}

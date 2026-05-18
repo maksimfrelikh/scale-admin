@@ -1,0 +1,24 @@
+URL=https://maksimfrelikh.ru/api/stores/021acd90-f270-4e64-b23c-5edb330adb2d/publishing/catalog-publish
+CSRF len=43
+--- HEAD OUT1 ---
+HTTP/1.1 500 Internal Server Error
+--- HEAD OUT2 ---
+HTTP/1.1 201 Created
+--- BODY OUT1 ---
+{"version_id":null,"versionNumber":null,"message":"Internal server error","statusCode":500}
+--- BODY OUT2 ---
+{"version_id":"be4b3f78-b3cc-4250-9872-1a84c2052667","versionNumber":5,"message":null,"statusCode":null}
+--- versions list now ---
+/home/clawd/projects/scale-admin/docs/regression/2026-05-17/scripts/block-09-helpers.sh: line 22: $3: unbound variable
+URL=https://maksimfrelikh.ru/api/stores/021acd90-f270-4e64-b23c-5edb330adb2d/publishing/catalog-publish
+CSRF len=43
+--- HEAD OUT1 ---
+HTTP/1.1 500 Internal Server Error
+--- HEAD OUT2 ---
+HTTP/1.1 201 Created
+--- BODY OUT1 ---
+{"version_id":null,"versionNumber":null,"message":"Internal server error","statusCode":500}
+--- BODY OUT2 ---
+{"version_id":"ddea7551-e7ff-44f8-a49c-3056d88749ae","versionNumber":6,"message":null,"statusCode":null}
+--- versions list now ---
+/home/clawd/projects/scale-admin/docs/regression/2026-05-17/scripts/block-09-helpers.sh: line 22: $3: unbound variable

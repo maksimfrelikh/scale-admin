@@ -1,0 +1,161 @@
+{
+  "revoked": false,
+  "traffic": [
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/session",
+      "s": 401,
+      "bodyHead": "{\"message\":\"Authentication required\",\"error\":\"Unauthorized\",\"statusCode\":401}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/csrf",
+      "s": 200,
+      "bodyHead": "{\"csrfToken\":\"D_nfWyQ-H7qT5QV_dCnrEgm7gSU3DXd2ekk9i3nzkdw\",\"headerName\":\"x-csrf-token\"}"
+    },
+    {
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/login",
+      "s": 200,
+      "bodyHead": "{\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid\",\"fullName\":\"QA Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-05-31T19:35:59.463Z\"}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/auth/session",
+      "s": 200,
+      "bodyHead": "{\"session\":{\"id\":\"3be503e9-8fed-47e6-ad2e-0a54d10c537a\",\"createdAt\":\"2026-05-17T19:35:59.463Z\",\"lastUsedAt\":\"2026-05-17T19:35:59.595Z\",\"expiresAt\":\"2026-05-31T19:35:59.463Z\"},\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/admin/dashboard",
+      "s": 200,
+      "bodyHead": "{\"counts\":{\"stores\":44,\"scaleDevices\":14,\"scaleDevicesWithErrors\":9,\"scaleDevicesWithoutSynchronization\":14},\"latestPublishedVersions\":[{\"id\":\"61998b55-903c-4b34-98e2-96b0503a223c\",\"catalogId\":\"da23e373-ddd8-4d1a-9fb4-ddb1395c8816\",\"catalogName\":\"Mai"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users",
+      "s": 200,
+      "bodyHead": "{\"users\":[{\"id\":\"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204\",\"email\":\"qa-operator@***.invalid\",\"fullName\":\"QA Operator\",\"role\":\"operator\",\"status\":\"active\",\"emailVerifiedAt\":\"2026-05-16T13:37:41.103Z\",\"lastLoginAt\":\"2026-05-17T19:25:55.136Z\",\"createdAt\":\"202"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/3e920660-eb74-46d7-8d29-63300aa26845/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"2afbfde9-75a2-4a6f-94f9-34aefd6b4af4\",\"userId\":\"3e920660-eb74-46d7-8d29-63300aa26845\",\"storeId\":\"d36bfc74-3551-4d0c-9a1d-999025651fb4\",\"grantedByUserId\":\"2632a889-540b-443f-9e3b-837f7899b408\",\"createdAt\":\"2026-05-15T20:29:23."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"e94606f4-fc89-439c-835c-e9b8a7291003\",\"userId\":\"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204\",\"storeId\":\"e73ba6bd-abb9-4596-9289-cca474fb2ec1\",\"grantedByUserId\":\"4ea0b245-abad-4768-8e86-7de0c018ae6d\",\"createdAt\":\"2026-05-16T15:15:28."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/d3e0ae57-5097-48be-a687-5e0080f42086/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"56caed81-96f2-408d-91b7-f1fd429f3050\",\"userId\":\"d3e0ae57-5097-48be-a687-5e0080f42086\",\"storeId\":\"a91e0f68-4ed4-4c4c-bedc-bf605d33c39b\",\"grantedByUserId\":\"b6aa335a-878e-410f-ba4f-57cb5d7d6da6\",\"createdAt\":\"2026-05-15T20:38:08."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/stores",
+      "s": 200,
+      "bodyHead": "{\"stores\":[{\"id\":\"adc14d18-59b7-43f1-995f-f079c2ef0b96\",\"code\":\"STORE-002\",\"name\":\"Manager Verify Store 002\",\"address\":null,\"timezone\":\"Europe/Moscow\",\"status\":\"active\",\"createdAt\":\"2026-05-14T11:46:40.987Z\",\"updatedAt\":\"2026-05-14T11:46:40.987Z\"},{\""
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/e250cd0e-c606-4662-a5d5-349f51819d2a/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/f03c0cc9-9d31-49de-9472-1fcd2e81b41f/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"da32bf43-931b-4b4d-93ec-0215e1f07f20\",\"userId\":\"f03c0cc9-9d31-49de-9472-1fcd2e81b41f\",\"storeId\":\"5fe1e7f0-e6e4-4ea7-b092-8a0a0a176a5c\",\"grantedByUserId\":\"b6d21a01-5256-4078-9c66-2525b2088644\",\"createdAt\":\"2026-05-15T20:37:20."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/45e6c456-2e1c-4594-84c5-bbdfdc10ad49/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/7643af38-e96d-4fdc-be70-e7d65546b323/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"7c8414a3-34fd-4b55-9028-0f71386e76e6\",\"userId\":\"7643af38-e96d-4fdc-be70-e7d65546b323\",\"storeId\":\"d36bfc74-3551-4d0c-9a1d-999025651fb4\",\"grantedByUserId\":\"2632a889-540b-443f-9e3b-837f7899b408\",\"createdAt\":\"2026-05-15T20:29:23."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/7c26d261-4e36-45ff-bcb4-adb9c5d5c67c/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"a8605d60-20d6-464c-bdc1-2d3b2eb473af\",\"userId\":\"7c26d261-4e36-45ff-bcb4-adb9c5d5c67c\",\"storeId\":\"a50a66d7-04ae-421c-b454-bcd673806dd7\",\"grantedByUserId\":\"999dbcfa-f35c-43c2-a8c1-389c7651a489\",\"createdAt\":\"2026-05-15T20:27:59."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/86c18cfe-947c-4bf8-b959-a3585f60b34d/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"1e99ae0d-7f42-46e4-9860-c5ae538e64da\",\"userId\":\"86c18cfe-947c-4bf8-b959-a3585f60b34d\",\"storeId\":\"a50a66d7-04ae-421c-b454-bcd673806dd7\",\"grantedByUserId\":\"999dbcfa-f35c-43c2-a8c1-389c7651a489\",\"createdAt\":\"2026-05-15T20:27:59."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/975a8599-53f8-4155-9f2b-33c97944acbb/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"4067541d-3550-45de-baa9-4bc55c2e6f35\",\"userId\":\"975a8599-53f8-4155-9f2b-33c97944acbb\",\"storeId\":\"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263\",\"grantedByUserId\":\"4ea0b245-abad-4768-8e86-7de0c018ae6d\",\"createdAt\":\"2026-05-15T20:00:52."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000921/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000918/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"47ecb2b1-d2cf-4a5e-b30a-b7e8294e61af\",\"userId\":\"00000000-0000-0000-0000-000000000918\",\"storeId\":\"68558068-8fa7-4de5-a527-b4ecaf7d8200\",\"grantedByUserId\":null,\"createdAt\":\"2026-05-14T20:46:10.653Z\",\"revokedAt\":null,\"store\":{\"i"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000916/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/571453dd-d1c9-40ce-8d27-8cbc72c4bfff/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"65ccde8c-33f5-4435-bb07-74c0e04bcccf\",\"userId\":\"571453dd-d1c9-40ce-8d27-8cbc72c4bfff\",\"storeId\":\"5e8b8ffc-bfce-436d-ba8c-cf8f55fdf4d4\",\"grantedByUserId\":\"4ea0b245-abad-4768-8e86-7de0c018ae6d\",\"createdAt\":\"2026-05-14T20:27:05."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/cb7e1101-4c13-4bf0-a327-85a2719ad265/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/41835af1-c798-401d-8733-ec1d95b757e6/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000913/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"ca447fe2-cd71-4dbf-a499-acf76a3d584b\",\"userId\":\"00000000-0000-0000-0000-000000000913\",\"storeId\":\"9624578d-a8c9-45a4-8dbf-006c961c0adf\",\"grantedByUserId\":\"4ea0b245-abad-4768-8e86-7de0c018ae6d\",\"createdAt\":\"2026-05-14T17:41:32."
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/351bee49-cbcd-4d68-859a-fa5ded93ddf0/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[]}"
+    },
+    {
+      "m": "GET",
+      "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000888/store-accesses",
+      "s": 200,
+      "bodyHead": "{\"storeAccesses\":[{\"id\":\"00000000-0000-0000-0000-000000008888\",\"userId\":\"00000000-0000-0000-0000-000000000888\",\"storeId\":\"21a4e45c-1c52-4f0f-b2ac-854b32bbd7a4\",\"grantedByUserId\":null,\"createdAt\":\"2026-05-14T11:46:41.000Z\",\"revokedAt\":null,\"store\":{\"i"
+    }
+  ]
+}

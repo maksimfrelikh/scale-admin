@@ -1,0 +1,59 @@
+{
+  "auditCount": 13,
+  "first3": [
+    {
+      "id": "75f0b423-d1d6-4d7f-b3c8-98d2c6006417",
+      "action": "catalog_version.published",
+      "entityType": "CatalogVersion",
+      "entityId": "d4eb3f62-913e-44c3-b08c-a0d61c5ee7dd",
+      "storeId": "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "createdAt": "2026-05-17T22:24:17.434Z",
+      "actor": {
+        "id": "c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204",
+        "email": "qa-operator@***.invalid",
+        "fullName": "QA Operator"
+      },
+      "store": {
+        "id": "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "code": "QA-PUB-20260516150944",
+        "name": "QA Publishing Regression 20260516150944"
+      }
+    },
+    {
+      "id": "64440aa5-4a1d-4a45-891e-7feaccd7aba7",
+      "action": "catalog_version.published",
+      "entityType": "CatalogVersion",
+      "entityId": "ddea7551-e7ff-44f8-a49c-3056d88749ae",
+      "storeId": "021acd90-f270-4e64-b23c-5edb330adb2d",
+      "createdAt": "2026-05-17T22:23:54.038Z",
+      "actor": {
+        "id": "4df893ce-eceb-4f49-be99-fc09590bee43",
+        "email": "qa-admin@***.invalid",
+        "fullName": "QA Admin"
+      },
+      "store": {
+        "id": "021acd90-f270-4e64-b23c-5edb330adb2d",
+        "code": "QA-PUB-20260517221546",
+        "name": "QA Publishing Block 9 20260517221546"
+      }
+    },
+    {
+      "id": "ea480768-06ac-4712-8248-a34a5fa00ab7",
+      "action": "catalog_version.published",
+      "entityType": "CatalogVersion",
+      "entityId": "be4b3f78-b3cc-4250-9872-1a84c2052667",
+      "storeId": "021acd90-f270-4e64-b23c-5edb330adb2d",
+      "createdAt": "2026-05-17T22:23:23.595Z",
+      "actor": {
+        "id": "4df893ce-eceb-4f49-be99-fc09590bee43",
+        "email": "qa-admin@***.invalid",
+        "fullName": "QA Admin"
+      },
+      "store": {
+        "id": "021acd90-f270-4e64-b23c-5edb330adb2d",
+        "code": "QA-PUB-20260517221546",
+        "name": "QA Publishing Block 9 20260517221546"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+# Test H: Direct API access without auth + admin endpoint inventory
+Date: 2026-05-17T19:04:21Z
+
+=== H.1: Protected endpoints WITHOUT session cookie (should all be 401) ===
+GET /api/stores -> HTTP 401
+GET /api/products -> HTTP 401
+GET /api/users -> HTTP 401
+GET /api/logs -> HTTP 404
+GET /api/audit-log -> HTTP 404
+GET /api/dashboard -> HTTP 404
+GET /api/auth/session -> HTTP 401
+
+=== Re-login as admin and probe admin-specific endpoints ===
+Admin login HTTP=200
+
+=== H.2: Admin probing endpoints (admin allowed) ===
+[admin] GET /api/users -> HTTP 200
+[admin] GET /api/logs -> HTTP 404
+[admin] GET /api/audit-log -> HTTP 404
+[admin] GET /api/dashboard -> HTTP 404
+[admin] GET /api/stores -> HTTP 200
+[admin] GET /api/products -> HTTP 200
+[admin] GET /api/audit -> HTTP 404
+
+=== Sample admin /api/users payload (first item only, masked) ===
+{
+  "count": 25,
+  "keys": [
+    "users"
+  ],
+  "first_keys": [
+    "createdAt",
+    "deletedAt",
+    "email",
+    "emailVerifiedAt",
+    "fullName",
+    "id",
+    "lastLoginAt",
+    "role",
+    "status",
+    "updatedAt"
+  ]
+}

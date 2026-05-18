@@ -1,0 +1,41 @@
+=== 1) GET /api/health with Origin: evil.example ===
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 86
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"56-RgDwfolRF0tAVjleUJiQuhroaiU"
+
+
+=== 2) OPTIONS preflight /api/auth/login with Origin: evil.example ===
+HTTP/1.1 204 No Content
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:58 GMT
+Content-Length: 0
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin, Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+Access-Control-Allow-Headers: content-type
+
+
+=== 3) Sanity: GET /api/health with Origin: maksimfrelikh.ru (sanity baseline) ===
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 86
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"56-wvLcjo+Fc5A+1kF1FKsbzllwFMk"
+

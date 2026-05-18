@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 22:50:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1907
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"773-GGOmdDlF4P+PQ+q5z37kbKTaNF4"
+
+{"hasUpdate":true,"versionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","versionNumber":2,"packageChecksum":"cd52d46d44d3ae6665631d46165b8548b3ed82edfae38fdd45b01f0a06575173","packageData":{"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"},"catalog":{"id":"e8f19943-571c-4eba-8b42-044ac952e7e6","name":"Main catalog"},"version":{"id":"af835e68-6846-499b-a4da-33bc5d78a2bc","checksum":"cd52d46d44d3ae6665631d46165b8548b3ed82edfae38fdd45b01f0a06575173","publishedAt":"2026-05-15T20:02:14.516Z","versionNumber":2},"categories":[{"id":"6340675e-62cd-413e-86a9-b4802d26cb3a","name":"UAT 2026-05-15 Phase 4 20260515195540 Category","items":[{"plu":"UATPLU15195540","sku":"SKU-20260515195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Product","unit":"piece","price":123.45,"barcode":null,"currency":"RUB","imageUrl":null,"productId":"b843497e-983e-471e-a307-199176b3e148","shortName":"UAT P4 Product","sortOrder":0,"description":"UAT 2026-05-15 Phase 4 20260515195540 product description"}],"children":[],"shortName":"UAT P4 Category","sortOrder":0},{"id":"fc7714ba-1d32-47db-812f-7df922903ebd","name":"UAT 2026-05-15 Phase 5 20260515200213 Category","items":[{"plu":"P50515200213","sku":"UAT-P5-20260515200213","name":"UAT 2026-05-15 Phase 5 20260515200213 Product","unit":"piece","price":234.56,"barcode":null,"currency":"RUB","imageUrl":null,"productId":"60c6c7e9-106d-4e3c-bd40-57de46562058","shortName":"UAT P5 Product","sortOrder":0,"description":null}],"children":[],"shortName":"UAT P5 Category","sortOrder":0}],"advertising":{"banners":[{"id":"1f9157a5-6593-4aed-8fb9-1ae898477919","imageUrl":"https://maksimfrelikh.ru/uat-phase4-banner.png","sortOrder":0},{"id":"6ea16582-0aa9-4c8b-80ff-fea3dbec8830","imageUrl":"https://maksimfrelikh.ru/uat-phase5-banner-20260515200213.png","sortOrder":5}],"rotationMode":"loop"}}}

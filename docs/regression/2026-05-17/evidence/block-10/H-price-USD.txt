@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 22:48:03 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 284
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"11c-1kLQTAAmQBCoAmIgODUFBR6xTNE"
+
+{"price":{"id":"98177f5a-1fb4-4040-8f50-aa718de1787c","storeId":"8995f4b9-f851-4654-930b-e5d407cd35e8","productId":"5593d554-b3cb-4925-bf75-1adb2ad939f2","price":"99.99","currency":"USD","status":"active","createdAt":"2026-05-17T22:48:03.851Z","updatedAt":"2026-05-17T22:48:03.851Z"}}

@@ -1,0 +1,142 @@
+{
+  "startedAt": "2026-05-17T20:00:09.250Z",
+  "A.0-after-login": {
+    "label": "A0-admin-after-login",
+    "url": "https://maksimfrelikh.ru/login",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refresh dashboardStores44Scales14Scales with errors9Without synchronization14Latest published versionsQA-PUB-20260516151112 · QA Publishing Regressio"
+  },
+  "adminNavLinksDetected": [],
+  "A-Dashboard": {
+    "label": "A-admin-Dashboard",
+    "url": "https://maksimfrelikh.ru/login",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refresh dashboardStores44Scales14Scales with errors9Without synchronization14Latest published versionsQA-PUB-20260516151112 · QA Publishing Regressio"
+  },
+  "A-Stores": {
+    "label": "A-admin-Stores",
+    "url": "https://maksimfrelikh.ru/login#stores",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Stores",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate storeSTORE-002Manager Verify Store 002No address · Europe/MoscowactiveDetailsEditQA-CACHE-132959QA Cache Session 132959 AQA cache/session regressio"
+  },
+  "A-Products": {
+    "label": "A-admin-Products",
+    "url": "https://maksimfrelikh.ru/login#products",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Product catalog",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessProductsProduct catalogSearch and manage PLU-backed products available to catalogs and prices.RefreshCreate productSearchStatusAll statusesactiveinactivearchivedSearchPLUNameShort nameSKUBarcodeUnitStatusActions1001Apples Red WeightedRed Apples"
+  },
+  "A-Users & Access": {
+    "label": "A-admin-Users_Access",
+    "url": "https://maksimfrelikh.ru/login#users-access",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Invites, roles and operator stores",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block users and manage operator store assignments.Include deletedRefresh usersCreate inviteSend this one-time token to the invited user through a secur"
+  },
+  "A-Users": {
+    "label": "A-admin-Users",
+    "url": "https://maksimfrelikh.ru/login#users-access",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Invites, roles and operator stores",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block users and manage operator store assignments.Include deletedRefresh usersCreate inviteSend this one-time token to the invited user through a secur"
+  },
+  "A-Global Logs": {
+    "label": "A-admin-Global_Logs",
+    "url": "https://maksimfrelikh.ru/login#global-logs",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Global Logs",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin onlyGlobal LogsRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not exposed.Refresh logsStoreAll storesSTORE-002 · Manager Verify Store 002QA-CACHE-132959 · QA Cache Session 132959 AQA-CACHE-147228 · QA Cache Ses"
+  },
+  "A-Logs": {
+    "label": "A-admin-Logs",
+    "url": "https://maksimfrelikh.ru/login#global-logs",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Global Logs",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin onlyGlobal LogsRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not exposed.Refresh logsStoreAll storesSTORE-002 · Manager Verify Store 002QA-CACHE-132959 · QA Cache Session 132959 AQA-CACHE-147228 · QA Cache Ses"
+  },
+  "A-skip-Audit": {
+    "reason": "nav item not found or not clickable"
+  },
+  "adminConsole": [
+    {
+      "label": "admin-nav",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "adminPageErrors": [],
+  "adminNetwork4xx5xx": [
+    {
+      "label": "admin-nav",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "B.0-after-login": {
+    "label": "B0-operator-after-login",
+    "url": "https://maksimfrelikh.ru/login",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.Refresh storesQA-PUB-20260516150944QA Publishing Regression 20260516150944QA evidence entity · Europe/AmsterdamactiveCurrent versionNo published v"
+  },
+  "operatorNavLinksDetected": [],
+  "B-skip-Dashboard": {
+    "reason": "nav item not found"
+  },
+  "B-Stores": {
+    "label": "B-operator-Stores",
+    "url": "https://maksimfrelikh.ru/login#stores",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyAssigned storesStoresOperators see only stores assigned to their account.RefreshQA-PUB-20260516150944QA Publishing Regression 20260516150944QA evidence entity · Europe/AmsterdamactiveDetails"
+  },
+  "B-Products": {
+    "label": "B-operator-Products",
+    "url": "https://maksimfrelikh.ru/login#products",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Product catalog",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyProductsProduct catalogSearch and manage PLU-backed products available to catalogs and prices.RefreshCreate productSearchStatusAll statusesactiveinactivearchivedSearchPLUNameShort nameSKUBarcodeUnitStatusActions1001Apples Red Weigh"
+  },
+  "operatorAdminItemsCount": {
+    "Users & Access": 0,
+    "Users": 0,
+    "Global Logs": 0,
+    "Logs": 0,
+    "Audit": 0,
+    "Invites": 0
+  },
+  "operatorConsole": [
+    {
+      "label": "operator-nav",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "operatorPageErrors": [],
+  "operatorNetwork4xx5xx": [
+    {
+      "label": "operator-nav",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "firstStoreHref": null,
+  "storeTabsError": "No store row link discovered",
+  "endedAt": "2026-05-17T20:02:12.837Z"
+}

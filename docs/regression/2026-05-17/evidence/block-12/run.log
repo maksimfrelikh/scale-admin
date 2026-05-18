@@ -1,0 +1,24 @@
+[pass] login-admin
+[pass] A1-dashboard — {"note":"admin has stores; emptyDashboard only reachable for new admin without stores"}
+[skip] A2-stores-empty-filter — {"reason":"no search input"}
+[skip] A3-products-empty-filter — {"reason":"no search input"}
+[pass] A4-store-empty-tab-catalog — {"spinners":0}
+[pass] A4-store-empty-tab-prices — {"spinners":0}
+[pass] A4-store-empty-tab-devices — {"spinners":0}
+[skip-search-not-found] A5-logs-empty-filter — {}
+[pass] A6-scales-empty — {"spinners":0}
+[pass] B7-offline-login — {"spinners":0,"bodyHasErrorWord":false}
+[pass] B8-offline-after-login — {"spinners":0,"white":false,"bodyHasErrorWord":false}
+[pass] B9-stores-blocked — {"spinners":0,"bodyHasErrorWord":false}
+[pass] B9-recovery-products — {"note":"navigation to products after blocking unrouted"}
+[fail-data-lost] B10-mutation-500 — {"codePreserved":false,"namePreserved":false,"spinners":0}
+[fail-no-skeleton] C11-loading-stores — {"skeletonsEarly":0}
+[fail-no-skeleton] C11-loading-products — {"skeletonsEarly":0}
+[fail-no-skeleton] C11-loading-store-detail — {"skeletonsEarly":0}
+[fail-no-skeleton] C11-loading-logs — {"skeletonsEarly":0}
+[skip-no-create-button] C12-mutation-loading — {}
+[skip-no-prices-tab] C13-prices-inline-edit — {}
+[pass] E16-hardrefresh — {"sameContent":true}
+[pass] E17-back-nav — {"note":"visual screenshot only — see Block 5 multitab freshness"}
+[baseline-captured] F18-long-name — {"note":"long-name store seeded via shell before this step"}
+[baseline-captured] F19-long-category — {"note":"long-name category seeded via shell before this step"}

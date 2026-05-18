@@ -1,0 +1,52 @@
+{
+  "hasUpdate": true,
+  "versionId": "cdf74110-489b-445b-be48-462bef91d70c",
+  "versionNumber": 1,
+  "packageChecksum": "297fdbd7878079d04e24eca2bb4ec4faca680e27ab7a8988caf81df12008567a",
+  "packageData": {
+    "store": {
+      "id": "8995f4b9-f851-4654-930b-e5d407cd35e8",
+      "code": "QAB10USD004708",
+      "name": "QA Block 10 USD repro 004708"
+    },
+    "catalog": {
+      "id": "ebb9025b-cde0-4db8-8d9e-1ae5105aab4a",
+      "name": "Main catalog"
+    },
+    "version": {
+      "id": "cdf74110-489b-445b-be48-462bef91d70c",
+      "checksum": "297fdbd7878079d04e24eca2bb4ec4faca680e27ab7a8988caf81df12008567a",
+      "publishedAt": "2026-05-17T22:48:13.073Z",
+      "versionNumber": 1
+    },
+    "categories": [
+      {
+        "id": "d2c8ac60-1ff1-4de6-9dad-d6f66578a64f",
+        "name": "QA USD Bread 004729",
+        "items": [
+          {
+            "plu": "QAU004751",
+            "sku": null,
+            "name": "QA USD Bagel 004751",
+            "unit": "piece",
+            "price": 99.99,
+            "barcode": null,
+            "currency": "USD",
+            "imageUrl": null,
+            "productId": "5593d554-b3cb-4925-bf75-1adb2ad939f2",
+            "shortName": "USDBgl",
+            "sortOrder": 0,
+            "description": null
+          }
+        ],
+        "children": [],
+        "shortName": "USDBread",
+        "sortOrder": 0
+      }
+    ],
+    "advertising": {
+      "banners": [],
+      "rotationMode": "loop"
+    }
+  }
+}

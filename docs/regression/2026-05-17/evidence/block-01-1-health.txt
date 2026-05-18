@@ -1,0 +1,15 @@
+=== curl -i https://maksimfrelikh.ru/api/health ===
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:45:46 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 86
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"56-m3LexQefXyzSWc/v4yZd8fldTus"
+
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-17T18:45:46.755Z"}
+=== exit code: 0 ===

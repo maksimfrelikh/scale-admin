@@ -1,0 +1,8 @@
+=== TLS cert info for maksimfrelikh.ru ===
+notBefore=May 15 16:49:59 2026 GMT
+notAfter=Aug 13 16:49:58 2026 GMT
+subject=CN = maksimfrelikh.ru
+issuer=C = US, O = Let's Encrypt, CN = E7
+
+=== Today: 2026-05-17 18:45:51 UTC ===
+=== Threshold +14 days: 2026-05-31 ===

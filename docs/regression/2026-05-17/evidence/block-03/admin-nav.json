@@ -1,0 +1,258 @@
+{
+  "Stores": {
+    "before": "https://maksimfrelikh.ru/dashboard",
+    "after": "https://maksimfrelikh.ru/dashboard#stores",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for qa-admin@***.invalid · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nADMIN STORES\n\nStores\n\nAdmins can see every non-archived store and manage store records.\n\nRefresh\nCreate store\n\nSTORE-002\n\nManager Verify Store 002\n\nNo address · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nQA-CACHE-132959\n\nQA Cache Session 132959 A\n\nQA cache/session regression · Europe/Moscow\n\nACTIVE\nDetails\nEdit\n\nQA-CACHE-147228\n\nQA Cache Se",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores",
+        "s": 200
+      }
+    ]
+  },
+  "Products": {
+    "before": "https://maksimfrelikh.ru/dashboard",
+    "after": "https://maksimfrelikh.ru/dashboard#products",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Product catalog",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for qa-admin@***.invalid · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nPLU\tNAME\tSHORT NAME\tSKU\tBARCODE\tUNIT\tSTATUS\tACTIONS\n1001\tApples Red Weighted\tRed Apples\tAPL-RED-001\t4600000000011\tkg\tACTIVE\tEdit\n1002\tBananas Weighted\tBa",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/products?take=100",
+        "s": 200
+      }
+    ]
+  },
+  "Users & Access": {
+    "before": "https://maksimfrelikh.ru/dashboard",
+    "after": "https://maksimfrelikh.ru/dashboard#users-access",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Invites, roles and operator stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for qa-admin@***.invalid · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nUSERS & ACCESS\n\nInvites, roles and operator stores\n\nCreate admin/operator invites, change roles, block users and manage operator store assignments.\n\nInclude deleted\nRefresh users\n\nCREATE INVITE\n\nSend this one-time token to the invited user through a secure channel.\n\nEmail\nFull name\nRole\noperator\nadmin\nExpires at\nCreate invite\n\nqa-ope",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/d3e0ae57-5097-48be-a687-5e0080f42086/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/f03c0cc9-9d31-49de-9472-1fcd2e81b41f/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/e250cd0e-c606-4662-a5d5-349f51819d2a/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/7643af38-e96d-4fdc-be70-e7d65546b323/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/45e6c456-2e1c-4594-84c5-bbdfdc10ad49/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/3e920660-eb74-46d7-8d29-63300aa26845/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/7c26d261-4e36-45ff-bcb4-adb9c5d5c67c/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/86c18cfe-947c-4bf8-b959-a3585f60b34d/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/975a8599-53f8-4155-9f2b-33c97944acbb/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000921/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000918/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000916/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/571453dd-d1c9-40ce-8d27-8cbc72c4bfff/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000913/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/41835af1-c798-401d-8733-ec1d95b757e6/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/cb7e1101-4c13-4bf0-a327-85a2719ad265/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/351bee49-cbcd-4d68-859a-fa5ded93ddf0/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000888/store-accesses",
+        "s": 200
+      }
+    ]
+  },
+  "Users & access": {
+    "before": "https://maksimfrelikh.ru/dashboard",
+    "after": "https://maksimfrelikh.ru/dashboard#users-access",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Invites, roles and operator stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Admin\n\nActive session for qa-admin@***.invalid · role: admin\n\nLogout\nOverview\nStores\nProducts\nCreate store\nGlobal Logs\nUsers & Access\n\nUSERS & ACCESS\n\nInvites, roles and operator stores\n\nCreate admin/operator invites, change roles, block users and manage operator store assignments.\n\nInclude deleted\nRefresh users\n\nCREATE INVITE\n\nSend this one-time token to the invited user through a secure channel.\n\nEmail\nFull name\nRole\noperator\nadmin\nExpires at\nCreate invite\n\nqa-ope",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/e250cd0e-c606-4662-a5d5-349f51819d2a/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/d3e0ae57-5097-48be-a687-5e0080f42086/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/3e920660-eb74-46d7-8d29-63300aa26845/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/f03c0cc9-9d31-49de-9472-1fcd2e81b41f/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/7643af38-e96d-4fdc-be70-e7d65546b323/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/45e6c456-2e1c-4594-84c5-bbdfdc10ad49/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/7c26d261-4e36-45ff-bcb4-adb9c5d5c67c/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/86c18cfe-947c-4bf8-b959-a3585f60b34d/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/975a8599-53f8-4155-9f2b-33c97944acbb/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000918/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000921/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/571453dd-d1c9-40ce-8d27-8cbc72c4bfff/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000916/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/41835af1-c798-401d-8733-ec1d95b757e6/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000913/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/cb7e1101-4c13-4bf0-a327-85a2719ad265/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/351bee49-cbcd-4d68-859a-fa5ded93ddf0/store-accesses",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/users/00000000-0000-0000-0000-000000000888/store-accesses",
+        "s": 200
+      }
+    ]
+  }
+}

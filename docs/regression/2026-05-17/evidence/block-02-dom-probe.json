@@ -1,0 +1,262 @@
+{
+  "adminDashboard": {
+    "title": "Scale Admin",
+    "url": "https://maksimfrelikh.ru/",
+    "bodyClasses": "",
+    "h1": [
+      "Добро пожаловать, QA Admin",
+      "Fleet overview"
+    ],
+    "anchors": [
+      {
+        "tag": "button",
+        "text": "Logout",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Overview",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Products",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Create store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Global Logs",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Users & Access",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Refresh dashboard",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open store",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Products",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Global logs",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Users & access",
+        "href": ""
+      }
+    ],
+    "hasNavTag": 1,
+    "hasAsideTag": 0,
+    "hasHeaderTag": 0,
+    "navRoleCount": 0
+  },
+  "operatorDashboard": {
+    "title": "Scale Admin",
+    "url": "https://maksimfrelikh.ru/",
+    "bodyClasses": "",
+    "h1": [
+      "Добро пожаловать, QA Operator",
+      "Assigned stores"
+    ],
+    "anchors": [
+      {
+        "tag": "button",
+        "text": "Logout",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Overview",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Products",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Refresh stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open catalog",
+        "href": ""
+      }
+    ],
+    "hasNavTag": 1,
+    "hasAsideTag": 0,
+    "hasHeaderTag": 0,
+    "navRoleCount": 0
+  },
+  "operatorUsersDirect": {
+    "title": "Scale Admin",
+    "url": "https://maksimfrelikh.ru/users",
+    "bodyClasses": "",
+    "h1": [
+      "Добро пожаловать, QA Operator",
+      "Assigned stores"
+    ],
+    "anchors": [
+      {
+        "tag": "button",
+        "text": "Logout",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Overview",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Products",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Refresh stores",
+        "href": ""
+      },
+      {
+        "tag": "button",
+        "text": "Open catalog",
+        "href": ""
+      }
+    ],
+    "hasNavTag": 1,
+    "hasAsideTag": 0,
+    "hasHeaderTag": 0,
+    "navRoleCount": 0
+  }
+}

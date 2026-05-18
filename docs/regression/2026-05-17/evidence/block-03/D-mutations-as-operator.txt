@@ -1,0 +1,52 @@
+=== Operator mutations with CSRF ===
+
+--- D.1 POST /api/stores ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.2 PATCH /api/stores/{assigned} ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.2b PATCH /api/stores/{foreign} (F.1) ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.3 POST /api/auth/invites (invite endpoint) ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.4 PATCH /api/users/{other-admin}/role role=admin ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.4b PATCH /api/users/{admin-account}/role role=operator ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.4c POST /api/users/{admin-account}/block ---
+HTTP:404
+{"message":"Cannot POST /api/users/4df893ce-eceb-4f49-be99-fc09590bee43/block","error":"Not Found","statusCode":404}
+--- D.5 POST /api/stores/{assigned}/scales ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.6 *** PATCH /api/users/{SELF}/role {role:admin} *** ---
+HTTP:403
+{"message":"Insufficient role","error":"Forbidden","statusCode":403}
+--- D.6 verify operator still has operator role ---
+HTTP:200
+{
+  "id": "c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204",
+  "email": "qa-operator@***.invalid",
+  "fullName": "QA Operator",
+  "role": "operator",
+  "status": "active"
+}
+--- D.6b verify operator stores list unchanged (still only assigned) ---
+HTTP:200
+{
+  "count": 1
+}
+operator PATCH /api/users/{admin}/block -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator PUT /api/users/{admin}/block -> 404 | {"message":"Cannot PUT /api/users/4df893ce-eceb-4f49-be99-fc09590bee43/block","error":"Not Found","statusCode":404}
+operator POST /api/users/{admin}/block -> 404 | {"message":"Cannot POST /api/users/4df893ce-eceb-4f49-be99-fc09590bee43/block","error":"Not Found","statusCode":404}
+
+--- F.2 POST /api/stores/{foreign}/catalog/placements ---
+operator POST /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/scales -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator POST /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/advertising/banners -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+operator POST /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/categories -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}
+operator POST /api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/placements -> 403 | {"message":"Store access denied","error":"Forbidden","statusCode":403}

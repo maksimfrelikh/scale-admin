@@ -1,0 +1,54 @@
+{
+  "startedAt": "2026-05-18T06:47:09.677Z",
+  "steps": [
+    {
+      "step": "login",
+      "status": "pass",
+      "ts": "2026-05-18T06:47:32.551Z"
+    },
+    {
+      "step": "F18-long-name-row",
+      "status": "pass",
+      "detail": {
+        "scrollW": 1366,
+        "clientW": 1366
+      },
+      "ts": "2026-05-18T06:47:36.544Z"
+    },
+    {
+      "step": "F19-long-cat-row",
+      "status": "pass",
+      "detail": {
+        "scrollW": 1366,
+        "clientW": 1366
+      },
+      "ts": "2026-05-18T06:48:11.658Z"
+    },
+    {
+      "step": "D14-no-polling-90s",
+      "status": "pass",
+      "detail": {
+        "elapsed": 90.002,
+        "totalCalls": 0,
+        "distinctEndpoints": 0
+      },
+      "ts": "2026-05-18T06:49:43.707Z"
+    },
+    {
+      "step": "D15-expired-session",
+      "status": "pass",
+      "detail": {
+        "sessionCookieClearedSuccessfully": true,
+        "action401": true,
+        "actionStatus": 401,
+        "landedOnLogin": true,
+        "finalUrl": "https://maksimfrelikh.ru/#",
+        "sessionCookieNames": [
+          "scale_admin_session"
+        ]
+      },
+      "ts": "2026-05-18T06:49:47.324Z"
+    }
+  ],
+  "finishedAt": "2026-05-18T06:49:47.325Z"
+}

@@ -1,0 +1,249 @@
+{
+  "startedAt": "2026-05-17T20:31:28.108Z",
+  "E_fixed": {
+    "logoutResp": {
+      "status": 200
+    },
+    "captured": {
+      "storage": [],
+      "bc": [],
+      "channels": [
+        "auth",
+        "session",
+        "app",
+        "scale-admin",
+        "logout",
+        "rtk-query",
+        "cache",
+        "main"
+      ]
+    }
+  },
+  "D_fixed": {
+    "before_in_B": false,
+    "create": {
+      "status": 201,
+      "j": {
+        "category": {
+          "id": "b439fa13-40a7-46c1-9e11-2d4a41581972",
+          "catalogId": "9f6b96db-05aa-4329-91af-8cf570427ffa",
+          "parentId": null,
+          "name": "QA-MTAB-CAT-001",
+          "shortName": "QA-MTAB-CAT-001",
+          "sortOrder": 0,
+          "status": "active",
+          "canAcceptActivePlacements": true,
+          "createdAt": "2026-05-17T20:32:08.624Z",
+          "updatedAt": "2026-05-17T20:32:08.624Z"
+        }
+      }
+    },
+    "categoryId": "b439fa13-40a7-46c1-9e11-2d4a41581972",
+    "D3_B_poll_30s_without_refresh": [
+      {
+        "t": "20:32:13.636",
+        "seenInB": false
+      },
+      {
+        "t": "20:32:18.640",
+        "seenInB": false
+      },
+      {
+        "t": "20:32:23.643",
+        "seenInB": false
+      },
+      {
+        "t": "20:32:28.644",
+        "seenInB": false
+      },
+      {
+        "t": "20:32:33.647",
+        "seenInB": false
+      },
+      {
+        "t": "20:32:38.651",
+        "seenInB": false
+      }
+    ],
+    "D4_B_after_reload_has_category": true
+  },
+  "B": {
+    "B1_operator_login_status": 200,
+    "B1b_server_session_after": {
+      "role": "operator",
+      "email": "qa-operator@***.invalid"
+    },
+    "B1c_B_after_reload": {
+      "url": "https://maksimfrelikh.ru/#stores",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Stores",
+      "body": " DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyAssigned storesStoresOperators see only stores assigned to their account.RefreshQA-PU",
+      "onLogin": false
+    },
+    "B2_A_poll_30s": [
+      {
+        "t": "20:32:51.683",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      },
+      {
+        "t": "20:32:56.708",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      },
+      {
+        "t": "20:33:01.732",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      },
+      {
+        "t": "20:33:06.754",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      },
+      {
+        "t": "20:33:11.777",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      },
+      {
+        "t": "20:33:16.799",
+        "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+        "aH1": "Добро пожаловать, QA Admin",
+        "navItems": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Refresh banners",
+          "Refresh devices",
+          "Refresh prices",
+          "Run validation"
+        ],
+        "sessRole": "operator"
+      }
+    ],
+    "B3_A_admin_link_state": {
+      "url": "https://maksimfrelikh.ru/#users-access",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Invites, roles and operator stores",
+      "body": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block",
+      "onLogin": false
+    },
+    "B3_A_recent_api": [
+      {
+        "t": "20:33:16.896",
+        "s": 403,
+        "u": "/api/users",
+        "m": "GET"
+      }
+    ]
+  },
+  "cleanup": {
+    "category_pre": true,
+    "category": {
+      "id": "b439fa13-40a7-46c1-9e11-2d4a41581972",
+      "patchStatus": 200,
+      "post_status": "archived",
+      "post_present": true
+    },
+    "store": {
+      "id": "7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "preStatus": "active",
+      "patchStatus": 200,
+      "postStatus": "archived"
+    }
+  },
+  "endedAt": "2026-05-17T20:33:20.203Z"
+}

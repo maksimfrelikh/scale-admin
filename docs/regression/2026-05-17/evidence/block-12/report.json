@@ -1,0 +1,195 @@
+{
+  "startedAt": "2026-05-18T06:35:53.871Z",
+  "steps": [
+    {
+      "step": "login-admin",
+      "status": "pass",
+      "ts": "2026-05-18T06:36:16.743Z"
+    },
+    {
+      "step": "A1-dashboard",
+      "status": "pass",
+      "detail": {
+        "note": "admin has stores; emptyDashboard only reachable for new admin without stores"
+      },
+      "ts": "2026-05-18T06:36:19.348Z"
+    },
+    {
+      "step": "A2-stores-empty-filter",
+      "status": "skip",
+      "detail": {
+        "reason": "no search input"
+      },
+      "ts": "2026-05-18T06:36:22.027Z"
+    },
+    {
+      "step": "A3-products-empty-filter",
+      "status": "skip",
+      "detail": {
+        "reason": "no search input"
+      },
+      "ts": "2026-05-18T06:36:24.960Z"
+    },
+    {
+      "step": "A4-store-empty-tab-catalog",
+      "status": "pass",
+      "detail": {
+        "spinners": 0
+      },
+      "ts": "2026-05-18T06:36:29.808Z"
+    },
+    {
+      "step": "A4-store-empty-tab-prices",
+      "status": "pass",
+      "detail": {
+        "spinners": 0
+      },
+      "ts": "2026-05-18T06:36:31.722Z"
+    },
+    {
+      "step": "A4-store-empty-tab-devices",
+      "status": "pass",
+      "detail": {
+        "spinners": 0
+      },
+      "ts": "2026-05-18T06:36:33.627Z"
+    },
+    {
+      "step": "A5-logs-empty-filter",
+      "status": "skip-search-not-found",
+      "detail": {},
+      "ts": "2026-05-18T06:36:37.632Z"
+    },
+    {
+      "step": "A6-scales-empty",
+      "status": "pass",
+      "detail": {
+        "spinners": 0
+      },
+      "ts": "2026-05-18T06:36:41.065Z"
+    },
+    {
+      "step": "B7-offline-login",
+      "status": "pass",
+      "detail": {
+        "spinners": 0,
+        "bodyHasErrorWord": false
+      },
+      "ts": "2026-05-18T06:36:46.889Z"
+    },
+    {
+      "step": "B8-offline-after-login",
+      "status": "pass",
+      "detail": {
+        "spinners": 0,
+        "white": false,
+        "bodyHasErrorWord": false
+      },
+      "ts": "2026-05-18T06:36:51.667Z"
+    },
+    {
+      "step": "B9-stores-blocked",
+      "status": "pass",
+      "detail": {
+        "spinners": 0,
+        "bodyHasErrorWord": false
+      },
+      "ts": "2026-05-18T06:36:56.358Z"
+    },
+    {
+      "step": "B9-recovery-products",
+      "status": "pass",
+      "detail": {
+        "note": "navigation to products after blocking unrouted"
+      },
+      "ts": "2026-05-18T06:36:58.792Z"
+    },
+    {
+      "step": "B10-mutation-500",
+      "status": "fail-data-lost",
+      "detail": {
+        "codePreserved": false,
+        "namePreserved": false,
+        "spinners": 0
+      },
+      "ts": "2026-05-18T06:38:05.089Z"
+    },
+    {
+      "step": "C11-loading-stores",
+      "status": "fail-no-skeleton",
+      "detail": {
+        "skeletonsEarly": 0
+      },
+      "ts": "2026-05-18T06:38:11.737Z"
+    },
+    {
+      "step": "C11-loading-products",
+      "status": "fail-no-skeleton",
+      "detail": {
+        "skeletonsEarly": 0
+      },
+      "ts": "2026-05-18T06:38:17.468Z"
+    },
+    {
+      "step": "C11-loading-store-detail",
+      "status": "fail-no-skeleton",
+      "detail": {
+        "skeletonsEarly": 0
+      },
+      "ts": "2026-05-18T06:38:22.679Z"
+    },
+    {
+      "step": "C11-loading-logs",
+      "status": "fail-no-skeleton",
+      "detail": {
+        "skeletonsEarly": 0
+      },
+      "ts": "2026-05-18T06:38:29.589Z"
+    },
+    {
+      "step": "C12-mutation-loading",
+      "status": "skip-no-create-button",
+      "detail": {},
+      "ts": "2026-05-18T06:38:31.608Z"
+    },
+    {
+      "step": "C13-prices-inline-edit",
+      "status": "skip-no-prices-tab",
+      "detail": {},
+      "ts": "2026-05-18T06:38:34.120Z"
+    },
+    {
+      "step": "E16-hardrefresh",
+      "status": "pass",
+      "detail": {
+        "sameContent": true
+      },
+      "ts": "2026-05-18T06:38:42.850Z"
+    },
+    {
+      "step": "E17-back-nav",
+      "status": "pass",
+      "detail": {
+        "note": "visual screenshot only — see Block 5 multitab freshness"
+      },
+      "ts": "2026-05-18T06:38:49.623Z"
+    },
+    {
+      "step": "F18-long-name",
+      "status": "baseline-captured",
+      "detail": {
+        "note": "long-name store seeded via shell before this step"
+      },
+      "ts": "2026-05-18T06:38:52.286Z"
+    },
+    {
+      "step": "F19-long-category",
+      "status": "baseline-captured",
+      "detail": {
+        "note": "long-name category seeded via shell before this step"
+      },
+      "ts": "2026-05-18T06:38:57.223Z"
+    }
+  ],
+  "finishedAt": "2026-05-18T06:38:57.223Z"
+}

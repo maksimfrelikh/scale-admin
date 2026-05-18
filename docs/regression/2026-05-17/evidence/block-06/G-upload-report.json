@@ -1,0 +1,99 @@
+{
+  "png_normal": {
+    "status": 201,
+    "bodyText": "{\"fileAsset\":{\"id\":\"5faa2751-7231-4048-99aa-77411625cd55\",\"originalFileName\":\"good.png\",\"storedFilename\":\"0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png\",\"storagePath\":\"uploads/images/0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png\",\"publicUrl\":\"/uploads/images/0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png\",\"mimeType\":\"image/png\",\"sizeBytes\":68,\"uploadedByUserId\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"createdAt\":\"",
+    "parsed": {
+      "fileAsset": {
+        "id": "5faa2751-7231-4048-99aa-77411625cd55",
+        "originalFileName": "good.png",
+        "storedFilename": "0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png",
+        "storagePath": "uploads/images/0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png",
+        "publicUrl": "/uploads/images/0a7a4ee1-0857-4ee2-9e59-46bfe2d5abd1.png",
+        "mimeType": "image/png",
+        "sizeBytes": 68,
+        "uploadedByUserId": "4df893ce-eceb-4f49-be99-fc09590bee43",
+        "createdAt": "2026-05-17T21:26:02.914Z"
+      }
+    }
+  },
+  "gif_mime": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp image extensions are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp image extensions are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "svg_mime": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp image extensions are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp image extensions are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "txt_mime": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp image extensions are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp image extensions are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "zero_png": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Image file is required\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Image file is required",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "exe_mime": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp image extensions are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp image extensions are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "big_png": {
+    "status": 413,
+    "bodyText": "<html>\r\n<head><title>413 Request Entity Too Large</title></head>\r\n<body>\r\n<center><h1>413 Request Entity Too Large</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+    "parsed": null
+  },
+  "jpg_mime_actually_png": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Image extension does not match actual file type\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Image extension does not match actual file type",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "png_mime_actually_jpg_bytes": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp images are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp images are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "png_mime_svg_bytes": {
+    "status": 400,
+    "bodyText": "{\"message\":\"Only jpg, png, or webp images are supported\",\"error\":\"Bad Request\",\"statusCode\":400}",
+    "parsed": {
+      "message": "Only jpg, png, or webp images are supported",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  "png_normal_keys": [
+    "fileAsset"
+  ]
+}
