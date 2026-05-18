@@ -55,6 +55,7 @@ import {
   useUpdateStoreProductPriceMutation,
   type PriceRow,
 } from './features/prices/pricesApi';
+import { ALLOWED_CURRENCIES, type AllowedCurrency } from './shared/currency';
 import {
   useCreateProductMutation,
   useGetProductQuery,
@@ -1929,7 +1930,12 @@ function PricesTab({ storeId }: { storeId: string }) {
 
 function PriceTableRow({ row, storeId }: { row: PriceRow; storeId: string }) {
   const currentPriceValue = row.currentPrice?.price ?? '';
+  const savedCurrency = row.currentPrice?.currency;
+  const initialCurrency: AllowedCurrency = (ALLOWED_CURRENCIES as readonly string[]).includes(savedCurrency ?? '')
+    ? (savedCurrency as AllowedCurrency)
+    : ALLOWED_CURRENCIES[0];
   const [priceValue, setPriceValue] = useState(currentPriceValue);
+  const [currency, setCurrency] = useState<AllowedCurrency>(initialCurrency);
   const [rowError, setRowError] = useState<string | null>(null);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [updatePrice, { isLoading }] = useUpdateStoreProductPriceMutation();
@@ -1937,7 +1943,8 @@ function PriceTableRow({ row, storeId }: { row: PriceRow; storeId: string }) {
   const currentPriceNumber = Number(row.currentPrice?.price);
   const hasInvalidSavedPrice = Boolean(row.currentPrice) && (!Number.isFinite(currentPriceNumber) || currentPriceNumber <= 0);
   const hasInvalidPrice = priceValue.trim() !== '' && (!Number.isFinite(numericPrice) || numericPrice <= 0);
-  const isDirty = priceValue.trim() !== currentPriceValue;
+  const isDirty = priceValue.trim() !== currentPriceValue || currency !== initialCurrency;
+  const currencyLocked = ALLOWED_CURRENCIES.length === 1;
   const rowClassName = [
     'price-row',
     row.missingPrice ? 'price-row-missing' : '',
@@ -1964,7 +1971,7 @@ function PriceTableRow({ row, storeId }: { row: PriceRow; storeId: string }) {
         storeId,
         productId: row.product.id,
         price: numericPrice,
-        currency: row.currentPrice?.currency ?? 'RUB',
+        currency,
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
@@ -2000,6 +2007,16 @@ function PriceTableRow({ row, storeId }: { row: PriceRow; storeId: string }) {
             type="number"
             value={priceValue}
           />
+          <select
+            aria-label={`Currency for ${row.product.name}`}
+            disabled={currencyLocked}
+            onChange={(event) => setCurrency(event.target.value as AllowedCurrency)}
+            value={currency}
+          >
+            {ALLOWED_CURRENCIES.map((code) => (
+              <option key={code} value={code}>{code}</option>
+            ))}
+          </select>
           <button type="submit" disabled={isLoading || hasInvalidPrice || !isDirty}>
             {isLoading ? 'Saving...' : 'Save'}
           </button>
