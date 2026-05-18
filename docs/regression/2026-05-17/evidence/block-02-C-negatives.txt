@@ -1,0 +1,48 @@
+# Test C: Login negatives
+Date: 2026-05-17T19:03:01Z
+
+=== C.1 wrong password ===
+Payload: {"email":"qa-admin@***.invalid","password":"WrongPass!"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.4 nonexistent email ===
+Payload: {"email":"nonexistent-qa-zzz@gmail.com","password":"***REDACTED_QA_PASSWORD***"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.3a invalid email (abc) ===
+Payload: {"email":"abc","password":"***REDACTED_QA_PASSWORD***"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.3b invalid email (a@) ===
+Payload: {"email":"a@","password":"***REDACTED_QA_PASSWORD***"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.3c invalid email (@b.c) ===
+Payload: {"email":"@b.c","password":"***REDACTED_QA_PASSWORD***"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.2a empty email ===
+Payload: {"email":"","password":"***REDACTED_QA_PASSWORD***"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.2b empty password ===
+Payload: {"email":"qa-admin@***.invalid","password":""}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.2c missing fields ===
+Payload: {}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+=== C.2d password length 1 ===
+Payload: {"email":"qa-admin@***.invalid","password":"a"}
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+{"message":"Invalid email or password","error":"Unauthorized","statusCode":401}

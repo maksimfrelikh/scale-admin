@@ -1,0 +1,11 @@
+=== Server / X-Powered-By disclosure check ===
+--- root ---
+Server: nginx/1.24.0 (Ubuntu)
+
+--- /api/health ---
+Server: nginx/1.24.0 (Ubuntu)
+X-Powered-By: Express
+
+--- /api/auth/login (POST attempt) ---
+Server: nginx/1.24.0 (Ubuntu)
+X-Powered-By: Express

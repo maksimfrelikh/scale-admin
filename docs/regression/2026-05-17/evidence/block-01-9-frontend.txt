@@ -1,0 +1,33 @@
+=== HEAD / first 50 lines body ===
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 18:46:10 GMT
+Content-Type: text/html
+Content-Length: 396
+Connection: keep-alive
+Vary: Origin
+Cache-Control: no-cache
+Etag: W/"18c-Bb69P9LJ7adIZlHFWZAjLtkpgjg"
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scale Admin</title>
+    <script type="module" crossorigin src="/assets/index-CvhNUbOB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-MNDf7lO3.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+=== Body length ===
+396
+
+=== Search for sensitive strings in HTML (case-insensitive) ===
+(no matches)
+
+=== content-type ===
+Content-Type: text/html

@@ -1,0 +1,997 @@
+{
+  "startedAt": "2026-05-17T20:59:04.023Z",
+  "adminDashboardURL": "https://maksimfrelikh.ru/login",
+  "storeCreate": {
+    "name": "A-store-create",
+    "beforeInputs": 0,
+    "afterInputs": 5,
+    "newInputs": [
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "STORE-002",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Store code",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Central Store",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Store name",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "City, street",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Address",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Europe/Moscow",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Timezone",
+        "value": "Europe/Moscow",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Statusactiveinactivearchived",
+        "value": "active",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      }
+    ],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-A-store-create.png"
+  },
+  "storeEdit": {
+    "name": "A-store-edit",
+    "error": "btn-not-found"
+  },
+  "productCreate": {
+    "name": "B-product-create",
+    "beforeInputs": 2,
+    "afterInputs": 10,
+    "newInputs": [
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "1001",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "PLU / defaultPluCode *",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Bananas",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Name *",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Bananas",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Short name *",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Unit *kggpiece",
+        "value": "kg",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Status *activeinactivearchived",
+        "value": "active",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional SKU",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "SKU",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional barcode",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Barcode",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional image URL",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Image URL",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional description",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Description",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "file",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Product image upload",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      }
+    ],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-B-product-create.png"
+  },
+  "invite": {
+    "name": "D-invite-create",
+    "beforeInputs": 49,
+    "afterInputs": 49,
+    "newInputs": [],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-D-invite-create.png"
+  },
+  "editStore": {
+    "name": "A-edit-store",
+    "beforeInputs": 20,
+    "afterInputs": 5,
+    "newInputs": [
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "STORE-002",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Store code",
+        "value": "QA-PUB-20260516150944",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Central Store",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Store name",
+        "value": "QA Publishing Regression 20260516150944",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "City, street",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Address",
+        "value": "QA evidence entity",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Europe/Moscow",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Timezone",
+        "value": "Europe/Amsterdam",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      }
+    ],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-A-edit-store.png"
+  },
+  "categoryCreate": {
+    "name": "C-category-create",
+    "beforeInputs": 20,
+    "afterInputs": 20,
+    "newInputs": [],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-C-category-create.png"
+  },
+  "scaleRegister": {
+    "name": "F-scale-register",
+    "beforeInputs": 20,
+    "afterInputs": 20,
+    "newInputs": [],
+    "dialogs": {
+      "roleDialog": [],
+      "ariaModal": [],
+      "fixedOverlay": [],
+      "bodyChildren": [
+        {
+          "tag": "div",
+          "id": "root",
+          "classes": ""
+        }
+      ]
+    },
+    "screenshot": "recon2-F-scale-register.png"
+  },
+  "bannerArea": {
+    "visibleBeforeRefresh": [
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Bakery",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Name",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional display name",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Short name",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Statusactiveinactivearchived",
+        "value": "active",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "CategoryQA Publishing Category 20260516150944",
+        "value": "d6fddace-5885-471e-9855-5d9bfff26810",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Name, PLU, barcode or SKU",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Search product",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "ProductChoose active product1001 · Apples Red Weighted1002 ·",
+        "value": "",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "New banner statusactiveinactivearchived",
+        "value": "active",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "file",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Upload banner image",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "SCALE-001",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Device code",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Front counter scale",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Name",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Optional model",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Model",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "Name, short name, PLU, SKU or barcode",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Search",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "CategoryAll categoriesQA Publishing Category 20260516150944",
+        "value": "",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Price statusAll productsMissing price onlyWith price only",
+        "value": "all",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "number",
+        "name": "",
+        "id": "",
+        "placeholder": "0.00",
+        "required": false,
+        "ariaLabel": "Price for QA Publishing Product 20260516150944",
+        "labelText": "",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "0.01",
+        "max": "",
+        "step": "0.01"
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "product, store, scale_device…",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Entity type",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "created, updated, login…",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Action / audit status",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "select",
+        "type": "",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "Sync statusAny sync statusno_updateupdate_availablepackage_d",
+        "value": "",
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "date",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "From date",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      },
+      {
+        "tag": "input",
+        "type": "date",
+        "name": "",
+        "id": "",
+        "placeholder": "",
+        "required": false,
+        "ariaLabel": "",
+        "labelText": "To date",
+        "value": "",
+        "maxLength": null,
+        "pattern": "",
+        "min": "",
+        "max": "",
+        "step": ""
+      }
+    ],
+    "sectionText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and publishing.Refresh catalogMain catalogactiveCatalog ID: ab84f2e4-644d-41cf-a30f-7b29bb6be807NameShort nameStatusactiveinactivearchivedCreate root categoryArchiving warning: categories with status archived or inactive cannot accept active product placements. If active products are already placed here, validation/publishing can be blocked until placements are moved or deactivated.Product placementsProducts in selected categorySearch active master products, add them to active categories, and reorder by sortOrder.CategoryQA Publishing Category 20260516150944Search productProductChoose active product1001 · Apples Red Weighted1002 · Bananas Weighted2001 · Milk Bottle 1L961433 · QA Forms Product 20260516143396150746 · QA Publishing Product 2026051615074696150853 · QA Publishing Product 2026051615085396150944 · QA Publishing Product 2026051615094496151018 · QA Publishing Product 2026051615101896151112 · QA Publishing Product 2026051615111286151112 · QA Publishing Unpriced Product 20260516151112A"
+  },
+  "bannerButtons": [
+    "Logout",
+    "Overview",
+    "Stores",
+    "Products",
+    "Create store",
+    "Global Logs",
+    "Users & Access",
+    "← Back to stores",
+    "Edit store",
+    "Refresh catalog",
+    "Create root category",
+    "Add to category",
+    "↑",
+    "↓",
+    "↑",
+    "↓",
+    "Selected",
+    "Add child",
+    "Edit",
+    "Refresh banners",
+    "Refresh devices",
+    "Register device",
+    "Refresh prices",
+    "Save",
+    "Run validation",
+    "Publish catalog",
+    "Refresh history",
+    "Refresh logs",
+    "Clear filters"
+  ],
+  "bannerUpload": {
+    "name": "G-banner-upload",
+    "error": "btn-not-found"
+  },
+  "pricesArea": {
+    "inputs": [
+      {
+        "type": "text",
+        "placeholder": "Bakery",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "Optional display name",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "Name, PLU, barcode or SKU",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "file",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "SCALE-001",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "Front counter scale",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "Optional model",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "Name, short name, PLU, SKU or barcode",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "number",
+        "placeholder": "0.00",
+        "ariaLabel": "Price for QA Publishing Product 20260516150944",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "product, store, scale_device…",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "text",
+        "placeholder": "created, updated, login…",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "date",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      },
+      {
+        "type": "date",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false
+      }
+    ],
+    "priceSectionText": "Catalog tabActive catalog categoriesManage the category tree used by prices, product placements and publishing.Refresh catalogMain catalogactiveCatalog ID: ab84f2e4-644d-41cf-a30f-7b29bb6be807NameShort nameStatusactiveinactivearchivedCreate root categoryArchiving warning: categories with status archived or inactive cannot accept active product placements. If active products are already placed here, validation/publishing can be blocked until placements are moved or deactivated.Product placementsProducts in selected categorySearch active master products, add them to active categories, and reorder by sortOrder.CategoryQA Publishing Category 20260516150944Search productProductChoose active product1001 · Apples Red Weighted1002 · Bananas Weighted2001 · Milk Bottle 1L961433 · QA Forms Product 20260516143396150746 · QA Publishing Product 2026051615074696150853 · QA Publishing Product 2026051615085396150944 · QA Publishing Product 2026051615094496151018 · QA Publishing Product 2026051615101896"
+  },
+  "pricesAfterRefresh": {
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Bakery",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Optional display name",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Name, PLU, barcode or SKU",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "file",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "SCALE-001",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Front counter scale",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Optional model",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "Name, short name, PLU, SKU or barcode",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "number",
+        "placeholder": "0.00",
+        "ariaLabel": "Price for QA Publishing Product 20260516150944",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "product, store, scale_device…",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "created, updated, login…",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "date",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      },
+      {
+        "tag": "input",
+        "type": "date",
+        "placeholder": "",
+        "ariaLabel": "",
+        "readonly": false,
+        "disabled": false,
+        "value": ""
+      }
+    ]
+  },
+  "endedAt": "2026-05-17T20:59:42.905Z"
+}

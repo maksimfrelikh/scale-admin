@@ -1,0 +1,5 @@
+block07_cleanup_summary:
+  stores_archived: 2 (592f6799-0532-48c4-a013-36d89dd3bb76, d18c4e0b-d18b-4efd-8912-32a27eb38471)
+  products_archived: 5 (PROD_A, PROD_B, PROD_C, PROD_D1, PROD_D2)
+  placements_archived: 4
+  operator_categories_archived: 2 (in STORE_OP, не трогали seeded)

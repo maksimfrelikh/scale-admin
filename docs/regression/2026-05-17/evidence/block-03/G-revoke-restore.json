@@ -1,0 +1,26 @@
+{
+  "steps": [
+    {
+      "step": "find operator row",
+      "count": 1
+    }
+  ],
+  "traffic": [
+    {
+      "when": "2026-05-17T19:41:07.681Z",
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/login",
+      "s": 200,
+      "reqBody": "{\"email\":\"qa-admin@***.invalid\",\"password\":\"***REDACTED***\"}",
+      "respHead": "{\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid\",\"fullName\":\"QA Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-05-31T19:41:07.548Z\"}"
+    },
+    {
+      "when": "2026-05-17T19:41:23.162Z",
+      "m": "DELETE",
+      "u": "https://maksimfrelikh.ru/api/users/d3e0ae57-5097-48be-a687-5e0080f42086/store-accesses/a91e0f68-4ed4-4c4c-bedc-bf605d33c39b",
+      "s": 200,
+      "reqBody": null,
+      "respHead": "{\"storeAccess\":{\"id\":\"56caed81-96f2-408d-91b7-f1fd429f3050\",\"userId\":\"d3e0ae57-5097-48be-a687-5e0080f42086\",\"storeId\":\"a91e0f68-4ed4-4c4c-bedc-bf605d33c39b\",\"grantedByUserId\":\"b6aa335a-878e-410f-ba4f-57cb5d7d6da6\",\"createdAt\":\"2026-05-15T20:38:08.339Z\",\"revokedAt\":\"2026-05-17T19:41:23.133Z\",\"store\":"
+    }
+  ]
+}

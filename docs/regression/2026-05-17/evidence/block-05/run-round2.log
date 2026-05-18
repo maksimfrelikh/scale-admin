@@ -1,0 +1,10 @@
+[20:31:30.223] A1 UI login as qa-admin@***.invalid {"url":"https://maksimfrelikh.ru/login"}
+[20:31:32.310] E_fixed: B1 listeners installed {"check":["auth","session","app","scale-admin","logout","rtk-query","cache","main"]}
+[20:31:32.328] E_fixed: A1 logout {"status":200}
+[20:32:02.332] E_fixed: captured {"storage":[],"bc":[],"channels":["auth","session","app","scale-admin","logout","rtk-query","cache","main"]}
+[20:32:02.677] D_fixed: fresh store created {"id":"7b3dd342-2b72-47c1-b06a-6116342e9cd9","mainCatalog":"9f6b96db-05aa-4329-91af-8cf570427ffa"}
+[20:32:04.817] A2 UI login as qa-admin@***.invalid {"url":"https://maksimfrelikh.ru/login"}
+[20:32:08.633] D_fixed: category create {"status":201,"j":{"category":{"id":"b439fa13-40a7-46c1-9e11-2d4a41581972","catalogId":"9f6b96db-05aa-4329-91af-8cf570427ffa","parentId":null,"name":"QA-MTAB-CAT-001","shortName":"QA-MTAB-CAT-001","sortOrder":0,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-17T20:32:08.624Z","updatedAt":"2026-05-17T20:32:08.624Z"}}}
+[20:32:43.991] B: operator login via API {"status":200}
+[20:32:44.005] B: server session after swap {"role":"operator","email":"qa-operator@***.invalid"}
+Report: /home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-05/report-round2.json

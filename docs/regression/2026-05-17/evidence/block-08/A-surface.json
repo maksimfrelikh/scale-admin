@@ -1,0 +1,240 @@
+{
+  "heads": [
+    "Добро пожаловать, QA Admin",
+    "QA Prices A 235542",
+    "Active catalog categories",
+    "Products in selected category",
+    "Advertising banners",
+    "Store scale devices",
+    "Store product prices",
+    "Validate and publish catalog versions",
+    "Version history",
+    "Logs",
+    "AuditLog entries",
+    "ScaleSyncLog entries"
+  ],
+  "tableInfos": [
+    {
+      "i": 0,
+      "ths": [
+        "PRODUCT NAME",
+        "SHORT NAME",
+        "PLU",
+        "SKU/BARCODE",
+        "CATEGORY",
+        "CURRENT PRICE",
+        "UNIT",
+        "STATUS",
+        "UPDATEDAT"
+      ],
+      "rows": 5,
+      "firstRowCells": [
+        "QA-P-Apple-235548\nNO PRICE",
+        "App",
+        "81001",
+        "SKU-APP-235548 / 4600100100001",
+        "QA-FRUIT-235548",
+        "Save",
+        "piece",
+        "ACTIVE",
+        "—"
+      ]
+    },
+    {
+      "i": 1,
+      "ths": [
+        "TIME",
+        "STORE",
+        "ACTOR",
+        "ENTITY",
+        "ACTION"
+      ],
+      "rows": 8,
+      "firstRowCells": [
+        "5/17/2026, 11:56:45 PM",
+        "QA-PRC-A-235542 · QA Prices A 235542",
+        "QA Admin",
+        "CatalogProductPlacement\ne8d5b2af-4368-4ac3-9b41-3e024ba4d3da",
+        "PLACEMENT.CREATED"
+      ]
+    }
+  ],
+  "priceInputs": [
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Apple-235548",
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Banana-235548",
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Cherry-235548",
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Loaf-235548",
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Bagel-235548",
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    }
+  ],
+  "flagText": [
+    "Missing price only",
+    "NO PRICE",
+    "NO PRICE",
+    "NO PRICE",
+    "NO PRICE",
+    "NO PRICE"
+  ],
+  "searches": [],
+  "selects": [
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "active",
+        "inactive",
+        "archived"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "QA-BREAD-235548",
+        "QA-FRUIT-235548"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "Choose active product",
+        "991005 · '; DROP TABLE users;--",
+        "991004 · <script>alert(1)</script>",
+        "1001 · Apples Red Weighted",
+        "1002 · Bananas Weighted",
+        "2001 · Milk Bottle 1L",
+        "961433 · QA Forms Product 202605161433",
+        "96150746 · QA Publishing Product 20260516150746",
+        "96150853 · QA Publishing Product 20260516150853",
+        "96150944 · QA Publishing Product 20260516150944"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "active",
+        "inactive",
+        "archived"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "All categories",
+        "QA-BREAD-235548",
+        "QA-FRUIT-235548"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "All products",
+        "Missing price only",
+        "With price only"
+      ]
+    },
+    {
+      "name": "",
+      "ariaLabel": null,
+      "options": [
+        "Any sync status",
+        "no_update",
+        "update_available",
+        "package_delivered",
+        "ack_received",
+        "auth_failed",
+        "error"
+      ]
+    }
+  ],
+  "buttons": [
+    "Logout",
+    "Overview",
+    "Stores",
+    "Products",
+    "Create store",
+    "Global Logs",
+    "Users & Access",
+    "← Back to stores",
+    "Edit store",
+    "Refresh catalog",
+    "Create root category",
+    "Add to category",
+    "↑",
+    "↓",
+    "↑",
+    "↓",
+    "↑",
+    "↓",
+    "Selected",
+    "Add child",
+    "Edit",
+    "↑",
+    "↓",
+    "Manage products",
+    "Add child",
+    "Edit",
+    "Refresh banners",
+    "Refresh devices",
+    "Register device",
+    "Refresh prices",
+    "Save",
+    "Save",
+    "Save",
+    "Save",
+    "Save",
+    "Run validation",
+    "Publish catalog",
+    "Refresh history",
+    "Refresh logs",
+    "Clear filters"
+  ]
+}

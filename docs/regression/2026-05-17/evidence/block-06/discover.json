@@ -1,0 +1,499 @@
+{
+  "storeCreatePage": {
+    "url": "https://maksimfrelikh.ru/dashboard#store-create",
+    "buttons": [
+      {
+        "idx": 0,
+        "text": "Logout",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 1,
+        "text": "Overview",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 2,
+        "text": "Stores",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button nav-button-active",
+        "tag": "button"
+      },
+      {
+        "idx": 3,
+        "text": "Products",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 4,
+        "text": "Create store",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 5,
+        "text": "Global Logs",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 6,
+        "text": "Users & Access",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 7,
+        "text": "← Back to stores",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "link-button",
+        "tag": "button"
+      },
+      {
+        "idx": 8,
+        "text": "Save store",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 9,
+        "text": "Cancel",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      }
+    ]
+  },
+  "productCreatePage": {
+    "url": "https://maksimfrelikh.ru/dashboard#product-create",
+    "buttons": [
+      {
+        "idx": 0,
+        "text": "Logout",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 1,
+        "text": "Overview",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 2,
+        "text": "Stores",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 3,
+        "text": "Products",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button nav-button-active",
+        "tag": "button"
+      },
+      {
+        "idx": 4,
+        "text": "Create store",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 5,
+        "text": "Global Logs",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 6,
+        "text": "Users & Access",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 7,
+        "text": "← Back to products",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "link-button",
+        "tag": "button"
+      },
+      {
+        "idx": 8,
+        "text": "Save product",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 9,
+        "text": "Cancel",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      }
+    ]
+  },
+  "usersPage": {
+    "url": "https://maksimfrelikh.ru/dashboard#users-access",
+    "buttons": [
+      {
+        "idx": 4,
+        "text": "Create store",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 8,
+        "text": "Create invite",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      }
+    ]
+  },
+  "storeDetailPage": {
+    "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+    "buttons": [
+      {
+        "idx": 0,
+        "text": "Logout",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 1,
+        "text": "Overview",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 2,
+        "text": "Stores",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button nav-button-active",
+        "tag": "button"
+      },
+      {
+        "idx": 3,
+        "text": "Products",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 4,
+        "text": "Create store",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 5,
+        "text": "Global Logs",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 6,
+        "text": "Users & Access",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "nav-button",
+        "tag": "button"
+      },
+      {
+        "idx": 7,
+        "text": "← Back to stores",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "link-button",
+        "tag": "button"
+      },
+      {
+        "idx": 8,
+        "text": "Edit store",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 9,
+        "text": "Refresh catalog",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 10,
+        "text": "Create root category",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 11,
+        "text": "Add to category",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 12,
+        "text": "↑",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 13,
+        "text": "↓",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 14,
+        "text": "↑",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 15,
+        "text": "↓",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 16,
+        "text": "Selected",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 17,
+        "text": "Add child",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 18,
+        "text": "Edit",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 19,
+        "text": "Refresh banners",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 20,
+        "text": "Move up",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button table-action",
+        "tag": "button"
+      },
+      {
+        "idx": 21,
+        "text": "Move down",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "secondary-button table-action",
+        "tag": "button"
+      },
+      {
+        "idx": 22,
+        "text": "Refresh devices",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 23,
+        "text": "Register device",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 24,
+        "text": "Refresh prices",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 25,
+        "text": "Save",
+        "type": "submit",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 26,
+        "text": "Run validation",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 27,
+        "text": "Publish catalog",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": true,
+        "classes": "",
+        "tag": "button"
+      },
+      {
+        "idx": 28,
+        "text": "Refresh history",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 29,
+        "text": "Refresh logs",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      },
+      {
+        "idx": 30,
+        "text": "Clear filters",
+        "type": "button",
+        "ariaLabel": null,
+        "disabled": false,
+        "classes": "secondary-button",
+        "tag": "button"
+      }
+    ]
+  }
+}

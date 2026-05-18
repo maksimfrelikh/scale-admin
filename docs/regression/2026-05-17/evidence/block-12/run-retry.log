@@ -1,0 +1,11 @@
+[pass] login-admin
+[finding] A2-stores-search — {"note":"Stores list has NO search input; cannot filter to 0. Empty state untestable on production (49 stores).","inputCount":0}
+[pass] A3-products-empty-filter — {"skeletons":0,"loadingText":false,"hasEmptyMsg":true}
+[pass] A5-logs-empty-filter — {"skeletons":0,"loadingText":false,"emptyMsg":false}
+[pass] B10-mutation-500-retry — {"codePreserved":true,"namePreserved":true,"errShown":true}
+[pass] C12-mutation-loading-retry — {"disabledImmediate":false,"postCount":1,"buttonHtmlSample":""}
+[pass] C13-prices-inline-edit-retry — {"orig":"123.45","attempted":"123.46"}
+[pass] C11-loading-stores-retry — {"skeletonsEarly":1,"loadingTextEarly":true,"bodyEarlyHasContent":true,"skeletonsLate":0}
+[pass] C11-loading-products-retry — {"skeletonsEarly":1,"loadingTextEarly":true,"bodyEarlyHasContent":true,"skeletonsLate":0}
+[pass] C11-loading-store-detail-retry — {"skeletonsEarly":1,"loadingTextEarly":true,"bodyEarlyHasContent":true,"skeletonsLate":0}
+[pass] C11-loading-logs-retry — {"skeletonsEarly":1,"loadingTextEarly":true,"bodyEarlyHasContent":true,"skeletonsLate":0}

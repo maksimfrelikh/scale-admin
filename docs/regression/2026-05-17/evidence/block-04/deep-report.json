@@ -1,0 +1,443 @@
+{
+  "startedAt": "2026-05-17T20:03:51.015Z",
+  "postLogin": {
+    "label": "D-postlogin",
+    "url": "https://maksimfrelikh.ru/login",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "rootDirect": {
+    "label": "D-root-direct",
+    "url": "https://maksimfrelikh.ru/",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "dashboardDirect": {
+    "label": "D-dashboard-direct",
+    "url": "https://maksimfrelikh.ru/dashboard",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "C.list": {
+    "label": "C-stores-list",
+    "url": "https://maksimfrelikh.ru/#stores",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Stores"
+  },
+  "storeRowProbe": [
+    {
+      "tag": "P",
+      "text": "Dashboard",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "eyebrow"
+    },
+    {
+      "tag": "P",
+      "text": "Admin stores",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "eyebrow"
+    },
+    {
+      "tag": "DIV",
+      "text": "RefreshCreate store",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "action-row"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "STORE-002Manager Verify Store 002No address · Europe/MoscowactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-CACHE-132959QA Cache Session 132959 AQA cache/session regression · Europe/MoscowactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-CACHE-147228QA Cache Session 147228 CQA cache/session regression · Europe/MoscowactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-CACHE-195162QA Cache Session 195162 DQA cache/session regression · Europe/MoscowactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-CACHE-327800QA Cache Session 327800 DQA cache/session regression · Europe/MoscowactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-FORM-202605161432QA Forms Store 202605161432QA address · Invalid/TimezoneactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-FORM-202605161433QA Forms Store 202605161433QA address · Invalid/TimezoneactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-PUB-20260516150746QA Publishing Regression 20260516150746QA evidence entity · Europe/AmsterdamactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-PUB-20260516150853QA Publishing Regression 20260516150853QA evidence entity · Europe/AmsterdamactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-PUB-20260516150944QA Publishing Regression 20260516150944QA evidence entity · Europe/AmsterdamactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-PUB-20260516151018QA Publishing Regression 20260516151018QA evidence entity · Europe/AmsterdamactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    },
+    {
+      "tag": "ARTICLE",
+      "text": "QA-PUB-20260516151112QA Publishing Regression 20260516151112QA evidence entity · Europe/AmsterdamactiveDetailsEdit",
+      "hasUuid": false,
+      "onclick": false,
+      "cursor": "auto",
+      "classList": "store-card"
+    }
+  ],
+  "storeLinks": [],
+  "storeButtons": [
+    {
+      "text": "Overview"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    },
+    {
+      "text": "Details"
+    }
+  ],
+  "storeClickedBy": "View",
+  "C.0-store-landing": {
+    "label": "C0-store-landing-deep",
+    "url": "https://maksimfrelikh.ru/#",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "C-Overview": {
+    "label": "C-tab-Overview",
+    "url": "https://maksimfrelikh.ru/#",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "C-skip-Catalog": "not found",
+  "C-skip-Prices": "not found",
+  "C-skip-Advertising": "not found",
+  "C-skip-Scale Devices": "not found",
+  "C-skip-Scales": "not found",
+  "C-skip-Versions": "not found",
+  "C-skip-Publishing": "not found",
+  "C-Logs": {
+    "label": "C-tab-Logs",
+    "url": "https://maksimfrelikh.ru/#global-logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Global Logs"
+  },
+  "C-skip-Обзор": "not found",
+  "C-skip-Каталог": "not found",
+  "C-skip-Цены": "not found",
+  "C-skip-Реклама": "not found",
+  "C-skip-Весы": "not found",
+  "C-skip-Версии": "not found",
+  "C-skip-Публикация": "not found",
+  "C-skip-Логи": "not found",
+  "D-_garbage": {
+    "label": "D-_garbage",
+    "url": "https://maksimfrelikh.ru/#garbage",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_foo": {
+    "label": "D-_foo",
+    "url": "https://maksimfrelikh.ru/#foo",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_": {
+    "label": "D-_",
+    "url": "https://maksimfrelikh.ru/#/",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_stores_non_existent_uuid_12345": {
+    "label": "D-_stores_non_existent_uuid_12345",
+    "url": "https://maksimfrelikh.ru/#/stores/non-existent-uuid-12345",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1_nonexistent_tab": {
+    "label": "D-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1_nonexistent_tab",
+    "url": "https://maksimfrelikh.ru/#/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/nonexistent-tab",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_stores_foo": {
+    "label": "D-_stores_foo",
+    "url": "https://maksimfrelikh.ru/#stores/foo",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_stores_empty": {
+    "label": "D-_stores_empty",
+    "url": "https://maksimfrelikh.ru/#/stores//empty",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_stores_00000000_0000_0000_0000_000000000000": {
+    "label": "D-_stores_00000000_0000_0000_0000_000000000000",
+    "url": "https://maksimfrelikh.ru/#stores/00000000-0000-0000-0000-000000000000",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_users_bogus": {
+    "label": "D-_users_bogus",
+    "url": "https://maksimfrelikh.ru/#users/bogus",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_audit_log": {
+    "label": "D-_audit_log",
+    "url": "https://maksimfrelikh.ru/#audit-log",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "D-_audit": {
+    "label": "D-_audit",
+    "url": "https://maksimfrelikh.ru/#audit",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_users": {
+    "label": "E-path-_users",
+    "url": "https://maksimfrelikh.ru/users",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_audit_log": {
+    "label": "E-path-_audit_log",
+    "url": "https://maksimfrelikh.ru/audit-log",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_logs": {
+    "label": "E-path-_logs",
+    "url": "https://maksimfrelikh.ru/logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_global_logs": {
+    "label": "E-path-_global_logs",
+    "url": "https://maksimfrelikh.ru/global-logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_stores_new": {
+    "label": "E-path-_stores_new",
+    "url": "https://maksimfrelikh.ru/stores/new",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1_edit": {
+    "label": "E-path-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1_edit",
+    "url": "https://maksimfrelikh.ru/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/edit",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_dashboard": {
+    "label": "E-path-_dashboard",
+    "url": "https://maksimfrelikh.ru/dashboard",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_": {
+    "label": "E-path-_",
+    "url": "https://maksimfrelikh.ru/",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-path-_login": {
+    "label": "E-path-_login",
+    "url": "https://maksimfrelikh.ru/login",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-hash-_users": {
+    "label": "E-hash-_users",
+    "url": "https://maksimfrelikh.ru/#users",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-hash-_users_access": {
+    "label": "E-hash-_users_access",
+    "url": "https://maksimfrelikh.ru/#users-access",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Invites, roles and operator stores"
+  },
+  "E-hash-_audit_log": {
+    "label": "E-hash-_audit_log",
+    "url": "https://maksimfrelikh.ru/#audit-log",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-hash-_logs": {
+    "label": "E-hash-_logs",
+    "url": "https://maksimfrelikh.ru/#logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview"
+  },
+  "E-hash-_global_logs": {
+    "label": "E-hash-_global_logs",
+    "url": "https://maksimfrelikh.ru/#global-logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Global Logs"
+  },
+  "console": [
+    {
+      "label": "deep",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageerrors": [],
+  "network4xx5xx": [
+    {
+      "label": "deep",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "endedAt": "2026-05-17T20:05:54.876Z"
+}

@@ -1,0 +1,113 @@
+{
+  "startedAt": "2026-05-18T06:42:10.584Z",
+  "steps": [
+    {
+      "step": "login-admin",
+      "status": "pass",
+      "ts": "2026-05-18T06:42:33.455Z"
+    },
+    {
+      "step": "A2-stores-search",
+      "status": "finding",
+      "detail": {
+        "note": "Stores list has NO search input; cannot filter to 0. Empty state untestable on production (49 stores).",
+        "inputCount": 0
+      },
+      "ts": "2026-05-18T06:42:36.731Z"
+    },
+    {
+      "step": "A3-products-empty-filter",
+      "status": "pass",
+      "detail": {
+        "skeletons": 0,
+        "loadingText": false,
+        "hasEmptyMsg": true
+      },
+      "ts": "2026-05-18T06:42:42.378Z"
+    },
+    {
+      "step": "A5-logs-empty-filter",
+      "status": "pass",
+      "detail": {
+        "skeletons": 0,
+        "loadingText": false,
+        "emptyMsg": false
+      },
+      "ts": "2026-05-18T06:42:48.285Z"
+    },
+    {
+      "step": "B10-mutation-500-retry",
+      "status": "pass",
+      "detail": {
+        "codePreserved": true,
+        "namePreserved": true,
+        "errShown": true
+      },
+      "ts": "2026-05-18T06:42:54.620Z"
+    },
+    {
+      "step": "C12-mutation-loading-retry",
+      "status": "pass",
+      "detail": {
+        "disabledImmediate": false,
+        "postCount": 1,
+        "buttonHtmlSample": ""
+      },
+      "ts": "2026-05-18T06:45:07.376Z"
+    },
+    {
+      "step": "C13-prices-inline-edit-retry",
+      "status": "pass",
+      "detail": {
+        "orig": "123.45",
+        "attempted": "123.46"
+      },
+      "ts": "2026-05-18T06:45:21.496Z"
+    },
+    {
+      "step": "C11-loading-stores-retry",
+      "status": "pass",
+      "detail": {
+        "skeletonsEarly": 1,
+        "loadingTextEarly": true,
+        "bodyEarlyHasContent": true,
+        "skeletonsLate": 0
+      },
+      "ts": "2026-05-18T06:45:28.266Z"
+    },
+    {
+      "step": "C11-loading-products-retry",
+      "status": "pass",
+      "detail": {
+        "skeletonsEarly": 1,
+        "loadingTextEarly": true,
+        "bodyEarlyHasContent": true,
+        "skeletonsLate": 0
+      },
+      "ts": "2026-05-18T06:45:32.685Z"
+    },
+    {
+      "step": "C11-loading-store-detail-retry",
+      "status": "pass",
+      "detail": {
+        "skeletonsEarly": 1,
+        "loadingTextEarly": true,
+        "bodyEarlyHasContent": true,
+        "skeletonsLate": 0
+      },
+      "ts": "2026-05-18T06:45:37.052Z"
+    },
+    {
+      "step": "C11-loading-logs-retry",
+      "status": "pass",
+      "detail": {
+        "skeletonsEarly": 1,
+        "loadingTextEarly": true,
+        "bodyEarlyHasContent": true,
+        "skeletonsLate": 0
+      },
+      "ts": "2026-05-18T06:45:42.355Z"
+    }
+  ],
+  "finishedAt": "2026-05-18T06:45:42.357Z"
+}

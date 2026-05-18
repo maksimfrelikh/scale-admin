@@ -1,0 +1,1033 @@
+{
+  "startedAt": "2026-05-17T20:57:16.139Z",
+  "admin": {
+    "loginPage": {
+      "screenshot": "recon-admin-00-login.png",
+      "bodyText": " Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin ",
+      "forgotLink": null
+    },
+    "resetPathProbe": {
+      "/forgot-password": {
+        "url": "https://maksimfrelikh.ru/forgot-password",
+        "h1": "Вход в систему",
+        "inputs": [
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "admin@example.com"
+          },
+          {
+            "type": "password",
+            "name": "password",
+            "placeholder": "Введите пароль"
+          }
+        ]
+      },
+      "/reset-password": {
+        "url": "https://maksimfrelikh.ru/reset-password",
+        "h1": "Вход в систему",
+        "inputs": [
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "admin@example.com"
+          },
+          {
+            "type": "password",
+            "name": "password",
+            "placeholder": "Введите пароль"
+          }
+        ]
+      },
+      "/password-reset": {
+        "url": "https://maksimfrelikh.ru/password-reset",
+        "h1": "Вход в систему",
+        "inputs": [
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "admin@example.com"
+          },
+          {
+            "type": "password",
+            "name": "password",
+            "placeholder": "Введите пароль"
+          }
+        ]
+      },
+      "/auth/forgot": {
+        "url": "https://maksimfrelikh.ru/auth/forgot",
+        "h1": "Вход в систему",
+        "inputs": [
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "admin@example.com"
+          },
+          {
+            "type": "password",
+            "name": "password",
+            "placeholder": "Введите пароль"
+          }
+        ]
+      },
+      "/auth/reset": {
+        "url": "https://maksimfrelikh.ru/auth/reset",
+        "h1": "Вход в систему",
+        "inputs": [
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "admin@example.com"
+          },
+          {
+            "type": "password",
+            "name": "password",
+            "placeholder": "Введите пароль"
+          }
+        ]
+      }
+    },
+    "stores": {
+      "hash": "#stores",
+      "url": "https://maksimfrelikh.ru/dashboard#stores",
+      "h1": "Добро пожаловать, QA Admin",
+      "allButtonsText": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "Refresh",
+        "Create store",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit",
+        "Details",
+        "Edit"
+      ],
+      "inputs": []
+    },
+    "storeCreate": {
+      "inputs": [],
+      "dialogText": "",
+      "buttons": []
+    },
+    "products": {
+      "hash": "#products",
+      "url": "https://maksimfrelikh.ru/dashboard#products",
+      "h1": "Добро пожаловать, QA Admin",
+      "allButtonsText": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "Refresh",
+        "Create product",
+        "Search",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit"
+      ],
+      "inputs": [
+        {
+          "tag": "input",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "Name, short name, PLU, SKU or barcode",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        }
+      ]
+    },
+    "productCreate": {
+      "inputs": [],
+      "dialogText": "",
+      "buttons": []
+    },
+    "users": {
+      "hash": "#users-access",
+      "url": "https://maksimfrelikh.ru/dashboard#users-access",
+      "h1": "Добро пожаловать, QA Admin",
+      "allButtonsText": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "Refresh users",
+        "Create invite",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Unblock",
+        "Assign store",
+        "Unblock",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Unblock",
+        "Assign store",
+        "Unblock",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Block",
+        "Assign store",
+        "Revoke",
+        "Block"
+      ],
+      "inputs": [
+        {
+          "tag": "input",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "input",
+          "type": "email",
+          "name": "",
+          "id": "",
+          "placeholder": "operator@example.com",
+          "required": false
+        },
+        {
+          "tag": "input",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "Optional",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "input",
+          "type": "datetime-local",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        }
+      ]
+    },
+    "invite": {
+      "inputs": [],
+      "dialogText": "",
+      "buttons": []
+    },
+    "storeDetail": {
+      "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "h1": "Добро пожаловать, QA Admin",
+      "bodyText": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and publishing.Refresh catalogMain catalogactiveCatalog ID: ab84f2e4-644d-41cf-a30f-7b29bb6be807NameShort nameStatusactiveinactivearchivedCreate root categoryArchiving warning: categories with status archived or inactive cannot accept active product placements. If active products are already placed here, validation/publishing can be blocked until placements are moved or deactivated.Product placementsProducts in selected categorySearch active master products, add them to active categories, and reorder by sortOrder.CategoryQA Publishing Category 20260516150944Search productProductChoose active product1001 · Apples Red Weighted1002 · Bananas Weighted2001 · Milk Bottle 1L961433 · QA Forms Product 20260516143396150746 · QA Publishing Product 2026051615074696150853 · QA Publishing Product 2026051615085396150944 · QA Publishing Product 2026051615094496151018 · QA Publishing Product 2026051615101896151112 · QA Publishing Product 2026051615111286151112 · QA Publishing Unpriced Product 20260516151112",
+      "tabs": [],
+      "allButtons": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Create root category",
+        "Add to category",
+        "↑",
+        "↓",
+        "↑",
+        "↓",
+        "Selected",
+        "Add child",
+        "Edit",
+        "Refresh banners",
+        "Refresh devices",
+        "Register device",
+        "Refresh prices",
+        "Save",
+        "Run validation",
+        "Publish catalog",
+        "Refresh history",
+        "Refresh logs",
+        "Clear filters"
+      ]
+    },
+    "tabExplore": [
+      {
+        "clicked": "Banner",
+        "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "screenshot": "recon-admin-10-tab-Banner.png",
+        "h2": "QA Publishing Regression 20260516150944",
+        "sectionButtons": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Create root category",
+          "Add to category",
+          "↑",
+          "↓",
+          "↑",
+          "↓",
+          "Selected",
+          "Add child",
+          "Edit",
+          "Refresh banners",
+          "Refresh devices",
+          "Register device",
+          "Refresh prices",
+          "Save",
+          "Run validation",
+          "Publish catalog",
+          "Refresh history",
+          "Refresh logs",
+          "Clear filters"
+        ],
+        "bodyExcerpt": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and p"
+      },
+      {
+        "clicked": "Prices",
+        "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "screenshot": "recon-admin-10-tab-Prices.png",
+        "h2": "QA Publishing Regression 20260516150944",
+        "sectionButtons": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Create root category",
+          "Add to category",
+          "↑",
+          "↓",
+          "↑",
+          "↓",
+          "Selected",
+          "Add child",
+          "Edit",
+          "Refresh banners",
+          "Refresh devices",
+          "Register device",
+          "Refresh prices",
+          "Save",
+          "Run validation",
+          "Publish catalog",
+          "Refresh history",
+          "Refresh logs",
+          "Clear filters"
+        ],
+        "bodyExcerpt": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and p"
+      },
+      {
+        "clicked": "Catalog",
+        "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "screenshot": "recon-admin-10-tab-Catalog.png",
+        "h2": "QA Publishing Regression 20260516150944",
+        "sectionButtons": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Create root category",
+          "Add to category",
+          "↑",
+          "↓",
+          "↑",
+          "↓",
+          "Selected",
+          "Add child",
+          "Edit",
+          "Refresh banners",
+          "Refresh devices",
+          "Register device",
+          "Refresh prices",
+          "Save",
+          "Run validation",
+          "Publish catalog",
+          "Refresh history",
+          "Refresh logs",
+          "Clear filters"
+        ],
+        "bodyExcerpt": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and p"
+      },
+      {
+        "clicked": "Categor",
+        "url": "https://maksimfrelikh.ru/dashboard#store:e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "screenshot": "recon-admin-10-tab-Categor.png",
+        "h2": "QA Publishing Regression 20260516150944",
+        "sectionButtons": [
+          "Logout",
+          "Overview",
+          "Stores",
+          "Products",
+          "Create store",
+          "Global Logs",
+          "Users & Access",
+          "← Back to stores",
+          "Edit store",
+          "Refresh catalog",
+          "Create root category",
+          "Add to category",
+          "↑",
+          "↓",
+          "↑",
+          "↓",
+          "Selected",
+          "Add child",
+          "Edit",
+          "Refresh banners",
+          "Refresh devices",
+          "Register device",
+          "Refresh prices",
+          "Save",
+          "Run validation",
+          "Publish catalog",
+          "Refresh history",
+          "Refresh logs",
+          "Clear filters"
+        ],
+        "bodyExcerpt": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsQA Publishing Regression 20260516150944QA-PUB-20260516150944activeEdit storeAddressQA evidence entityTimezoneEurope/AmsterdamPublished catalogNo published versionCreated5/16/2026, 5:09:44 PMUpdated5/16/2026, 5:09:44 PMCatalog tabActive catalog categoriesManage the category tree used by prices, product placements and p"
+      }
+    ]
+  },
+  "operator": {
+    "dashboard": {
+      "h1": "Добро пожаловать, QA Operator"
+    },
+    "products": {
+      "hash": "#products",
+      "url": "https://maksimfrelikh.ru/dashboard#products",
+      "h1": "Добро пожаловать, QA Operator",
+      "allButtonsText": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Refresh",
+        "Create product",
+        "Search",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit",
+        "Edit"
+      ],
+      "inputs": [
+        {
+          "tag": "input",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "Name, short name, PLU, SKU or barcode",
+          "required": false
+        },
+        {
+          "tag": "select",
+          "type": "",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "required": false
+        }
+      ]
+    },
+    "storeDetail": {
+      "h1": "Добро пожаловать, QA Operator",
+      "tabs": [],
+      "allButtons": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "← Back to stores",
+        "Refresh catalog",
+        "Create root category",
+        "Add to category",
+        "↑",
+        "↓",
+        "↑",
+        "↓",
+        "Selected",
+        "Add child",
+        "Edit",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Save",
+        "Refresh history",
+        "Refresh logs",
+        "Clear filters"
+      ]
+    }
+  },
+  "endedAt": "2026-05-17T20:57:55.865Z"
+}

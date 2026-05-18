@@ -1,0 +1,142 @@
+{
+  "results": {
+    "A.1": {
+      "status": "pass",
+      "ttiLoginMs": 224,
+      "threshold": 2000,
+      "checkingTextVisible": false
+    },
+    "B.1": {
+      "status": "pass",
+      "expected": {
+        "overview": true,
+        "stores": true,
+        "products": true,
+        "usersAccess": true,
+        "logs": true
+      },
+      "navAll": [
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access"
+      ]
+    },
+    "E.1": {
+      "status": "pass",
+      "scale_admin_session": {
+        "name": "scale_admin_session",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1780254722.239848,
+        "httpOnly": true,
+        "secure": true,
+        "sameSite": "Lax"
+      },
+      "scale_admin_csrf": {
+        "name": "scale_admin_csrf",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1779131521.009215,
+        "httpOnly": false,
+        "secure": true,
+        "sameSite": "Lax"
+      }
+    },
+    "F.2-login": {
+      "status": 200,
+      "csrfHeader": "<present>"
+    },
+    "B.2": {
+      "status": "pass",
+      "logoutHttpStatus": 200,
+      "backToLoginForm": true,
+      "csrfHeaderUsed": "<present>",
+      "csrfMatchesCookie": true,
+      "csrfHeader": "***REDACTED***",
+      "csrfPreCookie": "***REDACTED***"
+    },
+    "B.2-direct": {
+      "status": "pass",
+      "url": "https://maksimfrelikh.ru/dashboard",
+      "promptLogin": true
+    },
+    "B.3": {
+      "status": "pass",
+      "nav": [
+        "Overview",
+        "Stores",
+        "Products"
+      ],
+      "hasOverview": true,
+      "hasStores": true,
+      "hasProducts": true,
+      "hasUsersAccess": false,
+      "hasLogs": false
+    },
+    "H.2": {
+      "status": "pass",
+      "url": "https://maksimfrelikh.ru/users",
+      "showsAdminUI": false,
+      "indicators": {
+        "hasUserManagementHeading": false,
+        "hasRoleColumn": false,
+        "hasInviteButton": false,
+        "hasDashboardHeading": true,
+        "h1h2": [
+          "Добро пожаловать, QA Operator",
+          "Assigned stores"
+        ]
+      }
+    },
+    "C.2": {
+      "status": "observe",
+      "submitDisabledBeforeAnyInput": false,
+      "emailValidityAfterEmptySubmit": true,
+      "passwordValidityAfterEmptySubmit": true
+    },
+    "C.3": {
+      "status": "pass",
+      "emailValidityAfterBadFormat": false
+    },
+    "F.2": {
+      "captured": false,
+      "csrfHeaderPresent": false
+    }
+  },
+  "reports": {
+    "adminNav": [
+      "Overview",
+      "Stores",
+      "Products",
+      "Create store",
+      "Global Logs",
+      "Users & Access"
+    ],
+    "operatorNav": [
+      "Overview",
+      "Stores",
+      "Products"
+    ],
+    "operatorOnUsersDirect": {
+      "url": "https://maksimfrelikh.ru/users",
+      "hasUserManagementHeading": false,
+      "hasRoleColumn": false,
+      "hasInviteButton": false,
+      "hasDashboardHeading": true,
+      "h1h2": [
+        "Добро пожаловать, QA Operator",
+        "Assigned stores"
+      ]
+    },
+    "createStoreDialog": {
+      "hasCreateButton": true,
+      "inputsFound": false
+    },
+    "lastStateChangeRequest": null
+  }
+}

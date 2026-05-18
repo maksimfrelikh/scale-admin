@@ -1,0 +1,86 @@
+# Test F: CSRF on state-changing endpoints (POST/PUT/DELETE)
+Date: 2026-05-17T19:04:33Z
+
+=== F.1a: POST /api/stores WITHOUT CSRF header (with session cookie) ===
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 109
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6d-XvPzUeKUIHJrKBKOGmGqZ58jRes"
+
+{"message":"CSRF token required or invalid","error":"Forbidden","code":"CSRF_TOKEN_INVALID","statusCode":403}
+=== F.1b: PATCH /api/stores/some-id WITHOUT CSRF ===
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 109
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6d-XvPzUeKUIHJrKBKOGmGqZ58jRes"
+
+
+=== F.1c: DELETE /api/stores/some-id WITHOUT CSRF ===
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 113
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"71-6b8GM5mcTioaKkMQsnZ9UATzWcM"
+
+
+=== F.1d: POST /api/auth/logout WITHOUT CSRF ===
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 109
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6d-XvPzUeKUIHJrKBKOGmGqZ58jRes"
+
+
+=== F.1e: POST with WRONG CSRF header value ===
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 109
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6d-XvPzUeKUIHJrKBKOGmGqZ58jRes"
+
+
+=== F.1f: POST with MISMATCHED CSRF (header valid token shape but no cookie match) ===
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:04:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 109
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6d-XvPzUeKUIHJrKBKOGmGqZ58jRes"
+

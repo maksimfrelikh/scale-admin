@@ -1,0 +1,236 @@
+{
+  "results": {
+    "A.1": {
+      "status": "pass",
+      "ttiLoginMs": 115,
+      "thresholdMs": 2000,
+      "observationMs": 2770
+    },
+    "A.2": {
+      "status": "pass",
+      "sessionCallCount30s": 1,
+      "statuses": [
+        401
+      ],
+      "firstStatus": 401
+    },
+    "C.2-empty": {
+      "status": "observe",
+      "submitDisabledWhenEmpty": false
+    },
+    "C.3-bad-email-ui": {
+      "status": "pass",
+      "validationMsg": "Email"
+    },
+    "F.2-login-csrf": {
+      "status": "pass",
+      "csrfHeaderPresent": true,
+      "loginStatus": 200
+    },
+    "B.1": {
+      "status": "fail",
+      "adminNav": [],
+      "missing": [
+        "Dashboard",
+        "Stores",
+        "Products",
+        "Users",
+        "Logs"
+      ]
+    },
+    "E.1": {
+      "status": "pass",
+      "sessionCookie": {
+        "name": "scale_admin_session",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1780254505.019555,
+        "httpOnly": true,
+        "secure": true,
+        "sameSite": "Lax"
+      },
+      "csrfCookie": {
+        "name": "scale_admin_csrf",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1779131303.621817,
+        "httpOnly": false,
+        "secure": true,
+        "sameSite": "Lax"
+      }
+    },
+    "D.1": {
+      "status": "fail",
+      "passwordFieldsAfterReload": 0,
+      "navAfterReload": []
+    },
+    "D.2": {
+      "status": "pass",
+      "beforeReload": "https://maksimfrelikh.ru/stores",
+      "afterReload": "https://maksimfrelikh.ru/stores",
+      "stillLogged": true
+    },
+    "D.2b": {
+      "status": "pass",
+      "url": "https://maksimfrelikh.ru/products",
+      "stillLogged": true
+    },
+    "D.3": {
+      "status": "pass",
+      "newTabHasLoginForm": false
+    },
+    "F.2-logout-csrf": {
+      "status": "pass",
+      "csrfHeaderPresent": true,
+      "logoutStatus": 403
+    },
+    "B.2": {
+      "status": "fail",
+      "logoutStatus": 403,
+      "backToLoginForm": true
+    },
+    "B.2-direct": {
+      "status": "pass",
+      "url": "https://maksimfrelikh.ru/dashboard",
+      "hasLoginForm": true
+    },
+    "A.3": {
+      "status": "pass",
+      "sessionCallCount30s": 1,
+      "statuses": [
+        401
+      ]
+    },
+    "G.1": {
+      "status": "pass",
+      "cookieRestoreShowsLogin": false
+    },
+    "H.1": {
+      "status": "pass",
+      "matrix": [
+        {
+          "url": "/dashboard",
+          "finalUrl": "https://maksimfrelikh.ru/dashboard",
+          "hasLoginForm": true
+        },
+        {
+          "url": "/stores",
+          "finalUrl": "https://maksimfrelikh.ru/stores",
+          "hasLoginForm": true
+        },
+        {
+          "url": "/products",
+          "finalUrl": "https://maksimfrelikh.ru/products",
+          "hasLoginForm": true
+        },
+        {
+          "url": "/users",
+          "finalUrl": "https://maksimfrelikh.ru/users",
+          "hasLoginForm": true
+        },
+        {
+          "url": "/logs",
+          "finalUrl": "https://maksimfrelikh.ru/logs",
+          "hasLoginForm": true
+        }
+      ]
+    },
+    "B.3": {
+      "status": "fail",
+      "operatorNav": [],
+      "leakedUsers": false,
+      "leakedLogs": false,
+      "hasDashboard": false,
+      "hasStores": false,
+      "hasProducts": false,
+      "loginStatus": 200
+    },
+    "H.2": {
+      "status": "fail",
+      "url": "https://maksimfrelikh.ru/users",
+      "accessDeniedIndicator": 0,
+      "visibleUserHintCount": 4,
+      "bouncedToDashboard": false
+    }
+  },
+  "reports": {
+    "A_incognito_initial_reqs": [
+      {
+        "ts": 138,
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      }
+    ],
+    "A_incognito_30s_reqs": [
+      {
+        "ts": 138,
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      }
+    ],
+    "adminNav": [],
+    "cookies": [
+      {
+        "name": "scale_admin_csrf",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1779131303.621817,
+        "httpOnly": false,
+        "secure": true,
+        "sameSite": "Lax"
+      },
+      {
+        "name": "scale_admin_session",
+        "value": "***REDACTED***",
+        "domain": "maksimfrelikh.ru",
+        "path": "/",
+        "expires": 1780254505.019555,
+        "httpOnly": true,
+        "secure": true,
+        "sameSite": "Lax"
+      }
+    ],
+    "adminPosts": [
+      "https://maksimfrelikh.ru/api/auth/login"
+    ],
+    "logoutBtnVisible": true,
+    "A3_fresh_30s_reqs": [
+      {
+        "ts": 108,
+        "status": 401,
+        "url": "https://maksimfrelikh.ru/api/auth/session"
+      }
+    ],
+    "H1": [
+      {
+        "url": "/dashboard",
+        "finalUrl": "https://maksimfrelikh.ru/dashboard",
+        "hasLoginForm": true
+      },
+      {
+        "url": "/stores",
+        "finalUrl": "https://maksimfrelikh.ru/stores",
+        "hasLoginForm": true
+      },
+      {
+        "url": "/products",
+        "finalUrl": "https://maksimfrelikh.ru/products",
+        "hasLoginForm": true
+      },
+      {
+        "url": "/users",
+        "finalUrl": "https://maksimfrelikh.ru/users",
+        "hasLoginForm": true
+      },
+      {
+        "url": "/logs",
+        "finalUrl": "https://maksimfrelikh.ru/logs",
+        "hasLoginForm": true
+      }
+    ],
+    "operatorNav": []
+  }
+}

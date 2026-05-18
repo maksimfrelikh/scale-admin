@@ -1,0 +1,19 @@
+{
+  "device": {
+    "id": "320b42f6-1404-46b3-9bb4-dd8b0b40cee1",
+    "storeId": "1cf0f4ba-71a8-4a0d-b87d-8e5494baf263",
+    "deviceCode": "QAB10A1004111",
+    "name": "QA Block10 A1 device",
+    "model": "QA-Test-Model",
+    "status": "active",
+    "lastSeenAt": null,
+    "lastSyncAt": null,
+    "currentCatalogVersionId": null,
+    "lastSyncStatus": null,
+    "lastSyncError": null,
+    "createdAt": "2026-05-17T22:41:11.494Z",
+    "updatedAt": "2026-05-17T22:41:11.494Z"
+  },
+  "apiToken": "***REDACTED***",
+  "apiTokenLength": 43
+}

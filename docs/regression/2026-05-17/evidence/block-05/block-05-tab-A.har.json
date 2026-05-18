@@ -1,0 +1,537 @@
+{
+  "note": "Sanitized synthesized network summary for Tab A across all sections. Real HAR was not captured due to Playwright recordHar option quirk in this env. All sensitive headers/tokens are redacted.",
+  "entries": [
+    {
+      "label": "A",
+      "t": "20:26:37.328",
+      "m": "POST",
+      "u": "/api/auth/login",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:37.341",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:37.441",
+      "m": "GET",
+      "u": "/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:41.154",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:41.207",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:41.213",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:53.487",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:26:56.025",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:28.796",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.025",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/categories",
+      "s": 404
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.035",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/advertising/banners",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.076",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/scales",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.085",
+      "m": "GET",
+      "u": "/api/products?status=active&take=10",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.087",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "s": 404
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.090",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/publishing/catalog-versions",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.095",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/logs",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:27:29.116",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "s": 404
+    },
+    {
+      "label": "A",
+      "t": "20:27:32.482",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/categories",
+      "s": 404
+    },
+    {
+      "label": "A",
+      "t": "20:28:07.282",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:28:08.796",
+      "m": "POST",
+      "u": "/api/auth/logout",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:09.152",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "A",
+      "t": "20:29:09.193",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:13.828",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "A",
+      "t": "20:29:13.858",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:14.038",
+      "m": "POST",
+      "u": "/api/auth/login",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:14.063",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:14.136",
+      "m": "GET",
+      "u": "/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:15.617",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:15.670",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "A",
+      "t": "20:29:15.670",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 200
+    },
+    {
+      "label": "A.A2_logout_status",
+      "kind": "logout",
+      "status": 200,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:32:51.683",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:32:56.708",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:33:01.732",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:33:06.754",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:33:11.777",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B2_poll_30s",
+      "t": "20:33:16.799",
+      "aUrl": "https://maksimfrelikh.ru/#store:7b3dd342-2b72-47c1-b06a-6116342e9cd9",
+      "aH1": "Добро пожаловать, QA Admin",
+      "navItems": [
+        "Logout",
+        "Overview",
+        "Stores",
+        "Products",
+        "Create store",
+        "Global Logs",
+        "Users & Access",
+        "← Back to stores",
+        "Edit store",
+        "Refresh catalog",
+        "Refresh banners",
+        "Refresh devices",
+        "Refresh prices",
+        "Run validation"
+      ],
+      "sessRole": "operator"
+    },
+    {
+      "label": "B.B3_admin_link_api",
+      "t": "20:33:16.896",
+      "s": 403,
+      "u": "/api/users",
+      "m": "GET"
+    },
+    {
+      "label": "E_fixed.logoutResp",
+      "status": 200
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:39:50.938",
+      "elapsedSec": 30,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:40:20.944",
+      "elapsedSec": 60,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:40:50.949",
+      "elapsedSec": 90,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:41:20.954",
+      "elapsedSec": 120,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:41:50.962",
+      "elapsedSec": 150,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:42:20.968",
+      "elapsedSec": 180,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:42:50.973",
+      "elapsedSec": 210,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:43:20.978",
+      "elapsedSec": 240,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:43:50.983",
+      "elapsedSec": 270,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:44:20.989",
+      "elapsedSec": 300,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.idle_snapshots_5_30min",
+      "t": "20:44:50.995",
+      "elapsedSec": 330,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true
+    },
+    {
+      "label": "G.bg_api_during_idle",
+      "count": 6
+    },
+    {
+      "label": "G.post_logout_polls",
+      "t": "20:45:21.053",
+      "elapsedSecSinceLogout": 30,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "G.post_logout_polls",
+      "t": "20:45:51.066",
+      "elapsedSecSinceLogout": 60,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "G.post_logout_polls",
+      "t": "20:46:21.080",
+      "elapsedSecSinceLogout": 90,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "G.post_logout_polls",
+      "t": "20:46:51.095",
+      "elapsedSecSinceLogout": 120,
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.curl_logout",
+      "kind": "external_logout",
+      "status": 200
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:38:48.270",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:38:53.295",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:38:58.327",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:39:03.358",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:39:08.385",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_A",
+      "t": "20:39:13.408",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": true,
+      "sess": 401
+    },
+    {
+      "label": "H.A_after_click",
+      "url": "https://maksimfrelikh.ru/#products",
+      "h1": "Вход в систему",
+      "body": " Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin ",
+      "onLogin": true
+    }
+  ]
+}

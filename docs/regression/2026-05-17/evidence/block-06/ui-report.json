@@ -1,0 +1,438 @@
+{
+  "startedAt": "2026-05-17T21:19:41.437Z",
+  "tag": "REG6UI-1779052781437",
+  "created": [
+    {
+      "kind": "store",
+      "code": "XSSUI-REG6UI-1779052781437"
+    },
+    {
+      "kind": "store",
+      "code": "SLO-REG6UI-1779052781437"
+    },
+    {
+      "kind": "store",
+      "code": "DBL-REG6UI-1779052781437"
+    },
+    {
+      "kind": "product",
+      "plu": "92781437"
+    }
+  ],
+  "A": {
+    "empty_submit": {
+      "httpFired": 0,
+      "requests": [],
+      "inlineErrors": [
+        "LogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesCreate storeNew storeStore codeStore nameAddressTimezoneStatusactiveinactivearchivedStore code and name are required"
+      ],
+      "urlAfter": "https://maksimfrelikh.ru/dashboard#store-create",
+      "screenshot": "ui-A-empty-submit.png"
+    },
+    "whitespace_submit": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "LogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesCreate storeNew storeStore codeStore nameAddressTimezoneStatusactiveinactivearchivedStore code and name are required"
+      ],
+      "screenshot": "ui-A-whitespace-submit.png"
+    },
+    "xss_submit": {
+      "httpFired": 1,
+      "bodySent": "{\"code\":\"XSSUI-REG6UI-1779052781437\",\"name\":\"<script>window.__xss_a=1</script>Block6 XSS 1779052781437\",\"address\":\"<img src=x onerror=window.__xss_b=1>\",\"timezone\":\"Europe/Amsterdam\",\"status\":\"active\"}",
+      "urlAfter": "https://maksimfrelikh.ru/dashboard#store:40c1f9b2-6b38-4bfd-8176-8a5040cb3bcb"
+    },
+    "xss_in_list": {
+      "hasLiteralScriptTagInHTML": false,
+      "renderedAsText": true,
+      "xssGlobalFired": false,
+      "imgTagInjected": false,
+      "present": true
+    },
+    "slow_state": {
+      "btnDisabledMidFlight": null,
+      "btnText": "",
+      "spinnerVisible": 0
+    },
+    "slow_result": {
+      "posted": 1,
+      "finalUrl": "https://maksimfrelikh.ru/dashboard#store:f63ab3b5-702b-46ca-bd6e-078ea18afcde"
+    },
+    "double_click": {
+      "posted": 1,
+      "requests": [
+        {
+          "method": "POST",
+          "body": "{\"code\":\"DBL-REG6UI-1779052781437\",\"name\":\"dbl\",\"address\":\"-\",\"timezone\":\"Europe/Moscow\",\"status\":\"a"
+        }
+      ]
+    },
+    "cancel_button": {
+      "count": 1
+    },
+    "cancel_result": {
+      "urlAfter": "https://maksimfrelikh.ru/dashboard#stores"
+    },
+    "dismiss_after_nav": {
+      "codeField": "",
+      "nameField": ""
+    }
+  },
+  "B": {
+    "empty_submit": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "PluCode, name, shortName, unit and status are required"
+      ],
+      "screenshot": "ui-B-empty-submit.png"
+    },
+    "xss_submit": {
+      "httpFired": 1,
+      "urlAfter": "https://maksimfrelikh.ru/dashboard#products",
+      "bodySent": "{\"defaultPluCode\":\"92781437\",\"name\":\"<script>window.__xss_b1=1</script>BProd 1779052781437\",\"shortName\":\"<img src=x onerror=window.__xss_b2=1>\",\"imageUrl\":\"javascript:window.__xss_b3=1\",\"unit\":\"kg\",\"status\":\"active\"}"
+    },
+    "xss_in_list": {
+      "hasLiteralScriptTag": false,
+      "renderedAsText": true,
+      "hasOnerrorImg": false,
+      "xssFired": false,
+      "pluPresent": true
+    },
+    "xss_in_edit_page": {
+      "urlAfter": "https://maksimfrelikh.ru/dashboard#product-edit:2a1e8b78-d38e-4cf6-bd9f-084667d088a9",
+      "xssFired": false,
+      "imageTagInjected": false,
+      "imageUrlInputValue": "javascript:window.__xss_b3=1",
+      "imgPreviewSrc": "javascript:window.__xss_b3=1"
+    }
+  },
+  "D": {
+    "empty_submit": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "EmailFull nameRoleoperatoradminExpires atEmail is required"
+      ],
+      "screenshot": "ui-D-empty-submit.png"
+    },
+    "bad_email_abc": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "EmailFull nameRoleoperatoradminExpires atEmail is required"
+      ]
+    },
+    "bad_email_a_at_b": {
+      "httpFired": 1,
+      "bodySent": "{\"email\":\"a@b\",\"role\":\"operator\",\"expiresAt\":\"2026-05-24T19:22:00.000Z\"}",
+      "afterText": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block users and manage operator store assignments.Include deletedRefresh usersCreate inviteSend this one-time token to the invited user through a secure channel.EmailFull nameRoleoperatoradminExpires atInvite for a@b expires 5/24/2026, 9:22:00 PM.Invite created. The invite token is not shown in production.Create inviteqa-operator@***.invalidQA OperatorCre"
+    }
+  },
+  "C": {
+    "empty_submit": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "If active products are already placed here, validation/publishing can be blocked until placements are moved o",
+        "QA Publishing Product 20260516150944PLU 96150944 · Order: 0 · active↑↓Category name is required",
+        "Refresh pricesSearchCategoryAll categoriesQA Publishing Category 20260516150944Price statusAll productsMissing price onlyWith price onlyProduct nameShort namePLUSKU/barcodeCategoryCurrent priceUnitStatusUpdatedAtQA Publishing Product 20260516150944QA Pub Product 2026051615094496150944—QA Publishing Category 20260516150944Savepieceactive5/17/2026, 11:14:53 PMVersions / PublishingValidate and publish catalog versionsAfter a catalog is published, later changes require a new validation and a new version",
+        "Run validationPublish catalogCurrent published catalogNo published versionRun validation to see blocking errors, warnings and publishing readin"
+      ],
+      "screenshot": "ui-C-empty-submit.png"
+    },
+    "xss_in_tree": {
+      "renderedAsText": true,
+      "hasInjectedScript": false
+    }
+  },
+  "F": {
+    "empty_submit": {
+      "httpFired": 0,
+      "inlineErrors": [
+        "If active products are already placed here, validation/publishing can be blocked until placements are moved o",
+        "QA Publishing Product 20260516150944PLU 96150944 · Order: 0 · active↑↓Category name is required",
+        "Refresh devicesDevice codeNameModelRegister deviceDevice code and name are required",
+        "Refresh pricesSearchCategoryAll categoriesQA Publishing Category 20260516150944Price statusAll productsMissing price onlyWith price onlyProduct nameShort namePLUSKU/barcodeCategoryCurrent priceUnitStatusUpdatedAtQA Publishing Product 20260516150944QA Pub Product 2026051615094496150944—QA Publishing Category 20260516150944Savepieceactive5/17/2026, 11:14:53 PMVersions / PublishingValidate and publish catalog versionsAfter a catalog is published, later changes require a new validation and a new version",
+        "Run validationPublish catalogCurrent published catalogNo published versionRun validation to see blocking errors, warnings and publishing readin"
+      ],
+      "screenshot": "ui-F-empty-submit.png"
+    }
+  },
+  "G": {
+    "png": {
+      "reqs": [
+        {
+          "method": "POST",
+          "url": "https://maksimfrelikh.ru/api/files/images",
+          "len": 0
+        },
+        {
+          "method": "POST",
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/advertising/banners",
+          "len": 161
+        }
+      ],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "gif": {
+      "reqs": [],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "svg": {
+      "reqs": [],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "txt": {
+      "reqs": [],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "zero": {
+      "reqs": [
+        {
+          "method": "POST",
+          "url": "https://maksimfrelikh.ru/api/files/images",
+          "len": 0
+        }
+      ],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "big": {
+      "reqs": [],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "exe": {
+      "reqs": [],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    },
+    "fakeJpg": {
+      "reqs": [
+        {
+          "method": "POST",
+          "url": "https://maksimfrelikh.ru/api/files/images",
+          "len": 0
+        }
+      ],
+      "newErrLines": [
+        "errors, warnings and publishing readiness",
+        "errorFrom dateTo dateClear filtersAuditLog entriesTimeStoreActorEntityAction5/17/2026"
+      ],
+      "errCountDelta": 0
+    }
+  },
+  "H": {
+    "priceInputCount": 1,
+    "initialValue": "66.66",
+    "escape": {
+      "after": "77.77"
+    },
+    "enter": {
+      "httpFired": 0,
+      "requests": [],
+      "after": "66.66"
+    },
+    "click_outside": {
+      "httpFired": 0,
+      "after": "55.55"
+    },
+    "bad_values": {
+      "0": {
+        "sent": [],
+        "valueAfter": "0",
+        "validity": {
+          "valid": false,
+          "badInput": false,
+          "rangeUnderflow": true,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "-1": {
+        "sent": [],
+        "valueAfter": "-1",
+        "validity": {
+          "valid": false,
+          "badInput": false,
+          "rangeUnderflow": true,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "0.001": {
+        "sent": [],
+        "valueAfter": "0.001",
+        "validity": {
+          "valid": false,
+          "badInput": false,
+          "rangeUnderflow": true,
+          "rangeOverflow": false,
+          "stepMismatch": true
+        }
+      },
+      "0.01": {
+        "sent": [
+          {
+            "method": "PUT",
+            "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices/13347e24-5d17-4f09-92d5-0ae6fa610c96",
+            "body": "{\"price\":0.01,\"currency\":\"RUB\"}"
+          }
+        ],
+        "valueAfter": "0.01",
+        "validity": {
+          "valid": true,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "999999999999": {
+        "sent": [
+          {
+            "method": "PUT",
+            "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices/13347e24-5d17-4f09-92d5-0ae6fa610c96",
+            "body": "{\"price\":999999999999,\"currency\":\"RUB\"}"
+          }
+        ],
+        "valueAfter": "999999999999",
+        "validity": {
+          "valid": true,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "1e10": {
+        "sent": [
+          {
+            "method": "PUT",
+            "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices/13347e24-5d17-4f09-92d5-0ae6fa610c96",
+            "body": "{\"price\":10000000000,\"currency\":\"RUB\"}"
+          }
+        ],
+        "valueAfter": "1e10",
+        "validity": {
+          "valid": true,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "12.345": {
+        "sent": [],
+        "valueAfter": "12.345",
+        "validity": {
+          "valid": false,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": true
+        }
+      },
+      "abc": {
+        "sent": [
+          {
+            "method": "PUT",
+            "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices/13347e24-5d17-4f09-92d5-0ae6fa610c96",
+            "body": "{\"price\":12.345,\"currency\":\"RUB\"}"
+          }
+        ],
+        "valueAfter": "12.35",
+        "validity": {
+          "valid": true,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "<script>alert(1)</sc": {
+        "sent": [],
+        "valueAfter": "",
+        "validity": {
+          "valid": false,
+          "badInput": true,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "'; DROP--": {
+        "sent": [],
+        "valueAfter": "",
+        "validity": {
+          "valid": false,
+          "badInput": true,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      },
+      "   ": {
+        "sent": [],
+        "valueAfter": "",
+        "validity": {
+          "valid": true,
+          "badInput": false,
+          "rangeUnderflow": false,
+          "rangeOverflow": false,
+          "stepMismatch": false
+        }
+      }
+    },
+    "save_double": {
+      "httpFired": 1,
+      "requests": [
+        {
+          "method": "PUT",
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/prices/13347e24-5d17-4f09-92d5-0ae6fa610c96",
+          "body": "{\"price\":11.11,\"currency\":\"RUB\"}"
+        }
+      ]
+    },
+    "restored": {
+      "final": "66.66"
+    }
+  },
+  "offline": {
+    "A_store": {
+      "httpFired": 1,
+      "btnDisabled": false,
+      "bodySnippet": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesCreate storeNew storeStore codeStore nameAddressTimezoneStatusactiveinactivearchivedBackend недоступен. Проверьте, что сервер запущен, и повторите попытку.Save storeCancel ",
+      "errorLikeLines": [],
+      "screenshot": "ui-offline-A.png"
+    }
+  },
+  "E": {
+    "forgotTextOnLogin": [],
+    "linksOnLogin": [],
+    "screenshot": "ui-E-login-page.png"
+  },
+  "alerts_captured": [],
+  "endedAt": "2026-05-17T21:24:02.062Z"
+}

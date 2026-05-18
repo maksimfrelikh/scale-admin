@@ -11,7 +11,7 @@
 
 ## Шаги воспроизведения
 
-1. Login как `qa-admin@gmail.com`.
+1. Login как `qa-admin@***.invalid`.
 2. Navigate `https://maksimfrelikh.ru/#users-access`.
 3. Установить viewport 1024×768 (DevTools tablet emulation, "iPad Pro 11 landscape" или Playwright `viewport: {w:1024,h:768}`).
 4. Дождаться загрузки секции "Invites, roles and operator stores".

@@ -1,0 +1,60 @@
+# Test F probe: DELETE behavior — route existence vs CSRF order
+Date: 2026-05-17T19:05:16Z
+
+CSRF=uyn712lF...
+
+=== DELETE /api/stores/<fake-uuid> WITH valid CSRF — if 404 then no route exists ===
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:05:16 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 113
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+
+=== OPTIONS /api/stores — what methods allowed ===
+HTTP/1.1 204 No Content
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:05:16 GMT
+Content-Length: 0
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin, Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+
+
+=== OPTIONS /api/stores/<uuid> ===
+HTTP/1.1 204 No Content
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:05:16 GMT
+Content-Length: 0
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin, Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+
+
+=== GET /api/stores/<fake-uuid> ===
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:05:16 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 66
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+
+=== PATCH /api/stores/<fake-uuid> WITH valid CSRF — for comparison ===
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:05:16 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 66
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru

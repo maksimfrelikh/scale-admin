@@ -1,0 +1,43 @@
+[20:26:38.831] [LOG] A login qa-admin@***.invalid url=https://maksimfrelikh.ru/login
+[20:26:41.061] [A] A0_initial {"A":{"url":"https://maksimfrelikh.ru/login","title":"Scale Admin","h1":"Добро пожаловать, QA Admin","h2":"Fleet overview","body":" DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFl
+[20:26:41.071] [E] E1_localStorage_admin {}
+[20:26:41.071] [E] E2_sessionStorage_admin {}
+[20:26:41.071] [E] E2b_cookieNames_admin ["scale_admin_csrf"]
+[20:26:41.071] [E] E3_indexedDB_admin {"dbs":[]}
+[20:26:41.075] [E] B page: listeners installed (storage + BroadcastChannel)
+[20:26:41.075] [C] navigate both to #stores
+[20:26:44.159] [C] C1_B_initial_has_QA-MULTITAB-001 false
+[20:26:44.294] [C] Tab A: clicking create-store button: button:has-text("Create store")
+[20:26:56.026] [C] C2_via_UI {"before":44,"after":{"n":44}}
+[20:26:56.026] [C] UI create not detected — fallback: direct API create
+[20:26:56.077] [C] C2_via_API_fallback {"status":201,"id":"fa402ca3-4ff7-4c0f-b33e-e259b91adf3f"}
+[20:27:26.096] [C] C3_B_poll_30s_without_refresh [{"t":"20:27:01.082","seenInB":false},{"t":"20:27:06.085","seenInB":false},{"t":"20:27:11.088","seenInB":false},{"t":"20:27:16.091","seenInB":false},{"t":"20:27:21.094","seenInB":false},{"t":"20:27:26.096","seenInB":false}]
+[20:27:28.699] [C] C4_B_after_reload_has_store true
+[20:27:28.770] [D] store for detail: adc14d18-59b7-43f1-995f-f079c2ef0b96
+[20:27:34.043] [D] UI category create not detected — fallback: direct API create
+[20:27:34.067] [D] D2_via_API_fallback {"status":404,"raw":"{\"message\":\"Active store catalog not found\",\"error\":\"Not Found\",\"statusCode\":404}"}
+[20:28:04.084] [D] D3_B_poll_30s_without_refresh [{"t":"20:27:39.071","seenInB":false},{"t":"20:27:44.072","seenInB":false},{"t":"20:27:49.076","seenInB":false},{"t":"20:27:54.079","seenInB":false},{"t":"20:27:59.082","seenInB":false},{"t":"20:28:04.084","seenInB":false}]
+[20:28:07.190] [D] D4_B_after_reload_has_category false
+[20:28:08.782] [A] A1_pre_logout {"A":{"url":"https://maksimfrelikh.ru/#stores","title":"Scale Admin","h1":"Добро пожаловать, QA Admin","h2":"Stores","body":" DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmin
+[20:28:08.782] [A] Tab A: logout
+[20:28:08.797] [LOG] A logout fetch status=200
+[20:28:08.797] [A] A2_logout_status {"status":200,"ct":"application/json; charset=utf-8"}
+[20:29:09.046] [A] A2_B_poll_60s [{"t":"20:28:13.866","bUrl":"https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96","bOnLogin":false,"bH1":"Добро пожаловать, QA Admin","sess":{"status":401}},{"t":"20:28:18.880","bUrl":"https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96","bOnLogin":false,"bH1":"Добр
+[20:29:09.117] [E] E4_storage_events_during_logout []
+[20:29:09.117] [E] E5_broadcast_channel_events_during_logout []
+[20:29:09.117] [E] E5b_bc_channels_subscribed []
+[20:29:09.117] [A] Tab B: click Stores nav after Tab A logged out
+[20:29:13.630] [A] A3_B_after_stores_click {"state":{"url":"https://maksimfrelikh.ru/#","title":"Scale Admin","h1":"Вход в систему","h2":"","body":" Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin ","onLogin":true},"recentApi":[{"t":"20:29:09.133","m":"GET","u":"/api/stores","s":401},{"t
+[20:29:13.701] [A] A4_B_state_change_after_A_logout {"csrfPresent":true,"status":401,"body":"{\"message\":\"Authentication required\",\"error\":\"Unauthorized\",\"statusCode\":401}"}
+[20:29:15.539] [LOG] A login qa-admin@***.invalid url=https://maksimfrelikh.ru/login
+[20:29:18.114] [B] B0_A_relogin_admin {"url":"https://maksimfrelikh.ru/#stores","title":"Scale Admin","h1":"Добро пожаловать, QA Admin","h2":"Stores","body":" DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can
+FATAL locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('input[type="email"], input[name="email"]').first()
+
+    at loginPage (/home/clawd/projects/scale-admin/docs/regression/2026-05-17/scripts/block-05-multitab.cjs:60:74)
+    at async main (/home/clawd/projects/scale-admin/docs/regression/2026-05-17/scripts/block-05-multitab.cjs:404:5) {
+  name: 'TimeoutError'
+}
+Report: /home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-05/report.json
+Cleanup done.

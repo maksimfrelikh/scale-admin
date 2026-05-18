@@ -1,0 +1,13 @@
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 22:45:37 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 76
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"4c-j0u4GNVngw11xKBMMz+vtANnflo"
+
+{"message":"Catalog version not found","error":"Not Found","statusCode":404}

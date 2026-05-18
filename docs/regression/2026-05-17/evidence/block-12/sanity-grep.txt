@@ -1,0 +1,192 @@
+=== G20: plaintext passwords/emails in evidence ===
+docs/regression/2026-05-17/bugs/BUG-REG-032.md:1. Login как `qa-admin@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-009.md:1. Залогиниться под `qa-admin@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-015.md:2. Обе вкладки залогинены `qa-admin@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-011.md:1. Login `qa-admin@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-016.md:2. Обе залогинены `qa-admin@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-008.md:1. Залогиниться под `qa-operator@***.invalid`.
+docs/regression/2026-05-17/bugs/BUG-REG-017.md:2. Вкладка A: залогиниться `qa-admin@***.invalid`. Открыть Store Detail любого магазина: `#store:{uuid}`. Видны admin-only элементы: nav "Users & Access", "Global Logs", "Create store"; на Store Detail кнопки "Edit store", "Refresh catalog", "Refresh banners", "Refresh devices", "Refresh prices", "Run validation".
+docs/regression/2026-05-17/bugs/BUG-REG-017.md:3. Вкладка B (в этом же браузере): через прямой POST /api/auth/login залогиниться `qa-operator@***.invalid` — это перезаписывает `scale_admin_session` cookie на operator сессию. Reload Вкладки B — она показывает operator dashboard, "Active session for qa-operator@***.invalid · role: operator".
+docs/regression/2026-05-17/bugs/BUG-REG-017.md:  - "Active session for qa-admin@***.invalid · role: admin"
+docs/regression/2026-05-17/bugs/BUG-REG-017.md:- Но server подтверждает: `GET /api/auth/session` возвращает `role: operator`, `email: qa-operator@***.invalid` (за весь этот период).
+docs/regression/2026-05-17/bugs/BUG-REG-014.md:2. Вкладка A: залогиниться `qa-admin@***.invalid`. Перейти на `#stores`.
+docs/regression/2026-05-17/bugs/BUG-REG-005.md:curl -s -o /dev/null -b /tmp/c -H "Content-Type: application/json" -H "Origin: https://maksimfrelikh.ru" -H "x-csrf-token: $CSRF" -X POST https://maksimfrelikh.ru/api/auth/login -d '{"email":"qa-admin@***.invalid","password":"x"}'
+docs/regression/2026-05-17/bugs/BUG-REG-005.md:curl -i -s -b /tmp/c -H "Content-Type: application/json" -H "Origin: https://maksimfrelikh.ru" -H "x-csrf-token: $CSRF" -X POST https://maksimfrelikh.ru/api/auth/login -d '{"email":"qa-admin@***.invalid","password":"x"}'
+docs/regression/2026-05-17/scripts/block-04-routing-deep.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: PASSWORD };
+docs/regression/2026-05-17/scripts/block-04-routing-deep.cjs:const OPERATOR = { email: 'qa-operator@***.invalid', password: PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-admin-trace.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-06-G-upload.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-05-multitab.cjs: * Usage: QA_PASSWORD='<password>' node block-05-multitab.cjs
+docs/regression/2026-05-17/scripts/block-05-multitab.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-05-multitab.cjs:const OPER  = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-invite-flow.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-08-search-filter.cjs:  await page.locator('input[type="email"]').first().fill('qa-admin@***.invalid');
+docs/regression/2026-05-17/scripts/block-06-discover.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-admin-global-logs.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-11-responsive.cjs:const ADMIN    = { email: 'qa-admin@***.invalid',    password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-11-responsive.cjs:const OPERATOR = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-07-helpers.sh:    -d '{"email":"qa-admin@***.invalid","password":"<password>"}' > /dev/null
+docs/regression/2026-05-17/scripts/block-07-helpers.sh:    -d '{"email":"qa-operator@***.invalid","password":"<password>"}' > /dev/null
+docs/regression/2026-05-17/scripts/block-03-revoke-restore.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-revoke-restore.cjs:const OPERATOR_EMAIL = 'qa-operator@***.invalid';
+docs/regression/2026-05-17/scripts/block-06-recon.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-06-recon.cjs:const OPER  = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-find-mutations.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-04-nav-ABC.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: PASSWORD };
+docs/regression/2026-05-17/scripts/block-04-nav-ABC.cjs:const OPERATOR = { email: 'qa-operator@***.invalid', password: PASSWORD };
+docs/regression/2026-05-17/scripts/block-03-invite-revoke.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-02-auth.spec.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-02-auth.spec.cjs:const OPER  = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-12-edge-long.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-06-ui.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-12-states.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-05-multitab-3.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-12-states-retry.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-02-round2.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-02-round2.cjs:const OPER  = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-08-ui-surface.cjs:  await page.locator('input[type="email"]').first().fill('qa-admin@***.invalid');
+docs/regression/2026-05-17/scripts/block-06-recon-2.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-08-deep-surface.cjs:  await page.locator('input[type="email"]').first().fill('qa-admin@***.invalid');
+docs/regression/2026-05-17/scripts/block-06-api.cjs:const ADMIN = { email: 'qa-admin@***.invalid', password: QA_PASSWORD };
+docs/regression/2026-05-17/scripts/block-06-api.cjs:const OPER  = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
+--- (excluded evidence/ for noise; checking evidence/ separately below) ---
+
+=== G20b: same grep inside evidence/ ===
+docs/regression/2026-05-17/evidence/block-02-B3-login-operator.txt:{"user":{"id":"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204","email":"qa-operator@***.invalid","fullName":"QA Operator","role":"operator","status":"active"},"expiresAt":"2026-05-31T19:03:35.509Z"}
+docs/regression/2026-05-17/evidence/block-02-B3-login-operator.txt:{"session":{"id":"ab8ba863-79f0-4981-bb5c-94c1554ed611","createdAt":"2026-05-17T19:03:35.509Z","lastUsedAt":"2026-05-17T19:03:35.672Z","expiresAt":"2026-05-31T19:03:35.509Z"},"user":{"id":"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204","email":"qa-operator@***.invalid","fullName":"QA Operator","role":"operator","status":"active"}}
+docs/regression/2026-05-17/evidence/block-09/H1-audit-publish.json:        "email": "qa-operator@***.invalid",
+docs/regression/2026-05-17/evidence/block-09/H1-audit-publish.json:        "email": "qa-admin@***.invalid",
+docs/regression/2026-05-17/evidence/block-09/H1-audit-publish.json:        "email": "qa-admin@***.invalid",
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-operator@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-operator@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-operator@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+docs/regression/2026-05-17/evidence/block-07-audit.json:    "actor": "qa-admin@***.invalid"
+
+=== G21: api/session token/secret/bearer ===
+docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-10/A1-register-success.json:  "apiToken": "***REDACTED***",
+docs/regression/2026-05-17/evidence/block-10/A1-register-success.json:  "apiTokenLength": 43
+docs/regression/2026-05-17/evidence/block-10/F3a-admin-global-200.txt:{"auditLogs":[{"id":"79eff626-666e-4368-a527-017a9049e5ac","action":"scale_device.catalog_version_acknowledged","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:45:20.802Z","actor":null,"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"b40fe53f-4e27-4236-85f0-75d700c3888c","action":"scale_device.status_changed","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:44:22.294Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"84d483b9-d385-4925-b498-258d6b80bdae","action":"scale_device.status_changed","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:44:22.168Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"0dc26413-98eb-4296-b909-b77536d360cf","action":"auth.login_succeeded","entityType":"UserSession","entityId":"679aafd5-8caf-413a-ac67-5551d6d8e273","storeId":null,"createdAt":"2026-05-17T22:43:17.613Z","actor":{"id":"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204","email":"qa-operator@***.invalid","fullName":"QA Operator"},"store":null},{"id":"9b1e0961-007c-4b9e-a45c-d21e1a38857d","action":"scale_device.api_token_regenerated","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:42:50.748Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}}],"scaleSyncLogs":[{"id":"3bb91f44-9257-44cf-a466-bbdef2e77379","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":null,"deliveredVersionId":"5551bc14-df84-4b97-812c-06719c70b67b","status":"error","errorMessage":"checksum mismatch","createdAt":"2026-05-17T22:45:30.054Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"4e4733d0-ef46-43fc-a1d1-12af1a8bdd82","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":null,"deliveredVersionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","status":"ack_received","errorMessage":null,"createdAt":"2026-05-17T22:45:20.800Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"d094f7ec-2760-4ce7-8de7-05b5a60f21e5","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":null,"deliveredVersionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","status":"package_delivered","errorMessage":null,"createdAt":"2026-05-17T22:44:46.030Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"c18c42c7-2082-4875-af4e-6650a5071448","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":"5551bc14-df84-4b97-812c-06719c70b67b","deliveredVersionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","status":"package_delivered","errorMessage":null,"createdAt":"2026-05-17T22:44:40.374Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"d19f59dc-3bfc-4f54-868d-c121a1332706","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","deliveredVersionId":null,"status":"no_update","errorMessage":null,"createdAt":"2026-05-17T22:44:34.591Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}}],"filters":{"storeId":null,"entityType":null,"action":null,"status":null,"dateFrom":null,"dateTo":null,"limit":5}}
+docs/regression/2026-05-17/evidence/block-10/H-register-device.json:  "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-10/B3-regenerate-token.json:  "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:=== G21: api/session token/secret/bearer ===
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-06/api-report.json:          "apiToken": "***REDACTED***"
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-10/A1-register-success.json:  "apiToken": "***REDACTED***",
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-10/A1-register-success.json:  "apiTokenLength": 43
+docs/regression/2026-05-17/evidence/block-12/sanity-grep.txt:docs/regression/2026-05-17/evidence/block-10/F3a-admin-global-200.txt:{"auditLogs":[{"id":"79eff626-666e-4368-a527-017a9049e5ac","action":"scale_device.catalog_version_acknowledged","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:45:20.802Z","actor":null,"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"b40fe53f-4e27-4236-85f0-75d700c3888c","action":"scale_device.status_changed","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:44:22.294Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"84d483b9-d385-4925-b498-258d6b80bdae","action":"scale_device.status_changed","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:44:22.168Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"0dc26413-98eb-4296-b909-b77536d360cf","action":"auth.login_succeeded","entityType":"UserSession","entityId":"679aafd5-8caf-413a-ac67-5551d6d8e273","storeId":null,"createdAt":"2026-05-17T22:43:17.613Z","actor":{"id":"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204","email":"qa-operator@***.invalid","fullName":"QA Operator"},"store":null},{"id":"9b1e0961-007c-4b9e-a45c-d21e1a38857d","action":"scale_device.api_token_regenerated","entityType":"ScaleDevice","entityId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","createdAt":"2026-05-17T22:42:50.748Z","actor":{"id":"4df893ce-eceb-4f49-be99-fc09590bee43","email":"qa-admin@***.invalid","fullName":"QA Admin"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}}],"scaleSyncLogs":[{"id":"3bb91f44-9257-44cf-a466-bbdef2e77379","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":null,"deliveredVersionId":"5551bc14-df84-4b97-812c-06719c70b67b","status":"error","errorMessage":"checksum mismatch","createdAt":"2026-05-17T22:45:30.054Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"4e4733d0-ef46-43fc-a1d1-12af1a8bdd82","scaleDeviceId":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","storeId":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","requestedVersionId":null,"deliveredVersionId":"af835e68-6846-499b-a4da-33bc5d78a2bc","status":"ack_received","errorMessage":null,"createdAt":"2026-05-17T22:45:20.800Z","scaleDevice":{"id":"320b42f6-1404-46b3-9bb4-dd8b0b40cee1","deviceCode":"QAB10A1004111","name":"QA Block10 A1 device"},"store":{"id":"1cf0f4ba-71a8-4a0d-b87d-8e5494baf263","code":"UAT20260515P4195540","name":"UAT 2026-05-15 Phase 4 20260515195540 Store"}},{"id":"d094f7ec-2760-4ce7-8de7
+docs/regression/2026-05-17/bugs/BUG-REG-031.md:1. Зарегистрированы scale device `QAB10A1004111` (`320b42f6-1404-46b3-9bb4-dd8b0b40cee1`) в store `1cf0f4ba-71a8-4a0d-b87d-8e5494baf263` (UAT20260515P4195540), status=active, apiToken действительный.
+docs/regression/2026-05-17/bugs/BUG-REG-031.md:x-scale-api-token: ***REDACTED***
+docs/regression/2026-05-17/bugs/BUG-REG-029.md:- Зарегистрирован device `QAB10HUSD004822` в USD-store, получен apiToken.
+docs/regression/2026-05-17/bugs/BUG-REG-029.md:- `POST /api/scales/check-update` с `x-scale-device-code`+`x-scale-api-token` headers, пустой body → 201:
+docs/regression/2026-05-17/scripts/block-05-multitab-3.cjs:      if (e.request.postData && /(password|token|csrf|secret)/i.test(e.request.postData.text || '')) {
+docs/regression/2026-05-17/scripts/block-05-multitab-3.cjs:      if (e.response.content && /(password|token|secret|"csrfToken")/i.test(e.response.content.text || '')) {
+docs/regression/2026-05-17/blocks/BLOCK-12-errors-final.md:- [ ] 21. grep `(api[_-]?token|session[_-]?token|secret|bearer)` — нет реальных значений
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:Регистрация scale devices, apiToken security, check-update/ack flow, ScaleSyncLog, rate limiting (20/60s `scale-api` bucket). Финальная верификация BUG-REG-029 (USD из CatalogVersion.packageData доходит до scale через check-update).
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:Scale API (device-auth via `deviceCode`/`apiToken` in body|header `x-scale-device-code`/`x-scale-api-token`|query):
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:1. Токен формируется через `randomBytes(32).toString('base64url')` и хранится только как `sha256` хеш — `scale-token.util.ts`. Plaintext возвращается единожды из `registerDevice` и `regenerateApiToken`. Никакого `apiToken` поля в `toDeviceResponse`.
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:8. `normalizeErrorMessage` редактит inline `apiToken=...`/`api_token=...` в errorMessage до `[REDACTED]` (XSS-style protection на logged payload).
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| A.1 | POST register → apiToken plaintext в response | да | 201; response shape `{device:{...без apiToken...}, apiToken:"<43-char base64url>"}`. См. `evidence/block-10/A1-register-success.json` (redacted) | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| A.2 | GET device → нет apiToken в response | да | Список + детальный JSON содержат только `id, storeId, deviceCode, name, model, status, lastSeenAt, lastSyncAt, currentCatalogVersionId, lastSyncStatus, lastSyncError, createdAt, updatedAt`. Ни `apiToken`, ни `apiTokenHash`. `evidence/block-10/A2-get-device-no-token.json` | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| A.3 | БД: `apiTokenHash` существует, plaintext отсутствует | да | Прямой SSH+psql недоступен без согласования (AGENTS.md §3.5). Indirect proof: `verifyScaleApiTokenHash` использует `sha256` + `timingSafeEqual` (`scale-token.util.ts:7-21`); хранение plaintext исключено. Successful auth с `apiToken` из A.1 (B.4b, D.5) доказывает, что хеш в БД соответствует именно этому plaintext'у и обратное вычисление невозможно | ✅ (по surface), ⏭ (DB direct) |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| B.3 | Regenerate apiToken → новый plaintext | да | 201 + новый apiToken length=43; device shape без `apiToken`. Старый и новый токены различаются. `evidence/block-10/B3-regenerate-token.json` (redacted) | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| B.4 | Старый apiToken после regenerate → 401 | да | `POST /scales/check-update` со старым токеном → 401 `SCALE_API_AUTH_FAILED`. Sanity: новый токен → `/scale-api/auth-check` 200 `{authenticated:true}`. `evidence/block-10/B4-old-token-401.txt`, `B4b-new-token-200.txt` | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| D.1 | Wrong apiToken → 401 + log auth_failed | да | 401 `SCALE_API_AUTH_FAILED`. В `ScaleSyncLog` две записи `auth_failed`/`invalid_credentials` (F-syncLogs). `evidence/block-10/D1-invalid-token-401.txt` | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:| F.2 | После ack → запись (ack_received/error) | да | На E.1 → `ack_received` `deliveredVersionId=af835e68-...`. На E.2 → `error` `deliveredVersionId=5551bc14-...` `errorMessage="checksum mismatch"`. `errorMessage` редактируется на `apiToken=*REDACTED*` per `normalizeErrorMessage` (защита от утечки в логе) | ✅ |
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:- Devices `320b42f6-...` (QAB10A1004111) и `fcfa8db7-...` (QAB10HUSD004822) → blocked + apiToken revoked через regenerate.
+docs/regression/2026-05-17/blocks/BLOCK-10-scales.md:- Plaintext apiToken файлы из `/tmp` удалены (`A1-apiToken.txt`, `A1-apiToken-OLD.txt`, `H-apiToken.txt`, intermediate JSON с тoken'ом). Cookies `qa-admin-cookies.txt`, `qa-op-cookies.txt` остаются в `/tmp` для других блоков, не коммитятся.
+docs/regression/2026-05-17/blocks/BLOCK-01-network.md:- Grep по `token|secret|api_key|password|private_key|env=|apikey|authorization` — **нет совпадений**. В HTML секретов нет.

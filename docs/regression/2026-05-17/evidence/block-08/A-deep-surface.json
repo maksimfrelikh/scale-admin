@@ -1,0 +1,138 @@
+{
+  "found": true,
+  "containerTag": "SECTION",
+  "containerClass": "prices-tab",
+  "inputs": [
+    {
+      "type": "text",
+      "placeholder": "Name, short name, PLU, SKU or barcode",
+      "value": "",
+      "name": "",
+      "ariaLabel": null,
+      "id": "",
+      "role": null,
+      "min": "",
+      "max": "",
+      "step": ""
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "50",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Apple-235548",
+      "id": "",
+      "role": null,
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    },
+    {
+      "type": "number",
+      "placeholder": "0.00",
+      "value": "30",
+      "name": "",
+      "ariaLabel": "Price for QA-P-Banana-235548",
+      "id": "",
+      "role": null,
+      "min": "0.01",
+      "max": "",
+      "step": "0.01"
+    }
+  ],
+  "selects": [
+    {
+      "ariaLabel": null,
+      "id": "",
+      "name": "",
+      "options": [
+        "All categories",
+        "QA-FRUIT-235548"
+      ],
+      "value": ""
+    },
+    {
+      "ariaLabel": null,
+      "id": "",
+      "name": "",
+      "options": [
+        "All products",
+        "Missing price only",
+        "With price only"
+      ],
+      "value": "all"
+    }
+  ],
+  "buttons": [
+    "Refresh prices",
+    "Save",
+    "Save"
+  ],
+  "rows": [
+    {
+      "i": 0,
+      "className": "price-row",
+      "cellTexts": [
+        "QA-P-Apple-235548",
+        "App",
+        "81001",
+        "SKU-APP-235548 / 4600100100001",
+        "QA-FRUIT-235548",
+        "Save",
+        "piece",
+        "ACTIVE",
+        "5/18/2026, 12:05:11 AM"
+      ],
+      "cellClasses": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "badges": [
+        {
+          "cls": "badge badge-active",
+          "text": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "className": "price-row",
+      "cellTexts": [
+        "QA-P-Banana-235548",
+        "Bnn",
+        "81002",
+        "4600100100002",
+        "QA-FRUIT-235548",
+        "Save",
+        "kg",
+        "ACTIVE",
+        "5/18/2026, 12:05:11 AM"
+      ],
+      "cellClasses": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "badges": [
+        {
+          "cls": "badge badge-active",
+          "text": "ACTIVE"
+        }
+      ]
+    }
+  ],
+  "preview": "PRICES TAB\n\nStore product prices\n\nProducts from the active catalog for this store.\n\nRefresh prices\nSearch\nCategory\nAll categories\nQA-FRUIT-235548\nPrice status\nAll products\nMissing price only\nWith price only\nPRODUCT NAME\tSHORT NAME\tPLU\tSKU/BARCODE\tCATEGORY\tCURRENT PRICE\tUNIT\tSTATUS\tUPDATEDAT\nQA-P-Apple-235548\tApp\t81001\tSKU-APP-235548 / 4600100100001\tQA-FRUIT-235548\t\nSave\n\tpiece\tACTIVE\t5/18/2026, 12:05:11 AM\nQA-P-Banana-235548\tBnn\t81002\t4600100100002\tQA-FRUIT-235548\t\nSave\n\tkg\tACTIVE\t5/18/2026, 12:05:11 AM"
+}

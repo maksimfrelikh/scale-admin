@@ -1,0 +1,7 @@
+=== www TLS cert subject + SAN ===
+subject=CN = maksimfrelikh.ru
+X509v3 Subject Alternative Name: 
+    DNS:maksimfrelikh.ru, DNS:www.maksimfrelikh.ru
+notBefore=May 15 16:49:59 2026 GMT
+notAfter=Aug 13 16:49:58 2026 GMT
+issuer=C = US, O = Let's Encrypt, CN = E7

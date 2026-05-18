@@ -1,0 +1,6 @@
+[pass] login
+[pass] F18-long-name-row — {"scrollW":1366,"clientW":1366}
+[pass] F19-long-cat-row — {"scrollW":1366,"clientW":1366}
+D14: monitoring polls for 90s...
+[pass] D14-no-polling-90s — {"elapsed":90.002,"totalCalls":0,"distinctEndpoints":0}
+[pass] D15-expired-session — {"sessionCookieClearedSuccessfully":true,"action401":true,"actionStatus":401,"landedOnLogin":true,"finalUrl":"https://maksimfrelikh.ru/#","sessionCookieNames":["scale_admin_session"]}

@@ -1,0 +1,906 @@
+[
+  {
+    "idx": 0,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Logout"
+  },
+  {
+    "idx": 1,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Overview"
+  },
+  {
+    "idx": 2,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Stores"
+  },
+  {
+    "idx": 3,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Products"
+  },
+  {
+    "idx": 4,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Create store"
+  },
+  {
+    "idx": 5,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Global Logs"
+  },
+  {
+    "idx": 6,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Users & Access"
+  },
+  {
+    "idx": 7,
+    "tag": "INPUT",
+    "type": "checkbox",
+    "name": "",
+    "placeholder": null,
+    "text": ""
+  },
+  {
+    "idx": 8,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Refresh users"
+  },
+  {
+    "idx": 9,
+    "tag": "INPUT",
+    "type": "email",
+    "name": "",
+    "placeholder": "operator@example.com",
+    "text": ""
+  },
+  {
+    "idx": 10,
+    "tag": "INPUT",
+    "type": "text",
+    "name": "",
+    "placeholder": "Optional",
+    "text": ""
+  },
+  {
+    "idx": 11,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 12,
+    "tag": "INPUT",
+    "type": "datetime-local",
+    "name": "",
+    "placeholder": null,
+    "text": ""
+  },
+  {
+    "idx": 13,
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "",
+    "placeholder": null,
+    "text": "Create invite"
+  },
+  {
+    "idx": 14,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 15,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 16,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 17,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 18,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 19,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 20,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 21,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 22,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 23,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 24,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 25,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 26,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 27,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 28,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 29,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 30,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 31,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 32,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 33,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 34,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 35,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 36,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Unblock"
+  },
+  {
+    "idx": 37,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 38,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 39,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 40,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Unblock"
+  },
+  {
+    "idx": 41,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 42,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 43,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 44,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 45,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 46,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 47,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 48,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 49,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 50,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 51,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 52,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Unblock"
+  },
+  {
+    "idx": 53,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 54,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 55,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 56,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Unblock"
+  },
+  {
+    "idx": 57,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 58,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 59,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 60,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 61,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 62,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 63,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 64,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 65,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 66,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 67,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 68,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 69,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 70,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 71,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 72,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 73,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 74,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 75,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 76,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 77,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 78,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 79,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 80,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 81,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 82,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 83,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 84,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 85,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 86,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 87,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 88,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 89,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 90,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 91,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 92,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 93,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 94,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 95,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 96,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 97,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 98,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 99,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 100,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 101,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 102,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 103,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 104,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 105,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 106,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 107,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  },
+  {
+    "idx": 108,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "Choose store\nSTORE-002 · Manager Verify Store 002\nQA-CACHE-1"
+  },
+  {
+    "idx": 109,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Assign store"
+  },
+  {
+    "idx": 110,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Revoke"
+  },
+  {
+    "idx": 111,
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "",
+    "placeholder": null,
+    "text": "operator\nadmin"
+  },
+  {
+    "idx": 112,
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "",
+    "placeholder": null,
+    "text": "Block"
+  }
+]

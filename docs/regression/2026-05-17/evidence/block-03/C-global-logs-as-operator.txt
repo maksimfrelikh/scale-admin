@@ -1,0 +1,4 @@
+operator GET /api/logs/global -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator GET /api/admin/dashboard -> 403 | {"message":"Insufficient role","error":"Forbidden","statusCode":403}
+operator GET /api/admin/users -> 404 | {"message":"Cannot GET /api/admin/users","error":"Not Found","statusCode":404}
+operator GET /api/admin/invites -> 404 | {"message":"Cannot GET /api/admin/invites","error":"Not Found","statusCode":404}

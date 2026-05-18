@@ -1,0 +1,265 @@
+{
+  "adminLandingUrl": "https://maksimfrelikh.ru/login",
+  "byRoute": {
+    "/dashboard": {
+      "finalUrl": "https://maksimfrelikh.ru/dashboard",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:09.261Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:09.289Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:09.310Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_dashboard.png"
+    },
+    "/users": {
+      "finalUrl": "https://maksimfrelikh.ru/users",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:12.719Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:12.757Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:12.812Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_users.png"
+    },
+    "/stores": {
+      "finalUrl": "https://maksimfrelikh.ru/stores",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:16.126Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:16.147Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:16.172Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_stores.png"
+    },
+    "/products": {
+      "finalUrl": "https://maksimfrelikh.ru/products",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:19.459Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:19.486Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:19.503Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_products.png"
+    },
+    "/logs": {
+      "finalUrl": "https://maksimfrelikh.ru/logs",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:22.774Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:22.814Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:22.821Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_logs.png"
+    },
+    "/audit-log": {
+      "finalUrl": "https://maksimfrelikh.ru/audit-log",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:26.107Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:26.135Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:26.142Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_audit-log.png"
+    },
+    "/audit": {
+      "finalUrl": "https://maksimfrelikh.ru/audit",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:29.420Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:29.463Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:29.509Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_audit.png"
+    },
+    "/audit/logs": {
+      "finalUrl": "https://maksimfrelikh.ru/audit/logs",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:32.786Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:32.815Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:32.825Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_audit_logs.png"
+    },
+    "/invites": {
+      "finalUrl": "https://maksimfrelikh.ru/invites",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:36.076Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:36.125Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:36.157Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_invites.png"
+    },
+    "/users?role=operator": {
+      "finalUrl": "https://maksimfrelikh.ru/users?role=operator",
+      "h1": "Добро пожаловать, QA Admin",
+      "h2": "Fleet overview",
+      "apiCalls": [
+        {
+          "when": "2026-05-17T19:28:39.439Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:39.472Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "when": "2026-05-17T19:28:39.487Z",
+          "method": "GET",
+          "url": "https://maksimfrelikh.ru/api/admin/dashboard",
+          "status": 200
+        }
+      ],
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/admin-trace_users_role_operator.png"
+    }
+  }
+}

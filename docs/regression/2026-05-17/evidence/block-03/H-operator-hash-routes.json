@@ -1,0 +1,83 @@
+{
+  "#global-logs": {
+    "url": "https://maksimfrelikh.ru/dashboard#global-logs",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Global Logs is admin-only",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nACCESS DENIED\n\nGlobal Logs is admin-only\n\nOperators cannot open global audit and scale sync logs. Ask an admin if your account needs global log access.",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/auth/session",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/auth/csrf",
+        "s": 200
+      }
+    ]
+  },
+  "#users-access": {
+    "url": "https://maksimfrelikh.ru/dashboard#users-access",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Users & Access is admin-only",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nACCESS DENIED\n\nUsers & Access is admin-only\n\nOperators cannot open user management controls. Ask an admin if your account needs additional store access.",
+    "apiCalls": []
+  },
+  "#stores": {
+    "url": "https://maksimfrelikh.ru/dashboard#stores",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nASSIGNED STORES\n\nStores\n\nOperators see only stores assigned to their account.\n\nRefresh\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nDetails",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores",
+        "s": 200
+      }
+    ]
+  },
+  "#products": {
+    "url": "https://maksimfrelikh.ru/dashboard#products",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Product catalog",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nPRODUCTS\n\nProduct catalog\n\nSearch and manage PLU-backed products available to catalogs and prices.\n\nRefresh\nCreate product\nSearch\nStatus\nAll statuses\nactive\ninactive\narchived\nSearch\nPLU\tNAME\tSHORT NAME\tSKU\tBARCODE\tUNIT\tSTATU",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/products?take=100",
+        "s": 200
+      }
+    ]
+  },
+  "#invites": {
+    "url": "https://maksimfrelikh.ru/dashboard#invites",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT",
+    "apiCalls": [
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+        "s": 200
+      },
+      {
+        "m": "GET",
+        "u": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+        "s": 200
+      }
+    ]
+  },
+  "#audit-log": {
+    "url": "https://maksimfrelikh.ru/dashboard#audit-log",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT",
+    "apiCalls": []
+  }
+}

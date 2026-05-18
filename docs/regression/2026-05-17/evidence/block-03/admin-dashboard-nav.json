@@ -1,0 +1,219 @@
+[
+  {
+    "idx": 0,
+    "tag": "BUTTON",
+    "text": "Logout",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 1,
+    "tag": "BUTTON",
+    "text": "Overview",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 2,
+    "tag": "BUTTON",
+    "text": "Stores",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 3,
+    "tag": "BUTTON",
+    "text": "Products",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 4,
+    "tag": "BUTTON",
+    "text": "Create store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 5,
+    "tag": "BUTTON",
+    "text": "Global Logs",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 6,
+    "tag": "BUTTON",
+    "text": "Users & Access",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 7,
+    "tag": "BUTTON",
+    "text": "Refresh dashboard",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 8,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 9,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 10,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 11,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 12,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 13,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 14,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 15,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 16,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 17,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 18,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 19,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 20,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 21,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 22,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 23,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 24,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 25,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 26,
+    "tag": "BUTTON",
+    "text": "Open store",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 27,
+    "tag": "BUTTON",
+    "text": "Stores",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 28,
+    "tag": "BUTTON",
+    "text": "Products",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 29,
+    "tag": "BUTTON",
+    "text": "Global logs",
+    "href": null,
+    "role": null
+  },
+  {
+    "idx": 30,
+    "tag": "BUTTON",
+    "text": "Users & access",
+    "href": null,
+    "role": null
+  }
+]

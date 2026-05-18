@@ -1,0 +1,310 @@
+{
+  "loginState": {
+    "label": "operator-after-login",
+    "url": "https://maksimfrelikh.ru/login",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+    "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/operator-after-login.png"
+  },
+  "B9": {
+    "label": "B9-operator-foreign-store",
+    "url": "https://maksimfrelikh.ru/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+    "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/B9-operator-foreign-store.png",
+    "apiCalls": [
+      {
+        "url": "https://maksimfrelikh.ru/api/auth/session",
+        "status": 200,
+        "method": "GET"
+      },
+      {
+        "url": "https://maksimfrelikh.ru/api/auth/csrf",
+        "status": 200,
+        "method": "GET"
+      },
+      {
+        "url": "https://maksimfrelikh.ru/api/stores",
+        "status": 200,
+        "method": "GET"
+      },
+      {
+        "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+        "status": 200,
+        "method": "GET"
+      },
+      {
+        "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+        "status": 200,
+        "method": "GET"
+      }
+    ]
+  },
+  "C6": {
+    "label": "C6-operator-users-direct",
+    "url": "https://maksimfrelikh.ru/users",
+    "title": "Scale Admin",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+    "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/C6-operator-users-direct.png"
+  },
+  "E1": {
+    "adminKeywordLinks": [],
+    "adminKeywordHidden": []
+  },
+  "H": {
+    "/users": {
+      "label": "H-operator_users",
+      "url": "https://maksimfrelikh.ru/users",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_users.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        }
+      ]
+    },
+    "/users/new": {
+      "label": "H-operator_users_new",
+      "url": "https://maksimfrelikh.ru/users/new",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_users_new.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        }
+      ]
+    },
+    "/invites": {
+      "label": "H-operator_invites",
+      "url": "https://maksimfrelikh.ru/invites",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_invites.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        }
+      ]
+    },
+    "/audit-log": {
+      "label": "H-operator_audit-log",
+      "url": "https://maksimfrelikh.ru/audit-log",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_audit-log.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        }
+      ]
+    },
+    "/logs": {
+      "label": "H-operator_logs",
+      "url": "https://maksimfrelikh.ru/logs",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_logs.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        }
+      ]
+    },
+    "/stores/new": {
+      "label": "H-operator_stores_new",
+      "url": "https://maksimfrelikh.ru/stores/new",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_stores_new.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        }
+      ]
+    },
+    "/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/edit": {
+      "label": "H-operator_stores_adc14d18-59b7-43f1-995f-f079c2ef0b96_edit",
+      "url": "https://maksimfrelikh.ru/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/edit",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_stores_adc14d18-59b7-43f1-995f-f079c2ef0b96_edit.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        }
+      ]
+    },
+    "/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/edit": {
+      "label": "H-operator_stores_e73ba6bd-abb9-4596-9289-cca474fb2ec1_edit",
+      "url": "https://maksimfrelikh.ru/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/edit",
+      "title": "Scale Admin",
+      "h1": "Добро пожаловать, QA Operator",
+      "h2": "Assigned stores",
+      "mainSnippet": "DASHBOARD\n\nДобро пожаловать, QA Operator\n\nActive session for qa-operator@***.invalid · role: operator\n\nLogout\nOverview\nStores\nProducts\nOperator navigation: assigned stores only\n\nOPERATOR DASHBOARD\n\nAssigned stores\n\nOnly stores assigned to your account are shown here.\n\nRefresh stores\n\nQA-PUB-20260516150944\n\nQA Publishing Regression 20260516150944\n\nQA evidence entity · Europe/Amsterdam\n\nACTIVE\nCURRENT VERSION\nNo published version\nPUBLICATION STATUS\nnot published\nSYNC STATUS\nNo scales connected\nERRORS\n0\nOpen catalog",
+      "screenshot": "/home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-03/H-operator_stores_e73ba6bd-abb9-4596-9289-cca474fb2ec1_edit.png",
+      "apiCalls": [
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/session",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/auth/csrf",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/scales",
+          "status": 200
+        },
+        {
+          "url": "https://maksimfrelikh.ru/api/stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1/publishing/catalog-versions",
+          "status": 200
+        }
+      ]
+    }
+  }
+}

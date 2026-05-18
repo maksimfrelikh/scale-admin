@@ -1,0 +1,18 @@
+{
+  "device": {
+    "id": "fcfa8db7-495c-469c-ba44-2b28e9054675",
+    "storeId": "8995f4b9-f851-4654-930b-e5d407cd35e8",
+    "deviceCode": "QAB10HUSD004822",
+    "name": "QA Block10 H device",
+    "model": null,
+    "status": "active",
+    "lastSeenAt": null,
+    "lastSyncAt": null,
+    "currentCatalogVersionId": null,
+    "lastSyncStatus": null,
+    "lastSyncError": null,
+    "createdAt": "2026-05-17T22:48:22.330Z",
+    "updatedAt": "2026-05-17T22:48:22.330Z"
+  },
+  "apiToken": "***REDACTED***"
+}

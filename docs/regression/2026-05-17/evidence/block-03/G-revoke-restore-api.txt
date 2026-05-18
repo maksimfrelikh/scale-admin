@@ -1,0 +1,77 @@
+=== G: Operator access revoke/restore via API ===
+
+--- G.0 Snapshot operator store-accesses ---
+HTTP:200
+{
+  "storeAccesses": [
+    {
+      "id": "e94606f4-fc89-439c-835c-e9b8a7291003",
+      "userId": "c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204",
+      "storeId": "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "grantedByUserId": "4ea0b245-abad-4768-8e86-7de0c018ae6d",
+      "createdAt": "2026-05-16T15:15:28.995Z",
+      "revokedAt": "2026-05-17T19:40:55.057Z",
+      "store": {
+        "id": "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "code": "QA-PUB-20260516150944",
+        "name": "QA Publishing Regression 20260516150944",
+        "status": "active"
+      },
+      "grantedBy": {
+        "id": "4ea0b245-abad-4768-8e86-7de0c018ae6d",
+        "email": "admin@example.com",
+        "fullName": "Local Admin"
+      }
+    }
+  ]
+}
+
+--- G.1 Pre-revoke operator GET /api/stores/{assigned} ---
+HTTP:401
+{"message":"Authentication required","error":"Unauthorized","statusCode":401}
+--- G.2 DELETE access (admin) ---
+HTTP:404
+{"message":"Active store access not found","error":"Not Found","statusCode":404}
+--- G.3 Post-revoke operator GET /api/stores/{assigned} ---
+HTTP:401
+{"message":"Authentication required","error":"Unauthorized","statusCode":401}
+--- G.3b Post-revoke operator GET /api/stores (list) ---
+HTTP:401
+
+
+=== G CLEAN (API only) ===
+--- G.A pre-revoke operator session/store check ---
+session HTTP:200
+"operator"
+GET assigned HTTP:200
+--- G.B revoke (admin DELETE) ---
+HTTP:200
+{"storeAccess":{"id":"d6550f64-b5d2-48ec-835c-eb280c90e4dc","userId":"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204","storeId":"e73ba6bd-abb9-4596-9289-cca474fb2ec1","grantedByUserId":"4df893ce-eceb-4f49-be99-
+--- G.C post-revoke operator (SAME session) ---
+session HTTP:401
+{"message":"Authentication required","error":"Unauthorized","statusCode":401}
+list HTTP:401
+{"message":"Authentication required","error":"Unauthorized","statusCode":401}
+GET assigned HTTP:401
+{"message":"Authentication required","error":"Unauthorized","statusCode":401}
+--- G.D restore storeAccess ---
+HTTP:201
+{
+  "id": "a4d19509-f41c-4c1d-afee-de63aa496979",
+  "userId": "c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204",
+  "storeId": "e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+  "revokedAt": null
+}
+--- G.E re-login operator ---
+csrf HTTP:200
+login HTTP:200
+"operator status:{\"id\":\"c46be3c5-6fd3-4ab1-88d0-8c8f0a4df204\",\"emai"
+--- G.F operator sees 1 store ---
+HTTP:200
+{
+  "count": 1,
+  "name": "QA Publishing Regression 20260516150944"
+}
+--- G.G operator GET assigned ---
+HTTP:200
+{"store":{"id":"e73ba6bd-abb9-4596-9289-cca474fb2ec1","code":"QA-PUB-20260516150

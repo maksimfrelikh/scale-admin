@@ -37,8 +37,8 @@ fs.mkdirSync(EVI, { recursive: true });
 
 const QA_PASSWORD = process.env.QA_PASSWORD;
 if (!QA_PASSWORD) throw new Error('Set QA_PASSWORD env (see AGENTS.md §2)');
-const ADMIN    = { email: 'qa-admin@gmail.com',    password: QA_PASSWORD };
-const OPERATOR = { email: 'qa-operator@gmail.com', password: QA_PASSWORD };
+const ADMIN    = { email: 'qa-admin@***.invalid',    password: QA_PASSWORD };
+const OPERATOR = { email: 'qa-operator@***.invalid', password: QA_PASSWORD };
 
 // Known store id from BLOCK-10 (UAT20260515P4195540, current published catalog v=2).
 const STORE_ID = '1cf0f4ba-71a8-4a0d-b87d-8e5494baf263';

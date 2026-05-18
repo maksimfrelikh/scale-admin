@@ -1,0 +1,31 @@
+{
+  "filledEmail": "qa-block3-rbac-1779046499156@example.invalid",
+  "traffic": [
+    {
+      "kind": "req",
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/login",
+      "pd": "{\"email\":\"qa-admin@***.invalid\",\"password\":\"***REDACTED***\"}"
+    },
+    {
+      "kind": "resp",
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/login",
+      "s": 200,
+      "body": "{\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid\",\"fullName\":\"QA Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-05-31T19:34:45.690Z\"}"
+    },
+    {
+      "kind": "req",
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/invites",
+      "pd": "{\"email\":\"qa-block3-rbac-1779046499156@example.invalid\",\"role\":\"operator\",\"expiresAt\":\"2026-05-24T17:34:00.000Z\"}"
+    },
+    {
+      "kind": "resp",
+      "m": "POST",
+      "u": "https://maksimfrelikh.ru/api/auth/invites",
+      "s": 201,
+      "body": "{\"invite\":{\"id\":\"5e697fa6-bf09-4264-b5fd-92a9e4bba52e\",\"email\":\"qa-block3-rbac-1779046499156@example.invalid\",\"role\":\"operator\",\"expiresAt\":\"2026-05-24T17:34:00.000Z\",\"acceptedAt\":null,\"createdAt\":\"2026-05-17T19:34:59.252Z\"}}"
+    }
+  ]
+}

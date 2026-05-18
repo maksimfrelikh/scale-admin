@@ -1,0 +1,543 @@
+{
+  "startedAt": "2026-05-17T20:07:55.999Z",
+  "storeRowsHint": [
+    {
+      "tag": "DIV",
+      "cls": "store-list",
+      "text": "STORE-002Manager Verify Store 002No address · Europe/MoscowactiveDetailsEditQA-CACHE-132959QA Cache Session 132959 AQA cache/session regression · Europe/MoscowactiveDetailsEditQA-CACHE-147228QA Cache "
+    },
+    {
+      "tag": "ARTICLE",
+      "cls": "store-card",
+      "text": "STORE-002Manager Verify Store 002No address · Europe/MoscowactiveDetailsEdit"
+    },
+    {
+      "tag": "P",
+      "cls": "store-code",
+      "text": "STORE-002"
+    },
+    {
+      "tag": "DIV",
+      "cls": "store-actions",
+      "text": "activeDetailsEdit"
+    },
+    {
+      "tag": "ARTICLE",
+      "cls": "store-card",
+      "text": "QA-CACHE-132959QA Cache Session 132959 AQA cache/session regression · Europe/MoscowactiveDetailsEdit"
+    }
+  ],
+  "detailsButtonsCount": 44,
+  "C.0-after-details-click": {
+    "label": "C0-after-details",
+    "url": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Manager Verify Store 002",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & Access← Back to storesStore detailsManager Verify Store 002STORE-002activeEdit storeAddress—TimezoneEurop"
+  },
+  "tabsDetected": [
+    {
+      "tag": "BUTTON",
+      "text": "Logout"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Overview"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Stores"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Products"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Create store"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Global Logs"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Users & Access"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "← Back to stores"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Edit store"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh catalog"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Create root category"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Add to category"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh banners"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh devices"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Register device"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh prices"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Run validation"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Publish catalog"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh history"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Refresh logs"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Clear filters"
+    }
+  ],
+  "C-Overview": {
+    "label": "C-tab-Overview",
+    "url": "https://maksimfrelikh.ru/#",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+  },
+  "C-skip-Catalog": "not found",
+  "C-skip-Prices": "not found",
+  "C-skip-Advertising": "not found",
+  "C-skip-Banners": "not found",
+  "C-skip-Scale Devices": "not found",
+  "C-skip-Scales": "not found",
+  "C-skip-Versions": "not found",
+  "C-skip-Publishing": "not found",
+  "C-Logs": {
+    "label": "C-tab-Logs",
+    "url": "https://maksimfrelikh.ru/#global-logs",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Global Logs",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin onlyGlobal LogsRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not"
+  },
+  "tabsConsole": [
+    {
+      "label": "tabs",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "label": "tabs",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "tabs",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "label": "tabs",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "tabsPageErrors": [],
+  "tabsNetwork4xx5xx": [
+    {
+      "label": "tabs",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "label": "tabs",
+      "url": "https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "status": 404,
+      "method": "GET"
+    },
+    {
+      "label": "tabs",
+      "url": "https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/categories",
+      "status": 404,
+      "method": "GET"
+    },
+    {
+      "label": "tabs",
+      "url": "https://maksimfrelikh.ru/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "status": 404,
+      "method": "GET"
+    }
+  ],
+  "backFwdSteps": [
+    {
+      "step": "F0-post-login",
+      "snap": {
+        "label": "F0-post-login",
+        "url": "https://maksimfrelikh.ru/login",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F1-stores",
+      "snap": {
+        "label": "F1-stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate st"
+      }
+    },
+    {
+      "step": "F2-store-detail",
+      "snap": {
+        "label": "F2-store-detail",
+        "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F3-catalog",
+      "snap": {
+        "label": "F3-catalog",
+        "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F4-prices",
+      "snap": {
+        "label": "F4-prices",
+        "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F-back-1",
+      "snap": {
+        "label": "F-back-1",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate st"
+      }
+    },
+    {
+      "step": "F-back-2",
+      "snap": {
+        "label": "F-back-2",
+        "url": "https://maksimfrelikh.ru/login",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F-back-3",
+      "snap": {
+        "label": "F-back-3",
+        "url": "about:blank",
+        "h1": "",
+        "h2": "",
+        "bodyText": ""
+      }
+    },
+    {
+      "step": "F-fwd-1",
+      "snap": {
+        "label": "F-fwd-1",
+        "url": "https://maksimfrelikh.ru/login",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    },
+    {
+      "step": "F-fwd-2",
+      "snap": {
+        "label": "F-fwd-2",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate st"
+      }
+    }
+  ],
+  "F-after-logout": {
+    "label": "F-after-logout",
+    "url": "https://maksimfrelikh.ru/#",
+    "h1": "Вход в систему",
+    "h2": "",
+    "bodyText": "Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin"
+  },
+  "F-back-after-logout": {
+    "label": "F-back-after-logout",
+    "url": "https://maksimfrelikh.ru/#stores",
+    "h1": "Вход в систему",
+    "h2": "",
+    "bodyText": "Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLogin"
+  },
+  "backFwdConsole": [
+    {
+      "label": "backfwd",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "label": "backfwd",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "backFwdPageErrors": [],
+  "backFwdNetwork4xx5xx": [
+    {
+      "label": "backfwd",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    },
+    {
+      "label": "backfwd",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "refreshBefore": [
+    {
+      "url": "https://maksimfrelikh.ru/#stores",
+      "snap": {
+        "label": "G-before-_stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate st"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#products",
+      "snap": {
+        "label": "G-before-_products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessProductsProduct catalogSearch and manage PLU-backed products available to catalogs and prices.Refre"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#users-access",
+      "snap": {
+        "label": "G-before-_users_access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block "
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#global-logs",
+      "snap": {
+        "label": "G-before-_global_logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin onlyGlobal LogsRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "snap": {
+        "label": "G-before-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1",
+        "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    }
+  ],
+  "refreshAfter": [
+    {
+      "url": "https://maksimfrelikh.ru/#stores",
+      "snap": {
+        "label": "G-after-_stores",
+        "url": "https://maksimfrelikh.ru/#stores",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin storesStoresAdmins can see every non-archived store and manage store records.RefreshCreate st"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#products",
+      "snap": {
+        "label": "G-after-_products",
+        "url": "https://maksimfrelikh.ru/#products",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Product catalog",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessProductsProduct catalogSearch and manage PLU-backed products available to catalogs and prices.Refre"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#users-access",
+      "snap": {
+        "label": "G-after-_users_access",
+        "url": "https://maksimfrelikh.ru/#users-access",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Invites, roles and operator stores",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessUsers & AccessInvites, roles and operator storesCreate admin/operator invites, change roles, block "
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#global-logs",
+      "snap": {
+        "label": "G-after-_global_logs",
+        "url": "https://maksimfrelikh.ru/#global-logs",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Global Logs",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin onlyGlobal LogsRead-only AuditLog and ScaleSyncLog activity. Sensitive payload fields are not"
+      }
+    },
+    {
+      "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+      "snap": {
+        "label": "G-after-_stores_e73ba6bd_abb9_4596_9289_cca474fb2ec1",
+        "url": "https://maksimfrelikh.ru/#stores/e73ba6bd-abb9-4596-9289-cca474fb2ec1",
+        "h1": "Добро пожаловать, QA Admin",
+        "h2": "Fleet overview",
+        "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+      }
+    }
+  ],
+  "refreshConsole": [
+    {
+      "label": "refresh",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "refreshPageErrors": [],
+  "refreshNetwork4xx5xx": [
+    {
+      "label": "refresh",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "H-path-_this_route_does_not_exist": {
+    "label": "H-path-_this_route_does_not_exist",
+    "url": "https://maksimfrelikh.ru/this-route-does-not-exist",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+  },
+  "H-path-_admin_something": {
+    "label": "H-path-_admin_something",
+    "url": "https://maksimfrelikh.ru/admin/something",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+  },
+  "H-path-_api_wrong_path": {
+    "label": "H-path-_api_wrong_path",
+    "url": "https://maksimfrelikh.ru/api-wrong/path",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+  },
+  "H-path-_foo_bar_baz": {
+    "label": "H-path-_foo_bar_baz",
+    "url": "https://maksimfrelikh.ru/foo/bar/baz",
+    "h1": "Добро пожаловать, QA Admin",
+    "h2": "Fleet overview",
+    "bodyText": "DashboardДобро пожаловать, QA AdminActive session for qa-admin@***.invalid · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refr"
+  },
+  "H-api-session-direct": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": "{\"session\":{\"id\":\"0e0561e0-3860-4fae-bba7-da64b52f6a10\",\"createdAt\":\"2026-05-17T20:10:25.293Z\",\"lastUsedAt\":\"2026-05-17T20:10:49.238Z\",\"expiresAt\":\"2026-05-31T20:10:25.293Z\"},\"user\":{\"id\":\"4df893ce-eceb-4f49-be99-fc09590bee43\",\"email\":\"qa-admin@***.invalid\",\"fullName\":\"QA Admin\",\"role\":\"admin\",\"status\":\"active\"}}",
+    "url": "https://maksimfrelikh.ru/api/auth/session"
+  },
+  "D5-op-_garbage": {
+    "label": "D5-op-_garbage",
+    "url": "https://maksimfrelikh.ru/#garbage",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.R"
+  },
+  "D5-op-_foo": {
+    "label": "D5-op-_foo",
+    "url": "https://maksimfrelikh.ru/#foo",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.R"
+  },
+  "D5-op-_": {
+    "label": "D5-op-_",
+    "url": "https://maksimfrelikh.ru/#/",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.R"
+  },
+  "D5-op-_stores_non_existent_uuid_12345": {
+    "label": "D5-op-_stores_non_existent_uuid_12345",
+    "url": "https://maksimfrelikh.ru/#/stores/non-existent-uuid-12345",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.R"
+  },
+  "D5-op-_stores_foo": {
+    "label": "D5-op-_stores_foo",
+    "url": "https://maksimfrelikh.ru/#stores/foo",
+    "h1": "Добро пожаловать, QA Operator",
+    "h2": "Assigned stores",
+    "bodyText": "DashboardДобро пожаловать, QA OperatorActive session for qa-operator@***.invalid · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned storesOnly stores assigned to your account are shown here.R"
+  },
+  "opMalConsole": [
+    {
+      "label": "op-mal",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "opMalNetwork": [
+    {
+      "label": "op-mal",
+      "url": "https://maksimfrelikh.ru/api/auth/session",
+      "status": 401,
+      "method": "GET"
+    }
+  ],
+  "endedAt": "2026-05-17T20:11:17.500Z"
+}

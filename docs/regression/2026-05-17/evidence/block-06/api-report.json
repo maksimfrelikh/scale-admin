@@ -1,0 +1,1927 @@
+{
+  "startedAt": "2026-05-17T21:06:15.052Z",
+  "tag": "REG6-1779051975052",
+  "passwordReset": {
+    "/api/auth/password-reset": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/password-reset\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/auth/forgot-password": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/forgot-password\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/auth/reset-password": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/reset-password\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/auth/forgot": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/forgot\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/auth/reset": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/reset\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/auth/password/request": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/auth/password/request\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/api/users/password-reset": {
+      "status": 404,
+      "text": "{\"message\":\"Cannot POST /api/users/password-reset\",\"error\":\"Not Found\",\"statusCode\":404}"
+    }
+  },
+  "A": {
+    "cases": [
+      {
+        "label": "empty",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_code",
+        "sent": {
+          "name": "n-REG6-1779051975052",
+          "address": "a",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_name",
+        "sent": {
+          "code": "EMPT-N-REG6-1779051975052"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "empty_strings",
+        "sent": {
+          "code": "",
+          "name": "",
+          "address": "",
+          "timezone": "",
+          "status": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "whitespace_required",
+        "sent": {
+          "code": "   \t   ",
+          "name": "   \t   ",
+          "address": "   \t   ",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "long_1000",
+        "sent": {
+          "code": "LXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "address": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "unicode",
+        "sent": {
+          "code": "U-REG6-1779051975052",
+          "name": "Магазин Тест 🍎 你好 ä β",
+          "address": "Тест 🍎 你好 ä β",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "a0e37d06-cf66-4aac-9de2-60d606a51d14",
+            "code": "U-REG6-1779051975052",
+            "name": "Магазин Тест 🍎 你好 ä β",
+            "address": "Тест 🍎 你好 ä β",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.613Z",
+            "updatedAt": "2026-05-17T21:06:15.613Z"
+          },
+          "mainCatalog": {
+            "id": "e7fbb6d1-b1f1-4298-ac91-8fa4d6cd7600",
+            "storeId": "a0e37d06-cf66-4aac-9de2-60d606a51d14",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.614Z",
+            "updatedAt": "2026-05-17T21:06:15.614Z"
+          }
+        }
+      },
+      {
+        "label": "xss_payload",
+        "sent": {
+          "code": "X-REG6-1779051975052",
+          "name": "<script>alert(1)</script>",
+          "address": "<script>alert(1)</script>",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "a19bbf06-b019-42b8-a8a0-cf3d1cd3696f",
+            "code": "X-REG6-1779051975052",
+            "name": "<script>alert(1)</script>",
+            "address": "<script>alert(1)</script>",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.625Z",
+            "updatedAt": "2026-05-17T21:06:15.625Z"
+          },
+          "mainCatalog": {
+            "id": "6f2c85f0-1210-4686-bd4a-90c923a48b4d",
+            "storeId": "a19bbf06-b019-42b8-a8a0-cf3d1cd3696f",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.626Z",
+            "updatedAt": "2026-05-17T21:06:15.626Z"
+          }
+        }
+      },
+      {
+        "label": "sql_payload",
+        "sent": {
+          "code": "S-REG6-1779051975052",
+          "name": "'; DROP TABLE users;--",
+          "address": "'; DROP TABLE users;--",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "3eecbd90-0ce6-4179-ba9d-46596f3a1f95",
+            "code": "S-REG6-1779051975052",
+            "name": "'; DROP TABLE users;--",
+            "address": "'; DROP TABLE users;--",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.636Z",
+            "updatedAt": "2026-05-17T21:06:15.636Z"
+          },
+          "mainCatalog": {
+            "id": "950a6386-3aa1-4eb0-bbae-e05018d7ad6a",
+            "storeId": "3eecbd90-0ce6-4179-ba9d-46596f3a1f95",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.637Z",
+            "updatedAt": "2026-05-17T21:06:15.637Z"
+          }
+        }
+      },
+      {
+        "label": "ctrl_chars",
+        "sent": {
+          "code": "C-REG6-1779051975052",
+          "name": "Line1\nLine2\r\nLine3\tTab",
+          "address": "Line1\nLine2\r\nLine3\tTab",
+          "timezone": "Europe/Amsterdam",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "aad445d2-1439-4f32-b5e9-dca2ec6558c4",
+            "code": "C-REG6-1779051975052",
+            "name": "Line1\nLine2\r\nLine3\tTab",
+            "address": "Line1\nLine2\r\nLine3\tTab",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.648Z",
+            "updatedAt": "2026-05-17T21:06:15.648Z"
+          },
+          "mainCatalog": {
+            "id": "551e8aaf-b482-463d-9350-b80d54fc79b3",
+            "storeId": "aad445d2-1439-4f32-b5e9-dca2ec6558c4",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.648Z",
+            "updatedAt": "2026-05-17T21:06:15.648Z"
+          }
+        }
+      },
+      {
+        "label": "invalid_status",
+        "sent": {
+          "code": "IS-REG6-1779051975052",
+          "name": "n",
+          "address": "a",
+          "timezone": "Europe/Amsterdam",
+          "status": "bogus"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store status must be active, inactive, or archived",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "invalid_timezone",
+        "sent": {
+          "code": "TZ-REG6-1779051975052",
+          "name": "n",
+          "address": "a",
+          "timezone": "Mars/Olympus",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "10d15929-9189-41e4-ba49-597894a4911b",
+            "code": "TZ-REG6-1779051975052",
+            "name": "n",
+            "address": "a",
+            "timezone": "Mars/Olympus",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.666Z",
+            "updatedAt": "2026-05-17T21:06:15.666Z"
+          },
+          "mainCatalog": {
+            "id": "a67ffe51-6d51-4bb9-bf7a-3fcd286ca3e5",
+            "storeId": "10d15929-9189-41e4-ba49-597894a4911b",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.667Z",
+            "updatedAt": "2026-05-17T21:06:15.667Z"
+          }
+        }
+      },
+      {
+        "label": "extra_fields_unknown",
+        "sent": {
+          "code": "EF-REG6-1779051975052",
+          "name": "n",
+          "address": "a",
+          "timezone": "Europe/Amsterdam",
+          "status": "active",
+          "evilField": "<x>"
+        },
+        "status": 201,
+        "response": {
+          "store": {
+            "id": "f69f640d-922f-4c0c-a36d-99bbc8040c0d",
+            "code": "EF-REG6-1779051975052",
+            "name": "n",
+            "address": "a",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.677Z",
+            "updatedAt": "2026-05-17T21:06:15.677Z"
+          },
+          "mainCatalog": {
+            "id": "248bf7fb-e012-4054-b79a-f7fdf884f95a",
+            "storeId": "f69f640d-922f-4c0c-a36d-99bbc8040c0d",
+            "name": "Main catalog",
+            "status": "active",
+            "currentVersionId": null,
+            "createdAt": "2026-05-17T21:06:15.678Z",
+            "updatedAt": "2026-05-17T21:06:15.678Z"
+          }
+        }
+      }
+    ],
+    "edit": [
+      {
+        "label": "empty_patch",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "At least one store field is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "name_blank",
+        "sent": {
+          "name": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Store name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "name_whitespace",
+        "sent": {
+          "name": "   \t   "
+        },
+        "status": 400,
+        "response": {
+          "message": "Store name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "name_long_1000",
+        "sent": {
+          "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "name_xss",
+        "sent": {
+          "name": "<script>alert(1)</script>"
+        },
+        "status": 200,
+        "response": {
+          "store": {
+            "id": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+            "code": "STORE-REG6-1779051975052",
+            "name": "<script>alert(1)</script>",
+            "address": "QA test",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.555Z",
+            "updatedAt": "2026-05-17T21:06:15.720Z"
+          }
+        }
+      },
+      {
+        "label": "name_unicode",
+        "sent": {
+          "name": "Тест 🍎 你好 ä β"
+        },
+        "status": 200,
+        "response": {
+          "store": {
+            "id": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+            "code": "STORE-REG6-1779051975052",
+            "name": "Тест 🍎 你好 ä β",
+            "address": "QA test",
+            "timezone": "Europe/Amsterdam",
+            "status": "active",
+            "createdAt": "2026-05-17T21:06:15.555Z",
+            "updatedAt": "2026-05-17T21:06:15.732Z"
+          }
+        }
+      },
+      {
+        "label": "status_bogus",
+        "sent": {
+          "status": "pending"
+        },
+        "status": 400,
+        "response": {
+          "message": "Store status must be active, inactive, or archived",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "code_blank",
+        "sent": {
+          "code": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Store code is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "code_change_dup",
+        "sent": {
+          "code": "STORE-002"
+        },
+        "status": 409,
+        "response": {
+          "message": "Store code already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    ],
+    "finalSeedStore": {
+      "store": {
+        "id": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+        "code": "STORE-REG6-1779051975052",
+        "name": "Тест 🍎 你好 ä β",
+        "address": "QA test",
+        "timezone": "Europe/Amsterdam",
+        "status": "active",
+        "createdAt": "2026-05-17T21:06:15.555Z",
+        "updatedAt": "2026-05-17T21:06:15.732Z"
+      }
+    }
+  },
+  "B": {
+    "cases": [
+      {
+        "label": "empty",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "Product defaultPluCode is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_plu",
+        "sent": {
+          "name": "n",
+          "shortName": "s",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product defaultPluCode is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_name",
+        "sent": {
+          "defaultPluCode": "991000",
+          "shortName": "s",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_short",
+        "sent": {
+          "defaultPluCode": "991001",
+          "name": "n",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product shortName is required and must be at most 128 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "empty_strings",
+        "sent": {
+          "defaultPluCode": "",
+          "name": "",
+          "shortName": "",
+          "unit": "",
+          "status": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Product defaultPluCode is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "whitespace_req",
+        "sent": {
+          "defaultPluCode": "   \t   ",
+          "name": "   \t   ",
+          "shortName": "   \t   ",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product defaultPluCode is required and must be at most 64 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "long_1000",
+        "sent": {
+          "defaultPluCode": "991002",
+          "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "shortName": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "unicode",
+        "sent": {
+          "defaultPluCode": "991003",
+          "name": "Тест 🍎 你好 ä β",
+          "shortName": "Тест 🍎 你好 ä β",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "xss",
+        "sent": {
+          "defaultPluCode": "991004",
+          "name": "<script>alert(1)</script>",
+          "shortName": "<script>alert(1)</script>",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "sql",
+        "sent": {
+          "defaultPluCode": "991005",
+          "name": "'; DROP TABLE users;--",
+          "shortName": "'; DROP TABLE users;--",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "unit_bogus",
+        "sent": {
+          "defaultPluCode": "991006",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "tons",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product unit must be kg, g, or piece",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "status_bogus",
+        "sent": {
+          "defaultPluCode": "991007",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "pending"
+        },
+        "status": 400,
+        "response": {
+          "message": "Product status must be active, inactive, or archived",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "plu_nonnumeric",
+        "sent": {
+          "defaultPluCode": "abcdef",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "plu_negative",
+        "sent": {
+          "defaultPluCode": "-1",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "plu_zero",
+        "sent": {
+          "defaultPluCode": "0",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "plu_huge_1e10",
+        "sent": {
+          "defaultPluCode": "10000000000",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "plu_decimal",
+        "sent": {
+          "defaultPluCode": "0.001",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "imageUrl_xss",
+        "sent": {
+          "defaultPluCode": "991008",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active",
+          "imageUrl": "javascript:alert(1)"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "description_html",
+        "sent": {
+          "defaultPluCode": "991009",
+          "name": "Block6 Prod REG6-1779051975052",
+          "shortName": "B6-REG6-1779051975052",
+          "unit": "kg",
+          "status": "active",
+          "description": "<img src=x onerror=alert(1)>"
+        },
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    ],
+    "operatorCreate": {
+      "status": 409,
+      "response": {
+        "message": "Product defaultPluCode already exists",
+        "error": "Conflict",
+        "statusCode": 409
+      }
+    }
+  },
+  "C": {
+    "cases": [
+      {
+        "label": "empty",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "Category name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_name",
+        "sent": {
+          "shortName": "s",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Category name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "empty_strings",
+        "sent": {
+          "name": "",
+          "shortName": "",
+          "status": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Category name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "whitespace_req",
+        "sent": {
+          "name": "   \t   ",
+          "shortName": "   \t   ",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Category name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "long_1000",
+        "sent": {
+          "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "shortName": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "status": "active"
+        },
+        "status": 400,
+        "response": {
+          "message": "Category name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "unicode",
+        "sent": {
+          "name": "Тест 🍎 你好 ä β",
+          "shortName": "Тест 🍎 你好 ä β",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "category": {
+            "id": "65da4889-a41e-453e-99f6-789c6fe634f8",
+            "catalogId": "00716d68-1eb2-4d51-854a-dc214f75a3a9",
+            "parentId": null,
+            "name": "Тест 🍎 你好 ä β",
+            "shortName": "Тест 🍎 你好 ä β",
+            "sortOrder": 0,
+            "status": "active",
+            "canAcceptActivePlacements": true,
+            "createdAt": "2026-05-17T21:06:16.133Z",
+            "updatedAt": "2026-05-17T21:06:16.133Z"
+          }
+        }
+      },
+      {
+        "label": "xss",
+        "sent": {
+          "name": "<script>alert(1)</script>",
+          "shortName": "<script>alert(1)</script>",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "category": {
+            "id": "c7824ac9-4b09-420c-874b-b56e86b2ac7f",
+            "catalogId": "00716d68-1eb2-4d51-854a-dc214f75a3a9",
+            "parentId": null,
+            "name": "<script>alert(1)</script>",
+            "shortName": "<script>alert(1)</script>",
+            "sortOrder": 0,
+            "status": "active",
+            "canAcceptActivePlacements": true,
+            "createdAt": "2026-05-17T21:06:16.147Z",
+            "updatedAt": "2026-05-17T21:06:16.147Z"
+          }
+        }
+      },
+      {
+        "label": "sql",
+        "sent": {
+          "name": "'; DROP TABLE users;--",
+          "shortName": "'; DROP TABLE users;--",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "category": {
+            "id": "803f79df-f201-4ed2-8be5-8c11e3733848",
+            "catalogId": "00716d68-1eb2-4d51-854a-dc214f75a3a9",
+            "parentId": null,
+            "name": "'; DROP TABLE users;--",
+            "shortName": "'; DROP TABLE users;--",
+            "sortOrder": 0,
+            "status": "active",
+            "canAcceptActivePlacements": true,
+            "createdAt": "2026-05-17T21:06:16.158Z",
+            "updatedAt": "2026-05-17T21:06:16.158Z"
+          }
+        }
+      },
+      {
+        "label": "ctrl",
+        "sent": {
+          "name": "Line1\nLine2\r\nLine3\tTab",
+          "shortName": "Line1\nLine2\r\nLine3\tTab",
+          "status": "active"
+        },
+        "status": 201,
+        "response": {
+          "category": {
+            "id": "bebb6a08-e71d-4ecf-a110-872964f229f1",
+            "catalogId": "00716d68-1eb2-4d51-854a-dc214f75a3a9",
+            "parentId": null,
+            "name": "Line1\nLine2\r\nLine3\tTab",
+            "shortName": "Line1\nLine2\r\nLine3\tTab",
+            "sortOrder": 0,
+            "status": "active",
+            "canAcceptActivePlacements": true,
+            "createdAt": "2026-05-17T21:06:16.168Z",
+            "updatedAt": "2026-05-17T21:06:16.168Z"
+          }
+        }
+      },
+      {
+        "label": "status_bogus",
+        "sent": {
+          "name": "B6Cat-REG6-1779051975052",
+          "shortName": "B6C-REG6-1779051975052",
+          "status": "draft"
+        },
+        "status": 400,
+        "response": {
+          "message": "Category status must be active, inactive, or archived",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      }
+    ]
+  },
+  "D": {
+    "cases": [
+      {
+        "label": "empty",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "Valid email is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_email",
+        "sent": {
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Valid email is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "empty_email",
+        "sent": {
+          "email": "",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Valid email is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "whitespace_email",
+        "sent": {
+          "email": "   \t   ",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Valid email is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_expiresAt",
+        "sent": {
+          "email": "qa-noexp-1779051975052@example.test",
+          "role": "operator"
+        },
+        "status": 400,
+        "response": {
+          "message": "expiresAt must be a valid date",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_role",
+        "sent": {
+          "email": "qa-norole-1779051975052@example.test",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Role must be admin or operator",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "bad_email_abc",
+        "sent": {
+          "email": "abc",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Valid email is required",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "bad_email_a@",
+        "sent": {
+          "email": "a@",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "d65045c9-0a37-4668-9749-75cc94704ffd",
+            "email": "a@",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.248Z"
+          }
+        }
+      },
+      {
+        "label": "bad_email_@b.c",
+        "sent": {
+          "email": "@b.c",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "88c10de4-014b-4cc4-8db7-89b778a47aa2",
+            "email": "@b.c",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.259Z"
+          }
+        }
+      },
+      {
+        "label": "bad_email_a@b",
+        "sent": {
+          "email": "a@b",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "a611d18f-d5f2-41c1-b975-422b666cafe3",
+            "email": "a@b",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.271Z"
+          }
+        }
+      },
+      {
+        "label": "bad_email_traildot",
+        "sent": {
+          "email": "a@b.c.",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "34a3eb27-a409-4441-ad2c-d4c53ccc7bf0",
+            "email": "a@b.c.",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.281Z"
+          }
+        }
+      },
+      {
+        "label": "valid_email_min",
+        "sent": {
+          "email": "qa-min-1779051975052@x.io",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "fdc0bc8f-92df-441c-b914-8e017ef11cbe",
+            "email": "qa-min-1779051975052@x.io",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.292Z"
+          }
+        }
+      },
+      {
+        "label": "unicode_email",
+        "sent": {
+          "email": "qa-test-1779051975052+тест@example.test",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "82af9a5c-8163-4cbe-be56-1bc25836bce8",
+            "email": "qa-test-1779051975052+тест@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.303Z"
+          }
+        }
+      },
+      {
+        "label": "xss_email_local",
+        "sent": {
+          "email": "qa+<script>alert(1)</script>@example.test",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "10b4c8a9-a8f3-4d37-91a4-a2c45866b29d",
+            "email": "qa+<script>alert(1)</script>@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.314Z"
+          }
+        }
+      },
+      {
+        "label": "sql_email",
+        "sent": {
+          "email": "qa+'; DROP TABLE users;--@example.test",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "6db489ed-c00b-40a0-90a8-55cb9b86c660",
+            "email": "qa+'; DROP TABLE users;--@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.325Z"
+          }
+        }
+      },
+      {
+        "label": "long_local_1000",
+        "sent": {
+          "email": "qa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.test",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "792b4e16-6cd6-4461-85fb-ea32589b9c35",
+            "email": "qa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.335Z"
+          }
+        }
+      },
+      {
+        "label": "role_bogus",
+        "sent": {
+          "email": "qa-bogus-1779051975052@example.test",
+          "role": "superadmin",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 400,
+        "response": {
+          "message": "Role must be admin or operator",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "role_admin",
+        "sent": {
+          "email": "qa-adminrole-1779051975052@example.test",
+          "role": "admin",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "966e368f-b8de-4f05-a8af-a77dfc27bee4",
+            "email": "qa-adminrole-1779051975052@example.test",
+            "role": "admin",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.350Z"
+          }
+        }
+      },
+      {
+        "label": "expires_past",
+        "sent": {
+          "email": "qa-past-1779051975052@example.test",
+          "role": "operator",
+          "expiresAt": "2026-05-16T21:06:16.199Z"
+        },
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "394866c3-a993-4897-bc26-e38f3caf8503",
+            "email": "qa-past-1779051975052@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-16T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.359Z"
+          }
+        }
+      },
+      {
+        "label": "expires_bogus",
+        "sent": {
+          "email": "qa-bogusexp-1779051975052@example.test",
+          "role": "operator",
+          "expiresAt": "tomorrow"
+        },
+        "status": 400,
+        "response": {
+          "message": "expiresAt must be a valid date",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "duplicate_existing_admin",
+        "sent": {
+          "email": "qa-admin@***.invalid",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 409,
+        "response": {
+          "message": "User with this email already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      },
+      {
+        "label": "duplicate_existing_operator",
+        "sent": {
+          "email": "qa-operator@***.invalid",
+          "role": "operator",
+          "expiresAt": "2026-05-24T21:06:16.199Z"
+        },
+        "status": 409,
+        "response": {
+          "message": "User with this email already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    ],
+    "operatorTry": {
+      "status": 403,
+      "response": {
+        "message": "Insufficient role",
+        "error": "Forbidden",
+        "statusCode": 403
+      }
+    }
+  },
+  "F": {
+    "cases": [
+      {
+        "label": "empty",
+        "sent": {},
+        "status": 400,
+        "response": {
+          "message": "Device code is required and must be at most 128 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_code",
+        "sent": {
+          "name": "n"
+        },
+        "status": 400,
+        "response": {
+          "message": "Device code is required and must be at most 128 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "missing_name",
+        "sent": {
+          "deviceCode": "nc-1779051975052"
+        },
+        "status": 400,
+        "response": {
+          "message": "Device name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "empty_strings",
+        "sent": {
+          "deviceCode": "",
+          "name": "",
+          "model": ""
+        },
+        "status": 400,
+        "response": {
+          "message": "Device code is required and must be at most 128 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "whitespace_req",
+        "sent": {
+          "deviceCode": "   \t   ",
+          "name": "   \t   ",
+          "model": "   \t   "
+        },
+        "status": 400,
+        "response": {
+          "message": "Device code is required and must be at most 128 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "long_1000",
+        "sent": {
+          "deviceCode": "LC-1779051975052",
+          "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "model": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        "status": 400,
+        "response": {
+          "message": "Device name is required and must be at most 255 characters",
+          "error": "Bad Request",
+          "statusCode": 400
+        }
+      },
+      {
+        "label": "unicode",
+        "sent": {
+          "deviceCode": "UC-1779051975052",
+          "name": "Тест 🍎 你好 ä β",
+          "model": "Тест 🍎 你好 ä β"
+        },
+        "status": 201,
+        "response": {
+          "device": {
+            "id": "2f635707-8608-46c8-96ed-7dd3fa820522",
+            "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+            "deviceCode": "UC-1779051975052",
+            "name": "Тест 🍎 你好 ä β",
+            "model": "Тест 🍎 你好 ä β",
+            "status": "active",
+            "lastSeenAt": null,
+            "lastSyncAt": null,
+            "currentCatalogVersionId": null,
+            "lastSyncStatus": null,
+            "lastSyncError": null,
+            "createdAt": "2026-05-17T21:06:16.453Z",
+            "updatedAt": "2026-05-17T21:06:16.453Z"
+          },
+          "apiToken": "***REDACTED***"
+        }
+      },
+      {
+        "label": "xss",
+        "sent": {
+          "deviceCode": "XC-1779051975052",
+          "name": "<script>alert(1)</script>",
+          "model": "<script>alert(1)</script>"
+        },
+        "status": 201,
+        "response": {
+          "device": {
+            "id": "08743bf9-34e2-4164-95d1-74a6ba7a1875",
+            "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+            "deviceCode": "XC-1779051975052",
+            "name": "<script>alert(1)</script>",
+            "model": "<script>alert(1)</script>",
+            "status": "active",
+            "lastSeenAt": null,
+            "lastSyncAt": null,
+            "currentCatalogVersionId": null,
+            "lastSyncStatus": null,
+            "lastSyncError": null,
+            "createdAt": "2026-05-17T21:06:16.466Z",
+            "updatedAt": "2026-05-17T21:06:16.466Z"
+          },
+          "apiToken": "***REDACTED***"
+        }
+      },
+      {
+        "label": "sql",
+        "sent": {
+          "deviceCode": "SQ-1779051975052",
+          "name": "'; DROP TABLE users;--",
+          "model": "'; DROP TABLE users;--"
+        },
+        "status": 201,
+        "response": {
+          "device": {
+            "id": "8d414c40-0891-4cd7-9503-e4d30cc0d7d1",
+            "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+            "deviceCode": "SQ-1779051975052",
+            "name": "'; DROP TABLE users;--",
+            "model": "'; DROP TABLE users;--",
+            "status": "active",
+            "lastSeenAt": null,
+            "lastSyncAt": null,
+            "currentCatalogVersionId": null,
+            "lastSyncStatus": null,
+            "lastSyncError": null,
+            "createdAt": "2026-05-17T21:06:16.477Z",
+            "updatedAt": "2026-05-17T21:06:16.477Z"
+          },
+          "apiToken": "***REDACTED***"
+        }
+      }
+    ]
+  },
+  "G": {
+    "empty": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "no_file": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "png_with_cat": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "gif_mime": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "svg_mime": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "txt_mime": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "zero_byte": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "big_2_1MB": {
+      "status": 413,
+      "size": 2097320,
+      "text": "<html>\r\n<head><title>413 Request Entity Too Large</title></head>\r\n<body>\r\n<center><h1>413 Request Entity Too Large</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+    },
+    "mime_jpg_actually_png": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    },
+    "exe_mime": {
+      "status": 400,
+      "text": "{\"message\":\"imageUrl is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+    }
+  },
+  "H": {
+    "priceShape": [
+      {
+        "placement": {
+          "id": "4cd4d265-30bc-456b-9ea7-59578f9b582d",
+          "catalogId": "ab84f2e4-644d-41cf-a30f-7b29bb6be807",
+          "categoryId": "d6fddace-5885-471e-9855-5d9bfff26810",
+          "productId": "13347e24-5d17-4f09-92d5-0ae6fa610c96",
+          "sortOrder": 0,
+          "status": "active"
+        },
+        "product": {
+          "id": "13347e24-5d17-4f09-92d5-0ae6fa610c96",
+          "defaultPluCode": "96150944",
+          "name": "QA Publishing Product 20260516150944",
+          "shortName": "QA Pub Product 20260516150944",
+          "barcode": null,
+          "sku": null,
+          "unit": "piece",
+          "status": "active"
+        },
+        "category": {
+          "id": "d6fddace-5885-471e-9855-5d9bfff26810",
+          "name": "QA Publishing Category 20260516150944",
+          "shortName": "QA Pub Cat 20260516150944",
+          "status": "active"
+        },
+        "currentPrice": null,
+        "missingPrice": true
+      }
+    ],
+    "priceWrapper": [
+      "catalog",
+      "prices"
+    ]
+  },
+  "duplicates": {
+    "storeCode": {
+      "first": {
+        "status": 201,
+        "id": "3e97fbda-346d-4bd7-a872-3d7c7907caec"
+      },
+      "second": {
+        "status": 409,
+        "response": {
+          "message": "Store code already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    },
+    "productPlu": {
+      "first": {
+        "status": 201,
+        "id": "c3ae029f-5f46-481d-a772-ef421941b63e"
+      },
+      "second": {
+        "status": 409,
+        "response": {
+          "message": "Product defaultPluCode already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    },
+    "categoryName": {
+      "first": {
+        "status": 201,
+        "id": "27a11a96-72f5-41a8-a8fc-2234f0780c2e"
+      },
+      "second": {
+        "status": 201,
+        "response": {
+          "category": {
+            "id": "d9457876-7c3b-4cd3-b02c-0d34bf88e91f",
+            "catalogId": "00716d68-1eb2-4d51-854a-dc214f75a3a9",
+            "parentId": null,
+            "name": "DupCat-REG6-1779051975052",
+            "shortName": "DupCat-REG6-1779051975052",
+            "sortOrder": 0,
+            "status": "active",
+            "canAcceptActivePlacements": true,
+            "createdAt": "2026-05-17T21:06:16.195Z",
+            "updatedAt": "2026-05-17T21:06:16.195Z"
+          }
+        }
+      }
+    },
+    "inviteEmail": {
+      "first": {
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "5cd4c92f-f57a-4fb3-b787-000b805dd72a",
+            "email": "qa-dup-1779051975052@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.384Z"
+          }
+        }
+      },
+      "second": {
+        "status": 201,
+        "response": {
+          "invite": {
+            "id": "efb80357-b613-4994-a87f-ef00c36193bf",
+            "email": "qa-dup-1779051975052@example.test",
+            "role": "operator",
+            "expiresAt": "2026-05-24T21:06:16.199Z",
+            "acceptedAt": null,
+            "createdAt": "2026-05-17T21:06:16.392Z"
+          }
+        }
+      }
+    },
+    "scaleDeviceCode": {
+      "first": {
+        "status": 201,
+        "id": null
+      },
+      "second": {
+        "status": 409,
+        "response": {
+          "message": "Scale device code already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    }
+  },
+  "doubleSubmit": {
+    "store": {
+      "first": {
+        "status": 201,
+        "id": "75cb3340-db7e-4d8c-ba90-ee6548ecb177"
+      },
+      "second": {
+        "status": 409,
+        "id": null,
+        "response": {
+          "message": "Store code already exists",
+          "error": "Conflict",
+          "statusCode": 409
+        }
+      }
+    },
+    "product": {
+      "first": {
+        "status": 409,
+        "id": null
+      },
+      "second": {
+        "status": 201,
+        "id": "9c281964-c19a-45a4-80e8-554f07110852",
+        "response": {
+          "product": {
+            "id": "9c281964-c19a-45a4-80e8-554f07110852",
+            "defaultPluCode": "9750528",
+            "name": "doubleProd",
+            "shortName": "B6-REG6-1779051975052",
+            "description": null,
+            "imageUrl": null,
+            "imageFileAssetId": null,
+            "barcode": null,
+            "sku": null,
+            "unit": "kg",
+            "status": "active",
+            "unavailableForNewActivePlacements": false,
+            "activePlacementCount": 0,
+            "createdAt": "2026-05-17T21:06:16.695Z",
+            "updatedAt": "2026-05-17T21:06:16.695Z"
+          }
+        }
+      }
+    }
+  },
+  "created": {
+    "stores": [
+      "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+      "a0e37d06-cf66-4aac-9de2-60d606a51d14",
+      "a19bbf06-b019-42b8-a8a0-cf3d1cd3696f",
+      "3eecbd90-0ce6-4179-ba9d-46596f3a1f95",
+      "aad445d2-1439-4f32-b5e9-dca2ec6558c4",
+      "10d15929-9189-41e4-ba49-597894a4911b",
+      "f69f640d-922f-4c0c-a36d-99bbc8040c0d",
+      "3e97fbda-346d-4bd7-a872-3d7c7907caec",
+      "75cb3340-db7e-4d8c-ba90-ee6548ecb177"
+    ],
+    "products": [
+      "c3ae029f-5f46-481d-a772-ef421941b63e",
+      "9c281964-c19a-45a4-80e8-554f07110852"
+    ],
+    "categories": [
+      {
+        "id": "65da4889-a41e-453e-99f6-789c6fe634f8",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      },
+      {
+        "id": "c7824ac9-4b09-420c-874b-b56e86b2ac7f",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      },
+      {
+        "id": "803f79df-f201-4ed2-8be5-8c11e3733848",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      },
+      {
+        "id": "bebb6a08-e71d-4ecf-a110-872964f229f1",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      },
+      {
+        "id": "27a11a96-72f5-41a8-a8fc-2234f0780c2e",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      },
+      {
+        "id": "d9457876-7c3b-4cd3-b02c-0d34bf88e91f",
+        "storeId": "3e1519b8-e59e-451c-a253-40bf9bbf3933"
+      }
+    ],
+    "scales": [],
+    "banners": [],
+    "prices": []
+  },
+  "cleanup": {
+    "scales": [],
+    "banners": [],
+    "categories": [
+      {
+        "id": "65da4889-a41e-453e-99f6-789c6fe634f8",
+        "status": 200
+      },
+      {
+        "id": "c7824ac9-4b09-420c-874b-b56e86b2ac7f",
+        "status": 200
+      },
+      {
+        "id": "803f79df-f201-4ed2-8be5-8c11e3733848",
+        "status": 200
+      },
+      {
+        "id": "bebb6a08-e71d-4ecf-a110-872964f229f1",
+        "status": 200
+      },
+      {
+        "id": "27a11a96-72f5-41a8-a8fc-2234f0780c2e",
+        "status": 200
+      },
+      {
+        "id": "d9457876-7c3b-4cd3-b02c-0d34bf88e91f",
+        "status": 200
+      }
+    ],
+    "products": [
+      {
+        "id": "c3ae029f-5f46-481d-a772-ef421941b63e",
+        "status": 200
+      },
+      {
+        "id": "9c281964-c19a-45a4-80e8-554f07110852",
+        "status": 200
+      }
+    ],
+    "stores": [
+      {
+        "id": "3e1519b8-e59e-451c-a253-40bf9bbf3933",
+        "status": 200
+      },
+      {
+        "id": "a0e37d06-cf66-4aac-9de2-60d606a51d14",
+        "status": 200
+      },
+      {
+        "id": "a19bbf06-b019-42b8-a8a0-cf3d1cd3696f",
+        "status": 200
+      },
+      {
+        "id": "3eecbd90-0ce6-4179-ba9d-46596f3a1f95",
+        "status": 200
+      },
+      {
+        "id": "aad445d2-1439-4f32-b5e9-dca2ec6558c4",
+        "status": 200
+      },
+      {
+        "id": "10d15929-9189-41e4-ba49-597894a4911b",
+        "status": 200
+      },
+      {
+        "id": "f69f640d-922f-4c0c-a36d-99bbc8040c0d",
+        "status": 200
+      },
+      {
+        "id": "3e97fbda-346d-4bd7-a872-3d7c7907caec",
+        "status": 200
+      },
+      {
+        "id": "75cb3340-db7e-4d8c-ba90-ee6548ecb177",
+        "status": 200
+      }
+    ]
+  },
+  "preCleanup": {
+    "stores": [
+      {
+        "code": "S-REG6-1779051811843",
+        "id": "7726df52-1d2d-4302-8813-d60c9fd00e7e",
+        "status": 200
+      },
+      {
+        "code": "X-REG6-1779051811843",
+        "id": "77c58e3f-299a-461d-9ced-ba22072e9944",
+        "status": 200
+      },
+      {
+        "code": "C-REG6-1779051811843",
+        "id": "01e255e2-7628-4f88-8c8b-37ceb010b70b",
+        "status": 200
+      },
+      {
+        "code": "STORE-REG6-1779051811843",
+        "id": "0d838d40-4adf-4a57-86b4-d4e1ea806307",
+        "status": 200
+      },
+      {
+        "code": "DS-REG6-1779051811843",
+        "id": "e6d5e810-a6d5-48e0-bc23-9041d7f4da5c",
+        "status": 200
+      },
+      {
+        "code": "DUP-REG6-1779051811843",
+        "id": "83997238-f24e-4d87-b72d-f60654227dd5",
+        "status": 200
+      },
+      {
+        "code": "EF-REG6-1779051811843",
+        "id": "81608ed7-c0bd-4999-b677-ae64ed88ecf6",
+        "status": 200
+      },
+      {
+        "code": "TZ-REG6-1779051811843",
+        "id": "1a107661-5cd1-4404-af30-1ff4eafee98a",
+        "status": 200
+      },
+      {
+        "code": "U-REG6-1779051811843",
+        "id": "b1de5aec-90ac-4a9a-8cba-b6bba5de4f68",
+        "status": 200
+      }
+    ],
+    "products": [
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "e6579da8-50bd-4cc9-9434-f25dd3148568",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "25afed27-38dd-4f9f-a0a5-8760ed220947",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "bb7dcde7-64d7-4c92-87ee-50e2dc767505",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "8dcbbf10-c5fb-4780-914a-dd360d98f925",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "e97302ac-1073-45aa-825b-6b3782140d06",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "2a6c4374-a73c-45a2-8a3a-2e50e58f8096",
+        "status": 200
+      },
+      {
+        "name": "Block6 Prod REG6-1779051811843",
+        "id": "386e200e-34b8-40d6-b363-14eaac744723",
+        "status": 200
+      },
+      {
+        "name": "doubleProd",
+        "id": "f26a7c62-80fd-4577-b326-57b2b559dddf",
+        "status": 200
+      },
+      {
+        "name": "oper-attempt",
+        "id": "c6f00249-21ec-4e43-9647-9a94099bdb51",
+        "status": 200
+      }
+    ]
+  },
+  "preflight": {
+    "adminStoreCount": 44,
+    "getStoresShapeKeys": [
+      "stores"
+    ],
+    "seedMainCatalog": null
+  },
+  "endedAt": "2026-05-17T21:06:16.879Z"
+}

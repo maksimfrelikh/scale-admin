@@ -5,7 +5,7 @@
 - End: 08:15 CEST (фактическая работа ≈ 01:25; финализация в утреннем окне)
 - Duration (active): ≈ 30 min
 - Environment: production https://maksimfrelikh.ru
-- Accounts: qa-admin@gmail.com (admin), qa-operator@gmail.com (operator)
+- Accounts: qa-admin@***.invalid (admin), qa-operator@***.invalid (operator)
 - Branch: docs/regression-2026-05-17 @ e91b4e8
 - Script: `scripts/block-11-responsive.cjs`
 - Raw report: `evidence/block-11/report.json` (116 KB)

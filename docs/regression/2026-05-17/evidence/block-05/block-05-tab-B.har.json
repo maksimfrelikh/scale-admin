@@ -1,0 +1,515 @@
+{
+  "note": "Sanitized synthesized network summary for Tab B across all sections. Real HAR was not captured due to Playwright recordHar option quirk in this env. All sensitive headers/tokens are redacted.",
+  "entries": [
+    {
+      "label": "B",
+      "t": "20:28:04.251",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.338",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "s": 404
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.351",
+      "m": "GET",
+      "u": "/api/products?status=active&take=10",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.354",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/advertising/banners",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.365",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/publishing/catalog-versions",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.370",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/scales",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.384",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/prices",
+      "s": 404
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.384",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/catalog/categories",
+      "s": 404
+    },
+    {
+      "label": "B",
+      "t": "20:28:04.387",
+      "m": "GET",
+      "u": "/api/stores/adc14d18-59b7-43f1-995f-f079c2ef0b96/logs",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:28:13.866",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:18.880",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:23.896",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:28.916",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:33.933",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:38.949",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:43.963",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:48.981",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:53.993",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:28:59.013",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:04.028",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:09.044",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:09.133",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:09.150",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:09.220",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:29:13.700",
+      "m": "POST",
+      "u": "/api/products",
+      "s": 401
+    },
+    {
+      "label": "B",
+      "t": "20:29:14.081",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:29:14.183",
+      "m": "GET",
+      "u": "/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:29:18.256",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:29:18.301",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "B",
+      "t": "20:29:18.318",
+      "m": "GET",
+      "u": "/api/admin/dashboard",
+      "s": 200
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:13.866",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:18.880",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:23.896",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:28.917",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:33.933",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:38.949",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:43.964",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:48.981",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:53.994",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:28:59.013",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:29:04.028",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A2_B_poll_60s",
+      "t": "20:29:09.046",
+      "bUrl": "https://maksimfrelikh.ru/#store:adc14d18-59b7-43f1-995f-f079c2ef0b96",
+      "bOnLogin": false,
+      "bH1": "Добро пожаловать, QA Admin",
+      "sess": {
+        "status": 401
+      }
+    },
+    {
+      "label": "A.A3_B_recentApi",
+      "t": "20:29:09.133",
+      "m": "GET",
+      "u": "/api/stores",
+      "s": 401
+    },
+    {
+      "label": "A.A3_B_recentApi",
+      "t": "20:29:09.150",
+      "m": "GET",
+      "u": "/api/auth/session",
+      "s": 401
+    },
+    {
+      "label": "A.A3_B_recentApi",
+      "t": "20:29:09.222",
+      "m": "GET",
+      "u": "/api/auth/csrf",
+      "s": 200
+    },
+    {
+      "label": "A.A4_state_change",
+      "kind": "mutation_after_A_logout",
+      "csrfPresent": true,
+      "status": 401,
+      "body": "{\"message\":\"Authentication required\",\"error\":\"Unauthorized\",\"statusCode\":401}"
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:01.082",
+      "seenInB": false
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:06.085",
+      "seenInB": false
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:11.088",
+      "seenInB": false
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:16.091",
+      "seenInB": false
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:21.094",
+      "seenInB": false
+    },
+    {
+      "label": "C.C3_polls",
+      "t": "20:27:26.096",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:27:39.071",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:27:44.072",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:27:49.076",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:27:54.079",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:27:59.082",
+      "seenInB": false
+    },
+    {
+      "label": "D.D3_polls",
+      "t": "20:28:04.084",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:13.636",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:18.640",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:23.643",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:28.644",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:33.647",
+      "seenInB": false
+    },
+    {
+      "label": "D_fixed.poll",
+      "t": "20:32:38.651",
+      "seenInB": false
+    },
+    {
+      "label": "E_fixed.captured",
+      "storage": [],
+      "bc": [],
+      "channels": [
+        "auth",
+        "session",
+        "app",
+        "scale-admin",
+        "logout",
+        "rtk-query",
+        "cache",
+        "main"
+      ]
+    },
+    {
+      "label": "F.csrf_tests",
+      "F1_B_state_change_status": 201,
+      "F1_B_with_explicit_old_csrf_status": 403
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:38:48.270",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:38:53.295",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:38:58.327",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:39:03.358",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:39:08.385",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    },
+    {
+      "label": "H.polls_30s_B",
+      "t": "20:39:13.408",
+      "h1": "Добро пожаловать, QA Admin",
+      "onLogin": false,
+      "sess": 401
+    }
+  ]
+}

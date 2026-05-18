@@ -1,0 +1,29 @@
+# Test C.5: Rate limit on /api/auth/login
+Date: 2026-05-17T19:03:24Z
+
+CSRF=iJssq-Se...
+
+=== 8 attempts with wrong password to qa-admin@***.invalid ===
+attempt 1 [19:03:24]  HTTP 401  body={"message":"Invalid email or password","error":"Unauthorized","statusCode":401}
+attempt 2 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":7,"statusCode":429}
+attempt 3 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":7,"statusCode":429}
+attempt 4 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":7,"statusCode":429}
+attempt 5 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":6,"statusCode":429}
+attempt 6 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":6,"statusCode":429}
+attempt 7 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":6,"statusCode":429}
+attempt 8 [19:03:25]  HTTP 429  body={"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":6,"statusCode":429}
+
+=== Response headers for attempt 9 (look for Retry-After / X-RateLimit-*) ===
+HTTP/1.1 429 Too Many Requests
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 19:03:25 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 148
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"94-jyDLQWqKs7OrQpck/YoPf3Hacag"
+
+{"message":"Too many requests. Please retry later.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":6,"statusCode":429}

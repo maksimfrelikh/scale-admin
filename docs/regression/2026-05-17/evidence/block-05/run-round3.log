@@ -1,0 +1,5 @@
+[20:38:35.439] F: A logout 200
+[20:38:43.212] H: external-like logout {"status":200,"via":"context.request.post"}
+[20:39:20.868] G: GA at Dashboard, leaving idle 5:30 undefined
+[20:44:50.995] G: idle period done {"snapshots":11,"bgApi":0}
+Report: /home/clawd/projects/scale-admin/docs/regression/2026-05-17/evidence/block-05/report-round3.json

@@ -1,0 +1,478 @@
+{
+  "generated": "2026-05-17T22:07:37Z",
+  "blockStart": "2026-05-17T21:54:00Z",
+  "auditLogs": [
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "adb8cff9-432d-4de1-a790-0d21cc30dcea",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:28.043Z"
+    },
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "7578e6dd-945b-41e8-9a3d-168ee1597aa2",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.972Z"
+    },
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "f36483dc-79f8-447d-a229-3416f60a50fb",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.897Z"
+    },
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "859481ee-43f2-4908-b628-95ca72e368ae",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.828Z"
+    },
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "960c9ce2-a6f7-44b8-b037-8f6a7c322c2e",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.759Z"
+    },
+    {
+      "action": "store.updated",
+      "entityType": "Store",
+      "entityId": "ba66158c-d9bc-4179-b658-1f5f545e2ffc",
+      "store": "QA-PRC-B-235548",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.687Z"
+    },
+    {
+      "action": "store.updated",
+      "entityType": "Store",
+      "entityId": "5d8373ec-da96-443a-8cba-6c09d0e3dc4f",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:07:27.618Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "f68ca622-5ad2-4956-9335-1959bcdcbbec",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:06:38.498Z"
+    },
+    {
+      "action": "placement.archived",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "a8c3b7ae-c692-49da-a97f-51c766ed1bb4",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:06:09.657Z"
+    },
+    {
+      "action": "category.archived",
+      "entityType": "Category",
+      "entityId": "684e0a65-1ae1-4f3d-afca-72f2fde5e553",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:06:09.524Z"
+    },
+    {
+      "action": "product.updated",
+      "entityType": "Product",
+      "entityId": "f36483dc-79f8-447d-a229-3416f60a50fb",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:57.909Z"
+    },
+    {
+      "action": "price.created",
+      "entityType": "StoreProductPrice",
+      "entityId": "1c50c0b9-cdb8-4a61-92a1-2fb2b9bee578",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:57.780Z"
+    },
+    {
+      "action": "price.created",
+      "entityType": "StoreProductPrice",
+      "entityId": "1b106af9-698d-4fb8-9c7d-75578a877998",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:57.712Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "94fb13e6-16db-458d-a109-88d9b3e006f0",
+      "store": "QA-PUB-20260516150944",
+      "actor": "qa-operator@***.invalid",
+      "createdAt": "2026-05-17T22:05:40.363Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "94fb13e6-16db-458d-a109-88d9b3e006f0",
+      "store": "QA-PUB-20260516150944",
+      "actor": "qa-operator@***.invalid",
+      "createdAt": "2026-05-17T22:05:32.879Z"
+    },
+    {
+      "action": "price.created",
+      "entityType": "StoreProductPrice",
+      "entityId": "c2e103e1-d8e0-47d3-9542-dca639072c90",
+      "store": "QA-PRC-B-235548",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:11.965Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:11.897Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "b3937c3f-be36-4612-953a-2fe6f3df8f98",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:05:11.824Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:41.907Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:41.834Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:41.771Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.554Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.478Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.402Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.332Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.265Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.191Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:23.121Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:11.495Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:11.426Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:03:11.357Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:01:57.737Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:01:57.669Z"
+    },
+    {
+      "action": "price.created",
+      "entityType": "StoreProductPrice",
+      "entityId": "2037182a-b340-4e96-8880-9d4a1d1c23a3",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:01:57.603Z"
+    },
+    {
+      "action": "price.updated",
+      "entityType": "StoreProductPrice",
+      "entityId": "b3937c3f-be36-4612-953a-2fe6f3df8f98",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:01:10.709Z"
+    },
+    {
+      "action": "price.created",
+      "entityType": "StoreProductPrice",
+      "entityId": "b3937c3f-be36-4612-953a-2fe6f3df8f98",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T22:00:56.801Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "43bc6483-7af2-47f4-b405-f5d9575c47a2",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:59:34.021Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "4e1081f7-29bc-4c9f-a6e7-609ffb5f4591",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:58:38.362Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "21ac8e3f-1c4d-49cc-a1dc-0b98bc2d20de",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:57:48.657Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "b86e4c23-e331-4652-a3a1-8c56375eca62",
+      "store": "QA-PRC-B-235548",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:45.293Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "e8d5b2af-4368-4ac3-9b41-3e024ba4d3da",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:45.218Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "a8c3b7ae-c692-49da-a97f-51c766ed1bb4",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:45.146Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "677eb042-3184-4519-8528-b52ac5d59beb",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:45.072Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "d63ea2de-957d-436f-99cb-62d496fee647",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:44.993Z"
+    },
+    {
+      "action": "placement.created",
+      "entityType": "CatalogProductPlacement",
+      "entityId": "e1ae43e6-d656-445b-afe8-41a356717b72",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:44.922Z"
+    },
+    {
+      "action": "product.created",
+      "entityType": "Product",
+      "entityId": "859481ee-43f2-4908-b628-95ca72e368ae",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:32.230Z"
+    },
+    {
+      "action": "product.created",
+      "entityType": "Product",
+      "entityId": "adb8cff9-432d-4de1-a790-0d21cc30dcea",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:21.635Z"
+    },
+    {
+      "action": "product.created",
+      "entityType": "Product",
+      "entityId": "7578e6dd-945b-41e8-9a3d-168ee1597aa2",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:21.564Z"
+    },
+    {
+      "action": "product.created",
+      "entityType": "Product",
+      "entityId": "f36483dc-79f8-447d-a229-3416f60a50fb",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:21.487Z"
+    },
+    {
+      "action": "product.created",
+      "entityType": "Product",
+      "entityId": "960c9ce2-a6f7-44b8-b037-8f6a7c322c2e",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:56:07.866Z"
+    },
+    {
+      "action": "category.created",
+      "entityType": "Category",
+      "entityId": "3bb2acf6-c0e5-47cd-8560-472eae46aeec",
+      "store": "QA-PRC-B-235548",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:55.910Z"
+    },
+    {
+      "action": "category.created",
+      "entityType": "Category",
+      "entityId": "684e0a65-1ae1-4f3d-afca-72f2fde5e553",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:55.846Z"
+    },
+    {
+      "action": "category.created",
+      "entityType": "Category",
+      "entityId": "56aeba07-9c6f-490d-ba55-1db9eb917151",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:55.783Z"
+    },
+    {
+      "action": "store.created",
+      "entityType": "Store",
+      "entityId": "ba66158c-d9bc-4179-b658-1f5f545e2ffc",
+      "store": "QA-PRC-B-235548",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:48.366Z"
+    },
+    {
+      "action": "store.created",
+      "entityType": "Store",
+      "entityId": "5d8373ec-da96-443a-8cba-6c09d0e3dc4f",
+      "store": "QA-PRC-A-235542",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:42.621Z"
+    },
+    {
+      "action": "store.created",
+      "entityType": "Store",
+      "entityId": "9fac3a1b-d232-4145-b144-0885549edb1a",
+      "store": "QA-PRC-B-235538",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:38.158Z"
+    },
+    {
+      "action": "store.created",
+      "entityType": "Store",
+      "entityId": "c50ab595-9873-41aa-a004-69f58b123ca3",
+      "store": "QA-PRC-A-235538",
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:55:38.093Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "5ef034ce-25a9-4dc6-a277-e236da5033f3",
+      "store": null,
+      "actor": "qa-operator@***.invalid",
+      "createdAt": "2026-05-17T21:54:21.757Z"
+    },
+    {
+      "action": "auth.login_succeeded",
+      "entityType": "UserSession",
+      "entityId": "fa7cd890-b8a0-4c65-bf1b-2f92122a5d6a",
+      "store": null,
+      "actor": "qa-admin@***.invalid",
+      "createdAt": "2026-05-17T21:54:21.527Z"
+    }
+  ]
+}

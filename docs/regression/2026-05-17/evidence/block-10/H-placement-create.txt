@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 17 May 2026 22:47:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 323
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"143-rQIAhs4Z5dWol0qdCds90h/hoVM"
+
+{"placement":{"id":"e4917e49-bca9-4700-b73e-3c0c51274895","catalogId":"ebb9025b-cde0-4db8-8d9e-1ae5105aab4a","categoryId":"d2c8ac60-1ff1-4de6-9dad-d6f66578a64f","productId":"5593d554-b3cb-4925-bf75-1adb2ad939f2","sortOrder":0,"status":"active","createdAt":"2026-05-17T22:47:58.491Z","updatedAt":"2026-05-17T22:47:58.491Z"}}

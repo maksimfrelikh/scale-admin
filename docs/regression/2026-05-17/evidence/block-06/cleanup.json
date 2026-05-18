@@ -1,0 +1,31 @@
+{
+  "stores": [
+    {
+      "code": "XSSUI-REG6UI-1779052781437",
+      "id": "40c1f9b2-6b38-4bfd-8176-8a5040cb3bcb",
+      "status": 200
+    },
+    {
+      "code": "DBL-REG6UI-1779052781437",
+      "id": "2a6cddb2-ad56-4588-b8ae-6eeec34f1c61",
+      "status": 200
+    },
+    {
+      "code": "SLO-REG6UI-1779052781437",
+      "id": "f63ab3b5-702b-46ca-bd6e-078ea18afcde",
+      "status": 200
+    }
+  ],
+  "products": [
+    {
+      "name": "<script>window.__xss_b1=1</script>BProd 1779052781",
+      "id": "2a1e8b78-d38e-4cf6-bd9f-084667d088a9",
+      "status": 200
+    },
+    {
+      "name": "dupA",
+      "id": "4d1cb39e-ccef-4c02-9c18-4ffff76ec8e6",
+      "status": 200
+    }
+  ]
+}

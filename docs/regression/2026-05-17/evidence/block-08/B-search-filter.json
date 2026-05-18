@@ -1,0 +1,281 @@
+{
+  "steps": {
+    "initial": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "search-apple-name": {
+      "rowsVisible": 1,
+      "productsShown": [
+        "QA-P-Apple-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=Apple"
+      ]
+    },
+    "search-bnn-shortname": {
+      "rowsVisible": 1,
+      "productsShown": [
+        "QA-P-Banana-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=Bnn"
+      ]
+    },
+    "search-plu-81002": {
+      "rowsVisible": 1,
+      "productsShown": [
+        "QA-P-Banana-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=81002"
+      ]
+    },
+    "search-sku-lf": {
+      "rowsVisible": 1,
+      "productsShown": [
+        "QA-P-Loaf-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=SKU-LF"
+      ]
+    },
+    "search-barcode-bagel": {
+      "rowsVisible": 1,
+      "productsShown": [
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=4600100100005"
+      ]
+    },
+    "search-empty": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "search-no-match": {
+      "rowsVisible": 0,
+      "productsShown": [],
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?search=zzznonexistentzzz"
+      ]
+    },
+    "filter-clear": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "filter-cat-fruit": {
+      "rowsVisible": 3,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?categoryId=56aeba07-9c6f-490d-ba55-1db9eb917151"
+      ]
+    },
+    "filter-cat-bread": {
+      "rowsVisible": 2,
+      "productsShown": [
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?categoryId=684e0a65-1ae1-4f3d-afca-72f2fde5e553"
+      ]
+    },
+    "filter-cat-all": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "filter-missing-only": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?missingPrice=true"
+      ]
+    },
+    "filter-with-only": {
+      "rowsVisible": 0,
+      "productsShown": [],
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?missingPrice=false"
+      ]
+    },
+    "filter-all-products": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "combo-fruit-missing": {
+      "rowsVisible": 3,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [
+        "GET /api/stores/5d8373ec-da96-443a-8cba-6c09d0e3dc4f/prices?categoryId=56aeba07-9c6f-490d-ba55-1db9eb917151&missingPrice=true"
+      ]
+    },
+    "combo-clear": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": []
+    },
+    "highlight-detect": {
+      "rowsVisible": 5,
+      "productsShown": [
+        "QA-P-Apple-235548",
+        "QA-P-Banana-235548",
+        "QA-P-Cherry-235548",
+        "QA-P-Loaf-235548",
+        "QA-P-Bagel-235548"
+      ],
+      "emptyHint": null,
+      "apiCalls": [],
+      "rowHighlight": [
+        {
+          "productCell": "QA-P-Apple-235548\nNO PRICE",
+          "classNames": "price-row price-row-missing",
+          "hasNoPriceBadge": true,
+          "hasRedClass": true
+        },
+        {
+          "productCell": "QA-P-Banana-235548\nNO PRICE",
+          "classNames": "price-row price-row-missing",
+          "hasNoPriceBadge": true,
+          "hasRedClass": true
+        },
+        {
+          "productCell": "QA-P-Cherry-235548\nNO PRICE",
+          "classNames": "price-row price-row-missing",
+          "hasNoPriceBadge": true,
+          "hasRedClass": true
+        },
+        {
+          "productCell": "QA-P-Loaf-235548\nNO PRICE",
+          "classNames": "price-row price-row-missing",
+          "hasNoPriceBadge": true,
+          "hasRedClass": true
+        },
+        {
+          "productCell": "QA-P-Bagel-235548\nNO PRICE",
+          "classNames": "price-row price-row-missing",
+          "hasNoPriceBadge": true,
+          "hasRedClass": true
+        },
+        {
+          "productCell": "5/17/2026, 11:56:45 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:56:45 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:56:45 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:56:44 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:56:44 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:55:55 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:55:55 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        },
+        {
+          "productCell": "5/17/2026, 11:55:42 PM",
+          "classNames": "",
+          "hasNoPriceBadge": false,
+          "hasRedClass": false
+        }
+      ]
+    }
+  }
+}
