@@ -1,0 +1,52 @@
+{
+  "startedAt": "2026-05-19T06:38:18.684Z",
+  "A": {
+    "A0_tabA_after_login": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, Local Admin",
+      "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale hea",
+      "onLogin": false
+    },
+    "A0_tabB_initial": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, Local Admin",
+      "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale hea",
+      "onLogin": false
+    },
+    "A1_tabA_after_logout": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, Local Admin",
+      "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale hea",
+      "onLogin": false
+    },
+    "A1_tabB_after_15s_short": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, Local Admin",
+      "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale hea",
+      "onLogin": false
+    },
+    "A2_tabB_detected_at_ms": 21126,
+    "A2_tabB_final": {
+      "url": "http://localhost:5173/",
+      "h1": "Вход в систему",
+      "body": " Scale AdminВход в системуВойдите, чтобы открыть защищённую панель администрирования.EmailPasswordLoginЗабыли пароль? Обратитесь к администратору. ",
+      "onLogin": true
+    }
+  },
+  "B": {
+    "B0_tab1_admin": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, Local Admin",
+      "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale hea",
+      "onLogin": false
+    },
+    "B1_operator_login_status": 200,
+    "B2_tab1_detected_at_ms": 23138,
+    "B2_tab1_final": {
+      "url": "http://localhost:5173/",
+      "h1": "Добро пожаловать, QA Operator",
+      "body": " DashboardДобро пожаловать, QA OperatorActive session for qa-operator@example.com · role: operatorLogoutOverviewStoresProductsOperator navigation: assigned stores onlyOperator dashboardAssigned stores",
+      "onLogin": false
+    }
+  }
+}

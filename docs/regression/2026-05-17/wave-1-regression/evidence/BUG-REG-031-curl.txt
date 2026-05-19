@@ -1,0 +1,62 @@
+# BUG-REG-031 verify on main @ 579ef61, 2026-05-19T06:25:57Z
+# Cases: missing UUID (200), valid existing UUID (200), unknown UUID (200 stale or 4xx), malformed (400)
+
+## A: no body
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 995
+ETag: W/"3e3-Mbb8Bd2jNdZloEwnDQlbKZP5x1g"
+Date: Tue, 19 May 2026 06:25:57 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"hasUpdate":true,"versionId":"07fc96ae-a833-40f4-9f92-0ecd63c683b8","versionNumber":1,"packageChecksum":"57c1525783b5db08b474b7fac3e3a5953d6b5a05dd3ac31fe647f6e40e6a8bfa","packageData":{"store":{"id":"cb7d6315-32c3-4492-8f3d-3c72565cb074","code":"QAW1C171771","name":"QA-Wave1-Currency-1779171771"},"catalog":{"id":"5215aa2e-a66a-4f94-9c0e-47483f09799a","name":"Main catalog"},"version":{"id":"07fc96ae-a833-40f4-9f92-0ecd63c683b8","checksum":"57c1525783b5db08b474b7fac3e3a5953d6b5a05dd3ac31fe647f6e40e6a8bfa","publishedAt":"2026-05-19T06:24:04.375Z","versionNumber":1},"categories":[{"id":"0033c7df-6de5-4fd1-bc82-c024496a9d93","name":"QA-Wave1-Cat","items":[{"plu":"QAW1001","sku":null,"name":"QA-Wave1-Product","unit":"kg","price":10,"barcode":null,"currency":"RUB","imageUrl":null,"productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","shortName":"QAW1","sortOrder":0,"description":null}],"children":[],"shortName":"QAW1Cat","sortOrder":0}],"advertising":{"banners":[],"rotationMode":"loop"}}}
+## B: unknown but valid UUID
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 995
+ETag: W/"3e3-Mbb8Bd2jNdZloEwnDQlbKZP5x1g"
+Date: Tue, 19 May 2026 06:25:57 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"hasUpdate":true,"versionId":"07fc96ae-a833-40f4-9f92-0ecd63c683b8","versionNumber":1,"packageChecksum":"57c1525783b5db08b474b7fac3e3a5953d6b5a05dd3ac31fe647f6e40e6a8bfa","packageData":{"store":{"id":"cb7d6315-32c3-4492-8f3d-3c72565cb074","code":"QAW1C171771","name":"QA-Wave1-Currency-1779171771"},"catalog":{"id":"5215aa2e-a66a-4f94-9c0e-47483f09799a","name":"Main catalog"},"version":{"id":"07fc96ae-a833-40f4-9f92-0ecd63c683b8","checksum":"57c1525783b5db08b474b7fac3e3a5953d6b5a05dd3ac31fe647f6e40e6a8bfa","publishedAt":"2026-05-19T06:24:04.375Z","versionNumber":1},"categories":[{"id":"0033c7df-6de5-4fd1-bc82-c024496a9d93","name":"QA-Wave1-Cat","items":[{"plu":"QAW1001","sku":null,"name":"QA-Wave1-Product","unit":"kg","price":10,"barcode":null,"currency":"RUB","imageUrl":null,"productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","shortName":"QAW1","sortOrder":0,"description":null}],"children":[],"shortName":"QAW1Cat","sortOrder":0}],"advertising":{"banners":[],"rotationMode":"loop"}}}
+## C: malformed UUID
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 97
+ETag: W/"61-vVWpQ5FNzJ43G2yUjRuZn86W1UQ"
+Date: Tue, 19 May 2026 06:25:57 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"currentCatalogVersionId must be a valid UUID","error":"Bad Request","statusCode":400}
+## D: current valid version
+current version=07fc96ae-a833-40f4-9f92-0ecd63c683b8
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 77
+ETag: W/"4d-C/qtSel0Bx6W5rPLhtYCatfl7Rw"
+Date: Tue, 19 May 2026 06:25:57 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"hasUpdate":false,"currentVersionId":"07fc96ae-a833-40f4-9f92-0ecd63c683b8"}ERROR:  column "action" does not exist
+LINE 1: SELECT "action","resultStatus","requestedVersionId" FROM sca...
+               ^

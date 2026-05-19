@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-05-19T06:40:06.359Z",
+  "results": {
+    "login_help_visible": true,
+    "login_help_text": "Забыли пароль? Обратитесь к администратору.",
+    "admin_dashboard": {
+      "h1": "Добро пожаловать, Local Admin",
+      "hasAdminNav": false
+    },
+    "admin_store_list_ok": true,
+    "operator_dashboard": {
+      "h1": "Добро пожаловать, QA Operator",
+      "hasAdminNav": false
+    },
+    "errors_admin": [
+      {
+        "console": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      }
+    ]
+  }
+}

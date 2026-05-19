@@ -1,0 +1,13 @@
+# BUG-REG-025 verify on main @ 579ef61, 2026-05-19T06:26:41Z
+## /index.html title + body length
+396 /tmp/wave1/index.html
+/assets/index-CYAoyL4U.js
+asset=/assets/index-CYAoyL4U.js
+-rw-rw-r-- 1 clawd clawd 378386 May 19 08:26 /tmp/wave1/bundle.js
+## Search bundle for forgot-password notice
+1
+e:"login-help-note",children:"Забыли пароль? Обратитесь к администратору."})]})})}function ax({user:l,activeView:s,onNaviga
+## Search bundle for 'login-help-note' class
+1
+css=/assets/index-CVMb5RkE.css
+1

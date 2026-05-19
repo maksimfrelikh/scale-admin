@@ -1,0 +1,125 @@
+# BUG-REG-026 verify on main @ 579ef61, 2026-05-19T06:24:48Z
+# Expected: ?status=active hides archived (root+children); ?status=archived returns only archived; no filter = all
+
+## GET categories (no filter)
+[
+  {
+    "name": "QA-Active-A",
+    "status": "active",
+    "children": [
+      {
+        "name": "QA-Child-A1",
+        "status": "archived"
+      }
+    ]
+  },
+  {
+    "name": "QA-ToArch-B",
+    "status": "archived",
+    "children": []
+  },
+  {
+    "name": "QA-Wave1-Cat",
+    "status": "active",
+    "children": []
+  }
+]
+
+## GET categories ?status=active
+[
+  {
+    "name": "QA-Active-A",
+    "status": "active",
+    "children": []
+  },
+  {
+    "name": "QA-Wave1-Cat",
+    "status": "active",
+    "children": []
+  }
+]
+
+## GET categories ?status=archived
+[
+  {
+    "name": "QA-Child-A1",
+    "status": "archived",
+    "children": []
+  },
+  {
+    "name": "QA-ToArch-B",
+    "status": "archived",
+    "children": []
+  }
+]
+
+## GET placements (no filter)
+[
+  {
+    "id": "acd4898c-f6d0-460f-979c-e2b5134780d5",
+    "status": "active",
+    "product": {
+      "name": "QA-Wave1-Product",
+      "status": "active"
+    },
+    "category": {
+      "name": "QA-Wave1-Cat",
+      "status": "active"
+    }
+  },
+  {
+    "id": "992017fb-f831-43ff-a2ac-bc19792fd01c",
+    "status": "active",
+    "product": {
+      "name": "QA-P2",
+      "status": "active"
+    },
+    "category": {
+      "name": "QA-Active-A",
+      "status": "active"
+    }
+  },
+  {
+    "id": "4ebe0091-cf01-4409-8b5a-e1c254671378",
+    "status": "active",
+    "product": {
+      "name": "QA-P3",
+      "status": "archived"
+    },
+    "category": {
+      "name": "QA-Active-A",
+      "status": "active"
+    }
+  }
+]
+
+## GET placements ?status=active
+[
+  {
+    "id": "acd4898c-f6d0-460f-979c-e2b5134780d5",
+    "status": "active",
+    "product": {
+      "name": "QA-Wave1-Product",
+      "status": "active"
+    },
+    "category": {
+      "name": "QA-Wave1-Cat",
+      "status": "active"
+    }
+  },
+  {
+    "id": "992017fb-f831-43ff-a2ac-bc19792fd01c",
+    "status": "active",
+    "product": {
+      "name": "QA-P2",
+      "status": "active"
+    },
+    "category": {
+      "name": "QA-Active-A",
+      "status": "active"
+    }
+  }
+]
+
+## GET placements ?status=archived
+[]

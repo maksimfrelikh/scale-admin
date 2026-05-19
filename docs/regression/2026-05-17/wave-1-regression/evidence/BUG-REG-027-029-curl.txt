@@ -1,0 +1,10 @@
+# BUG-REG-027/029 verify on main @ 579ef61, 2026-05-19T06:23:31Z
+cur=RUB     -> 200 | {"price":{"id":"b204d6e4-7638-4d2d-aa59-3e283b410993","storeId":"cb7d6315-32c3-4492-8f3d-3c72565cb074","productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","price":"10","currency":"RUB","status":"active
+cur=USD     -> 400 | {"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"USD"}
+cur=EUR     -> 400 | {"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"EUR"}
+cur=ZZZ     -> 400 | {"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"ZZZ"}
+cur=AAA     -> 400 | {"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"AAA"}
+cur=rub     -> 200 | {"price":{"id":"b204d6e4-7638-4d2d-aa59-3e283b410993","storeId":"cb7d6315-32c3-4492-8f3d-3c72565cb074","productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","price":"10","currency":"RUB","status":"active
+cur=Rub     -> 200 | {"price":{"id":"b204d6e4-7638-4d2d-aa59-3e283b410993","storeId":"cb7d6315-32c3-4492-8f3d-3c72565cb074","productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","price":"10","currency":"RUB","status":"active
+cur=(none)  -> 200 | {"price":{"id":"b204d6e4-7638-4d2d-aa59-3e283b410993","storeId":"cb7d6315-32c3-4492-8f3d-3c72565cb074","productId":"cb1266ba-f8b5-468c-a68b-c664324c8a9a","price":"10","currency":"RUB","status":"active
+cur=lower   -> 400 | {"message":"Currency not supported","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"LOWER"}

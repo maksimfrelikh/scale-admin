@@ -1,0 +1,19 @@
+# BUG-REG-020 verify after rebuild on main @ 579ef61
+# Date: 2026-05-19T06:22:27Z
+
+# Cases: invalid forms must be 400; valid forms must be 201
+a@b                                                -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@                                                 -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+@b.c                                               -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@b.c.                                             -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+abc                                                -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@.b.c                                             -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@b..c                                             -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@-b.c                                             -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+a@b-.c                                             -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+qa+<script>@example.test                           -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+valid+wave1@example.test                           -> 201 | {"invite":{"id":"93e07d9c-59e7-468f-8913-01d49eecd50d","email":"valid+wave1@example.test","role":"operator","expiresAt":"2026-05-26T20:00:00.000Z","acceptedAt":null,"createdAt":"2026-05-19T06:22:28.312Z"}}
+q.a+wave1@e.x.example.test                         -> 201 | {"invite":{"id":"54bc5457-e715-48f7-abd0-9bf263ba14b9","email":"q.a+wave1@e.x.example.test","role":"operator","expiresAt":"2026-05-26T20:00:00.000Z","acceptedAt":null,"createdAt":"2026-05-19T06:22:28.348Z"}}
+(local len=1000)                                   -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}
+(local len=64 boundary)                            -> 201 | {"invite":{"id":"efb90328-b035-42a3-9423-1c38acfcb444","email":"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@example.test","role":"operator","expiresAt":"2026-05-26T20:00:00.000Z",
+(local len=65 over)                                -> 400 | {"message":"Valid email is required","error":"Bad Request","statusCode":400}

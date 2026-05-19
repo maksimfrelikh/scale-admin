@@ -1,0 +1,8 @@
+                                                                                                                          ?column?                                                                                                                           
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"plu": "QAW1001", "sku": null, "name": "QA-Wave1-Product", "unit": "kg", "price": 10, "barcode": null, "currency": "RUB", "imageUrl": null, "productId": "cb1266ba-f8b5-468c-a68b-c664324c8a9a", "shortName": "QAW1", "sortOrder": 0, "description": null}
+(1 row)
+
+
+# DB constraint attempt (UPDATE currency=USD) was blocked by:
+# store_product_prices_currency_allowed
