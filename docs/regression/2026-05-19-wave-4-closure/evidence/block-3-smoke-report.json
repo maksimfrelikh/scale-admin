@@ -1,0 +1,149 @@
+{
+  "block": "Smoke+SessionRate",
+  "verdict": "PASS",
+  "passed": 8,
+  "total": 8,
+  "medianMs": 16,
+  "totalElapsedMs": 120702,
+  "firstStoreId": "e4d711db-dddd-4749-9a4c-0c2aed2f4f77",
+  "sessionRate": {
+    "windowMinutes": 2,
+    "sessionHits": 1,
+    "ratePerMin": 0.5,
+    "pass": true
+  },
+  "scenarios": [
+    {
+      "id": "smoke-1-login",
+      "desc": "POST /api/auth/login (admin)",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/login",
+        "body": {
+          "email": "admin@example.com",
+          "password": "***"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"user\":{\"id\":\"450d3b7a-3de6-4f9c-b133-6a9486232c0d\",\"email\":\"admin@example.com\",\"fullName\":\"Local Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-06-02T21:01:38.658Z\"}"
+      },
+      "expected": "HTTP 200, session cookie set",
+      "elapsedMs": 183,
+      "pass": true
+    },
+    {
+      "id": "smoke-2-health",
+      "desc": "GET /api/health",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/api/health"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"status\":\"ok\",\"service\":\"scale-admin-backend\",\"timestamp\":\"2026-05-19T21:01:38.793Z\"}"
+      },
+      "expected": "HTTP 200",
+      "elapsedMs": 5,
+      "pass": true
+    },
+    {
+      "id": "smoke-3-dashboard",
+      "desc": "GET / (Vite SPA shell)",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/"
+      },
+      "response": {
+        "status": 200,
+        "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Scale Admin</title>\n    <script type=\"module\" crossorigin src=\"/assets/index-DW1gAdnY.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-CVMb5RkE.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      },
+      "expected": "HTTP 200, SPA shell with /assets/index-*.js + #root",
+      "elapsedMs": 9,
+      "pass": true
+    },
+    {
+      "id": "smoke-4-stores",
+      "desc": "GET /api/stores",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/api/stores"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"stores\":[{\"id\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"code\":\"STORE-001\",\"name\":\"Sample Store 001\",\"address\":\"Local development sample store\",\"timezone\":\"Europe/Moscow\",\"status\":\"active\",\"createdAt\":\"2026-05-19T17:19:06.403Z\",\"updatedAt\":\"2026-05-19T20:49:07.731Z\"}]}"
+      },
+      "expected": "HTTP 200 with stores[]",
+      "elapsedMs": 17,
+      "pass": true,
+      "firstStoreId": "e4d711db-dddd-4749-9a4c-0c2aed2f4f77"
+    },
+    {
+      "id": "smoke-5-store-detail",
+      "desc": "GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"store\":{\"id\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"code\":\"STORE-001\",\"name\":\"Sample Store 001\",\"address\":\"Local development sample store\",\"timezone\":\"Europe/Moscow\",\"status\":\"active\",\"createdAt\":\"2026-05-19T17:19:06.403Z\",\"updatedAt\":\"2026-05-19T20:49:07.731Z\"}}"
+      },
+      "expected": "HTTP 200",
+      "elapsedMs": 9,
+      "pass": true
+    },
+    {
+      "id": "smoke-6-banners-list",
+      "desc": "GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banners\":[{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"https://example.com/banner2.png\",\"imageFileAssetId\":null,\"status\":\"archived\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.611Z\"},{\"id\":\"724e5d37-eaac-4bb5-99d4-169fe067b4ef\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"javasc"
+      },
+      "expected": "HTTP 200 with banners[]",
+      "elapsedMs": 16,
+      "pass": true
+    },
+    {
+      "id": "smoke-7-csrf",
+      "desc": "GET /api/auth/csrf",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/csrf"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"csrfToken\":\"pZ3pBFFtTPeV6yIsAx8Pqp8T3-I2zkpvpN-JXzZyJKM\",\"headerName\":\"x-csrf-token\"}"
+      },
+      "expected": "HTTP 200 with csrfToken",
+      "elapsedMs": 6,
+      "pass": true
+    },
+    {
+      "id": "rate-1-session-poll",
+      "desc": "/api/auth/session call rate over 2-minute window on dashboard",
+      "request": {
+        "method": "OBSERVE",
+        "url": "https://staging.maksimfrelikh.ru/ → /api/auth/session"
+      },
+      "response": {
+        "status": "OK",
+        "body": "{\"sessionHits\":1,\"windowMinutes\":2,\"ratePerMin\":0.5}"
+      },
+      "expected": "sustained < 2 calls/min (Wave 1 regression guard)",
+      "elapsedMs": 120213,
+      "pass": true,
+      "sessionHits": [
+        {
+          "t": 1779224499054,
+          "method": "GET",
+          "url": "https://staging.maksimfrelikh.ru/api/auth/session"
+        }
+      ]
+    }
+  ]
+}

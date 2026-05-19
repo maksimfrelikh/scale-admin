@@ -1,7 +1,19 @@
 {
-  "block": "Smoke",
-  "status": "NOT_RUN",
-  "reason": "FAIL-FAST tripped on Block 2 (PATCH javascript: returned 200). Per brief, Smoke and the 90s /api/auth/session observation window were not executed.",
-  "observed_calls": [],
-  "rate_per_minute": null
+  "windowMinutes": 2,
+  "sessionHitsCount": 1,
+  "ratePerMin": 0.5,
+  "sampleHits": [
+    {
+      "t": 1779224499054,
+      "method": "GET",
+      "url": "https://staging.maksimfrelikh.ru/api/auth/session"
+    }
+  ],
+  "rawHits": [
+    {
+      "t": 1779224499054,
+      "method": "GET",
+      "url": "https://staging.maksimfrelikh.ru/api/auth/session"
+    }
+  ]
 }

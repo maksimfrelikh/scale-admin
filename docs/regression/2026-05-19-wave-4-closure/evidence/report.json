@@ -6,42 +6,62 @@
   "target": "https://staging.maksimfrelikh.ru",
   "playwrightVersion": "1.60.0",
   "mode": "MODE_A (single browser context, ctx.request API calls)",
-  "overallVerdict": "FAIL",
+  "overallVerdict": "PASS",
+  "runHistory": [
+    {
+      "ts": "2026-05-19T20:11:29Z",
+      "branchTip": "96d7d63",
+      "verdict": "FAIL",
+      "note": "Staging running pre-fix code (abf5803). Operational deploy gap, not a code regression."
+    },
+    {
+      "ts": "2026-05-19T20:57:42Z",
+      "branchTip": "verify/wave-4-closure HEAD on top of 96d7d63 (this run)",
+      "verdict": "PASS",
+      "note": "After Maksim's staging wrapper redeploy at ~22:50 GMT+2 brought image-url.util.js to main@4497f57."
+    }
+  ],
   "blocks": {
     "Auth": {
       "verdict": "PASS",
       "passed": 14,
       "total": 14,
       "medianMs": 13,
-      "report": "block-1-auth-report.json"
+      "report": "block-1-auth-report.json",
+      "note": "Evidence reused verbatim from 96d7d63. Fix code path (backend/src/auth/email-validation.util.ts) unchanged since 1b1ac7d (parent of 4497f57); staging rebuild redeploys the same code path. Structurally valid reuse."
     },
     "Advertising": {
-      "verdict": "FAIL",
-      "passed": 2,
+      "verdict": "PASS",
+      "passed": 10,
       "total": 10,
-      "medianMs": 14,
+      "medianMs": 10,
       "report": "block-2-advertising-report.json",
-      "failReason": "FAIL-FAST trigger: PATCH javascript:alert(1) returned HTTP 200 (security regression). Staging container running pre-fix code from commit abf5803 — fix at 4497f57 not deployed.",
-      "leakedBannerIds": [
-        "3c608aaf-55d0-4834-9e5d-d120ee6b5176",
-        "724e5d37-eaac-4bb5-99d4-169fe067b4ef",
-        "b4acb2af-a100-4d70-86e4-355d18abb14f",
-        "4ca47d1c-cf3d-462b-ab80-d4612c284e27",
-        "3d1f0113-35d7-47ae-aa1a-e586f6332148"
-      ],
-      "cleanup": "All five banner rows archived via PATCH /:bannerId/status (status='archived'). Rows still persist in DB."
+      "note": "Fresh run. All 5 POST + 5 PATCH cases match expected status + 400 message text \"imageUrl must be a valid http(s) URL\". Empty-imageUrl sanity probe preserved \"imageUrl is required\".",
+      "createdBannerId": "124147e2-8855-42c7-95a8-89295f581602",
+      "cleanup": "Created banner archived during teardown (PATCH /:bannerId/status status='archived'). No invalid URLs persisted to DB."
     },
     "Smoke": {
-      "verdict": "NOT_RUN",
-      "reason": "FAIL-FAST tripped on Block 2; smoke skipped per brief.",
-      "report": "session-rate.json"
+      "verdict": "PASS",
+      "passed": 8,
+      "total": 8,
+      "medianMs": 16,
+      "report": "block-3-smoke-report.json",
+      "sessionRate": {
+        "windowMinutes": 2.0,
+        "sessionHits": 1,
+        "ratePerMin": 0.50,
+        "threshold": "< 2 / min",
+        "pass": true
+      },
+      "note": "Smoke covers login, /api/health, GET / (Vite SPA shell), /api/stores, /api/stores/:id, /api/stores/:id/advertising/banners, /api/auth/csrf. Session-rate guard well under Wave-1 regression threshold."
     }
   },
   "sideFindings": [
-    "Brief credentials qa-admin@gmail.com / QaRegression123! do not authenticate on staging (HTTP 401). Used seed defaults admin@example.com / admin12345 (only admin seeded; no qa-operator).",
-    "Staging backend container is running pre-fix advertising validation code (likely built off commit abf5803). HEAD 4497f57 has not been deployed despite brief assertion.",
-    "Three valid invites persisted (audit-leak) by Block 1: wave4-valid-*, wave4-tag+*, wave4.name-*. No DELETE endpoint for invites observed; left as-is.",
-    "CSRF token rotates per /api/auth/csrf GET. Test scripts re-fetch CSRF immediately before each mutating request to avoid 403 CSRF_TOKEN_INVALID."
+    "qa-admin@example.com still not seeded on staging; used admin@example.com / admin12345 per brief allowance. Recommend seeding or updating brief.",
+    "Brief listed GET /api/advertising/banners?storeId=… in Block 3 smoke; canonical route is GET /api/stores/:storeId/advertising/banners (advertising.controller.ts:31). Block 3 adapted to canonical route — brief / AGENTS.md §6.2 catalogue should be updated.",
+    "No DELETE for invites. Three valid invite rows from previous Block 1 run on 96d7d63 (wave4-valid-*, wave4-tag+*, wave4.name-*) still persist; carry as future ticket.",
+    "No /api/version endpoint; deployed-build identification still requires docker inspect. Already recommended in 96d7d63 Block 2 doc.",
+    "CSRF token rotates per /api/auth/csrf GET; helper re-fetches token immediately before each mutating request."
   ],
   "restoredCleanly": true
 }

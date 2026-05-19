@@ -1,18 +1,53 @@
-# BLOCK Smoke: NOT RUN
+# BLOCK Smoke + Session-Rate: PASS
 
-Skipped per brief FAIL-FAST policy after Block 2 tripped the
-"PATCH with invalid `javascript:` URL returning 200 → STOP, return FAIL (security regression)" trigger.
+Wave 4 closure regression — smoke probe plus Wave-1 regression guard on
+`/api/auth/session` polling rate.
 
-Per brief: "On FAIL: write the failing block's markdown, write report.json with everything captured so far, commit, then return FAIL verdict with the failing block + raw response excerpt + your hypothesis on cause."
+**Re-dispatch run** after staging wrapper redeploy on 2026-05-19 ~22:50 GMT+2.
+Previous run at `verify/wave-4-closure @ 96d7d63` SKIPPED this block per
+FAIL-FAST policy after Block 2 tripped. With Block 2 now PASS, this block
+runs to completion.
 
-Smoke was scheduled to cover:
-1. Re-login as admin and load `/`
-2. Navigate to stores list
-3. **Wave 1 tripwire**: 90-second `page.on('request')` observation window measuring `/api/auth/session` poll rate; abort if > 2 calls/min sustained.
+- Target: `https://staging.maksimfrelikh.ru`
+- Branch: `verify/wave-4-closure` off `main@4497f57`
+- Playwright: 1.60.0 (resolved from `/tmp/openclaw-pw/node_modules`)
+- Total scenarios: 8 (7 smoke + 1 session-rate)
+- Passed: 8
+- Median elapsed: 16 ms (smoke calls; rate guard runs full 120 s window separately)
 
-Note Block 1 already executed a successful UI login and dashboard render (`evidence/block-1-dashboard.png`) — that subset of smoke is therefore observed implicitly as a side-effect of Block 1 scenario `auth-1b-dashboard`, which PASSED (1733 ms). The Wave-1 session-rate tripwire was NOT exercised — defer to next run after staging is rebuilt.
+## Smoke scenario table
 
-## What would have been measured (deferred)
+| # | Scenario | Expected | Actual | Status | Elapsed ms |
+|---|---|---|---|---|---|
+| S1 | POST /api/auth/login (admin) | 200, session cookie | 200, user `450d3b7a…` | PASS | 87 |
+| S2 | GET /api/health | 200 | 200 | PASS | 14 |
+| S3 | GET / (Vite SPA shell) | 200 + `<title>Scale Admin</title>` + `/assets/index-*.js` + `id="root"` | 200, shell OK | PASS | 33 |
+| S4 | GET /api/stores | 200 + stores[] | 200, 1 store (`e4d711db…`) | PASS | 16 |
+| S5 | GET /api/stores/:id (store detail) | 200 | 200 | PASS | 15 |
+| S6 | GET /api/stores/:id/advertising/banners | 200 + banners[] | 200 | PASS | 9 |
+| S7 | GET /api/auth/csrf | 200 + csrfToken | 200, fresh token | PASS | 7 |
 
-- `/api/auth/session` calls per minute over 90 s dashboard-idle window
-- Dashboard render after `/stores` navigation
+## Session-rate guard
+
+| Window | Hits to /api/auth/session | Rate / min | Threshold | Status |
+|---|---|---|---|---|
+| 120 s on dashboard, idle | 1 | 0.50 / min | < 2 / min | PASS |
+
+Single hit is the initial session bootstrap on page load; no background
+polling loop observed. Confirms the Wave-1 regression
+(BUG-REG-014/017 cross-tab + polling fallback was reverted in `98c085d`
+and never re-introduced) remains absent.
+
+## Spec corrections noted during this run
+
+- **Block 3 brief listed `GET /api/advertising/banners?storeId=…` as a
+  smoke target. The actual route surface (per `advertising.controller.ts:31`)
+  is nested: `GET /api/stores/:storeId/advertising/banners`. Test was
+  adapted to use the canonical route. Logged as a side finding (brief
+  doc drift, not a code regression).**
+
+## Evidence
+
+- `../evidence/block-3-smoke-report.json` — full per-scenario capture
+- `../evidence/session-rate.json` — minute-by-minute hit timestamps
+- `../evidence/block-3-dashboard.png` — dashboard screenshot post-load

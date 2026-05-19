@@ -1,112 +1,87 @@
-# BLOCK Advertising: FAIL
+# BLOCK Advertising: PASS
 
 Wave 4 closure regression — Advertising banner imageUrl validation (BUG-REG-040).
 
-**FAIL-FAST tripped**: PATCH with `javascript:alert(1)` returned 200 — exactly the security-regression trigger called out in the brief.
+**Re-dispatch run** after staging wrapper redeploy on 2026-05-19 ~22:50 GMT+2.
+Previous run at `verify/wave-4-closure @ 96d7d63` FAILED 2/10 — staging
+container was running pre-fix code (`abf5803`). Wrapper redeploy brought
+`/app/dist/advertising/image-url.util.js` up to `main@4497f57`. This run
+confirms the merged fix is live and effective end-to-end.
 
 - Target: `https://staging.maksimfrelikh.ru`
 - Branch: `verify/wave-4-closure` off `main@4497f57`
-- Route: `/api/stores/:storeId/advertising/banners`
+- Route: `/api/stores/:storeId/advertising/banners` (POST + PATCH)
 - Store used: `e4d711db-dddd-4749-9a4c-0c2aed2f4f77` (`STORE-001`)
-- Playwright: 1.60.0
+- Playwright: 1.60.0 (resolved from `/tmp/openclaw-pw/node_modules`)
 - Total scenarios: 10
-- Passed: 2 (S1 create-valid, S7 patch-valid)
-- Median elapsed: 14 ms
+- Passed: 10
+- Median elapsed: 10 ms
 
 ## Scenario table
 
 | # | Scenario | Expected | Actual | Status | Elapsed ms |
 |---|---|---|---|---|---|
-| S1 | POST create `https://example.com/banner.png` | 201 | 201, banner id `3c608aaf…` | PASS | 20 |
-| S2 | POST create `javascript:alert(1)` | 400, http(s) URL error | **201, banner persisted with javascript: URL** | **FAIL** | 11 |
-| S3 | POST create `data:image/png;base64,…` | 400 | **201, banner persisted with data: URI** | **FAIL** | 13 |
-| S4 | POST create `not-a-url` | 400 | **201, banner persisted** | **FAIL** | 11 |
-| S5 | POST create `ftp://example.com/x.png` | 400 | **201, banner persisted with ftp: URL** | **FAIL** | 61 |
-| S6a | PATCH `javascript:alert(1)` on valid banner | 400 | **200, imageUrl updated to javascript:** | **FAIL** (SECURITY) | 19 |
-| S6b | PATCH `data:image/png;base64,xxx` | 400 | **200, imageUrl updated to data:** | **FAIL** | 14 |
-| S6c | PATCH `not-a-url` | 400 | **200, imageUrl updated** | **FAIL** | 12 |
-| S6d | PATCH `ftp://example.com/x.png` | 400 | **200, imageUrl updated to ftp:** | **FAIL** | 11 |
-| S7 | PATCH `https://example.com/banner2.png` | 200 | 200 | PASS | 14 |
+| S1 | POST `https://example.com/banner.png` | 201 | 201, banner id `124147e2…` | PASS | 12 |
+| S2 | POST `javascript:alert(1)` | 400, http(s) URL error | 400, "imageUrl must be a valid http(s) URL" | PASS | 8 |
+| S3 | POST `data:image/png;base64,iVBORw0KGgo...` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 8 |
+| S4 | POST `not-a-url` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 7 |
+| S5 | POST `ftp://example.com/x.png` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 32 |
+| S6a | PATCH `javascript:alert(1)` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 16 |
+| S6b | PATCH `data:image/png;base64,xxx` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 8 |
+| S6c | PATCH `not-a-url` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 8 |
+| S6d | PATCH `ftp://example.com/x.png` | 400 | 400, "imageUrl must be a valid http(s) URL" | PASS | 8 |
+| S7 | PATCH `https://example.com/banner2.png` | 200 | 200, imageUrl updated | PASS | 11 |
 
-## Root cause hypothesis
+Empty-imageUrl sanity probe (out-of-band curl):
 
-The fix at `main@4497f57` introduces `backend/src/advertising/image-url.util.ts`:
-
-```ts
-if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-  return { valid: false, reason: 'imageUrl must be a valid http(s) URL' };
-}
+```
+POST /api/stores/e4d711db-…/advertising/banners  { "imageUrl": "", ... }
+HTTP 400 {"message":"imageUrl is required","error":"Bad Request","statusCode":400}
 ```
 
-…called from `requireImageUrl` in `advertising.service.ts`.
-
-The **previous** version (commit `abf5803`, pre-fix) had:
-
-```ts
-private requireImageUrl(value: string): string {
-  if (typeof value !== 'string' || value.trim().length === 0) {
-    throw new BadRequestException('imageUrl is required');
-  }
-  return value.trim();
-}
-```
-
-Probe `POST imageUrl=""` against staging returns **`{"message":"imageUrl is required",...}`** — verbatim the pre-fix message. The new fix would still emit that for the empty case, BUT staging happily accepts `not-a-url`, `ftp://`, `javascript:`, `data:` (any non-empty string) which is impossible if the new URL-scheme guard is wired in.
-
-**Conclusion**: the staging container image was NOT rebuilt with PR#16 / commit `4497f57`. The deployed backend is running pre-fix code (presumably built off `abf5803` or earlier). Codebase at HEAD is correct; the issue is purely operational (stale deploy).
+The legacy `imageUrl is required` message is preserved for the empty case
+per BUG-REG-040 design. The new `imageUrl must be a valid http(s) URL`
+message fires only for non-empty values that fail URL/scheme parse.
 
 ## Evidence
 
-- `../evidence/block-2-advertising-report.json` — full per-scenario capture
-- Created/leaked banner IDs (all archived during cleanup, but still persisted in DB rows):
-  - `3c608aaf-55d0-4834-9e5d-d120ee6b5176` (S1 valid → mutated via PATCH to `javascript:`, then `data:`, then `not-a-url`, then `ftp://`, then `https://…banner2.png`, then archived)
-  - `724e5d37-eaac-4bb5-99d4-169fe067b4ef` (S2 javascript:) — archived
-  - `b4acb2af-a100-4d70-86e4-355d18abb14f` (S3 data:) — archived
-  - `4ca47d1c-cf3d-462b-ab80-d4612c284e27` (S4 not-a-url) — archived
-  - `3d1f0113-35d7-47ae-aa1a-e586f6332148` (S5 ftp:) — archived
+- `../evidence/block-2-advertising-report.json` — full per-scenario capture (this run)
+- Cleanup: created banner `124147e2-8855-42c7-95a8-89295f581602` archived during teardown.
 
 ## Per-scenario excerpts
 
 <details>
-<summary>S2 — javascript: scheme accepted (CRITICAL)</summary>
+<summary>S2 — javascript: scheme rejected</summary>
 
 ```
 POST /api/stores/e4d711db-…/advertising/banners
 { "imageUrl": "javascript:alert(1)", "status": "active", "sortOrder": 0 }
 
-HTTP 201
-{"banner":{"id":"724e5d37-…","imageUrl":"javascript:alert(1)","status":"active",…}}
+HTTP 400
+{"message":"imageUrl must be a valid http(s) URL","error":"Bad Request","statusCode":400}
 ```
 </details>
 
 <details>
-<summary>S6a — PATCH javascript: returned 200 (CRITICAL — FAIL-FAST trigger)</summary>
+<summary>S6a — PATCH javascript: now correctly rejected (Wave-4 fix verified live)</summary>
 
 ```
-PATCH /api/stores/e4d711db-…/advertising/banners/3c608aaf-…
+PATCH /api/stores/e4d711db-…/advertising/banners/124147e2-…
 { "imageUrl": "javascript:alert(1)" }
 
-HTTP 200
-{"banner":{"id":"3c608aaf-…","imageUrl":"javascript:alert(1)","status":"active",…}}
+HTTP 400
+{"message":"imageUrl must be a valid http(s) URL","error":"Bad Request","statusCode":400}
 ```
 </details>
 
 <details>
-<summary>Sanity probe — empty imageUrl still gives pre-fix error message</summary>
+<summary>S7 — PATCH with valid https URL accepted</summary>
 
 ```
-POST /api/stores/e4d711db-…/advertising/banners
-{ "imageUrl": "", "status": "active", "sortOrder": 0 }
+PATCH /api/stores/e4d711db-…/advertising/banners/124147e2-…
+{ "imageUrl": "https://example.com/banner2.png" }
 
-HTTP 400
-{"message":"imageUrl is required","error":"Bad Request","statusCode":400}
+HTTP 200
+{"banner":{"id":"124147e2-…","imageUrl":"https://example.com/banner2.png","status":"active",…}}
 ```
-
-This message verbatim matches the pre-fix `requireImageUrl` at `abf5803`, confirming the deployed code path runs the OLD validator.
 </details>
-
-## Recommendation to Manager / Lead
-
-1. Rebuild and redeploy the staging backend container from `main@4497f57`. The fix is correct in source; this is an operational issue.
-2. Re-run Block 2 (and Block 3 smoke) once the new image is live.
-3. Consider adding a `/api/version` endpoint or a build-SHA label so testers can verify deployed-vs-source-of-truth before regression runs.
