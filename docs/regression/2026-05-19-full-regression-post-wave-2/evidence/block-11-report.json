@@ -1,0 +1,81 @@
+{
+  "startedAt": "2026-05-19T15:33:24.437Z",
+  "scenarios": {
+    "11.0_setup": {
+      "storeId": "d2855d67-e3b0-4047-ac0b-5c11e10eda9b",
+      "deviceId": "015b7ee1-0145-4da7-a237-eaede02c4e95",
+      "deviceCode": "QAW3SC-1779204804956",
+      "hasToken": true,
+      "publishedVersionId": "257d5cfd-a71b-4b3c-8f0d-fd3ad6d8663e"
+    },
+    "11.1_auth_check": {
+      "status": 200,
+      "deviceId": "015b7ee1-0145-4da7-a237-eaede02c4e95",
+      "storeId": "d2855d67-e3b0-4047-ac0b-5c11e10eda9b"
+    },
+    "11.2_auth_check_wrong_token": {
+      "status": 401,
+      "code": "SCALE_API_AUTH_FAILED"
+    },
+    "11.3_check_update_no_current": {
+      "status": 201,
+      "hasPackage": true
+    },
+    "11.4_check_update_current": {
+      "status": 201
+    },
+    "11.5_check_update_unknown_uuid": {
+      "status": 400,
+      "msg": "currentCatalogVersionId must be a valid UUID"
+    },
+    "11.6_check_update_malformed_uuid": {
+      "status": 400,
+      "msg": "currentCatalogVersionId must be a valid UUID"
+    },
+    "11.7_check_update_empty_string": {
+      "status": 201
+    },
+    "11.8_ack_success": {
+      "status": 201,
+      "body": "{\"acknowledged\":true,\"status\":\"success\",\"versionId\":\"257d5cfd-a71b-4b3c-8f0d-fd3ad6d8663e\",\"lastSyncAt\":\"2026-05-19T15:33:25.096Z\"}"
+    },
+    "11.9_ack_error": {
+      "status": 201,
+      "body": "{\"acknowledged\":true,\"status\":\"error\",\"versionId\":\"257d5cfd-a71b-4b3c-8f0d-fd3ad6d8663e\",\"lastSyncAt\":null}"
+    },
+    "11.10_ack_no_creds": {
+      "status": 401
+    },
+    "11.11_regenerate_token": {
+      "status": 201,
+      "tokenChanged": true,
+      "tokenLen": 43
+    },
+    "11.12_old_token_rejected": {
+      "status": 401
+    },
+    "11.13_new_token_accepted": {
+      "status": 200
+    },
+    "11.14_list_devices": {
+      "status": 200,
+      "count": 1,
+      "sampleKeys": [
+        "id",
+        "storeId",
+        "deviceCode",
+        "name",
+        "model",
+        "status",
+        "lastSeenAt",
+        "lastSyncAt",
+        "currentCatalogVersionId",
+        "lastSyncStatus",
+        "lastSyncError",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "finishedAt": "2026-05-19T15:33:25.200Z"
+}

@@ -1,0 +1,147 @@
+{
+  "startedAt": "2026-05-19T15:17:43.780Z",
+  "scenarios": {
+    "5.0_setup_store": {
+      "status": 201,
+      "storeId": "e3e38fd5-f4d6-432a-ac14-11ab70d11905",
+      "code": "qa-w3-cat-1779203864065"
+    },
+    "5.1_initial_empty_tree": {
+      "status": 200,
+      "count": 0,
+      "shape": "object"
+    },
+    "5.2_create_root": {
+      "status": 201,
+      "id": "d960ffd0-0924-4472-940d-12cb28661afb"
+    },
+    "5.3_create_two_children": {
+      "childA": {
+        "status": 201,
+        "id": "131f4f43-a5e0-42fa-9b32-95d7608d851d"
+      },
+      "childB": {
+        "status": 201,
+        "id": "e16171a2-f881-44c1-9b4f-9631cfdfd626"
+      }
+    },
+    "5.4_create_grandchild": {
+      "status": 201,
+      "id": "9490cc48-5fde-4bac-8224-f90ac338750d"
+    },
+    "5.5_tree_after_create": {
+      "status": 200,
+      "count": 1,
+      "sampleKeys": [
+        "id",
+        "catalogId",
+        "parentId",
+        "name",
+        "shortName",
+        "sortOrder",
+        "status",
+        "canAcceptActivePlacements"
+      ],
+      "structure": [
+        {
+          "id": "d960ffd0-0924-4472-940d-12cb28661afb",
+          "catalogId": "6e5fe9af-b1a9-4497-bbd1-68d7184dea72",
+          "parentId": null,
+          "name": "Root W3",
+          "shortName": "R",
+          "sortOrder": 0,
+          "status": "active",
+          "canAcceptActivePlacements": true,
+          "createdAt": "2026-05-19T15:17:44.103Z",
+          "updatedAt": "2026-05-19T15:17:44.103Z",
+          "children": [
+            {
+              "id": "131f4f43-a5e0-42fa-9b32-95d7608d851d",
+              "catalogId": "6e5fe9af-b1a9-4497-bbd1-68d7184dea72",
+              "parentId": "d960ffd0-0924-4472-940d-12cb28661afb",
+              "name": "Child A",
+              "shortName": "Child A",
+              "sortOrder": 0,
+              "status": "active",
+              "canAcceptActivePlacements": true,
+              "createdAt": "2026-05-19T15:17:44.119Z",
+              "updatedAt": "2026-05-19T15:17:44.119Z",
+              "children": [
+                {
+                  "id": "9490cc48-5fde-4bac-8224-f90ac338750d",
+                  "catalogId": "6e5fe9af-b1a9-4497-bbd1-68d7184dea72",
+                  "parentId": "131f4f43-a5e0-42fa-9b32-95d7608d851d",
+                  "name": "Grandchild A1",
+                  "shortName": "Grandchild A1",
+                  "sortOrder": 0,
+                  "status": "active",
+                  "canAcceptActivePlacements": true,
+                  "createdAt": "2026-05-19T15:17:44.147Z",
+                  "updatedAt": "2026-05-19T15:17:44.147Z",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "e16171a2-f881-44c1-9b4f-9631cfdfd626",
+              "catalogId": "6e5fe9af-b1a9-4497-bbd1-68d7184dea72",
+              "parentId": "d960ffd0-0924-4472-940d-12cb28661afb",
+              "name": "Child B",
+              "shortName": "Child B",
+              "sortOrder": 0,
+              "status": "active",
+              "canAcceptActivePlacements": true,
+              "createdAt": "2026-05-19T15:17:44.132Z",
+              "updatedAt": "2026-05-19T15:17:44.132Z",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "5.6_reorder": {
+      "status": 201,
+      "msg": "{\"categories\":[{\"id\":\"e16171a2-f881-44c1-9b4f-9631cfdfd626\",\"catalogId\":\"6e5fe9a"
+    },
+    "5.7_invalid_parent": {
+      "status": 400,
+      "msg": "Parent category not found in active catalog"
+    },
+    "5.8_empty_name": {
+      "status": 400,
+      "msg": "Category name is required and must be at most 255 characters"
+    },
+    "5.9_archive_root": {
+      "status": 200,
+      "newStatus": "archived"
+    },
+    "5.10_cascade_verify": {
+      "list_archived_status": 200,
+      "totalFlat": 4,
+      "rootStatus": "archived",
+      "childAStatus": "archived",
+      "childBStatus": "archived",
+      "grandStatus": "archived",
+      "allFourArchived": true
+    },
+    "5.11_active_list_after_cascade": {
+      "status": 200,
+      "containsRoot": false,
+      "containsChildA": false,
+      "containsChildB": false,
+      "containsGrand": false
+    },
+    "5.12_restore_root_reverse_cascade": {
+      "restore_status": 200,
+      "restoredRoot": true,
+      "restoredChildA": false,
+      "restoredChildB": false,
+      "restoredGrand": false
+    },
+    "5.13_ui_store_detail": {
+      "url": "http://localhost:5173/stores/e3e38fd5-f4d6-432a-ac14-11ab70d11905",
+      "hasCategoryRefs": false
+    }
+  },
+  "finishedAt": "2026-05-19T15:17:47.705Z"
+}

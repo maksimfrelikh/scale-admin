@@ -1,0 +1,65 @@
+{
+  "startedAt": "2026-05-19T15:29:13.622Z",
+  "scenarios": {
+    "9.1_upload_png": {
+      "status": 201,
+      "mimeType": "image/png",
+      "publicUrl": "/uploads/images/7c17f1bf-11e9-4847-abe5-4f5e0f374331.png",
+      "size": 68
+    },
+    "9.2_upload_jpeg": {
+      "status": 201,
+      "mimeType": "image/jpeg"
+    },
+    "9.3_ext_mismatch": {
+      "status": 400,
+      "msg": "Image extension does not match actual file type"
+    },
+    "9.4_gif_rejected": {
+      "status": 400,
+      "msg": "Only jpg, png, or webp image extensions are supported"
+    },
+    "9.5_svg_xss_rejected": {
+      "status": 400,
+      "msg": "Only jpg, png, or webp image extensions are supported"
+    },
+    "9.6_html_as_png": {
+      "status": 400,
+      "msg": "Only jpg, png, or webp images are supported"
+    },
+    "9.7_no_extension": {
+      "status": 400,
+      "msg": "Only jpg, png, or webp image extensions are supported"
+    },
+    "9.8_empty": {
+      "status": 400,
+      "msg": "Image file is required"
+    },
+    "9.9_oversize": {
+      "status": 413,
+      "msg": "File too large"
+    },
+    "9.10_traversal": {
+      "status": 201,
+      "publicUrl": "/uploads/images/36da6579-083a-44b8-b727-412e6a71def0.png",
+      "msg": ""
+    },
+    "9.11_no_file_field": {
+      "status": 400,
+      "msg": "Unexpected field"
+    },
+    "9.12_unicode_filename": {
+      "status": 201,
+      "publicUrl": "/uploads/images/0603cdf0-c5ba-4680-a4a0-40f05f54742e.png"
+    },
+    "9.13_operator_upload": {
+      "status": 201,
+      "mimeType": "image/png"
+    },
+    "9.14_unauth_rejected": {
+      "status": 401,
+      "msg": "Authentication required"
+    }
+  },
+  "finishedAt": "2026-05-19T15:29:14.378Z"
+}

@@ -1,0 +1,82 @@
+{
+  "startedAt": "2026-05-19T15:35:51.579Z",
+  "scenarios": {
+    "12.1_admin_dashboard_api": {
+      "status": 200,
+      "keys": [
+        "counts",
+        "latestPublishedVersions",
+        "latestSyncErrors",
+        "problematicScaleDevices"
+      ],
+      "hasStoreCount": false,
+      "hasScaleCount": false,
+      "hasLatestVersions": true
+    },
+    "12.2_ui_admin_dashboard": {
+      "url": "http://localhost:5173/",
+      "hasFleetOverview": true,
+      "hasLatestVersions": true,
+      "hasSyncErrors": true
+    },
+    "12.3_global_logs": {
+      "status": 200,
+      "count": 10,
+      "sampleActions": [
+        "auth.login_succeeded",
+        "scale_device.api_token_regenerated",
+        "scale_device.catalog_version_acknowledged",
+        "scale_device.created"
+      ],
+      "sampleKeys": [
+        "id",
+        "action",
+        "entityType",
+        "entityId",
+        "storeId",
+        "createdAt",
+        "actor",
+        "store"
+      ]
+    },
+    "12.4_global_logs_filter_action": {
+      "status": 200,
+      "count": 0,
+      "allMatch": true
+    },
+    "12.5_global_logs_filter_entity": {
+      "status": 200,
+      "count": 5,
+      "allMatch": false
+    },
+    "12.6_global_logs_invalid_limit": {
+      "status": 200
+    },
+    "12.7_store_logs_admin": {
+      "status": 200,
+      "count": 2,
+      "storeId": "f6b8e0e7-f294-4b85-a47e-e2271de9501c"
+    },
+    "12.8_ui_operator_dashboard": {
+      "url": "http://localhost:5173/",
+      "hasAssignedStores": true,
+      "hasFleetOverview": false
+    },
+    "12.9_operator_admin_dashboard_forbidden": {
+      "status": 403
+    },
+    "12.10_operator_global_logs_forbidden": {
+      "status": 403
+    },
+    "12.11_operator_assigned_store_logs": {
+      "status": 200,
+      "count": 5,
+      "storeId": "e73ba6bd-abb9-4596-9289-cca474fb2ec1"
+    },
+    "12.12_operator_unassigned_store_logs_forbidden": {
+      "status": 403,
+      "targetStoreId": "f6b8e0e7-f294-4b85-a47e-e2271de9501c"
+    }
+  },
+  "finishedAt": "2026-05-19T15:35:58.888Z"
+}

@@ -1,0 +1,89 @@
+{
+  "startedAt": "2026-05-19T15:13:08.267Z",
+  "scenarios": {
+    "3.1_admin_lists_stores": {
+      "status": 200,
+      "count": 53,
+      "statuses": [
+        "active",
+        "inactive"
+      ]
+    },
+    "3.2_create_store": {
+      "status": 201,
+      "id": "429e41b1-9096-4b54-b81a-178e4e2e4f08",
+      "code": "QA-W3-1779203588571"
+    },
+    "3.3_create_store_duplicate_code": {
+      "status": 409,
+      "msg": "Store code already exists"
+    },
+    "3.4_create_store_empty": {
+      "status": 400,
+      "msg": "Store code is required and must be at most 64 characters"
+    },
+    "3.5_store_detail": {
+      "status": 200
+    },
+    "3.6_store_details_catalog": {
+      "status": 200,
+      "keys": [
+        "store",
+        "activeCatalog",
+        "overview",
+        "scales",
+        "syncLogs"
+      ]
+    },
+    "3.7_patch_store_rename": {
+      "status": 200
+    },
+    "3.8_patch_invalid_status": {
+      "status": 400,
+      "msg": "Store status must be active, inactive, or archived"
+    },
+    "3.9_archive_store": {
+      "status": 200
+    },
+    "3.10_list_includes_archived": {
+      "listCount": 53,
+      "foundArchived": false
+    },
+    "3.11_restore_store": {
+      "status": 200
+    },
+    "3.12_admin_check": {
+      "status": 200,
+      "ok": true,
+      "role": "admin"
+    },
+    "3.13_ui_admin_stores": {
+      "url": "http://localhost:5173/stores",
+      "hasCreateBtn": true,
+      "hasStoresCount": true
+    },
+    "3.14_operator_create_forbidden": {
+      "status": 403
+    },
+    "3.15_operator_lists_assigned_only": {
+      "status": 200,
+      "count": 1,
+      "codes": [
+        "QA-PUB-20260516150944"
+      ]
+    },
+    "3.16_operator_no_access_to_unassigned": {
+      "status": 403,
+      "targetId": "429e41b1-9096-4b54-b81a-178e4e2e4f08"
+    },
+    "3.17_admin_check_forbidden_for_op": {
+      "status": 403
+    },
+    "3.18_ui_operator_stores": {
+      "url": "http://localhost:5173/stores",
+      "hasOperatorBanner": true,
+      "hasCreateBtn": false
+    }
+  },
+  "finishedAt": "2026-05-19T15:13:16.521Z"
+}

@@ -1,0 +1,125 @@
+{
+  "startedAt": "2026-05-19T15:09:57.765Z",
+  "scenarios": {
+    "2.1_admin_lists_users": {
+      "status": 200,
+      "count": 26,
+      "sampleRoles": [
+        "operator",
+        "admin"
+      ],
+      "hasQaAdmin": true,
+      "hasQaOperator": true
+    },
+    "2.2_admin_user_detail": {
+      "status": 200,
+      "email": "qa-admin@gmail.com"
+    },
+    "2.3_invite_create_valid": {
+      "status": 400,
+      "email": "qa-regtest-1779203398093@example.com",
+      "hasToken": false
+    },
+    "2.4_invite_invalid_emails": [
+      {
+        "label": "empty",
+        "email": "",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "no_at",
+        "email": "bademail",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "two_at",
+        "email": "a@b@c.com",
+        "status": 400,
+        "msg": "expiresAt must be a valid date"
+      },
+      {
+        "label": "space",
+        "email": "has space@example.com",
+        "status": 400,
+        "msg": "expiresAt must be a valid date"
+      },
+      {
+        "label": "too_long_local",
+        "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "too_long_domain",
+        "email": "x@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "unicode",
+        "email": "тест@пример.рф",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "trailing_dot",
+        "email": "user@example.com.",
+        "status": 400,
+        "msg": "Valid email is required"
+      },
+      {
+        "label": "leading_dot",
+        "email": ".user@example.com",
+        "status": 400,
+        "msg": "expiresAt must be a valid date"
+      },
+      {
+        "label": "consecutive_dots",
+        "email": "us..er@example.com",
+        "status": 400,
+        "msg": "expiresAt must be a valid date"
+      }
+    ],
+    "2.5_invites_list": {
+      "status": 404,
+      "count": 0,
+      "foundCreated": false
+    },
+    "2.6_invite_revoke": {
+      "skipped": "no inviteId"
+    },
+    "2.7_password_reset_request": {
+      "existingUser": {
+        "status": 200,
+        "body": {
+          "accepted": true,
+          "tokenExpiresAt": "2026-05-19T16:09:58.217Z"
+        }
+      },
+      "nonExistentUser": {
+        "status": 200,
+        "body": {
+          "accepted": true,
+          "tokenExpiresAt": "2026-05-19T16:09:58.229Z"
+        }
+      },
+      "sameResponse": false
+    },
+    "2.8_password_reset_static_notice": {
+      "url": "http://localhost:5173/password-reset",
+      "hasNoticeKeyword": true,
+      "bodySnippet": " DashboardДобро пожаловать, QA AdminActive session for qa-admin@gmail.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale healt"
+    },
+    "2.9_operator_forbidden_endpoints": {
+      "list_users": 403,
+      "list_invites": 404,
+      "create_invite": 403
+    },
+    "2.10_operator_no_users_nav": {
+      "hasUsersLinkInBody": false
+    }
+  },
+  "finishedAt": "2026-05-19T15:10:05.402Z"
+}

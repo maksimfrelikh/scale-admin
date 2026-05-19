@@ -1,0 +1,57 @@
+{
+  "startedAt": "2026-05-19T15:19:53.651Z",
+  "scenarios": {
+    "6.0_setup": {
+      "storeId": "61c2f01d-0b43-4cac-833f-a17900c49449",
+      "catA": "c8805041-e61c-4968-bb24-c4361219250f",
+      "catB": "5ad89a0d-44aa-44e4-b472-045c1ff31a0f",
+      "prodId1": "67d8fd1d-1a6a-4cb0-9c4e-1e5f8937986b",
+      "prodId2": "ea7361ae-8ef4-46a4-9acb-18ce01a613d6"
+    },
+    "6.1_list_empty": {
+      "status": 200,
+      "count": 0
+    },
+    "6.2_create_placement_A_prod1": {
+      "status": 201,
+      "id": "08402112-8db2-4560-a6bb-bf5b4dcb8da5",
+      "productId": "67d8fd1d-1a6a-4cb0-9c4e-1e5f8937986b"
+    },
+    "6.3_duplicate_active_placement": {
+      "status": 409,
+      "msg": "Product already has an active placement in this catalog; move the existing placement instead"
+    },
+    "6.4_move_placement": {
+      "status": 201,
+      "newCategoryId": "5ad89a0d-44aa-44e4-b472-045c1ff31a0f"
+    },
+    "6.5_list_by_cat_after_move": {
+      "catA_count": 0,
+      "catB_count": 1,
+      "catA_status": 200,
+      "catB_status": 200
+    },
+    "6.6_create_placement_B_prod2": {
+      "status": 201
+    },
+    "6.7_archive_placement": {
+      "status": 200,
+      "newStatus": "archived"
+    },
+    "6.8_recreate_after_archive": {
+      "status": 201,
+      "msg": ""
+    },
+    "6.9_cascade_category_archive": {
+      "archive_status": 200,
+      "catA_active_count_after": 2,
+      "catA_archived_count_after": 2,
+      "catA_archived_placements_match_cascade": true
+    },
+    "6.10_missing_category": {
+      "status": 400,
+      "msg": "Category id is required"
+    }
+  },
+  "finishedAt": "2026-05-19T15:19:54.650Z"
+}

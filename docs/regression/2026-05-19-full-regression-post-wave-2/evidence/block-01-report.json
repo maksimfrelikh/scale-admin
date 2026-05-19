@@ -1,0 +1,95 @@
+{
+  "startedAt": "2026-05-19T15:06:41.210Z",
+  "scenarios": {
+    "1.1_login_form": {
+      "hasEmail": 1,
+      "hasPass": 1,
+      "hasSubmit": 1
+    },
+    "1.2_csrf_required": {
+      "status": 403,
+      "code": "CSRF_TOKEN_INVALID"
+    },
+    "1.3_invalid_password": {
+      "status": 401,
+      "body": {
+        "message": "Invalid email or password",
+        "error": "Unauthorized",
+        "statusCode": 401
+      }
+    },
+    "1.4_admin_ui_login": {
+      "loginResp": {
+        "status": 200,
+        "ok": true
+      },
+      "state": {
+        "url": "http://localhost:5173/",
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": false
+      },
+      "hasSession": true,
+      "sessionAttrs": {
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "secure": true,
+        "path": "/"
+      }
+    },
+    "1.5_rbac_admin_users": {
+      "status": 200,
+      "count": 26
+    },
+    "1.6_auth_session_admin": {
+      "status": 200,
+      "email": "qa-admin@gmail.com",
+      "role": "admin"
+    },
+    "1.7_logout_invalidates": {
+      "logoutStatus": 200,
+      "sessionAfter": 401
+    },
+    "1.8_operator_ui_login": {
+      "loginResp": {
+        "status": 200
+      },
+      "state": {
+        "url": "http://localhost:5173/",
+        "h1": "Добро пожаловать, QA Operator",
+        "onLogin": false
+      }
+    },
+    "1.9_rbac_operator_users_forbidden": {
+      "status": 403
+    },
+    "1.10_auth_session_operator": {
+      "status": 200,
+      "email": "qa-operator@gmail.com",
+      "role": "operator"
+    },
+    "1.12_mode_a_cross_tab_logout": {
+      "stateBpre": {
+        "url": "http://localhost:5173/",
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": false
+      },
+      "stateBpost": {
+        "url": "http://localhost:5173/",
+        "h1": "Добро пожаловать, QA Admin",
+        "onLogin": false
+      },
+      "propagatedWithin30s": false,
+      "expectedOff_postRevert": true,
+      "sessionCallsBefore": 3,
+      "sessionCallsAfter": 3,
+      "sessionCallsRate_perMinute_during30s": 0,
+      "loopRisk_gt2perMin": false
+    },
+    "1.13_unauth_redirect": {
+      "url": "http://localhost:5173/stores",
+      "onLogin": true,
+      "h1": "Вход в систему"
+    }
+  },
+  "finishedAt": "2026-05-19T15:08:35.948Z"
+}
