@@ -1,0 +1,93 @@
+{
+  "startedAt": "2026-05-19T15:22:02.124Z",
+  "scenarios": {
+    "7.0_setup": {
+      "storeId": "c9f6139f-5d8b-4e75-b50c-0186984f6fb9",
+      "catId": "52b7ee2a-cd4f-4075-a068-efdd9930d807",
+      "prodId": "ed0deff2-e931-4d48-9324-10bd9b9c107a"
+    },
+    "7.1_list_no_price": {
+      "status": 200,
+      "count": 1
+    },
+    "7.2_set_price_RUB": {
+      "status": 200,
+      "price": {
+        "id": "f8c2fd73-a9ad-4137-950e-a434e95089c5",
+        "storeId": "c9f6139f-5d8b-4e75-b50c-0186984f6fb9",
+        "productId": "ed0deff2-e931-4d48-9324-10bd9b9c107a",
+        "price": "99.5",
+        "currency": "RUB",
+        "status": "active",
+        "createdAt": "2026-05-19T15:22:02.527Z",
+        "updatedAt": "2026-05-19T15:22:02.527Z"
+      }
+    },
+    "7.3_set_price_USD_rejected": {
+      "status": 400,
+      "msg": "Currency not supported"
+    },
+    "7.4_set_price_EUR_rejected": {
+      "status": 400,
+      "msg": "Currency not supported"
+    },
+    "7.5_set_price_no_currency_default": {
+      "status": 200,
+      "price": {
+        "id": "f8c2fd73-a9ad-4137-950e-a434e95089c5",
+        "storeId": "c9f6139f-5d8b-4e75-b50c-0186984f6fb9",
+        "productId": "ed0deff2-e931-4d48-9324-10bd9b9c107a",
+        "price": "88.25",
+        "currency": "RUB",
+        "status": "active",
+        "createdAt": "2026-05-19T15:22:02.527Z",
+        "updatedAt": "2026-05-19T15:22:02.572Z"
+      }
+    },
+    "7.6_negative_price": {
+      "status": 400,
+      "msg": "Price must be greater than 0"
+    },
+    "7.7_NaN_price": {
+      "status": 400,
+      "msg": "Price must be greater than 0"
+    },
+    "7.8_zero_price": {
+      "status": 400,
+      "msg": "Price must be greater than 0"
+    },
+    "7.9_list_missing_price": {
+      "status": 200,
+      "count": 0,
+      "missingFlag": true
+    },
+    "7.10_list_by_category": {
+      "status": 200,
+      "count": 1
+    },
+    "7.11_set_price_via_param": {
+      "status": 200,
+      "price": {
+        "id": "f8c2fd73-a9ad-4137-950e-a434e95089c5",
+        "storeId": "c9f6139f-5d8b-4e75-b50c-0186984f6fb9",
+        "productId": "ed0deff2-e931-4d48-9324-10bd9b9c107a",
+        "price": "77.77",
+        "currency": "RUB",
+        "status": "active",
+        "createdAt": "2026-05-19T15:22:02.527Z",
+        "updatedAt": "2026-05-19T15:22:02.723Z"
+      }
+    },
+    "7.12_search": {
+      "status": 200,
+      "count": 1
+    },
+    "7.13_ui_prices": {
+      "url": "http://localhost:5173/stores/c9f6139f-5d8b-4e75-b50c-0186984f6fb9/prices",
+      "hasRUB": false,
+      "hasUSD": true,
+      "hasEUR": false
+    }
+  },
+  "finishedAt": "2026-05-19T15:22:06.041Z"
+}

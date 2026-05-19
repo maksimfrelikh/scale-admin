@@ -1,0 +1,72 @@
+{
+  "startedAt": "2026-05-19T15:14:35.451Z",
+  "scenarios": {
+    "4.1_list_default": {
+      "status": 200,
+      "count": 50,
+      "statuses": [
+        "active",
+        "archived"
+      ],
+      "hasTotal": true
+    },
+    "4.2_list_status_active": {
+      "status": 200,
+      "count": 33,
+      "allActive": true
+    },
+    "4.3_list_status_archived": {
+      "status": 200,
+      "count": 35,
+      "allArchived": true
+    },
+    "4.4_search": {
+      "status": 200,
+      "query": "'; DR",
+      "count": 1,
+      "allMatch": true
+    },
+    "4.5_create_valid": {
+      "status": 201,
+      "id": "0c2807d9-d38e-4e1e-a40d-98691900ef49",
+      "name": "Wave3 Test Product 1779203675813"
+    },
+    "4.6_create_duplicate_plu": {
+      "status": 409,
+      "msg": "Product defaultPluCode already exists"
+    },
+    "4.7_create_empty": {
+      "status": 400,
+      "msg": "Product defaultPluCode is required and must be at most 64 characters"
+    },
+    "4.8_get_product": {
+      "status": 200
+    },
+    "4.9_patch_rename": {
+      "status": 200
+    },
+    "4.10_patch_invalid_status": {
+      "status": 400,
+      "msg": "Product status must be active, inactive, or archived"
+    },
+    "4.11_archive_product": {
+      "status": 200
+    },
+    "4.12_get_after_archive": {
+      "status": 200
+    },
+    "4.13_restore": {
+      "status": 200
+    },
+    "4.14_xss_in_name": {
+      "status": 201,
+      "name": "<script>alert(\"xss\")</script>Test 1779203675969",
+      "persistedAsIs": true
+    },
+    "4.15_ui_admin_products": {
+      "url": "http://localhost:5173/products",
+      "hasProductsTitle": true
+    }
+  },
+  "finishedAt": "2026-05-19T15:14:38.760Z"
+}

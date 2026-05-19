@@ -1,0 +1,106 @@
+{
+  "startedAt": "2026-05-19T15:26:28.311Z",
+  "scenarios": {
+    "8.0_setup": {
+      "storeId": "fc613abd-dd43-495f-aa7b-3b9b5d6a3ab5"
+    },
+    "8.1_list_empty": {
+      "status": 200,
+      "count": 0
+    },
+    "8.2_create_url_banner": {
+      "status": 201,
+      "id": "a27d5eb4-1c6d-4cac-9498-d03e542c3afd"
+    },
+    "8.3_create_2_more": {
+      "b2": {
+        "status": 201,
+        "id": "ae745a53-1c3d-47dd-901b-2104d130c5e3"
+      },
+      "b3": {
+        "status": 201,
+        "id": "028e14b6-52cb-4f4b-b669-a010b85ec7cc"
+      }
+    },
+    "8.4_invalid_url": {
+      "status": 201,
+      "msg": ""
+    },
+    "8.5_javascript_uri": {
+      "status": 201,
+      "msg": ""
+    },
+    "8.6_missing_url": {
+      "status": 400,
+      "msg": "imageUrl is required"
+    },
+    "8.7_list_after_create": {
+      "count": 5,
+      "sortOrders": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ids": [
+        "a27d5eb4-1c6d-4cac-9498-d03e542c3afd",
+        "ae745a53-1c3d-47dd-901b-2104d130c5e3",
+        "028e14b6-52cb-4f4b-b669-a010b85ec7cc",
+        "eb0fb2aa-0532-4182-aa51-c0ebbf3c6a7f",
+        "ec861d43-a9cb-421b-a330-77e3b65d1bb1"
+      ]
+    },
+    "8.8_reorder": {
+      "status": 201,
+      "newOrder": [
+        "028e14b6-52cb-4f4b-b669-a010b85ec7cc",
+        "ae745a53-1c3d-47dd-901b-2104d130c5e3",
+        "a27d5eb4-1c6d-4cac-9498-d03e542c3afd"
+      ]
+    },
+    "8.9_patch_url": {
+      "status": 200
+    },
+    "8.10_archive_via_status": {
+      "status": 200
+    },
+    "8.11_list_active": {
+      "count": 4,
+      "ids": [
+        "028e14b6-52cb-4f4b-b669-a010b85ec7cc",
+        "eb0fb2aa-0532-4182-aa51-c0ebbf3c6a7f",
+        "ec861d43-a9cb-421b-a330-77e3b65d1bb1",
+        "ae745a53-1c3d-47dd-901b-2104d130c5e3"
+      ]
+    },
+    "8.12_archive_store_cascade": {
+      "archive_store_status": 200,
+      "list_after_archive_status": 200,
+      "banners_count": 5,
+      "banner_statuses": [
+        {
+          "id": "028e14b6-52cb-4f4b-b669-a010b85ec7cc",
+          "status": "archived"
+        },
+        {
+          "id": "eb0fb2aa-0532-4182-aa51-c0ebbf3c6a7f",
+          "status": "archived"
+        },
+        {
+          "id": "ec861d43-a9cb-421b-a330-77e3b65d1bb1",
+          "status": "archived"
+        },
+        {
+          "id": "ae745a53-1c3d-47dd-901b-2104d130c5e3",
+          "status": "archived"
+        },
+        {
+          "id": "a27d5eb4-1c6d-4cac-9498-d03e542c3afd",
+          "status": "archived"
+        }
+      ]
+    }
+  },
+  "finishedAt": "2026-05-19T15:26:29.173Z"
+}

@@ -1,0 +1,68 @@
+{
+  "startedAt": "2026-05-19T15:30:33.044Z",
+  "scenarios": {
+    "10.0_setup": {
+      "storeId": "5115005d-d818-41d0-adc3-397633c110d7",
+      "catId": "ccf2b596-4731-479d-95d2-b338ac4d2b8a",
+      "prodId": "68ae3952-fb26-4df5-a61d-59bf04b8cbcd"
+    },
+    "10.1_validate_no_price": {
+      "status": 201,
+      "issuesCount": 0,
+      "issuesSample": []
+    },
+    "10.2_set_price": {
+      "status": 200
+    },
+    "10.3_validate_after_price": {
+      "status": 201,
+      "issuesCount": 0
+    },
+    "10.4_generate_package": {
+      "status": 201,
+      "hasPackageData": true,
+      "storeRef": "QA-W3-PUB-1779204633336",
+      "productCount": 0,
+      "categoryCount": 1,
+      "bannerCount": 0,
+      "uniqueCurrencies": [],
+      "onlyRUB": true
+    },
+    "10.5_publish": {
+      "status": 201,
+      "catalogVersionId": "f478d014-506a-4c44-86dd-4c595fed172b",
+      "versionNumber": 1,
+      "hasPackageData": true
+    },
+    "10.6_list_versions": {
+      "status": 200,
+      "count": 1,
+      "latestVersion": 1
+    },
+    "10.7_publish_again_no_change": {
+      "status": 201,
+      "msg": ""
+    },
+    "10.8_publish_after_change": {
+      "status": 201
+    },
+    "10.9_list_versions_after_change": {
+      "count": 3,
+      "versions": [
+        3,
+        2,
+        1
+      ]
+    },
+    "10.10_validation_archived_cascade": {
+      "status": 201,
+      "issuesCount": 0,
+      "issuesSample": []
+    },
+    "10.11_publish_with_invalid": {
+      "status": 201,
+      "msg": ""
+    }
+  },
+  "finishedAt": "2026-05-19T15:30:34.187Z"
+}
