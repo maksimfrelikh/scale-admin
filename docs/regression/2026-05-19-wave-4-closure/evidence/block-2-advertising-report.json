@@ -1,0 +1,208 @@
+{
+  "block": "Advertising",
+  "verdict": "FAIL",
+  "passed": 2,
+  "total": 10,
+  "medianMs": 14,
+  "totalElapsedMs": 614,
+  "storeId": "e4d711db-dddd-4749-9a4c-0c2aed2f4f77",
+  "createdBannerId": "3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+  "cleanupAttempted": true,
+  "scenarios": [
+    {
+      "id": "adv-1-create-valid",
+      "desc": "POST banner imageUrl=\"https://example.com/banner.png\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+        "body": {
+          "imageUrl": "https://example.com/banner.png",
+          "status": "active",
+          "sortOrder": 0
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"https://example.com/banner.png\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.371Z\"}}"
+      },
+      "expected": "HTTP 201",
+      "elapsedMs": 20,
+      "pass": "3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+      "bannerId": "3c608aaf-55d0-4834-9e5d-d120ee6b5176"
+    },
+    {
+      "id": "adv-2-create-javascript",
+      "desc": "POST banner imageUrl=\"javascript:alert(1)\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+        "body": {
+          "imageUrl": "javascript:alert(1)",
+          "status": "active",
+          "sortOrder": 0
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"banner\":{\"id\":\"724e5d37-eaac-4bb5-99d4-169fe067b4ef\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"javascript:alert(1)\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.394Z\",\"updatedAt\":\"2026-05-19T20:12:17.394Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 11,
+      "pass": false,
+      "bannerId": "724e5d37-eaac-4bb5-99d4-169fe067b4ef"
+    },
+    {
+      "id": "adv-3-create-data",
+      "desc": "POST banner imageUrl=\"data:image/png;base64,iVBORw0KGgo...\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+        "body": {
+          "imageUrl": "data:image/png;base64,iVBORw0KGgo...",
+          "status": "active",
+          "sortOrder": 0
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"banner\":{\"id\":\"b4acb2af-a100-4d70-86e4-355d18abb14f\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"data:image/png;base64,iVBORw0KGgo...\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.412Z\",\"updatedAt\":\"2026-05-19T20:12:17.412Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 13,
+      "pass": false,
+      "bannerId": "b4acb2af-a100-4d70-86e4-355d18abb14f"
+    },
+    {
+      "id": "adv-4-create-not-url",
+      "desc": "POST banner imageUrl=\"not-a-url\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+        "body": {
+          "imageUrl": "not-a-url",
+          "status": "active",
+          "sortOrder": 0
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"banner\":{\"id\":\"4ca47d1c-cf3d-462b-ab80-d4612c284e27\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"not-a-url\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.430Z\",\"updatedAt\":\"2026-05-19T20:12:17.430Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 11,
+      "pass": false,
+      "bannerId": "4ca47d1c-cf3d-462b-ab80-d4612c284e27"
+    },
+    {
+      "id": "adv-5-create-ftp",
+      "desc": "POST banner imageUrl=\"ftp://example.com/x.png\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners",
+        "body": {
+          "imageUrl": "ftp://example.com/x.png",
+          "status": "active",
+          "sortOrder": 0
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"banner\":{\"id\":\"3d1f0113-35d7-47ae-aa1a-e586f6332148\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"ftp://example.com/x.png\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.468Z\",\"updatedAt\":\"2026-05-19T20:12:17.468Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 61,
+      "pass": false,
+      "bannerId": "3d1f0113-35d7-47ae-aa1a-e586f6332148"
+    },
+    {
+      "id": "adv-6a-patch-javascript",
+      "desc": "PATCH banner 3c608aaf… imageUrl=\"javascript:alert(1)\"",
+      "request": {
+        "method": "PATCH",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "body": {
+          "imageUrl": "javascript:alert(1)"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"javascript:alert(1)\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.522Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 19,
+      "pass": false
+    },
+    {
+      "id": "adv-6b-patch-data",
+      "desc": "PATCH banner 3c608aaf… imageUrl=\"data:image/png;base64,xxx\"",
+      "request": {
+        "method": "PATCH",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "body": {
+          "imageUrl": "data:image/png;base64,xxx"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"data:image/png;base64,xxx\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.541Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 14,
+      "pass": false
+    },
+    {
+      "id": "adv-6c-patch-not-url",
+      "desc": "PATCH banner 3c608aaf… imageUrl=\"not-a-url\"",
+      "request": {
+        "method": "PATCH",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "body": {
+          "imageUrl": "not-a-url"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"not-a-url\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.559Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 12,
+      "pass": false
+    },
+    {
+      "id": "adv-6d-patch-ftp",
+      "desc": "PATCH banner 3c608aaf… imageUrl=\"ftp://example.com/x.png\"",
+      "request": {
+        "method": "PATCH",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "body": {
+          "imageUrl": "ftp://example.com/x.png"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"ftp://example.com/x.png\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.576Z\"}}"
+      },
+      "expected": "HTTP 400 with imageUrl validation error",
+      "elapsedMs": 11,
+      "pass": false
+    },
+    {
+      "id": "adv-7-patch-valid",
+      "desc": "PATCH banner 3c608aaf… imageUrl=\"https://example.com/banner2.png\"",
+      "request": {
+        "method": "PATCH",
+        "url": "https://staging.maksimfrelikh.ru/api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "body": {
+          "imageUrl": "https://example.com/banner2.png"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"banner\":{\"id\":\"3c608aaf-55d0-4834-9e5d-d120ee6b5176\",\"storeId\":\"e4d711db-dddd-4749-9a4c-0c2aed2f4f77\",\"imageUrl\":\"https://example.com/banner2.png\",\"imageFileAssetId\":null,\"status\":\"active\",\"sortOrder\":0,\"createdAt\":\"2026-05-19T20:12:17.371Z\",\"updatedAt\":\"2026-05-19T20:12:17.594Z\"}}"
+      },
+      "expected": "HTTP 200",
+      "elapsedMs": 14,
+      "pass": true
+    }
+  ]
+}

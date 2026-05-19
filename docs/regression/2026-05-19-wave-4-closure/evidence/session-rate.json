@@ -1,0 +1,7 @@
+{
+  "block": "Smoke",
+  "status": "NOT_RUN",
+  "reason": "FAIL-FAST tripped on Block 2 (PATCH javascript: returned 200). Per brief, Smoke and the 90s /api/auth/session observation window were not executed.",
+  "observed_calls": [],
+  "rate_per_minute": null
+}

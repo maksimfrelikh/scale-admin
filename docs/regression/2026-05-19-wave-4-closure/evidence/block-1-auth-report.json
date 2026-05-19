@@ -1,0 +1,315 @@
+{
+  "block": "Auth",
+  "verdict": "PASS",
+  "passed": 14,
+  "total": 14,
+  "medianMs": 13,
+  "totalElapsedMs": 2277,
+  "scenarios": [
+    {
+      "id": "auth-1a-login-api",
+      "desc": "POST /api/auth/login (admin)",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/login",
+        "body": {
+          "email": "admin@example.com",
+          "password": "***"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"user\":{\"id\":\"450d3b7a-3de6-4f9c-b133-6a9486232c0d\",\"email\":\"admin@example.com\",\"fullName\":\"Local Admin\",\"role\":\"admin\",\"status\":\"active\"},\"expiresAt\":\"2026-06-02T20:11:29.375Z\"}"
+      },
+      "expected": "HTTP 200, JSON success, cookie set",
+      "elapsedMs": 129,
+      "pass": {
+        "id": "450d3b7a-3de6-4f9c-b133-6a9486232c0d",
+        "email": "admin@example.com",
+        "fullName": "Local Admin",
+        "role": "admin",
+        "status": "active"
+      }
+    },
+    {
+      "id": "auth-1b-dashboard",
+      "desc": "GET / loads dashboard with session",
+      "request": {
+        "method": "GET",
+        "url": "https://staging.maksimfrelikh.ru/"
+      },
+      "response": {
+        "status": 200,
+        "body": " DashboardДобро пожаловать, Local AdminActive session for admin@example.com · role: adminLogoutOverviewStoresProductsCreate storeGlobal LogsUsers & AccessAdmin dashboardFleet overviewStores, scale health, published versions and recent sync failures.Refresh dashboardStores1Scales0Scales with errors0Without synchronization0Latest published versionsNo published catalog versions yet.Latest sync errors"
+      },
+      "expected": "dashboard renders (not on login)",
+      "elapsedMs": 1698,
+      "pass": true,
+      "finalUrl": "https://staging.maksimfrelikh.ru/"
+    },
+    {
+      "id": "auth-2a-valid-plain",
+      "desc": "POST /api/auth/invites email=\"wave4-valid-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-valid-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"invite\":{\"id\":\"8cc9c8f0-5899-40e0-9d2b-e3267d9789b0\",\"email\":\"wave4-valid-1779221491201@example.com\",\"role\":\"operator\",\"expiresAt\":\"2026-05-26T20:11:31.201Z\",\"acceptedAt\":null,\"createdAt\":\"2026-05-19T20:11:31.211Z\"}}"
+      },
+      "expected": "HTTP 201",
+      "elapsedMs": 14,
+      "pass": true,
+      "inviteId": "8cc9c8f0-5899-40e0-9d2b-e3267d9789b0"
+    },
+    {
+      "id": "auth-2b-valid-tag",
+      "desc": "POST /api/auth/invites email=\"wave4-tag+1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-tag+1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"invite\":{\"id\":\"3e99e712-215c-4eaa-b9b4-149c442c37bb\",\"email\":\"wave4-tag+1779221491201@example.com\",\"role\":\"operator\",\"expiresAt\":\"2026-05-26T20:11:31.201Z\",\"acceptedAt\":null,\"createdAt\":\"2026-05-19T20:11:31.265Z\"}}"
+      },
+      "expected": "HTTP 201",
+      "elapsedMs": 68,
+      "pass": true,
+      "inviteId": "3e99e712-215c-4eaa-b9b4-149c442c37bb"
+    },
+    {
+      "id": "auth-2c-valid-dot",
+      "desc": "POST /api/auth/invites email=\"wave4.name-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4.name-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"invite\":{\"id\":\"9c4a52b7-df9a-4ad4-a65e-b42f4c824328\",\"email\":\"wave4.name-1779221491201@example.com\",\"role\":\"operator\",\"expiresAt\":\"2026-05-26T20:11:31.201Z\",\"acceptedAt\":null,\"createdAt\":\"2026-05-19T20:11:31.299Z\"}}"
+      },
+      "expected": "HTTP 201",
+      "elapsedMs": 22,
+      "pass": true,
+      "inviteId": "9c4a52b7-df9a-4ad4-a65e-b42f4c824328"
+    },
+    {
+      "id": "auth-3a-multi-at",
+      "desc": "POST /api/auth/invites email=\"wave4-a@b@c-1779221491201.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-a@b@c-1779221491201.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 13,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-3b-multi-at-phish",
+      "desc": "POST /api/auth/invites email=\"wave4-admin@evil-1779221491201.com@trusted.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-admin@evil-1779221491201.com@trusted.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 13,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-3c-space-local",
+      "desc": "POST /api/auth/invites email=\"wave4 has space-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4 has space-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 13,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-3d-leading-dot",
+      "desc": "POST /api/auth/invites email=\".wave4-leading-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": ".wave4-leading-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 17,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-3e-trailing-dot",
+      "desc": "POST /api/auth/invites email=\"wave4-trailing-1779221491201.@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-trailing-1779221491201.@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 13,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-3f-consecutive-dots",
+      "desc": "POST /api/auth/invites email=\"wave4..dotty-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4..dotty-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 8,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-4a-tab",
+      "desc": "POST /api/auth/invites email=\"wave4\\there-1779221491201@example.com\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4\there-1779221491201@example.com",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 7,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-4b-idn",
+      "desc": "POST /api/auth/invites email=\"wave4-idn-1779221491201@пример.рф\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "wave4-idn-1779221491201@пример.рф",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 7,
+      "pass": true,
+      "inviteId": null
+    },
+    {
+      "id": "auth-4c-empty",
+      "desc": "POST /api/auth/invites email=\"\"",
+      "request": {
+        "method": "POST",
+        "url": "https://staging.maksimfrelikh.ru/api/auth/invites",
+        "body": {
+          "email": "",
+          "role": "operator",
+          "fullName": "Wave4 QA",
+          "expiresAt": "2026-05-26T20:11:31.201Z"
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "{\"message\":\"Valid email is required\",\"error\":\"Bad Request\",\"statusCode\":400}"
+      },
+      "expected": "HTTP 400 with valid email error",
+      "elapsedMs": 6,
+      "pass": true,
+      "inviteId": null
+    }
+  ]
+}

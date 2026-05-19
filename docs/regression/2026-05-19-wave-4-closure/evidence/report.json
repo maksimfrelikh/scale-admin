@@ -1,0 +1,47 @@
+{
+  "regression": "wave-4-closure",
+  "date": "2026-05-19",
+  "branch": "verify/wave-4-closure",
+  "baseSha": "4497f57",
+  "target": "https://staging.maksimfrelikh.ru",
+  "playwrightVersion": "1.60.0",
+  "mode": "MODE_A (single browser context, ctx.request API calls)",
+  "overallVerdict": "FAIL",
+  "blocks": {
+    "Auth": {
+      "verdict": "PASS",
+      "passed": 14,
+      "total": 14,
+      "medianMs": 13,
+      "report": "block-1-auth-report.json"
+    },
+    "Advertising": {
+      "verdict": "FAIL",
+      "passed": 2,
+      "total": 10,
+      "medianMs": 14,
+      "report": "block-2-advertising-report.json",
+      "failReason": "FAIL-FAST trigger: PATCH javascript:alert(1) returned HTTP 200 (security regression). Staging container running pre-fix code from commit abf5803 — fix at 4497f57 not deployed.",
+      "leakedBannerIds": [
+        "3c608aaf-55d0-4834-9e5d-d120ee6b5176",
+        "724e5d37-eaac-4bb5-99d4-169fe067b4ef",
+        "b4acb2af-a100-4d70-86e4-355d18abb14f",
+        "4ca47d1c-cf3d-462b-ab80-d4612c284e27",
+        "3d1f0113-35d7-47ae-aa1a-e586f6332148"
+      ],
+      "cleanup": "All five banner rows archived via PATCH /:bannerId/status (status='archived'). Rows still persist in DB."
+    },
+    "Smoke": {
+      "verdict": "NOT_RUN",
+      "reason": "FAIL-FAST tripped on Block 2; smoke skipped per brief.",
+      "report": "session-rate.json"
+    }
+  },
+  "sideFindings": [
+    "Brief credentials qa-admin@gmail.com / QaRegression123! do not authenticate on staging (HTTP 401). Used seed defaults admin@example.com / admin12345 (only admin seeded; no qa-operator).",
+    "Staging backend container is running pre-fix advertising validation code (likely built off commit abf5803). HEAD 4497f57 has not been deployed despite brief assertion.",
+    "Three valid invites persisted (audit-leak) by Block 1: wave4-valid-*, wave4-tag+*, wave4.name-*. No DELETE endpoint for invites observed; left as-is.",
+    "CSRF token rotates per /api/auth/csrf GET. Test scripts re-fetch CSRF immediately before each mutating request to avoid 403 CSRF_TOKEN_INVALID."
+  ],
+  "restoredCleanly": true
+}
