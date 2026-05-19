@@ -1,0 +1,62 @@
+# Staging environment overrides
+# Usage: docker compose -f docker-compose.yml -f docker-compose.staging.yml --env-file .env.staging -p scale-admin-staging up -d
+# 
+# Differences from prod (docker-compose.override.yml):
+# - Isolated container names (scale-admin-staging-*)
+# - Ports bound to 127.0.0.1 only (no public exposure, nginx proxies)
+# - Memory limits to prevent prod starvation
+# - Separate volumes (staging_postgres_data, staging_uploads)
+# - SEED_ON_STARTUP=true for fresh DB initialization
+# - FRONTEND_ORIGIN points to staging.maksimfrelikh.ru
+
+services:
+  postgres:
+    container_name: scale-admin-staging-postgres
+    ports: !reset []
+    expose:
+      - "5432"
+    volumes: !override
+      - staging_postgres_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+        reservations:
+          memory: 128M
+
+  backend:
+    container_name: scale-admin-staging-backend
+    ports: !override
+      - "127.0.0.1:4001:3000"
+    environment:
+      NODE_ENV: production
+      FRONTEND_ORIGIN: https://staging.maksimfrelikh.ru
+      SEED_ON_STARTUP: "true"
+    volumes: !override
+      - staging_uploads:/app/uploads
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  frontend:
+    container_name: scale-admin-staging-frontend
+    build:
+      args:
+        VITE_API_BASE_URL: ""
+    environment:
+      VITE_API_BASE_URL: ""
+    ports: !override
+      - "127.0.0.1:4174:5173"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+volumes:
+  staging_postgres_data:
+  staging_uploads:
