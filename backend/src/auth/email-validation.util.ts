@@ -4,6 +4,9 @@ const MAX_TOTAL_LENGTH = 254;
 const MAX_LOCAL_LENGTH = 64;
 const MAX_LABEL_LENGTH = 63;
 const DOMAIN_LABEL_PATTERN = /^[A-Za-z0-9-]+$/;
+// RFC 5322 dot-atom-text; quoted-string local-parts are intentionally rejected.
+const LOCAL_PART_DOT_ATOM_PATTERN =
+  /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*$/;
 
 export function validateInviteEmail(email: unknown): EmailValidationResult {
   if (typeof email !== 'string') {
@@ -30,12 +33,8 @@ export function validateInviteEmail(email: unknown): EmailValidationResult {
     return { valid: false, reason: 'Local part must be at most 64 characters' };
   }
 
-  for (let i = 0; i < localPart.length; i += 1) {
-    const char = localPart[i];
-    const code = localPart.charCodeAt(i);
-    if (code < 0x20 || code === 0x7f || char === '<' || char === '>') {
-      return { valid: false, reason: 'Local part contains invalid characters' };
-    }
+  if (!LOCAL_PART_DOT_ATOM_PATTERN.test(localPart)) {
+    return { valid: false, reason: 'Local part contains invalid characters' };
   }
 
   if (!domain.includes('.')) {

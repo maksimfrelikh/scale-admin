@@ -81,6 +81,13 @@ const REJECT_CASES = [
   { name: '1000-char local', email: `${'a'.repeat(1000)}@example.test` },
   { name: 'whitespace only', email: '   ' },
   { name: 'empty string', email: '' },
+  // BUG-REG-039: RFC 5321/5322 dot-atom-text gaps
+  { name: 'multi-@ — a@b@c.com', email: 'a@b@c.com' },
+  { name: 'SP in local — has space@example.com', email: 'has space@example.com' },
+  { name: 'leading dot in local — .user@example.com', email: '.user@example.com' },
+  { name: 'consecutive dots in local — us..er@example.com', email: 'us..er@example.com' },
+  { name: 'trailing dot in local — user.@example.com', email: 'user.@example.com' },
+  { name: 'comma in local — a,b@example.com', email: 'a,b@example.com' },
 ];
 
 const ACCEPT_CASES = [
@@ -89,6 +96,10 @@ const ACCEPT_CASES = [
   { name: 'happy path — admin@maksimfrelikh.ru', email: 'admin@maksimfrelikh.ru' },
   { name: 'local exactly 64 chars', email: `${'a'.repeat(64)}@example.test` },
   { name: 'subdomain — user@mail.example.test', email: 'user@mail.example.test' },
+  // BUG-REG-039 acceptance baselines
+  { name: 'simple — user@example.com', email: 'user@example.com' },
+  { name: 'plus addressing — user+tag@example.com', email: 'user+tag@example.com' },
+  { name: 'dot in local — user.name@example.com', email: 'user.name@example.com' },
 ];
 
 function testValidatorRejectsBadInputs() {
