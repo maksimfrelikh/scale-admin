@@ -1,0 +1,21 @@
+# docker-prune — weekly retention cron for Docker build-cache + dangling images.
+#
+# Purpose:
+#   Bounds /var/lib/docker growth on hosts that rebuild images frequently
+#   (dev hosts, CI runners). Addresses BUG-REG-042.
+#
+# Install (append to the operator's crontab):
+#   crontab -l 2>/dev/null | { cat; cat scripts/docker-prune.cron; } | crontab -
+#
+#   IMPORTANT: edit the absolute path below to match where this repo is checked
+#   out on your host before installing. The default assumes /opt/scale-admin.
+#
+# Retention window:
+#   Defaults to 168h (7 days). To tune, export DOCKER_PRUNE_RETENTION=<duration>
+#   in the cron environment, or edit scripts/docker-prune.sh directly.
+#
+# Disable:
+#   crontab -l | grep -v docker-prune.sh | crontab -
+#
+# Schedule: Sunday 04:00 local time.
+0 4 * * 0 /opt/scale-admin/scripts/docker-prune.sh
