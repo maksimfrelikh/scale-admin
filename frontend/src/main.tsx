@@ -3146,7 +3146,9 @@ function App() {
       return;
     }
 
-    store.dispatch(backendApi.util.invalidateTags(['Session']));
+    // Role may have changed in the other tab — flush cached role-specific data
+    // so admin-only payloads do not leak into an operator render (and vice versa).
+    clearProtectedClientState(store.dispatch, false);
   }), []);
 
   useEffect(() => subscribeStoreListChangedEvents((event) => {
@@ -3156,7 +3158,14 @@ function App() {
     ]));
   }), []);
 
-  const { data: session, isLoading, isFetching, error } = useGetSessionQuery();
+  const { data: session, isLoading, isFetching, error } = useGetSessionQuery(undefined, {
+    // Fallback for cases where BroadcastChannel/storage events can't reach this tab:
+    // direct API calls from devtools, server-side session revocation, sticky timeouts.
+    // 25s keeps detection inside the ≤30s window from BUG-REG-014 / BUG-REG-017.
+    pollingInterval: 25_000,
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+  });
   const hasActiveSession = Boolean(session?.user);
 
   if (isLoading || (isFetching && !session && !error)) {
