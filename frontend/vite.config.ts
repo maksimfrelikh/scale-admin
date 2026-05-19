@@ -5,11 +5,11 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru'],
+    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru', 'staging.maksimfrelikh.ru'],
   },
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru'],
+    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru', 'staging.maksimfrelikh.ru'],
   },
 })
