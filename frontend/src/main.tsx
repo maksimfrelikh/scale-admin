@@ -231,6 +231,7 @@ function LoginScreen() {
             {loginLoading ? 'Входим...' : 'Login'}
           </button>
         </form>
+        <p className="login-help-note">Забыли пароль? Обратитесь к администратору.</p>
       </section>
     </main>
   );
