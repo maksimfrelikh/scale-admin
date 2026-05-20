@@ -2,6 +2,7 @@ import { BadRequestException, ConflictException, Injectable, NotFoundException }
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { AuthService } from '../auth/auth.service';
+import { isUuid } from './uuid.util';
 
 export type RequestContext = {
   ipAddress?: string;
@@ -387,6 +388,12 @@ export class UsersService {
   private async findUserById(userId: string, includeDeleted: boolean): Promise<SafeUserRecord> {
     if (!userId) {
       throw new BadRequestException('User id is required');
+    }
+
+    // User.id is a UUID column; a non-UUID string would otherwise raise an
+    // unhandled Prisma validation error → 500. Short-circuit to 404.
+    if (!isUuid(userId)) {
+      throw new NotFoundException('User not found');
     }
 
     const user = await this.prisma.user.findFirst({
