@@ -1,9 +1,13 @@
 # BUG-REG-059 — No `DELETE /api/stores/:storeId/advertising/banners/:bannerId` (soft-delete-only contract)
 
-**Status:** OPEN — Wave 5 closure side finding (documentation)
-**Severity:** low (contract is intentional; lack of doc is the actual gap)
-**Area:** backend (advertising) + docs (`AGENTS.md` §6.2)
+**Status:** RESOLVED — documented in docs/contracts.md (2026-05-20, Wave 7 doc batch)
+**Severity:** low (contract is intentional; lack of doc was the actual gap)
+**Area:** backend (advertising) + docs (`docs/contracts.md`)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #5 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 163-168).
+
+## Resolution (2026-05-20, Wave 7 doc batch)
+
+Soft-delete-only contract is now documented at [`docs/contracts.md` § Banner soft-delete contract (per BUG-REG-059)](../../../contracts.md#banner-soft-delete-contract-per-bug-reg-059). The original stub pointed at `AGENTS.md §6.2`, but that anchor does not exist anywhere in the repo's `AGENTS.md` (see [[BUG-REG-064]] for the systemic phantom-AGENTS.md pattern). `docs/contracts.md` is the canonical home for intentional-behavior contracts going forward.
 
 ## Scope (from SUMMARY side finding #5, verbatim)
 
@@ -18,8 +22,7 @@ Soft-delete-only is a defensible contract — preserves audit history, supports 
 This is **doc-only** unless Maksim decides to flip the contract (separate decision).
 
 1. Read `backend/src/advertising/advertising.controller.ts` — confirm there is no DELETE handler and that PATCH `status:archived` is the canonical archive path.
-2. Update `AGENTS.md` §6.2 (advertising routes) with an explicit note:
-   - "Banners are **soft-deleted only**. There is no DELETE endpoint. To archive a banner, `PATCH /api/stores/:storeId/advertising/banners/:bannerId` with `{ status: 'archived' }`."
+2. ~~Update `AGENTS.md` §6.2 (advertising routes) with an explicit note~~ — Wave 7 redirect: `AGENTS.md §6.2` does not exist. Documented in [`docs/contracts.md` § Banner soft-delete contract (per BUG-REG-059)](../../../contracts.md#banner-soft-delete-contract-per-bug-reg-059) instead.
 3. Optional: extend the same note to any other surface that follows the soft-delete-only pattern (verify in discovery).
 
 ## If Maksim flips the contract (out of scope here)
@@ -28,7 +31,7 @@ A real DELETE endpoint would need: cascade rules for any FK references, an audit
 
 ## Acceptance criteria
 
-- [ ] `AGENTS.md` §6.2 documents soft-delete-only contract for advertising banners + cites the canonical PATCH archive route.
+- [x] `docs/contracts.md` documents soft-delete-only contract for advertising banners + cites the canonical PATCH archive route (Wave 7 doc batch, 2026-05-20).
 - [ ] Manager/Tester briefs that touch banner cleanup reference the soft-delete contract and don't expect a DELETE endpoint to exist.
 
 ## Out of scope

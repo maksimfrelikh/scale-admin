@@ -1,9 +1,11 @@
 # BUG-REG-043 — Docker legacy builder deprecation warning (future work, ≥ 1 year horizon)
 
-**Status:** OPEN — Wave 3 backlog (future work)
+**Status:** DOCUMENTED — future work
 **Severity:** low (non-blocking; warning only; functional today)
 **Area:** infra / docker build pipeline
 **Found during:** 2026-05-19 infra session (`docker builder prune` output included a deprecation notice).
+
+> 2026-05-20: marked DOCUMENTED per Wave 7 doc batch — no code change pending. Re-triage when the legacy builder removal is announced for a specific Docker release.
 
 ## Findings
 
