@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-scale_admin}
       POSTGRES_USER: ${POSTGRES_USER:-scale_admin}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-scale_admin_password}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required — copy .env.example to .env and populate it before running compose}
     ports:
       - "5432:5432"
     volumes:
@@ -28,7 +28,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: ${PORT:-3000}
-      DATABASE_URL: ${DATABASE_URL:-postgresql://scale_admin:scale_admin_password@postgres:5432/scale_admin}
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required — copy .env.example to .env and populate it before running compose}
       FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:5173}
       SESSION_COOKIE_NAME: ${SESSION_COOKIE_NAME:-scale_admin_session}
       SESSION_IDLE_TIMEOUT_MINUTES: ${SESSION_IDLE_TIMEOUT_MINUTES:-30}
