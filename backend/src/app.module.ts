@@ -16,6 +16,7 @@ import { ScalesModule } from './scales/scales.module';
 import { SharedModule } from './shared/shared.module';
 import { StoresModule } from './stores/stores.module';
 import { UsersModule } from './users/users.module';
+import { VersionController } from './version.controller';
 
 @Module({
   imports: [
@@ -36,6 +37,6 @@ import { UsersModule } from './users/users.module';
     FilesModule,
     EmailModule,
   ],
-  controllers: [HealthController],
+  controllers: [HealthController, VersionController],
 })
 export class AppModule {}
