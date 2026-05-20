@@ -20,6 +20,9 @@ services:
   backend:
     build:
       context: ./backend
+      args:
+        BUILD_SHA: ${BUILD_SHA:-dev}
+        BUILT_AT: ${BUILT_AT:-dev}
     container_name: scale-admin-backend
     restart: unless-stopped
     environment:

@@ -99,9 +99,12 @@ case "$ACTION" in
     echo "[deploy-prod] === Step 2/5: Pull ==="
     git pull --ff-only origin main
 
-    # 7. Build
+    # 7. Build (inject git SHA + UTC timestamp for /api/version)
     echo ""
     echo "[deploy-prod] === Step 3/5: Build ==="
+    export BUILD_SHA=$(git rev-parse --short HEAD)
+    export BUILT_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    echo "[deploy-prod] BUILD_SHA=$BUILD_SHA BUILT_AT=$BUILT_AT"
     docker compose $COMPOSE_FILES $ENV_FILE -p $PROJECT build
 
     # 8. Up (entrypoint handles migrate + seed per BUG-REG-038)

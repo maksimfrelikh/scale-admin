@@ -12,7 +12,11 @@ RUN npm run build
 
 FROM node:22-alpine AS runtime
 WORKDIR /app
+ARG BUILD_SHA=dev
+ARG BUILT_AT=dev
 ENV NODE_ENV=production
+ENV BUILD_SHA=$BUILD_SHA
+ENV BUILT_AT=$BUILT_AT
 COPY package*.json ./
 RUN npm install --omit=dev
 COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
