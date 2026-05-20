@@ -12,6 +12,11 @@ const DEFAULT_ADMIN_EMAIL = 'admin@example.com';
 const DEFAULT_ADMIN_PASSWORD = 'admin12345';
 const DEFAULT_ADMIN_FULL_NAME = 'Local Admin';
 
+// QA admin fixture: opt-in via SEED_ON_STARTUP=true. Override password with QA_ADMIN_PASSWORD env.
+const DEFAULT_QA_ADMIN_EMAIL = 'qa-admin@example.com';
+const DEFAULT_QA_ADMIN_PASSWORD = 'qa-admin12345';
+const DEFAULT_QA_ADMIN_FULL_NAME = 'QA Admin';
+
 function normalizeEmail(email) {
   return email.trim().toLowerCase();
 }
@@ -138,6 +143,70 @@ async function upsertAdmin() {
   };
 }
 
+// Guard via SEED_ON_STARTUP; both staging and prod set NODE_ENV=production, so NODE_ENV branching wouldn't distinguish them.
+async function upsertQaAdmin() {
+  if (process.env.SEED_ON_STARTUP !== 'true') {
+    return { skipped: true, reason: 'SEED_ON_STARTUP not enabled' };
+  }
+
+  const email = DEFAULT_QA_ADMIN_EMAIL;
+  const password = requireNonEmpty(process.env.QA_ADMIN_PASSWORD, DEFAULT_QA_ADMIN_PASSWORD);
+  const fullName = DEFAULT_QA_ADMIN_FULL_NAME;
+  const emailNormalized = normalizeEmail(email);
+
+  const existingUser = await prisma.user.findFirst({
+    where: {
+      emailNormalized,
+      deletedAt: null,
+    },
+    include: {
+      credential: true,
+    },
+  });
+
+  const user = existingUser
+    ? await prisma.user.update({
+        where: { id: existingUser.id },
+        data: {
+          email,
+          fullName,
+          role: 'admin',
+          status: 'active',
+          emailVerifiedAt: existingUser.emailVerifiedAt ?? new Date(),
+        },
+      })
+    : await prisma.user.create({
+        data: {
+          email,
+          emailNormalized,
+          fullName,
+          role: 'admin',
+          status: 'active',
+          emailVerifiedAt: new Date(),
+        },
+      });
+
+  if (!existingUser?.credential) {
+    await prisma.userCredential.create({
+      data: {
+        userId: user.id,
+        ...hashPassword(password),
+        passwordChangedAt: new Date(),
+      },
+    });
+  }
+
+  const credential = await prisma.userCredential.findUniqueOrThrow({ where: { userId: user.id } });
+  const passwordMatches = verifyPassword(password, credential);
+
+  return {
+    userId: user.id,
+    email: user.email,
+    passwordUpdated: !existingUser?.credential,
+    passwordMatchesConfiguredSecret: passwordMatches,
+  };
+}
+
 async function upsertSampleStoreAndCatalog() {
   const store = await prisma.store.upsert({
     where: { code: 'STORE-001' },
@@ -240,6 +309,7 @@ async function upsertSampleProducts() {
 
 async function main() {
   const admin = await upsertAdmin();
+  const qaAdmin = await upsertQaAdmin();
   const sampleStore = await upsertSampleStoreAndCatalog();
   const productIds = await upsertSampleProducts();
 
@@ -248,6 +318,7 @@ async function main() {
     JSON.stringify(
       {
         admin,
+        qaAdmin,
         sampleStore,
         sampleProductCount: productIds.length,
         sampleProductIds: productIds,
