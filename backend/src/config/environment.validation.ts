@@ -20,6 +20,11 @@ export interface EnvironmentVariables {
 
 const allowedNodeEnvironments: NodeEnvironment[] = ['development', 'test', 'production'];
 
+// Historical compose default. Live in production with this value in the URL means
+// the operator never populated .env and is running on the public-known credential.
+// BUG-REG-049: detect at boot and refuse to start in production.
+export const INSECURE_DEFAULT_DB_PASSWORD = 'scale_admin_password';
+
 function requireString(config: Record<string, unknown>, key: keyof EnvironmentVariables, errors: string[]): string {
   const value = config[key];
 
@@ -93,6 +98,12 @@ export function validateEnvironment(config: Record<string, unknown>): Environmen
       const url = new URL(databaseUrl);
       if (!['postgres:', 'postgresql:'].includes(url.protocol)) {
         errors.push('DATABASE_URL must use the postgres:// or postgresql:// protocol');
+      }
+      if (nodeEnv === 'production' && url.password === INSECURE_DEFAULT_DB_PASSWORD) {
+        errors.push(
+          `DATABASE_URL is using the historical insecure default password '${INSECURE_DEFAULT_DB_PASSWORD}'. ` +
+            `Populate POSTGRES_PASSWORD/DATABASE_URL in .env with a strong random secret before starting in production (see .env.example).`,
+        );
       }
     } catch {
       errors.push('DATABASE_URL must be a valid PostgreSQL connection URL');

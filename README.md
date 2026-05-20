@@ -29,8 +29,21 @@ Implemented foundation includes:
 
 ## Run locally with Docker Compose
 
+The compose stack now refuses to start without an explicit `.env`. Copy the
+template and populate it before the first `docker compose up`:
+
 ```bash
+cp .env.example .env
+$EDITOR .env   # at minimum set POSTGRES_PASSWORD and DATABASE_URL to matching random strings
 docker compose up --build
+```
+
+Compose maps `${POSTGRES_PASSWORD:?...}` and `${DATABASE_URL:?...}` as required
+variables — running `docker compose up` against an empty `.env` will fail fast
+with a clear error rather than silently booting on the historical insecure
+default `scale_admin_password`. The backend additionally re-checks at boot
+(see `backend/src/config/environment.validation.ts`) and refuses to start in
+`NODE_ENV=production` if the DB URL still contains that legacy literal.
 
 Services:
 
