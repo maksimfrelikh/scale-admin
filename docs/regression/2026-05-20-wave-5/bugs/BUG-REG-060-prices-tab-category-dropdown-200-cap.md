@@ -1,6 +1,6 @@
 # BUG-REG-060 — `PricesTab` category dropdown limited to first 200 catalog placements
 
-**Status:** OPEN — Wave 5 closure side finding (carried from PR #25 known limitation)
+**Status:** RESOLVED — Wave 8, PR #35 (67163f1 dedicated category dropdown endpoint)
 **Severity:** low (functional, but masks long-tail catalog placements)
 **Area:** frontend (`PricesTab` category selector) + backend (catalog categories endpoint)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #6 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 170-174). Carried forward from [[BUG-REG-048]] (PR #25) as a known limitation.

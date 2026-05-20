@@ -1,6 +1,6 @@
 # BUG-REG-049 — `.env.example` + startup config validation
 
-**Status:** OPEN — backlog
+**Status:** RESOLVED — Wave 6, PR #30 (d700687 .env.example + startup validation)
 **Severity:** medium
 **Area:** backend (config bootstrap) + infra (`docker-compose.yml`)
 **Origin:** pre-Wave-5 infrastructure review (2026-05-20). Surfaced when production `.env` was found to contain only 2 lines (`NODE_ENV`, `FRONTEND_ORIGIN`), causing `docker-compose` to fall back to its default literal `POSTGRES_PASSWORD=scale_admin_password` — a publicly-known string committed to the compose file. Rotated manually 2026-05-20 (postgres role password changed via `ALTER USER`, `.env` populated with a random password). See `docs/regression/2026-05-20-infra-baseline/SUMMARY.md`.

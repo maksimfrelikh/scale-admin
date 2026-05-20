@@ -1,6 +1,6 @@
 # BUG-REG-048 — Cross-cutting pagination feature — uniform offset/limit/total for all paginated surfaces
 
-**Status:** OPEN — backlog (Wave 5 candidate)
+**Status:** RESOLVED — Wave 5, PR #25 (297bef5 pagination envelope)
 **Severity:** medium
 **Area:** backend (paginated list endpoints) + frontend (page-nav component)
 **Origin:** Spun out of TASK-042 closure (2026-05-20). Maksim ruled the pagination BINDING was introduced after TASK-042 acceptance — formally beyond original task scope — and authorized verify-only close of TASK-042 with this cross-cutting ticket as the canonical follow-up. See `progress.md` 2026-05-20 closure block for TASK-042.

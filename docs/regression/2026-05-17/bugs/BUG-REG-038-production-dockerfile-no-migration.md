@@ -1,6 +1,6 @@
 # BUG-REG-038 — Production Dockerfile + entrypoint missing automatic migration support
 
-**Status:** OPEN — Wave 3 backlog (high-priority)
+**Status:** RESOLVED — Wave 3, PR #14 (3a4236b auto-run prisma migrate)
 **Severity:** high (каждый deploy с Prisma миграцией требует manual `docker cp prisma/` + `prisma migrate deploy` внутри контейнера; high risk of "merged migration is silently no-op" — exactly the BUG-REG-035 deploy failure mode на 2026-05-19).
 **Area:** infra / backend Docker image / deploy pipeline
 **Found during:** BUG-REG-035 cascade-archive production deploy (2026-05-19). Migration shipped в коммите was *not* applied on first deploy; limbo count went 84 → 86 (instead of 84 → 0) because the cleanup `UPDATE` never ran. Recovered by manual `docker cp backend/prisma <container>:/app/prisma && docker exec <container> npx prisma migrate deploy`.

@@ -1,6 +1,6 @@
 # BUG-REG-046 — No DELETE endpoint for invites; admin cannot cancel an active invite
 
-**Status:** OPEN — backlog
+**Status:** RESOLVED — Wave 5, PR #24 (bb87059 invite DELETE + admin cancel UI)
 **Severity:** medium
 **Area:** backend / api / auth / invite flow
 **Found during:** Wave 4 closure verify (2026-05-19) — side finding #3 in `docs/regression/2026-05-19-wave-4-closure/SUMMARY.md`. Three valid invite rows from the Block 1 run on prior tip `96d7d63` (`wave4-valid-…`, `wave4-tag+…`, `wave4-name-…`) still persist on staging because there's no way to cancel them.

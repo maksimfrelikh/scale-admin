@@ -1,6 +1,6 @@
 # BUG-REG-042 — Docker build-cache + leftover test images grow unbounded (no retention policy)
 
-**Status:** OPEN — Wave 3 backlog (adjacent finding from infra session 2026-05-19)
+**Status:** RESOLVED — Wave 3, PR #17 (8092dc9 weekly docker prune)
 **Severity:** medium (silent disk growth; recoverable, but eventually wedges the host once `/var/lib/docker` fills up)
 **Area:** infra / docker hygiene
 **Found during:** 2026-05-19 infra session (host disk pressure check during Wave 3 closure).

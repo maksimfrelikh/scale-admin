@@ -1,6 +1,6 @@
 # BUG-REG-058 — `GET /api/users/me` returns 500 (reserved-keyword collides with `:userId` catch-all)
 
-**Status:** OPEN — Wave 5 closure side finding
+**Status:** RESOLVED — Wave 6, PR #31 (5ec323d reserved keyword 'me' + 404 non-UUID)
 **Severity:** medium (broken endpoint, even though canonical "who am I" is `/api/auth/session`)
 **Area:** backend (`UsersController`)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #4 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 155-161). Newly discovered on the 2026-05-20 closure run.

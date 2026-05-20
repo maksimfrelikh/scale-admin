@@ -1,6 +1,6 @@
 # BUG-REG-063 — `test/scale-ack-check.js` TypeError (`scales.service.js:322` undefined `create`)
 
-**Status:** OPEN — backlog
+**Status:** RESOLVED — Wave 8, PR #34 (3729a4a default auditLogs ctor in ScalesService)
 **Severity:** low (test-only TypeError; pre-existing on plain `main`; not introduced by Wave 5 or [[BUG-REG-058]])
 **Area:** backend (`backend/test/scale-ack-check.js` / `backend/dist/scales/scales.service.js:322`)
 **Origin:** Surfaced during [[BUG-REG-058]] post-merge verification on 2026-05-20. Pre-existing-ness confirmed by the BUG-REG-058 implementer Manager earlier the same day via stash + rebuild on plain `main` — the TypeError reproduces without the BUG-REG-058 changes applied. Filed as part of BUG-REG-058 post-merge cleanup, not a defect introduced by it.
