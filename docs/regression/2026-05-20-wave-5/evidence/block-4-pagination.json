@@ -1,0 +1,71 @@
+{
+  "block": "4 — Pagination envelope across 5 surfaces (BUG-REG-048)",
+  "verdict": "PASS",
+  "timestamp": "2026-05-20T10:15Z",
+  "store_under_test": {"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001"},
+  "envelope_checks": {
+    "surface_1_logs_global": {
+      "url": "GET /api/logs/global?limit=5&offset=0",
+      "http_status": 200,
+      "top_level_keys": ["auditLogs", "filters", "scaleSyncLogs"],
+      "auditLogs": {"keys":["data","meta"],"meta":{"total":59,"limit":5,"offset":0},"data_count":5},
+      "scaleSyncLogs": {"keys":["data","meta"],"meta":{"total":0,"limit":5,"offset":0},"data_count":0},
+      "verdict": "PASS — combined endpoint with per-array {data, meta} per contract option (b)"
+    },
+    "surface_2_store_logs": {
+      "url": "GET /api/stores/e4d711db.../logs?limit=5&offset=0",
+      "http_status": 200,
+      "top_level_keys": ["auditLogs","filters","scaleSyncLogs","storeId"],
+      "auditLogs": {"keys":["data","meta"],"meta":{"total":19,"limit":5,"offset":0},"data_count":5},
+      "scaleSyncLogs": {"keys":["data","meta"],"meta":{"total":0,"limit":5,"offset":0}},
+      "verdict": "PASS — scoped to storeId, same envelope as global"
+    },
+    "surface_3_banners": {
+      "url": "GET /api/stores/e4d711db.../advertising/banners?limit=5&offset=0",
+      "http_status": 200,
+      "top_level_keys": ["data","meta"],
+      "meta": {"total":6,"limit":5,"offset":0},
+      "data_count": 5,
+      "verdict": "PASS — canonical {data, meta} shape"
+    },
+    "surface_4_products": {
+      "url": "GET /api/products?limit=5&offset=0",
+      "http_status": 200,
+      "top_level_keys": ["data","meta"],
+      "meta": {"total":3,"limit":5,"offset":0},
+      "data_count": 3,
+      "verdict": "PASS — canonical {data, meta} shape (storeId scoping enforced via products module — confirmed PR #25 ships /api/products list)"
+    },
+    "surface_5_prices": {
+      "url": "GET /api/stores/e4d711db.../prices?limit=5&offset=0",
+      "http_status": 200,
+      "top_level_keys": ["catalog","data","meta"],
+      "meta": {"total":0,"limit":5,"offset":0},
+      "data_count": 0,
+      "verdict": "PASS — {catalog, data, meta} — catalog sibling preserved as entity reference per PR #25 decision (7)"
+    }
+  },
+  "pagination_probe": {
+    "surface": "auditLogs via /api/logs/global (59 rows available)",
+    "page_1": {"url":"?limit=5&offset=0","ids":["6862432d-3824-41aa-94da-fdcc83e8c3a2","6d0aafe8-8500-469f-8eca-2deb26a91b60","7fbe6638-fdc7-4abb-b098-50a3d743fd05","1adb97c3-7ab2-4b7a-a405-97821056bb83","ad3bf18b-3b93-4565-9c0f-862080898c08"],"meta":{"total":59,"limit":5,"offset":0}},
+    "page_2": {"url":"?limit=5&offset=5","ids":["a85c36f0-922d-49b7-8db9-8eeebe311c7d","35a09702-8d46-427c-bc76-351a3475afa8","91b1f5d8-c6d9-4462-8544-4e1860957d55","2550b3ba-1c1c-44ac-9815-98013cb9fef9","a0c54617-514d-4363-ada7-ad83cd167f16"],"meta":{"total":59,"limit":5,"offset":5}},
+    "overlap": "intersection={}, union size 10 → backend correctly slices, no duplicate across pages",
+    "verdict": "PASS"
+  },
+  "clamp_check": {
+    "url": "GET /api/logs/global?limit=99999&offset=0",
+    "http_status": 200,
+    "auditLogs.meta": {"total":59,"limit":200,"offset":0},
+    "scaleSyncLogs.meta": {"total":0,"limit":200,"offset":0},
+    "verdict": "PASS — clamped to MAX_LIMIT=200, no 400"
+  },
+  "backward_compat_take_alias": {
+    "url": "GET /api/products?take=10",
+    "http_status": 200,
+    "top_level_keys": ["data","meta"],
+    "meta": {"total":3,"limit":10,"offset":0},
+    "verdict": "PASS — ?take=N aliased into limit=N (PR #25 decision 5)"
+  },
+  "all_surfaces_passed": 5,
+  "side_finding": "PricesTab category-dropdown limitation (>200 catalog placements truncate) carries forward from PR #25 known limitation; recommend separate BUG-REG follow-up to use useListCatalogCategoriesQuery."
+}

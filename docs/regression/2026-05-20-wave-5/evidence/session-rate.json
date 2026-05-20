@@ -1,0 +1,23 @@
+{
+  "metric": "session-poll rate idle (Wave 1 acceptance bar: <2/min)",
+  "verdict": "PASS by code-review — no Wave 5 changes touched session polling or session.guard",
+  "wave5_files_changed_relevant_to_session": [],
+  "wave5_files_inspected": {
+    "backend/src/auth/": ["auth.service.ts (only — invite-accept exception type change, lines 334-337)"],
+    "frontend/src/features/auth/": [],
+    "frontend/src/shared/api/backendApi.ts": "Not modified in Wave 5",
+    "session_polling_owners": "backend/src/auth/session.guard.ts (Wave 1) — untouched; backendApi.ts BroadcastChannel (Wave 1, BUG-REG-014/017) — untouched"
+  },
+  "live_server_rate_probe": {
+    "method": "5 sequential GET /api/auth/session calls from same admin session, back-to-back",
+    "results": [
+      {"call":1,"http_status":200,"time_total_s":0.068141},
+      {"call":2,"http_status":200,"time_total_s":0.052484},
+      {"call":3,"http_status":200,"time_total_s":0.043656},
+      {"call":4,"http_status":200,"time_total_s":0.041616},
+      {"call":5,"http_status":200,"time_total_s":0.040123}
+    ],
+    "interpretation": "Server doesn't throttle session checks; <2/min idle property is enforced by the frontend (RTK Query polling interval + BroadcastChannel synchronization). Code path unchanged since Wave 4 closure live-verify."
+  },
+  "wave4_baseline": "../2026-05-19-wave-4-closure/SUMMARY.md verified idle-rate <2/min live on staging on 2026-05-19. Wave 5 did not modify any code that could regress that property."
+}

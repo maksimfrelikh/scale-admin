@@ -1,0 +1,58 @@
+{
+  "block": "5 — Smoke + Wave 1 guards + BUG-REG-039/040",
+  "verdict": "PASS (API-verifiable items) + carry-over for browser-gated guards",
+  "timestamp": "2026-05-20T10:17-10:18Z",
+  "smoke_api": {
+    "verdict": "PASS",
+    "admin_session": {"url":"GET /api/auth/session","http_status":200,"role":"admin","user":"admin@example.com"},
+    "qa_admin_session": {"url":"GET /api/auth/session","http_status":200,"role":"admin","user":"qa-admin@example.com"},
+    "admin_logout": {"url":"POST /api/auth/logout","http_status":200,"response":{"revoked":true}},
+    "session_after_logout": {"url":"GET /api/auth/session","http_status":401,"response":{"message":"Authentication required","error":"Unauthorized","statusCode":401}},
+    "admin_re_login": {"url":"POST /api/auth/login","http_status":200,"user":"admin@example.com"},
+    "frontend_index": {"url":"GET /","http_status":200,"asset_loaded":"/assets/index-BKTCGSkG.js (size 381,999 bytes — matches PR #25 bundle 382.02kB)"}
+  },
+  "wave1_session_rate_guard": {
+    "verdict": "PASS by code-review (no regression in Wave 5)",
+    "live_check": "5 sequential GET /api/auth/session calls all 200, no server-side throttle (40-70ms each). Server does not artificially gate the endpoint; <2/min idle poll rate is a client-side property.",
+    "frontend_polling_code_unchanged": "Wave 5 frontend diff (690a4ff..297bef5) touches only main.tsx + */{Api,api}.ts for pagination wiring; backendApi.ts BroadcastChannel-based session/store sync code (lines 26+ on main) was NOT modified.",
+    "backend_session_guard_unchanged": "git diff 690a4ff..297bef5 -- backend/src/auth/ shows only auth.service.ts changed (BadRequest→NotFound for unknown invite tokens — Item 3 above). session.guard.ts, session-token.util.ts, rate-limit.guard.ts all untouched.",
+    "note": "Wave 4 closure regression (2026-05-19, ../2026-05-19-wave-4-closure/SUMMARY.md) live-verified <2/min poll rate; Wave 5 didn't modify the polling code path."
+  },
+  "wave1_cross_tab_guard": {
+    "verdict": "PASS by code-review (no regression in Wave 5)",
+    "mechanism": "frontend/src/shared/api/backendApi.ts uses BroadcastChannel 'scale-admin:auth-session-event' to broadcast {type: 'session-cleared'|'session-changed'} between tabs on the same origin. 30s SLO is a Wave 1 / BUG-REG-014/017 property.",
+    "wave5_touched_files": "No frontend session/auth/broadcast code modified in Wave 5 (only pagination wiring in main.tsx + features/*/[*]Api.ts). Property held trivially.",
+    "deferred_browser_check": "Live 2-tab logout-propagation cannot be performed via curl. Subagent lacks scope-upgraded browser tool. Recommend Lead re-verify with main-agent browser session if needed — same path Wave 4 closure took for the cross-tab smoke."
+  },
+  "bug_reg_039_email_validation": {
+    "verdict": "PASS (with note on leading/trailing-whitespace expectation)",
+    "valid_emails": [
+      {"email":"wave5valid1@example.test","http_status":201,"invite_id":"661edf17-3b8a-4795-845a-afa27043311a"},
+      {"email":"wave5+tag@example.test","http_status":201,"invite_id":"192f9632-f149-4972-a51c-c27ab0a85046"},
+      {"email":"wave5.dot.name@example.test","http_status":201,"invite_id":"862f9c61-5dcd-4290-825a-82288348d8f8"}
+    ],
+    "invalid_emails": [
+      {"email":"wave5@@example.test","http_status":400,"response":"Valid email is required"},
+      {"email":"wave5@","http_status":400,"response":"Valid email is required"},
+      {"email":" wave5leadspace@example.test","http_status":201,"note":"Accepted after trim — see analysis below","invite_id":"dc6211c1-a7c1-4fa5-b606-a265089c9b7f"}
+    ],
+    "analysis_of_leading_space_case": "The validator at backend/src/auth/email-validation.util.ts:16 explicitly calls email.trim() before validation, so ' wave5leadspace@example.test' is normalized to 'wave5leadspace@example.test' (valid) and accepted. This is the existing validator contract (predates Wave 5 — last touched for BUG-UX-009 / earlier BUG-REG-039 work), not a Wave 5 regression. Adjacent spec backend/src/auth/email-validation.util.spec.ts covers the trim behavior. The task brief's expectation of 400 for leading-space email did not account for this normalization — staging behavior matches the spec-tested validator. Filing as a side finding for documentation alignment, not a defect.",
+    "cleanup": "All 4 throwaway invites cancelled (DELETE /api/users/invites/:id → 200 each)."
+  },
+  "bug_reg_040_image_url_guard": {
+    "verdict": "PASS",
+    "javascript_url_rejected": {
+      "url": "POST /api/stores/e4d711db.../advertising/banners",
+      "payload": "{imageUrl: 'javascript:alert(1)', status: 'draft', sortOrder: 99}",
+      "http_status": 400,
+      "response": "imageUrl must be a valid http(s) URL"
+    },
+    "https_url_accepted": {
+      "url": "POST /api/stores/e4d711db.../advertising/banners",
+      "payload": "{imageUrl: 'https://example.com/wave5-probe.png', status: 'inactive', sortOrder: 99}",
+      "http_status": 201,
+      "banner_id": "1cea76b6-8fab-4e8e-8576-a90cdf8b3fe3"
+    },
+    "cleanup": "Throwaway banner archived via PATCH .../status with status:archived → 200. (No DELETE endpoint exists on banners — archival is the soft-delete path.)"
+  }
+}

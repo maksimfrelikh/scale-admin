@@ -1,0 +1,35 @@
+{
+  "block": "2 — qa-admin seed + auth (BUG-REG-044)",
+  "verdict": "PASS",
+  "timestamp": "2026-05-20T10:10:55Z",
+  "credentials_used": "qa-admin@example.com / qa-admin12345 (PR #22 default)",
+  "login_response": {
+    "url": "POST /api/auth/login",
+    "http_status": 200,
+    "user": {
+      "id": "ce6d6252-4055-4569-acc9-78dd18cc0387",
+      "email": "qa-admin@example.com",
+      "fullName": "QA Admin",
+      "role": "admin",
+      "status": "active"
+    },
+    "expiresAt": "2026-06-03T10:10:55.958Z"
+  },
+  "session_endpoint_after_login": {
+    "url": "GET /api/auth/session",
+    "http_status": 200,
+    "user_role": "admin",
+    "session_id": "b20a1ec4-9a40-4081-ba00-5520a211fffc"
+  },
+  "admin_probe": {
+    "url": "GET /api/users",
+    "http_status": 200,
+    "user_count": 2,
+    "qa_admin_visible_with_role_admin": true,
+    "qa_admin_createdAt": "2026-05-20T10:02:27.348Z",
+    "qa_admin_emailVerifiedAt": "2026-05-20T10:02:27.347Z"
+  },
+  "csrf_flow": "Required GET /api/auth/csrf first then x-csrf-token header on POST /api/auth/login. Same as admin@example.com pattern — no regression.",
+  "side_finding": "GET /api/users/me returns 500 (the :userId catch-all route hits the lookup with id='me' and the service throws). Not blocking — 'who am I' is correctly served by GET /api/auth/session — but the 500 should be a 404 or the controller should explicitly reject reserved keywords. Logged as side finding.",
+  "note": "qa-admin seed worked. emailVerifiedAt is set, status=active, role=admin. SEED_ON_STARTUP=true on staging (qa-admin row was created 2026-05-20T10:02:27 which lines up with restage)."
+}

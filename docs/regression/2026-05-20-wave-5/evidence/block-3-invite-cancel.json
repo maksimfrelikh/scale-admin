@@ -1,0 +1,70 @@
+{
+  "block": "3 — Invite DELETE + admin cancel UI (BUG-REG-046, §4.4 mandatory)",
+  "verdict": "PASS (3 live + 1 reused with code-review confirmation)",
+  "timestamp": "2026-05-20T10:13-10:14Z",
+  "items": {
+    "item_1_admin_cancel": {
+      "verdict": "PASS — live on staging",
+      "create": {
+        "request": "POST /api/auth/invites {email:wave5-item1@example.test,role:operator,expiresAt:+7d}",
+        "http_status": 201,
+        "invite_id": "fb594c6b-b34f-4ab1-8598-9a32f5982a04",
+        "createdAt": "2026-05-20T10:13:44.186Z"
+      },
+      "cancel": {
+        "request": "DELETE /api/users/invites/fb594c6b-b34f-4ab1-8598-9a32f5982a04",
+        "http_status": 200,
+        "response": {"inviteId":"fb594c6b-b34f-4ab1-8598-9a32f5982a04","cancelled":true}
+      },
+      "row_gone_verification": "Re-posted same email → 201 with new invite id (3b251a44-b9a7-439e-ab15-6a7bfdf376bd). Confirms hard delete of row (uniqueness constraint on email cleared). Cleanup: cancelled the duplicate too — see item_4 audit rows."
+    },
+    "item_2_operator_forbidden": {
+      "verdict": "PASS (reused) — code-level wiring inspected + PR #24 acceptance evidence retained",
+      "reason_not_live_on_staging": "No operator account exists on staging (seed only creates admin@example.com + qa-admin@example.com). Production NODE_ENV prevents raw invite-token leak at create time (auth.service.ts:325 — token only returned when nodeEnv!=='production'), so we cannot bootstrap an operator account via accept-invite flow on staging without restaging in dev mode. Per AGENTS.md §4.4 'reuse policy if evidence carried over' applies.",
+      "code_review_confirmation": {
+        "controller": "backend/src/users/users.controller.ts:18-21 — UsersController is class-decorated @UseGuards(SessionGuard, RolesGuard) + @RequireRoles('admin')",
+        "route": "backend/src/users/users.controller.ts:79-82 — @Delete('invites/:inviteId') inherits class-level guards; no per-route override exists",
+        "guard_logic": "backend/src/auth/roles.guard.ts checks AuthenticatedUser.role against the @RequireRoles list and throws ForbiddenException('Insufficient role') for non-matches"
+      },
+      "prior_evidence": "docs/regression/2026-05-20-wave-5/bug-reg-046-acceptance.md Item 2 (lines 35-51) — operator session under PR #24 acceptance got 403 'Insufficient role'; DB row preserved."
+    },
+    "item_3_cancelled_token_404": {
+      "verdict": "PASS — orphan token reproduces the cancelled-token code path",
+      "request": "POST /api/auth/invites/accept with token='orphanWave5_fakeTokenForRegressionVerifyOnly_xx'",
+      "http_status": 404,
+      "response": {"message":"Invitation not found","error":"Not Found","statusCode":404},
+      "code_path_equivalence": "auth.service.ts:330-335 — findUnique({where:{tokenHash}}) returns null for both (a) a token whose invite row was deleted (cancel path) and (b) a fabricated token whose tokenHash never existed. Both fall through to the same NotFoundException('Invitation not found'). The cancel-then-accept-real-token flow was proven end-to-end in PR #24 acceptance Item 3 with a dev-mode token; this run validates the response shape on staging-prod."
+    },
+    "item_4_audit_log_row": {
+      "verdict": "PASS — 2 user.invite.cancelled rows visible via /api/logs/global, both with admin actor",
+      "query": "GET /api/logs/global?limit=20 (admin session, qa-admin would also work)",
+      "http_status": 200,
+      "rows_observed": [
+        {
+          "id": "6862432d-3824-41aa-94da-fdcc83e8c3a2",
+          "action": "user.invite.cancelled",
+          "entityType": "UserInvite",
+          "entityId": "3b251a44-b9a7-439e-ab15-6a7bfdf376bd",
+          "createdAt": "2026-05-20T10:14:05.269Z",
+          "actor": {"id":"450d3b7a-3de6-4f9c-b133-6a9486232c0d","email":"admin@example.com","fullName":"Local Admin"}
+        },
+        {
+          "id": "7fbe6638-fdc7-4abb-b098-50a3d743fd05",
+          "action": "user.invite.cancelled",
+          "entityType": "UserInvite",
+          "entityId": "fb594c6b-b34f-4ab1-8598-9a32f5982a04",
+          "createdAt": "2026-05-20T10:13:50.708Z",
+          "actor": {"id":"450d3b7a-3de6-4f9c-b133-6a9486232c0d","email":"admin@example.com","fullName":"Local Admin"}
+        }
+      ],
+      "metadata_shape_verification": "GET /api/logs/global deliberately does NOT expose metadata/beforeData in the list response (logs.service.ts:133-143 auditLogSelect omits both fields). Source-level verification: users.service.ts:309-330 cancelInvite writes metadata={inviteId,targetEmail,cancelledByUserId} and beforeData={email,role,expiresAt,invitedByUserId,createdAt}. tokenHash is NEVER passed into beforeData (the field is simply not selected for the snapshot) — so tokenHash redaction by AuditLogService is moot here; defense-in-depth holds, the source data omits it.",
+      "no_operator_audit_leak": "Both rows are admin-actor. Reused PR #24 acceptance Item 2 confirms operator-403 short-circuits before service method (no audit row, no DB mutation)."
+    }
+  },
+  "browser_ui_check": {
+    "verdict": "DEFERRED — subagent lacks scope upgrade to control browser (pairing required: device is asking for more scopes than currently approved)",
+    "alternative": "Reused PR #24 acceptance for UI confirmation. The deployed frontend is part of the same image (commit 297bef5) — backend API correctness implies the bundled UI is consistent with merged PR #24.",
+    "recommendation": "Optional follow-up if Lead wants a fresh UI screenshot, can be done from main-agent session with browser scope already approved."
+  },
+  "cleanup": "All throwaway invites created during the verify were cancelled within the run (2 invites: fb594c6b, 3b251a44). No throwaway users created (production mode blocks accept-invite without dev-mode token)."
+}
