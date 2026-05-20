@@ -1,9 +1,13 @@
 # BUG-REG-061 — Brief expectation vs validator contract on leading/trailing whitespace in invite emails
 
-**Status:** OPEN — Wave 5 closure side finding (alignment, not a defect)
+**Status:** RESOLVED — documented in docs/contracts.md (2026-05-20, Wave 7 doc batch)
 **Severity:** low (documentation / PRD alignment)
-**Area:** backend (`email-validation.util.ts`) + docs (`AGENTS.md` §6.A.email-validation, regression briefs)
+**Area:** backend (`email-validation.util.ts`) + docs (`docs/contracts.md`)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #7 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 176-183).
+
+## Resolution (2026-05-20, Wave 7 doc batch)
+
+Trim-then-validate contract is now documented at [`docs/contracts.md` § Email validation trim-then-validate contract (per BUG-REG-061)](../../../contracts.md#email-validation-trim-then-validate-contract-per-bug-reg-061). The original stub pointed at `AGENTS.md §6.A.email-validation`, but that anchor does not exist anywhere in the repo's `AGENTS.md` (see [[BUG-REG-064]] for the systemic phantom-AGENTS.md pattern). `docs/contracts.md` is the canonical home for intentional-behavior contracts going forward. Behavior change (option B) remains out of scope until a PRD decision is taken.
 
 ## Scope (from SUMMARY side finding #7, verbatim)
 
@@ -21,14 +25,13 @@ The validator's `email.trim()` step is **deliberate** ([[BUG-REG-039]] introduce
 ## Discovery checklist (for actioning agent)
 
 1. Read `backend/src/auth/email-validation.util.ts:16` and `email-validation.util.spec.ts` — confirm trim-then-validate contract + spec coverage.
-2. Update `AGENTS.md` §6.A.email-validation with:
-   - "Email validation **trims leading/trailing whitespace before validation**. `' a@b.com'` and `'a@b.com '` are both accepted (and stored trimmed). Reject expectations in regression briefs must apply to inputs that fail after trim."
+2. ~~Update `AGENTS.md` §6.A.email-validation~~ — Wave 7 redirect: `AGENTS.md §6.A.email-validation` does not exist. Documented in [`docs/contracts.md` § Email validation trim-then-validate contract (per BUG-REG-061)](../../../contracts.md#email-validation-trim-then-validate-contract-per-bug-reg-061) instead.
 3. Update any open regression-brief templates under `docs/regression/` to reflect the contract for future waves.
 4. If Maksim picks (B) instead, file the PRD decision in this stub and the implementation work becomes a new ticket; this one stays open as "decision pending."
 
 ## Acceptance criteria
 
-- [ ] `AGENTS.md` §6.A.email-validation documents the trim-then-validate contract.
+- [x] `docs/contracts.md` documents the trim-then-validate contract (Wave 7 doc batch, 2026-05-20).
 - [ ] Future regression briefs that exercise email validation match the documented behavior (no false-FAIL on whitespace inputs).
 - [ ] If a behavior change is chosen (B), the spec covers the new reject case and existing AuditLog rows with whitespace-bearing emails are accounted for.
 

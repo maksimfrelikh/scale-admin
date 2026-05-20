@@ -1,9 +1,15 @@
 # BUG-REG-056 — Audit-action naming mixed family (`user.invite.cancelled` vs `user_invite.*`)
 
-**Status:** OPEN — Wave 5 closure side finding
+**Status:** OPEN — decision logged 2026-05-20, code rename deferred
 **Severity:** low (cleanup, not a functional defect)
 **Area:** backend (audit-log action vocabulary)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #2 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 141-146).
+
+## Decision (2026-05-20)
+
+- **Family chosen: (A) snake_prefix** — `user_invite.cancelled` (and any future `user_invite.*` actions). Per Maksim approval.
+- **Rationale:** aligns with the pre-existing `user_invite.created` / `user_invite.accepted` family already on the wire. The dot-prefix `user.invite.cancelled` introduced by [[BUG-REG-046]] is the outlier; normalizing it to snake_prefix keeps a single canonical family and avoids breaking any "all invite actions" prefix-match for filter consumers.
+- **Code rename: deferred** — not in this PR. A separate cleanup ticket may be filed if/when the rename is scheduled; historical AuditLog rows are left as-is (forward-only fix, consistent with the "Discovery checklist" item 4 note below).
 
 ## Scope (from SUMMARY side finding #2, verbatim)
 
