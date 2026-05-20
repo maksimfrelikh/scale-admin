@@ -1,10 +1,16 @@
 # BUG-REG-045 — Manager AGENTS.md §6.2 references wrong advertising-banner route shape
 
-**Status:** OPEN — backlog
+**Status:** CLOSED — closed-invalid (2026-05-20)
 **Severity:** low
 **Area:** docs / agent config (`.openclaw/`)
 **Found during:** Wave 4 closure verify (2026-05-19) — side finding #2 in `docs/regression/2026-05-19-wave-4-closure/SUMMARY.md`. Surfaced by Manager subagent while writing block-2 regression test scripts.
 **FLAG:** This file lives under `.openclaw/agents/manager/agent/AGENTS.md` (or wherever the deployed Manager config is mounted). Per Lead SOUL §13 escalate list, `.openclaw/**` is **NOT** Lead self-merge scope — fix requires Maxim direct edit or a special Manager-config flow.
+
+## Closure note (2026-05-20, per Maksim dispatch)
+
+Closed as **stale-pointer**. Original pointer "Manager AGENTS.md §6.2" does not exist in the current file (§6 = Wave management). Route mismatch was not verified in discovery — may have referred to brief language, not actual config drift. Reopen if real drift surfaces in future regression.
+
+Recorded by Manager during TASK-042 verify-only close (see `progress.md` 2026-05-20 closure block; Lead → Manager dispatch authorized this closure as metadata-only per Lead SOUL §13). Pair stub [[BUG-REG-048]] opened in the same commit.
 
 ## Steps to reproduce
 

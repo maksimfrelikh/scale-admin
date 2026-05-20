@@ -2101,3 +2101,49 @@ Notes:
 
 Next:
 - Merge task branch to main, push main and task branch, remove runtime lock, then run `scripts/openclaw-after-task-check.sh TASK-061`.
+
+## 2026-05-20 08:35 — TASK-042 — verify-only close on existing main (pagination BINDING waiver)
+
+Status: done — verify-only close (no PR; existing implementation already on main since `259c250`, merged 2026-05-15)
+Owner: manager (dispatched by Lead per Maksim authorization 2026-05-20 08:17 GMT+2)
+Summary:
+- Lead → Manager dispatch (Telegram 2026-05-20 08:17 GMT+2) authorized verify-only close of TASK-042 with explicit BINDING waiver on cross-cutting pagination (introduced after original task acceptance — formally beyond scope). Pagination spun out as cross-cutting ticket [[BUG-REG-048]] instead of retrofit.
+- Manager acted as Tester surrogate (no `sessions_spawn` available in current Manager runtime — same fallback path as TASK-061) and verified §4.4 acceptance criteria 1–5 on staging (`https://staging.maksimfrelikh.ru`).
+
+Evidence (§4.4 verify, 2026-05-20 ~06:25–06:30 UTC):
+
+- **Criterion 1 — Admin sees Global Logs with AuditLog + ScaleSyncLog:** PASS. `GET /api/logs/global?limit=100` as admin → HTTP 200, response keys `["auditLogs","scaleSyncLogs","filters"]`, 48 AuditLog rows (entityTypes `AdvertisingBanner`, `UserSession`, `UserInvite`, `AuthLogin`), 0 ScaleSyncLog rows (staging has no scale syncs yet — endpoint shape correctly exposes both arrays; data-state, not feature gap).
+- **Criterion 2 — Admin filters (store, entityType, action/status, date):** PASS.
+  - `?storeId=e4d711db-…` → 18 rows, all match storeId ✅
+  - `?entityType=AdvertisingBanner` → 18 rows, all match ✅
+  - `?action=advertising_banner.created` → 6 rows, all match ✅
+  - `?dateFrom=2026-05-20T00:00:00Z&dateTo=2026-05-20T23:59:59Z` → 1 row (today), `?dateFrom=2026-05-19T00:00:00Z&dateTo=2026-05-19T23:59:59Z` → 47 rows (yesterday) — date filter discriminates ✅
+  - `status` filter targets ScaleSyncLog only; 0 sync rows on staging so no data-driven assertion, but `buildSyncStatusFilter` in `backend/src/logs/logs.service.ts` validates against `ScaleSyncStatus` enum — structurally sound.
+- **Criterion 3 — Store Logs tab in Store Details:** PASS. `GET /api/stores/e4d711db-…/logs?limit=50` as admin → HTTP 200, 18 AuditLog rows all scoped to storeId. FE wiring: `frontend/src/main.tsx:581` renders `<StoreLogsTab storeId={store.id} />` inside Store Details; `frontend/src/features/logs/logsApi.ts:71` issues `/stores/${storeId}/logs`.
+- **Criterion 4 — Operator restricted to own stores via UserStoreAccess:** PASS.
+  - Created throwaway operator (`task042-op-verify@example.com`) via admin invite → forged `tokenHash` directly in staging DB (NODE_ENV=production hides plain token) → accepted invite → got operator session.
+  - Operator without any `user_store_accesses` row: `GET /api/stores/e4d711db-…/logs` → **HTTP 403 "Store access denied"** ✅
+  - Admin granted operator access via `POST /api/users/<opId>/store-accesses {storeId}` → operator re-login → `GET /api/stores/e4d711db-…/logs` → **HTTP 200**, all rows scoped ✅
+  - Operator targeting foreign store (`/api/stores/00000000-0000-0000-0000-000000000000/logs`) → **HTTP 403 "Store access denied"** ✅
+  - Throwaway operator + invite + sessions + credentials + access row deleted from staging DB after verify (admin remains only seeded user).
+- **Criterion 5 — Operator no Global Logs (403 + no nav link):** PASS.
+  - API: operator `GET /api/logs/global` → **HTTP 403 "Insufficient role"** (RolesGuard with `@RequireRoles('admin')` on `LogsController.listGlobalLogs`) ✅
+  - FE nav gating: `frontend/src/main.tsx:267-289` — Global Logs nav button is rendered only inside the `user.role === 'admin' ? (...)` branch; the non-admin branch renders `<span className="nav-note">Operator navigation: assigned stores only</span>` instead — operator never sees the link ✅
+  - FE route-level guard: `frontend/src/main.tsx:480` — `GlobalLogsPage` returns `<AccessDeniedPanel route="global-logs" />` when `user.role !== 'admin'`, and `useListGlobalLogsQuery(filters, { skip: user.role !== 'admin' })` skips the request entirely for non-admins ✅
+
+Pagination BINDING waiver:
+- Lead surfaced a cross-cutting pagination gap during closure prep (logs endpoints expose only `limit` capped at 100, no `offset`/`total`, no FE page nav). Maksim ruled this is **formally beyond original TASK-042 scope** — the BINDING was introduced after task acceptance — and authorized **verify-only close** with pagination spun out as a separate cross-cutting ticket: see [[BUG-REG-048]] (cross-cutting pagination feature — uniform offset/limit/total for all paginated surfaces).
+- TASK-042 closes against the original §4.4 acceptance criteria only.
+
+Closure action:
+- TASK-042 was already `status: done` in `tasks.json` (set 2026-05-15 after Wave-time docker verify); no further status flip needed.
+- This closure block records the staging-environment §4.4 re-verify performed during Wave 4 closure follow-up, and the pagination-BINDING waiver pointer.
+
+Notes:
+- No PR — verify-only close on existing main per Maksim dispatch (see Lead SOUL §13: docs-only/metadata changes self-merge scope; this commit is closure docs + 2 BUG-REG stubs).
+- No code changes to `backend/` or `frontend/` for TASK-042 closure. Implementation already on main since `259c250` (2026-05-15).
+- Verification artifacts (curl logs, JSON responses) kept locally under `/tmp/task042-verify/` on manager host — not committed.
+
+Next:
+- BUG-REG-048 stub committed alongside (cross-cutting pagination, Wave 5 candidate).
+- BUG-REG-045 closed-invalid alongside (stale pointer — see closure note in `docs/regression/2026-05-19-wave-4-closure/bugs/BUG-REG-045-…`).
