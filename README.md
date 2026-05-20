@@ -250,3 +250,4 @@ Deterministic manager verification intentionally ignores this override and uses:
 
 docker compose -f docker-compose.yml ...
 
+test
