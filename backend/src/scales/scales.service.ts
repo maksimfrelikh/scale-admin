@@ -64,7 +64,7 @@ type ScaleDeviceRecord = {
 export class ScalesService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly auditLogs: AuditLogService,
+    private readonly auditLogs: AuditLogService = new AuditLogService(prisma),
   ) {}
 
   async listStoreDevices(storeId: string) {
