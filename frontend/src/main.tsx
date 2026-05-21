@@ -7,8 +7,10 @@ import {
   clearProtectedClientState,
   subscribeAuthSessionEvents,
   subscribeStoreListChangedEvents,
+  type ApiError,
 } from './shared/api/backendApi';
 import {
+  useAcceptInviteMutation,
   useGetCsrfTokenQuery,
   useGetSessionQuery,
   useLoginMutation,
@@ -151,7 +153,7 @@ function HealthStatus() {
   );
 }
 
-function LoginScreen() {
+function LoginScreen({ notice, onLoginSuccess }: { notice?: string | null; onLoginSuccess?: () => void }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
@@ -182,6 +184,7 @@ function LoginScreen() {
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
       setPassword('');
+      onLoginSuccess?.();
     } catch (error) {
       const message = error && typeof error === 'object' && 'message' in error
         ? String(error.message)
@@ -198,6 +201,12 @@ function LoginScreen() {
         <p className="eyebrow">Scale Admin</p>
         <h1 id="login-title">Вход в систему</h1>
         <p className="description">Войдите, чтобы открыть защищённую панель администрирования.</p>
+
+        {notice && (
+          <div className="status status-ok" role="status">
+            {notice}
+          </div>
+        )}
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
@@ -235,6 +244,178 @@ function LoginScreen() {
           </button>
         </form>
         <p className="login-help-note">Забыли пароль? Обратитесь к администратору.</p>
+      </section>
+    </main>
+  );
+}
+
+function readInviteTokenFromQuery() {
+  return new URLSearchParams(window.location.search).get('token')?.trim() ?? '';
+}
+
+function removeInviteTokenFromUrl() {
+  const currentUrl = new URL(window.location.href);
+  if (!currentUrl.searchParams.has('token')) {
+    return;
+  }
+
+  currentUrl.searchParams.delete('token');
+  const nextSearch = currentUrl.searchParams.toString();
+  window.history.replaceState(
+    null,
+    '',
+    currentUrl.pathname + (nextSearch ? '?' + nextSearch : '') + currentUrl.hash,
+  );
+}
+
+function isApiError(error: unknown): error is ApiError {
+  return Boolean(error && typeof error === 'object' && 'status' in error && 'message' in error);
+}
+
+function acceptInviteErrorMessage(error: unknown) {
+  if (!isApiError(error)) {
+    return 'Invitation could not be accepted. Check the link and try again.';
+  }
+
+  if (error.status === 404) {
+    return 'This invitation link is invalid or has been cancelled. Ask an admin for a new invite.';
+  }
+
+  if (error.status === 409) {
+    const backendMessage = error.message.toLowerCase();
+    if (backendMessage.includes('user with this email already exists')) {
+      return 'An account already exists for this invitation email. Sign in or ask an admin for help.';
+    }
+
+    return 'This invitation has already been accepted. Sign in with the password that was set for it, or ask an admin for help.';
+  }
+
+  if (error.status === 400) {
+    const backendMessage = error.message.toLowerCase();
+    if (backendMessage.includes('expired')) {
+      return 'This invitation has expired. Ask an admin for a new invite.';
+    }
+    if (backendMessage.includes('password')) {
+      return 'Password must be at least 8 characters.';
+    }
+    if (backendMessage.includes('token')) {
+      return 'This invitation link is missing its token. Open the invite email again or ask an admin for a new invite.';
+    }
+  }
+
+  return error.message;
+}
+
+function AcceptInviteScreen({
+  onAccepted,
+  onBackToLogin,
+}: {
+  onAccepted: (message: string) => void;
+  onBackToLogin: () => void;
+}) {
+  const [inviteToken] = useState(readInviteTokenFromQuery);
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [formError, setFormError] = useState<string | null>(null);
+  const { data: csrf, isLoading: csrfLoading, error: csrfError, refetch: refetchCsrf } = useGetCsrfTokenQuery();
+  const [acceptInvite, { isLoading: acceptLoading }] = useAcceptInviteMutation();
+
+  useEffect(removeInviteTokenFromUrl, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setFormError(null);
+
+    if (!inviteToken) {
+      setFormError('This invitation link is missing its token. Open the invite email again or ask an admin for a new invite.');
+      return;
+    }
+
+    if (password.length < 8) {
+      setFormError('Password must be at least 8 characters.');
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      setFormError('Passwords do not match.');
+      return;
+    }
+
+    const csrfData = csrf ?? (await refetchCsrf()).data;
+    if (!csrfData) {
+      setFormError('Could not prepare the protected form. Refresh the page and try again.');
+      return;
+    }
+
+    try {
+      const result = await acceptInvite({
+        token: inviteToken,
+        password,
+        csrfToken: csrfData.csrfToken,
+        csrfHeaderName: csrfData.headerName,
+      }).unwrap();
+      setPassword('');
+      setPasswordConfirm('');
+      onAccepted('Invitation accepted for ' + result.user.email + '. Sign in with your new password.');
+    } catch (error) {
+      setFormError(acceptInviteErrorMessage(error));
+    }
+  }
+
+  const csrfErrorMessage = csrfError && 'message' in csrfError ? csrfError.message : null;
+  const submitDisabled = csrfLoading || acceptLoading || !inviteToken;
+
+  return (
+    <main className="auth-shell">
+      <section className="login-card" aria-labelledby="accept-invite-title">
+        <p className="eyebrow">Scale Admin</p>
+        <h1 id="accept-invite-title">Accept invite</h1>
+        <p className="description">Set a password to finish creating your account.</p>
+
+        {!inviteToken && (
+          <div className="form-error" role="alert">
+            This invitation link is missing its token. Open the invite email again or ask an admin for a new invite.
+          </div>
+        )}
+
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label>
+            Password
+            <input
+              autoComplete="new-password"
+              name="password"
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="At least 8 characters"
+              type="password"
+              value={password}
+            />
+          </label>
+
+          <label>
+            Confirm password
+            <input
+              autoComplete="new-password"
+              name="password-confirm"
+              onChange={(event) => setPasswordConfirm(event.target.value)}
+              placeholder="Repeat password"
+              type="password"
+              value={passwordConfirm}
+            />
+          </label>
+
+          {(formError || csrfErrorMessage) && (
+            <div className="form-error" role="alert">
+              {formError ?? csrfErrorMessage}
+            </div>
+          )}
+
+          <button type="submit" disabled={submitDisabled}>
+            {acceptLoading ? 'Accepting...' : 'Set password'}
+          </button>
+          <button className="secondary-button" type="button" onClick={onBackToLogin}>
+            Back to login
+          </button>
+        </form>
       </section>
     </main>
   );
@@ -3292,6 +3473,16 @@ function Dashboard({ user }: { user: AuthUser }) {
   );
 }
 
+function isAcceptInvitePath(pathname: string) {
+  return pathname.replace(/\/+$/, '') === '/accept-invite';
+}
+
+function loginNoticeFromQuery() {
+  return new URLSearchParams(window.location.search).get('inviteAccepted') === '1'
+    ? 'Invitation accepted. Sign in with your new password.'
+    : null;
+}
+
 function App() {
   useEffect(() => subscribeAuthSessionEvents((event) => {
     if (event.type === 'session-cleared') {
@@ -3309,8 +3500,46 @@ function App() {
     ]));
   }), []);
 
-  const { data: session, isLoading, isFetching, error } = useGetSessionQuery();
+  const [pathname, setPathname] = useState(() => window.location.pathname);
+  const [loginNotice, setLoginNotice] = useState<string | null>(loginNoticeFromQuery);
+  const acceptInviteRouteActive = isAcceptInvitePath(pathname);
+  const { data: session, isLoading, isFetching, error } = useGetSessionQuery(undefined, {
+    skip: acceptInviteRouteActive,
+  });
   const hasActiveSession = Boolean(session?.user);
+
+  useEffect(() => {
+    function handlePopState() {
+      setPathname(window.location.pathname);
+      setLoginNotice(loginNoticeFromQuery());
+    }
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  function routeToLogin(notice?: string) {
+    window.history.replaceState(null, '', notice ? '/?inviteAccepted=1' : '/');
+    setPathname('/');
+    setLoginNotice(notice ?? null);
+  }
+
+  function clearLoginNoticeAfterLogin() {
+    if (new URLSearchParams(window.location.search).has('inviteAccepted')) {
+      window.history.replaceState(null, '', '/');
+      setPathname('/');
+    }
+    setLoginNotice(null);
+  }
+
+  if (acceptInviteRouteActive) {
+    return (
+      <AcceptInviteScreen
+        onAccepted={routeToLogin}
+        onBackToLogin={() => routeToLogin()}
+      />
+    );
+  }
 
   if (isLoading || (isFetching && !session && !error)) {
     return (
@@ -3324,8 +3553,8 @@ function App() {
     );
   }
 
-  if (!hasActiveSession) {
-    return <LoginScreen />;
+  if (!hasActiveSession || loginNotice) {
+    return <LoginScreen notice={loginNotice} onLoginSuccess={clearLoginNoticeAfterLogin} />;
   }
 
   return <Dashboard user={session!.user} />;
