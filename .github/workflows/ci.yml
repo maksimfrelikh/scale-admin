@@ -1,0 +1,163 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  backend-build-test:
+    name: Backend (build + node:test specs)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci
+      - name: Build (nest build)
+        working-directory: backend
+        run: npm run build
+      - name: Run backend specs (node --test)
+        # node:test runner + --experimental-strip-types covers the
+        # 23 *.spec.ts suites under backend/src/ that the repo has today.
+        # Some suites import compiled dist/* (NestJS @Injectable + param
+        # properties cannot be stripped on the fly), so build runs first.
+        working-directory: backend
+        run: node --test --experimental-strip-types 'src/**/*.spec.ts'
+
+  frontend-build:
+    name: Frontend (tsc + vite build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Build (tsc -b && vite build)
+        working-directory: frontend
+        run: npm run build
+
+  prisma-validate:
+    name: Prisma (schema validate)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci
+      - name: prisma validate
+        working-directory: backend
+        env:
+          # prisma validate only parses env, no DB connection is opened.
+          DATABASE_URL: postgresql://x:x@localhost:5432/x?schema=public
+        run: npx prisma validate
+
+  shell-lint:
+    name: Shell scripts (bash -n + shellcheck)
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: bash -n syntax check
+        run: bash -n scripts/*.sh
+      - name: shellcheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: scripts
+
+  docker-build:
+    name: Docker (backend + frontend image builds)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build backend image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: false
+          tags: scale-admin-backend:ci
+          cache-from: type=gha,scope=backend
+          cache-to: type=gha,mode=max,scope=backend
+      - name: Build frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: false
+          tags: scale-admin-frontend:ci
+          cache-from: type=gha,scope=frontend
+          cache-to: type=gha,mode=max,scope=frontend
+
+  gitleaks:
+    name: gitleaks (diff scan)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install gitleaks
+        run: |
+          set -euo pipefail
+          GITLEAKS_VERSION=8.28.0
+          curl -sSL \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            -o /tmp/gitleaks.tgz
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf /tmp/gitleaks.tgz -C "$HOME/.local/bin" gitleaks
+          chmod +x "$HOME/.local/bin/gitleaks"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Scan PR diff
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          gitleaks git \
+            --log-opts="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" \
+            --redact \
+            --no-banner \
+            --config=.gitleaks.toml
+      - name: Scan push range
+        if: github.event_name == 'push'
+        run: |
+          set -euo pipefail
+          BEFORE="${{ github.event.before }}"
+          if [[ "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+            BEFORE="$(git rev-list --max-parents=0 HEAD)"
+          fi
+          gitleaks git \
+            --log-opts="${BEFORE}..${{ github.sha }}" \
+            --redact \
+            --no-banner \
+            --config=.gitleaks.toml

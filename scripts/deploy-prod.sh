@@ -5,8 +5,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 PROJECT="scale-admin"
-COMPOSE_FILES="-f docker-compose.yml"
-ENV_FILE="--env-file .env"
+COMPOSE_FILES=(-f docker-compose.yml)
+ENV_FILE=(--env-file .env)
 BACKUP_DIR="$HOME/backups/scale-admin"
 
 ACTION="${1:-deploy}"
@@ -38,13 +38,13 @@ case "$ACTION" in
     BACKUP_FILE="$BACKUP_DIR/scale-admin-prod-${TS}.sql.gz"
     echo "[deploy-prod] Backing up to $BACKUP_FILE..."
     docker exec scale-admin-postgres pg_dump -U scale_admin scale_admin | gzip > "$BACKUP_FILE"
-    SIZE=$(ls -lh "$BACKUP_FILE" | awk '{print $5}')
+    SIZE=$(du -h "$BACKUP_FILE" | cut -f1)
     echo "[deploy-prod] Backup complete: $SIZE"
     ;;
 
   logs)
     SERVICE="${2:-backend}"
-    docker compose $COMPOSE_FILES $ENV_FILE -p $PROJECT logs -f --tail=100 "$SERVICE"
+    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" logs -f --tail=100 "$SERVICE"
     ;;
 
   deploy)
@@ -74,12 +74,14 @@ case "$ACTION" in
     CURRENT_DEPLOYED=$(docker inspect scale-admin-backend --format='{{.Created}}' 2>/dev/null || echo "no container")
 
     echo ""
+    echo "[deploy-prod] Local HEAD:    $LOCAL_SHA"
+    echo "[deploy-prod] origin/main:   $ORIGIN_SHA"
     echo "[deploy-prod] Currently deployed container: $CURRENT_DEPLOYED"
     echo "[deploy-prod] Will deploy commit: $(git log --format='%h %s' -1 origin/main)"
     echo ""
 
     # 4. Confirm
-    read -p "[deploy-prod] Proceed? Type 'yes': " CONFIRM
+    read -r -p "[deploy-prod] Proceed? Type 'yes': " CONFIRM
     if [ "$CONFIRM" != "yes" ]; then
       echo "[deploy-prod] Cancelled."
       exit 0
@@ -102,15 +104,17 @@ case "$ACTION" in
     # 7. Build (inject git SHA + UTC timestamp for /api/version)
     echo ""
     echo "[deploy-prod] === Step 3/5: Build ==="
-    export BUILD_SHA=$(git rev-parse --short HEAD)
-    export BUILT_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    BUILD_SHA=$(git rev-parse --short HEAD)
+    export BUILD_SHA
+    BUILT_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    export BUILT_AT
     echo "[deploy-prod] BUILD_SHA=$BUILD_SHA BUILT_AT=$BUILT_AT"
-    docker compose $COMPOSE_FILES $ENV_FILE -p $PROJECT build
+    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" build
 
     # 8. Up (entrypoint handles migrate + seed per BUG-REG-038)
     echo ""
     echo "[deploy-prod] === Step 4/5: Recreate containers ==="
-    docker compose $COMPOSE_FILES $ENV_FILE -p $PROJECT up -d --force-recreate
+    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" up -d --force-recreate
 
     # 9. Verify
     echo ""
