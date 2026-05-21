@@ -1,11 +1,12 @@
 export type NodeEnvironment = 'development' | 'test' | 'production';
+export type EmailProviderName = 'disabled' | 'resend';
 
 export interface EnvironmentVariables {
   NODE_ENV: NodeEnvironment;
   PORT: number;
   DATABASE_URL: string;
   FRONTEND_ORIGIN: string;
-  EMAIL_PROVIDER: 'resend';
+  EMAIL_PROVIDER: EmailProviderName;
   EMAIL_FROM: string;
   EMAIL_REPLY_TO: string;
   RESEND_API_KEY: string;
@@ -23,7 +24,7 @@ export interface EnvironmentVariables {
 }
 
 const allowedNodeEnvironments: NodeEnvironment[] = ['development', 'test', 'production'];
-const allowedEmailProviders: EnvironmentVariables['EMAIL_PROVIDER'][] = ['resend'];
+const allowedEmailProviders: EmailProviderName[] = ['disabled', 'resend'];
 
 // Historical compose default. Live in production with this value in the URL means
 // the operator never populated .env and is running on the public-known credential.
@@ -94,9 +95,10 @@ export function validateEnvironment(config: Record<string, unknown>): Environmen
   const nodeEnv = requireString(config, 'NODE_ENV', errors) as NodeEnvironment;
   const databaseUrl = requireString(config, 'DATABASE_URL', errors);
   const frontendOrigin = requireString(config, 'FRONTEND_ORIGIN', errors);
-  const emailProvider = requireString(config, 'EMAIL_PROVIDER', errors) as EnvironmentVariables['EMAIL_PROVIDER'];
-  const emailFrom = requireString(config, 'EMAIL_FROM', errors);
-  const emailReplyTo = requireString(config, 'EMAIL_REPLY_TO', errors);
+  const emailProvider = optionalString(config, 'EMAIL_PROVIDER', 'disabled') as EmailProviderName;
+  let emailFrom = optionalString(config, 'EMAIL_FROM', '');
+  let emailReplyTo = optionalString(config, 'EMAIL_REPLY_TO', '');
+  let resendApiKey = optionalString(config, 'RESEND_API_KEY', '');
   const port = requirePort(config, errors);
   const sessionCookieName = optionalString(config, 'SESSION_COOKIE_NAME', 'scale_admin_session');
   const sessionIdleTimeoutMinutes = optionalPositiveInteger(config, 'SESSION_IDLE_TIMEOUT_MINUTES', 30, errors);
@@ -109,7 +111,6 @@ export function validateEnvironment(config: Record<string, unknown>): Environmen
   const authFailedLoginMaxAttempts = optionalPositiveInteger(config, 'AUTH_FAILED_LOGIN_MAX_ATTEMPTS', 5, errors);
   const authFailedLoginLockMinutes = optionalPositiveInteger(config, 'AUTH_FAILED_LOGIN_LOCK_MINUTES', 15, errors);
   const passwordResetTokenTtlMinutes = optionalPositiveInteger(config, 'PASSWORD_RESET_TOKEN_TTL_MINUTES', 60, errors);
-  let resendApiKey = '';
 
   if (nodeEnv && !allowedNodeEnvironments.includes(nodeEnv)) {
     errors.push(`NODE_ENV must be one of: ${allowedNodeEnvironments.join(', ')}`);
@@ -119,16 +120,18 @@ export function validateEnvironment(config: Record<string, unknown>): Environmen
     errors.push(`EMAIL_PROVIDER must be one of: ${allowedEmailProviders.join(', ')}`);
   }
 
+  if (emailProvider === 'resend') {
+    emailFrom = requireString(config, 'EMAIL_FROM', errors);
+    emailReplyTo = requireString(config, 'EMAIL_REPLY_TO', errors);
+    resendApiKey = requireString(config, 'RESEND_API_KEY', errors);
+  }
+
   if (emailFrom) {
     validateEmailAddress(emailFrom, 'EMAIL_FROM', errors);
   }
 
   if (emailReplyTo) {
     validateEmailAddress(emailReplyTo, 'EMAIL_REPLY_TO', errors);
-  }
-
-  if (emailProvider === 'resend') {
-    resendApiKey = requireString(config, 'RESEND_API_KEY', errors);
   }
 
   if (databaseUrl) {

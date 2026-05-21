@@ -1,17 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { Resend } from 'resend';
 import type { AppConfiguration } from '../config/app.config';
 import type { EmailProvider, SendEmailInput } from './email.provider';
 
-@Injectable()
 export class ResendEmailProvider implements EmailProvider {
-  private readonly appConfig: AppConfiguration;
   private readonly resend: Resend;
 
-  constructor(configService: ConfigService) {
-    this.appConfig = configService.getOrThrow<AppConfiguration>('app');
-    this.resend = new Resend(this.appConfig.resendApiKey);
+  constructor(private readonly appConfig: AppConfiguration) {
+    this.resend = new Resend(appConfig.resendApiKey);
   }
 
   async sendEmail(input: SendEmailInput): Promise<void> {
@@ -26,6 +21,16 @@ export class ResendEmailProvider implements EmailProvider {
 
     if (response.error) {
       throw new Error(response.error.message);
+    }
+  }
+}
+
+export class DisabledEmailProvider implements EmailProvider {
+  constructor(private readonly appConfig: AppConfiguration) {}
+
+  async sendEmail(): Promise<void> {
+    if (this.appConfig.nodeEnv === 'production') {
+      throw new Error('Email provider is disabled');
     }
   }
 }

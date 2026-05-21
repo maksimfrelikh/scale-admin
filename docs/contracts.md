@@ -56,17 +56,21 @@ A behavior change — tightening the validator to reject leading/trailing whites
 
 ## EmailModule provider and delivery contract
 
-**Email delivery is backend-only and uses Resend.** SendGrid is not used by this application and must not be reintroduced for invite or password-reset delivery.
+**Email delivery is backend-only.** The only real delivery provider is Resend. SendGrid is not used by this application and must not be reintroduced for invite or password-reset delivery.
 
-**Required runtime env:**
+**Runtime env:**
 
 ```
-EMAIL_PROVIDER=resend
+EMAIL_PROVIDER=disabled | resend
 EMAIL_FROM="Scale Admin <invites@maksimfrelikh.ru>"
 EMAIL_REPLY_TO="frelikhmax@gmail.com"
-RESEND_API_KEY=<backend secret only>
+RESEND_API_KEY=<backend secret only; required only when EMAIL_PROVIDER=resend>
 FRONTEND_ORIGIN=<trusted frontend base URL>
 ```
+
+`EMAIL_PROVIDER=disabled` is the safe local/dev default. It performs no external send in non-production, allowing dev/test flows to keep using the existing non-production raw-token response. In production, a disabled provider causes invite/reset delivery attempts to fail with the same generic `503` cleanup path as any other delivery failure, so valid unreachable tokens are not left behind.
+
+Staging/prod real delivery requires `EMAIL_PROVIDER=resend` plus a populated `RESEND_API_KEY` before deploy/smoke.
 
 `RESEND_API_KEY` is a backend secret. It must never be exposed as a `VITE_*` value, printed in startup logs, committed to docs, returned from an API, or included in test output.
 

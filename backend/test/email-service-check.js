@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const { EmailService } = require('../dist/email/email.service');
+const { DisabledEmailProvider } = require('../dist/email/resend-email.provider');
 
 class RecordingEmailProvider {
   constructor() {
@@ -56,9 +57,32 @@ async function testPasswordResetEmailLink() {
   assert.match(provider.sent[0].text, /2026-05-22T13:00:00.000Z/);
 }
 
+async function testDisabledProviderNoOpsOutsideProduction() {
+  const provider = new DisabledEmailProvider({ nodeEnv: 'development' });
+  await provider.sendEmail({
+    to: 'operator@example.test',
+    subject: 'ignored',
+    text: 'ignored',
+  });
+}
+
+async function testDisabledProviderFailsInProduction() {
+  const provider = new DisabledEmailProvider({ nodeEnv: 'production' });
+  await assert.rejects(
+    () => provider.sendEmail({
+      to: 'operator@example.test',
+      subject: 'ignored',
+      text: 'ignored',
+    }),
+    /Email provider is disabled/,
+  );
+}
+
 (async () => {
   await testInviteEmailLink();
   await testPasswordResetEmailLink();
+  await testDisabledProviderNoOpsOutsideProduction();
+  await testDisabledProviderFailsInProduction();
   console.log('email-service-check: OK');
 })().catch((error) => {
   console.error('email-service-check: FAIL');

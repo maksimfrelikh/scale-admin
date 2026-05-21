@@ -8,6 +8,10 @@ const validBase = (): Record<string, unknown> => ({
   PORT: '3000',
   DATABASE_URL: 'postgresql://scale_admin:strongRandomP4ss@postgres:5432/scale_admin',
   FRONTEND_ORIGIN: 'http://localhost:5173',
+});
+
+const resendBase = (): Record<string, unknown> => ({
+  ...validBase(),
   EMAIL_PROVIDER: 'resend',
   EMAIL_FROM: 'Scale Admin <invites@maksimfrelikh.ru>',
   EMAIL_REPLY_TO: 'frelikhmax@gmail.com',
@@ -66,35 +70,41 @@ describe('validateEnvironment — required vars (BUG-REG-049)', () => {
     );
   });
 
-  it('throws when EMAIL_PROVIDER is missing', () => {
-    const config = validBase();
-    delete config.EMAIL_PROVIDER;
-    assert.throws(() => validateEnvironment(config), /EMAIL_PROVIDER is required/);
-  });
-
   it('throws when EMAIL_PROVIDER is not supported', () => {
     assert.throws(
       () => validateEnvironment({ ...validBase(), EMAIL_PROVIDER: 'sendgrid' }),
-      /EMAIL_PROVIDER must be one of: resend/,
+      /EMAIL_PROVIDER must be one of: disabled, resend/,
     );
   });
 
   it('throws when RESEND_API_KEY is missing for the resend provider', () => {
-    const config = validBase();
+    const config = resendBase();
     delete config.RESEND_API_KEY;
     assert.throws(() => validateEnvironment(config), /RESEND_API_KEY is required/);
   });
 
+  it('throws when EMAIL_FROM is missing for the resend provider', () => {
+    const config = resendBase();
+    delete config.EMAIL_FROM;
+    assert.throws(() => validateEnvironment(config), /EMAIL_FROM is required/);
+  });
+
+  it('throws when EMAIL_REPLY_TO is missing for the resend provider', () => {
+    const config = resendBase();
+    delete config.EMAIL_REPLY_TO;
+    assert.throws(() => validateEnvironment(config), /EMAIL_REPLY_TO is required/);
+  });
+
   it('throws when EMAIL_FROM does not contain an email address', () => {
     assert.throws(
-      () => validateEnvironment({ ...validBase(), EMAIL_FROM: 'Scale Admin' }),
+      () => validateEnvironment({ ...resendBase(), EMAIL_FROM: 'Scale Admin' }),
       /EMAIL_FROM must contain a valid email address/,
     );
   });
 
   it('throws when EMAIL_REPLY_TO does not contain an email address', () => {
     assert.throws(
-      () => validateEnvironment({ ...validBase(), EMAIL_REPLY_TO: 'not-an-address' }),
+      () => validateEnvironment({ ...resendBase(), EMAIL_REPLY_TO: 'not-an-address' }),
       /EMAIL_REPLY_TO must contain a valid email address/,
     );
   });
@@ -124,9 +134,6 @@ describe('validateEnvironment — required vars (BUG-REG-049)', () => {
     assert.match(caught.message, /NODE_ENV is required/);
     assert.match(caught.message, /DATABASE_URL is required/);
     assert.match(caught.message, /FRONTEND_ORIGIN is required/);
-    assert.match(caught.message, /EMAIL_PROVIDER is required/);
-    assert.match(caught.message, /EMAIL_FROM is required/);
-    assert.match(caught.message, /EMAIL_REPLY_TO is required/);
     assert.match(caught.message, /PORT is required/);
   });
 });
@@ -180,10 +187,10 @@ describe('validateEnvironment — happy path and defaults', () => {
     assert.equal(result.NODE_ENV, 'development');
     assert.equal(result.PORT, 3000);
     assert.equal(result.FRONTEND_ORIGIN, 'http://localhost:5173');
-    assert.equal(result.EMAIL_PROVIDER, 'resend');
-    assert.equal(result.EMAIL_FROM, 'Scale Admin <invites@maksimfrelikh.ru>');
-    assert.equal(result.EMAIL_REPLY_TO, 'frelikhmax@gmail.com');
-    assert.equal(result.RESEND_API_KEY, 're_test_placeholder');
+    assert.equal(result.EMAIL_PROVIDER, 'disabled');
+    assert.equal(result.EMAIL_FROM, '');
+    assert.equal(result.EMAIL_REPLY_TO, '');
+    assert.equal(result.RESEND_API_KEY, '');
     assert.equal(result.SESSION_COOKIE_NAME, 'scale_admin_session');
     assert.equal(result.SESSION_IDLE_TIMEOUT_MINUTES, 30);
     assert.equal(result.SESSION_ABSOLUTE_TIMEOUT_DAYS, 14);
@@ -195,6 +202,15 @@ describe('validateEnvironment — happy path and defaults', () => {
     assert.equal(result.AUTH_FAILED_LOGIN_MAX_ATTEMPTS, 5);
     assert.equal(result.AUTH_FAILED_LOGIN_LOCK_MINUTES, 15);
     assert.equal(result.PASSWORD_RESET_TOKEN_TTL_MINUTES, 60);
+  });
+
+  it('accepts resend provider when all required email vars are populated', () => {
+    const result = validateEnvironment(resendBase());
+
+    assert.equal(result.EMAIL_PROVIDER, 'resend');
+    assert.equal(result.EMAIL_FROM, 'Scale Admin <invites@maksimfrelikh.ru>');
+    assert.equal(result.EMAIL_REPLY_TO, 'frelikhmax@gmail.com');
+    assert.equal(result.RESEND_API_KEY, 're_test_placeholder');
   });
 
   it('lower-cases CSRF_HEADER_NAME when explicitly set with mixed case', () => {

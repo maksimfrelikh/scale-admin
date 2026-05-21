@@ -30,10 +30,10 @@ services:
       PORT: ${PORT:-3000}
       DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required — copy .env.example to .env and populate it before running compose}
       FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:5173}
-      EMAIL_PROVIDER: ${EMAIL_PROVIDER:?EMAIL_PROVIDER is required — set EMAIL_PROVIDER=resend in .env}
-      EMAIL_FROM: ${EMAIL_FROM:?EMAIL_FROM is required — set the verified sender in .env}
-      EMAIL_REPLY_TO: ${EMAIL_REPLY_TO:?EMAIL_REPLY_TO is required — set the reply-to mailbox in .env}
-      RESEND_API_KEY: ${RESEND_API_KEY:?RESEND_API_KEY is required for EMAIL_PROVIDER=resend — set it only in backend/server env}
+      EMAIL_PROVIDER: ${EMAIL_PROVIDER:-disabled}
+      EMAIL_FROM: ${EMAIL_FROM:-}
+      EMAIL_REPLY_TO: ${EMAIL_REPLY_TO:-}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
       SESSION_COOKIE_NAME: ${SESSION_COOKIE_NAME:-scale_admin_session}
       SESSION_IDLE_TIMEOUT_MINUTES: ${SESSION_IDLE_TIMEOUT_MINUTES:-30}
       SESSION_ABSOLUTE_TIMEOUT_DAYS: ${SESSION_ABSOLUTE_TIMEOUT_DAYS:-14}
