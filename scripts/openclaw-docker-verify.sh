@@ -28,6 +28,7 @@ info "docker-compose.override.yml intentionally ignored"
 docker version >/dev/null 2>&1 || fail "docker daemon unavailable or permission denied"
 docker compose version >/dev/null 2>&1 || fail "docker compose unavailable"
 
+# shellcheck disable=SC2317,SC2329  # invoked via 'trap cleanup EXIT' below; shellcheck does not trace trap callbacks
 cleanup() {
   docker compose -f docker-compose.yml stop backend >/dev/null 2>&1 || true
   docker compose -f docker-compose.yml up -d backend >/dev/null 2>&1 || true
@@ -38,7 +39,7 @@ docker compose -f docker-compose.yml up --build -d || fail "docker compose up fa
 
 docker compose -f docker-compose.yml ps || fail "docker compose ps failed"
 
-for i in {1..30}; do
+for _ in {1..30}; do
   if curl -fsS http://localhost:3000/api/health >/dev/null 2>&1; then
     BACKEND_OK=1
     break
@@ -47,7 +48,7 @@ for i in {1..30}; do
 done
 [ "${BACKEND_OK:-0}" = "1" ] || fail "backend health did not return 200"
 
-for i in {1..30}; do
+for _ in {1..30}; do
   if curl -fsS http://localhost:5173/ >/dev/null 2>&1; then
     FRONTEND_OK=1
     break
@@ -66,7 +67,7 @@ curl -fsS http://localhost:5173/ >/dev/null 2>&1 || fail "frontend did not serve
 
 docker compose -f docker-compose.yml up -d backend >/dev/null || fail "failed to restart backend"
 
-for i in {1..30}; do
+for _ in {1..30}; do
   if curl -fsS http://localhost:3000/api/health >/dev/null 2>&1; then
     BACKEND_RESTART_OK=1
     break

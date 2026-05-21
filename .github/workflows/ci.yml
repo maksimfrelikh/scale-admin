@@ -76,6 +76,9 @@ jobs:
         run: npm ci
       - name: prisma validate
         working-directory: backend
+        env:
+          # prisma validate only parses env, no DB connection is opened.
+          DATABASE_URL: postgresql://x:x@localhost:5432/x?schema=public
         run: npx prisma validate
 
   shell-lint:
@@ -128,7 +131,7 @@ jobs:
       - name: Install gitleaks
         run: |
           set -euo pipefail
-          GITLEAKS_VERSION=8.18.4
+          GITLEAKS_VERSION=8.28.0
           curl -sSL \
             "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
             -o /tmp/gitleaks.tgz
