@@ -11,10 +11,12 @@ import {
 } from './shared/api/backendApi';
 import {
   useAcceptInviteMutation,
+  useConfirmPasswordResetMutation,
   useGetCsrfTokenQuery,
   useGetSessionQuery,
   useLoginMutation,
   useLogoutMutation,
+  useRequestPasswordResetMutation,
   type AuthUser,
 } from './features/auth/authApi';
 import {
@@ -153,7 +155,15 @@ function HealthStatus() {
   );
 }
 
-function LoginScreen({ notice, onLoginSuccess }: { notice?: string | null; onLoginSuccess?: () => void }) {
+function LoginScreen({
+  notice,
+  onForgotPassword,
+  onLoginSuccess,
+}: {
+  notice?: string | null;
+  onForgotPassword: () => void;
+  onLoginSuccess?: () => void;
+}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
@@ -243,17 +253,21 @@ function LoginScreen({ notice, onLoginSuccess }: { notice?: string | null; onLog
             {loginLoading ? 'Входим...' : 'Login'}
           </button>
         </form>
-        <p className="login-help-note">Забыли пароль? Обратитесь к администратору.</p>
+        <p className="login-help-note">
+          <button className="link-button" type="button" onClick={onForgotPassword}>
+            Forgot password?
+          </button>
+        </p>
       </section>
     </main>
   );
 }
 
-function readInviteTokenFromQuery() {
+function readAuthTokenFromQuery() {
   return new URLSearchParams(window.location.search).get('token')?.trim() ?? '';
 }
 
-function removeInviteTokenFromUrl() {
+function removeAuthTokenFromUrl() {
   const currentUrl = new URL(window.location.href);
   if (!currentUrl.searchParams.has('token')) {
     return;
@@ -310,17 +324,17 @@ function AcceptInviteScreen({
   onAccepted,
   onBackToLogin,
 }: {
-  onAccepted: (message: string) => void;
+  onAccepted: () => void;
   onBackToLogin: () => void;
 }) {
-  const [inviteToken] = useState(readInviteTokenFromQuery);
+  const [inviteToken] = useState(readAuthTokenFromQuery);
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
   const { data: csrf, isLoading: csrfLoading, error: csrfError, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [acceptInvite, { isLoading: acceptLoading }] = useAcceptInviteMutation();
 
-  useEffect(removeInviteTokenFromUrl, []);
+  useEffect(removeAuthTokenFromUrl, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -348,7 +362,7 @@ function AcceptInviteScreen({
     }
 
     try {
-      const result = await acceptInvite({
+      await acceptInvite({
         token: inviteToken,
         password,
         csrfToken: csrfData.csrfToken,
@@ -356,7 +370,7 @@ function AcceptInviteScreen({
       }).unwrap();
       setPassword('');
       setPasswordConfirm('');
-      onAccepted('Invitation accepted for ' + result.user.email + '. Sign in with your new password.');
+      onAccepted();
     } catch (error) {
       setFormError(acceptInviteErrorMessage(error));
     }
@@ -411,6 +425,240 @@ function AcceptInviteScreen({
 
           <button type="submit" disabled={submitDisabled}>
             {acceptLoading ? 'Accepting...' : 'Set password'}
+          </button>
+          <button className="secondary-button" type="button" onClick={onBackToLogin}>
+            Back to login
+          </button>
+        </form>
+      </section>
+    </main>
+  );
+}
+
+function passwordResetRequestErrorMessage(error: unknown) {
+  if (!isApiError(error)) {
+    return 'Password reset could not be requested. Check the email and try again.';
+  }
+
+  if (error.status === 400 && error.message.toLowerCase().includes('email')) {
+    return 'Enter a valid email address.';
+  }
+
+  return error.message;
+}
+
+function passwordResetConfirmErrorMessage(error: unknown) {
+  if (!isApiError(error)) {
+    return 'Password could not be updated. Check the link and try again.';
+  }
+
+  if (error.status === 409) {
+    return 'This password reset link has already been used. Request a new reset link if you still need access.';
+  }
+
+  if (error.status === 400 || error.status === 404) {
+    const backendMessage = error.message.toLowerCase();
+    if (backendMessage.includes('expired')) {
+      return 'This password reset link has expired. Request a new reset link.';
+    }
+    if (backendMessage.includes('password')) {
+      return 'Password must be at least 8 characters.';
+    }
+    if (backendMessage.includes('token') || backendMessage.includes('invalid')) {
+      return 'This password reset link is invalid. Request a new reset link.';
+    }
+  }
+
+  return error.message;
+}
+
+function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => void }) {
+  const [email, setEmail] = useState('');
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const { data: csrf, isLoading: csrfLoading, error: csrfError, refetch: refetchCsrf } = useGetCsrfTokenQuery();
+  const [requestPasswordReset, { isLoading: requestLoading }] = useRequestPasswordResetMutation();
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setFormError(null);
+    setSubmitted(false);
+
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) {
+      setFormError('Enter a valid email address.');
+      return;
+    }
+
+    const csrfData = csrf ?? (await refetchCsrf()).data;
+    if (!csrfData) {
+      setFormError('Could not prepare the protected form. Refresh the page and try again.');
+      return;
+    }
+
+    try {
+      await requestPasswordReset({
+        email: trimmedEmail,
+        csrfToken: csrfData.csrfToken,
+        csrfHeaderName: csrfData.headerName,
+      }).unwrap();
+      setSubmitted(true);
+    } catch (error) {
+      setFormError(passwordResetRequestErrorMessage(error));
+    }
+  }
+
+  const csrfErrorMessage = csrfError && 'message' in csrfError ? csrfError.message : null;
+
+  return (
+    <main className="auth-shell">
+      <section className="login-card" aria-labelledby="password-reset-request-title">
+        <p className="eyebrow">Scale Admin</p>
+        <h1 id="password-reset-request-title">Reset password</h1>
+        <p className="description">Enter the email for your account and we will send reset instructions if it is active.</p>
+
+        {submitted && (
+          <div className="status status-ok" role="status">
+            If that email belongs to an active account, reset instructions have been sent.
+          </div>
+        )}
+
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label>
+            Email
+            <input
+              autoComplete="email"
+              name="email"
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="admin@example.com"
+              type="email"
+              value={email}
+            />
+          </label>
+
+          {(formError || csrfErrorMessage) && (
+            <div className="form-error" role="alert">
+              {formError ?? csrfErrorMessage}
+            </div>
+          )}
+
+          <button type="submit" disabled={csrfLoading || requestLoading}>
+            {requestLoading ? 'Sending...' : 'Send reset link'}
+          </button>
+          <button className="secondary-button" type="button" onClick={onBackToLogin}>
+            Back to login
+          </button>
+        </form>
+      </section>
+    </main>
+  );
+}
+
+function PasswordResetConfirmScreen({
+  onBackToLogin,
+  onConfirmed,
+}: {
+  onBackToLogin: () => void;
+  onConfirmed: () => void;
+}) {
+  const [resetToken] = useState(readAuthTokenFromQuery);
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [formError, setFormError] = useState<string | null>(null);
+  const { data: csrf, isLoading: csrfLoading, error: csrfError, refetch: refetchCsrf } = useGetCsrfTokenQuery();
+  const [confirmPasswordReset, { isLoading: confirmLoading }] = useConfirmPasswordResetMutation();
+
+  useEffect(removeAuthTokenFromUrl, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setFormError(null);
+
+    if (!resetToken) {
+      setFormError('This password reset link is missing its token. Request a new reset link.');
+      return;
+    }
+
+    if (password.length < 8) {
+      setFormError('Password must be at least 8 characters.');
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      setFormError('Passwords do not match.');
+      return;
+    }
+
+    const csrfData = csrf ?? (await refetchCsrf()).data;
+    if (!csrfData) {
+      setFormError('Could not prepare the protected form. Refresh the page and try again.');
+      return;
+    }
+
+    try {
+      await confirmPasswordReset({
+        token: resetToken,
+        password,
+        csrfToken: csrfData.csrfToken,
+        csrfHeaderName: csrfData.headerName,
+      }).unwrap();
+      setPassword('');
+      setPasswordConfirm('');
+      onConfirmed();
+    } catch (error) {
+      setFormError(passwordResetConfirmErrorMessage(error));
+    }
+  }
+
+  const csrfErrorMessage = csrfError && 'message' in csrfError ? csrfError.message : null;
+  const submitDisabled = csrfLoading || confirmLoading || !resetToken;
+
+  return (
+    <main className="auth-shell">
+      <section className="login-card" aria-labelledby="password-reset-confirm-title">
+        <p className="eyebrow">Scale Admin</p>
+        <h1 id="password-reset-confirm-title">Set new password</h1>
+        <p className="description">Choose a new password for your account.</p>
+
+        {!resetToken && (
+          <div className="form-error" role="alert">
+            This password reset link is missing its token. Request a new reset link.
+          </div>
+        )}
+
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label>
+            New password
+            <input
+              autoComplete="new-password"
+              name="password"
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="At least 8 characters"
+              type="password"
+              value={password}
+            />
+          </label>
+
+          <label>
+            Confirm password
+            <input
+              autoComplete="new-password"
+              name="password-confirm"
+              onChange={(event) => setPasswordConfirm(event.target.value)}
+              placeholder="Repeat password"
+              type="password"
+              value={passwordConfirm}
+            />
+          </label>
+
+          {(formError || csrfErrorMessage) && (
+            <div className="form-error" role="alert">
+              {formError ?? csrfErrorMessage}
+            </div>
+          )}
+
+          <button type="submit" disabled={submitDisabled}>
+            {confirmLoading ? 'Updating...' : 'Update password'}
           </button>
           <button className="secondary-button" type="button" onClick={onBackToLogin}>
             Back to login
@@ -3473,14 +3721,44 @@ function Dashboard({ user }: { user: AuthUser }) {
   );
 }
 
+type LoginNoticeKind = 'inviteAccepted' | 'passwordReset';
+
+function normalizedPathname(pathname: string) {
+  return pathname.replace(/\/+$/, '') || '/';
+}
+
 function isAcceptInvitePath(pathname: string) {
-  return pathname.replace(/\/+$/, '') === '/accept-invite';
+  return normalizedPathname(pathname) === '/accept-invite';
+}
+
+function isPasswordResetRequestPath(pathname: string) {
+  const routePath = normalizedPathname(pathname);
+  return routePath === '/forgot-password' || routePath === '/password-reset';
+}
+
+function isPasswordResetConfirmPath(pathname: string) {
+  return normalizedPathname(pathname) === '/reset-password';
 }
 
 function loginNoticeFromQuery() {
-  return new URLSearchParams(window.location.search).get('inviteAccepted') === '1'
-    ? 'Invitation accepted. Sign in with your new password.'
-    : null;
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.get('passwordReset') === '1') {
+    return 'Password updated. Sign in with your new password.';
+  }
+  if (searchParams.get('inviteAccepted') === '1') {
+    return 'Invitation accepted. Sign in with your new password.';
+  }
+  return null;
+}
+
+function loginNoticeRoute(notice?: LoginNoticeKind) {
+  if (notice === 'passwordReset') {
+    return '/?passwordReset=1';
+  }
+  if (notice === 'inviteAccepted') {
+    return '/?inviteAccepted=1';
+  }
+  return '/';
 }
 
 function App() {
@@ -3503,8 +3781,11 @@ function App() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
   const [loginNotice, setLoginNotice] = useState<string | null>(loginNoticeFromQuery);
   const acceptInviteRouteActive = isAcceptInvitePath(pathname);
+  const passwordResetRequestRouteActive = isPasswordResetRequestPath(pathname);
+  const passwordResetConfirmRouteActive = isPasswordResetConfirmPath(pathname);
+  const publicAuthRouteActive = acceptInviteRouteActive || passwordResetRequestRouteActive || passwordResetConfirmRouteActive;
   const { data: session, isLoading, isFetching, error } = useGetSessionQuery(undefined, {
-    skip: acceptInviteRouteActive,
+    skip: publicAuthRouteActive,
   });
   const hasActiveSession = Boolean(session?.user);
 
@@ -3518,14 +3799,21 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  function routeToLogin(notice?: string) {
-    window.history.replaceState(null, '', notice ? '/?inviteAccepted=1' : '/');
+  function routeToLogin(notice?: LoginNoticeKind) {
+    window.history.replaceState(null, '', loginNoticeRoute(notice));
     setPathname('/');
-    setLoginNotice(notice ?? null);
+    setLoginNotice(loginNoticeFromQuery());
+  }
+
+  function routeToPasswordResetRequest() {
+    window.history.pushState(null, '', '/forgot-password');
+    setPathname('/forgot-password');
+    setLoginNotice(null);
   }
 
   function clearLoginNoticeAfterLogin() {
-    if (new URLSearchParams(window.location.search).has('inviteAccepted')) {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('inviteAccepted') || searchParams.has('passwordReset')) {
       window.history.replaceState(null, '', '/');
       setPathname('/');
     }
@@ -3535,8 +3823,21 @@ function App() {
   if (acceptInviteRouteActive) {
     return (
       <AcceptInviteScreen
-        onAccepted={routeToLogin}
+        onAccepted={() => routeToLogin('inviteAccepted')}
         onBackToLogin={() => routeToLogin()}
+      />
+    );
+  }
+
+  if (passwordResetRequestRouteActive) {
+    return <PasswordResetRequestScreen onBackToLogin={() => routeToLogin()} />;
+  }
+
+  if (passwordResetConfirmRouteActive) {
+    return (
+      <PasswordResetConfirmScreen
+        onBackToLogin={() => routeToLogin()}
+        onConfirmed={() => routeToLogin('passwordReset')}
       />
     );
   }
@@ -3554,7 +3855,13 @@ function App() {
   }
 
   if (!hasActiveSession || loginNotice) {
-    return <LoginScreen notice={loginNotice} onLoginSuccess={clearLoginNoticeAfterLogin} />;
+    return (
+      <LoginScreen
+        notice={loginNotice}
+        onForgotPassword={routeToPasswordResetRequest}
+        onLoginSuccess={clearLoginNoticeAfterLogin}
+      />
+    );
   }
 
   return <Dashboard user={session!.user} />;

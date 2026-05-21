@@ -63,6 +63,30 @@ export type AcceptInviteResponse = {
   };
 };
 
+export type RequestPasswordResetRequest = {
+  email: string;
+  csrfToken: string;
+  csrfHeaderName: string;
+};
+
+export type RequestPasswordResetResponse = {
+  accepted: boolean;
+  tokenExpiresAt: string;
+};
+
+export type ConfirmPasswordResetRequest = {
+  token: string;
+  password: string;
+  csrfToken: string;
+  csrfHeaderName: string;
+};
+
+export type ConfirmPasswordResetResponse = {
+  reset: boolean;
+  passwordChangedAt: string;
+  sessionsRevoked: boolean;
+};
+
 export type LogoutRequest = {
   csrfToken: string;
   csrfHeaderName: string;
@@ -111,6 +135,26 @@ export const authApi = backendApi.injectEndpoints({
     acceptInvite: builder.mutation<AcceptInviteResponse, AcceptInviteRequest>({
       query: ({ token, password, csrfToken, csrfHeaderName }) => ({
         url: '/auth/invites/accept',
+        method: 'POST',
+        headers: {
+          [csrfHeaderName]: csrfToken,
+        },
+        body: { token, password },
+      }),
+    }),
+    requestPasswordReset: builder.mutation<RequestPasswordResetResponse, RequestPasswordResetRequest>({
+      query: ({ email, csrfToken, csrfHeaderName }) => ({
+        url: '/auth/password-reset/request',
+        method: 'POST',
+        headers: {
+          [csrfHeaderName]: csrfToken,
+        },
+        body: { email },
+      }),
+    }),
+    confirmPasswordReset: builder.mutation<ConfirmPasswordResetResponse, ConfirmPasswordResetRequest>({
+      query: ({ token, password, csrfToken, csrfHeaderName }) => ({
+        url: '/auth/password-reset/confirm',
         method: 'POST',
         headers: {
           [csrfHeaderName]: csrfToken,
@@ -179,8 +223,10 @@ export const authApi = backendApi.injectEndpoints({
 
 export const {
   useAcceptInviteMutation,
+  useConfirmPasswordResetMutation,
   useGetCsrfTokenQuery,
   useGetSessionQuery,
   useLoginMutation,
   useLogoutMutation,
+  useRequestPasswordResetMutation,
 } = authApi;

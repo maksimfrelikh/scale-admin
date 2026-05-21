@@ -189,6 +189,11 @@ input:focus {
   text-align: center;
 }
 
+.login-help-note .link-button {
+  margin: 0;
+  font-size: inherit;
+}
+
 button {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
