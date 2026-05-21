@@ -147,6 +147,11 @@ input:focus {
   background: #f8faff;
 }
 
+.login-card > .status,
+.login-card > .form-error {
+  margin-bottom: 1rem;
+}
+
 .status-ok {
   color: #0d6832;
   border-color: #9edbb4;

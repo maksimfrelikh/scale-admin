@@ -45,6 +45,24 @@ export type LoginRequest = {
   csrfHeaderName: string;
 };
 
+export type AcceptInviteRequest = {
+  token: string;
+  password: string;
+  csrfToken: string;
+  csrfHeaderName: string;
+};
+
+export type AcceptInviteResponse = {
+  user: AuthUser;
+  invite: {
+    id: string;
+    email: string;
+    role: UserRole;
+    expiresAt: string;
+    acceptedAt: string | null;
+  };
+};
+
 export type LogoutRequest = {
   csrfToken: string;
   csrfHeaderName: string;
@@ -89,6 +107,16 @@ export const authApi = backendApi.injectEndpoints({
         }
       },
       invalidatesTags: ['Session'],
+    }),
+    acceptInvite: builder.mutation<AcceptInviteResponse, AcceptInviteRequest>({
+      query: ({ token, password, csrfToken, csrfHeaderName }) => ({
+        url: '/auth/invites/accept',
+        method: 'POST',
+        headers: {
+          [csrfHeaderName]: csrfToken,
+        },
+        body: { token, password },
+      }),
     }),
     logout: builder.mutation<{ revoked: boolean }, LogoutRequest>({
       async queryFn({ csrfToken, csrfHeaderName }, _queryApi, _extraOptions, baseQuery) {
@@ -150,6 +178,7 @@ export const authApi = backendApi.injectEndpoints({
 });
 
 export const {
+  useAcceptInviteMutation,
   useGetCsrfTokenQuery,
   useGetSessionQuery,
   useLoginMutation,
