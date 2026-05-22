@@ -314,7 +314,7 @@ export class ScalesService {
         select: { id: true },
       });
       if (!existingVersion) {
-        unknownRequestedVersionMessage = `unknown requestedVersionId: ${requestedVersionId}`;
+        unknownRequestedVersionMessage = `Неизвестная версия каталога в requestedVersionId: ${requestedVersionId}`;
         requestedVersionId = null;
       }
     }

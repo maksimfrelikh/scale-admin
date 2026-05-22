@@ -163,7 +163,7 @@ export class StoresService {
             ? await tx.storeCatalog.create({
                 data: {
                   storeId: store.id,
-                  name: 'Main catalog',
+                  name: 'Основной каталог',
                   status: 'active',
                 },
               })

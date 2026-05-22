@@ -885,11 +885,11 @@ function LogsFiltersForm({
       )}
       <label>
         Тип сущности
-        <input value={filters.entityType ?? ''} onChange={(event) => setFilter('entityType', event.target.value)} placeholder="product, store, scale_device…" />
+        <input value={filters.entityType ?? ''} onChange={(event) => setFilter('entityType', event.target.value)} placeholder="товар, магазин, весы…" />
       </label>
       <label>
         Действие / статус аудита
-        <input value={filters.action ?? ''} onChange={(event) => setFilter('action', event.target.value)} placeholder="created, updated, login…" />
+        <input value={filters.action ?? ''} onChange={(event) => setFilter('action', event.target.value)} placeholder="создание, изменение, вход…" />
       </label>
       <label>
         Статус синхронизации
