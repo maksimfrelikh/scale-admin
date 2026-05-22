@@ -22,7 +22,7 @@ export type ApiError = {
   data?: BackendErrorData;
 };
 
-const backendBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
+const backendBaseUrl = import.meta.env.VITE_API_BASE_URL ?? '';
 const authSessionEventName = 'scale-admin:auth-session-event';
 const storeListChangedEventName = 'scale-admin:store-list-changed-event';
 
