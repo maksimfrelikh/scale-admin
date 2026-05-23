@@ -89,7 +89,7 @@ async function testHappyPath() {
 
   assert.equal(auditCreated.length, 1, 'one audit log row created');
   const audit = auditCreated[0];
-  assert.equal(audit.action, 'user.invite.cancelled');
+  assert.equal(audit.action, 'user_invite.cancelled');
   assert.equal(audit.entityType, 'UserInvite');
   assert.equal(audit.entityId, INVITE_ID);
   assert.equal(audit.actorUserId, ACTOR_ID);

@@ -310,7 +310,7 @@ export class UsersService {
       await this.auditLogs.create(tx, {
         data: {
           actorUserId,
-          action: 'user.invite.cancelled',
+          action: 'user_invite.cancelled',
           entityType: 'UserInvite',
           entityId: invite.id,
           beforeData: {

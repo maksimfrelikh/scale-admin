@@ -142,7 +142,7 @@ async function testUnknownRequestedVersionIdTreatedAsStale() {
   assert.equal(log.deliveredVersionId, currentVersionId);
   assert.ok(typeof log.errorMessage === 'string' && log.errorMessage.includes(unknownVersionId),
     'errorMessage must preserve the original unknown UUID');
-  assert.ok(log.errorMessage.startsWith('unknown requestedVersionId:'),
+  assert.ok(log.errorMessage.startsWith('Неизвестная версия каталога в requestedVersionId:'),
     'errorMessage must use the agreed prefix');
 }
 

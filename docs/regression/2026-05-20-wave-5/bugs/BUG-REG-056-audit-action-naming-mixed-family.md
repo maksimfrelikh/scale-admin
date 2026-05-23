@@ -1,6 +1,6 @@
 # BUG-REG-056 — Audit-action naming mixed family (`user.invite.cancelled` vs `user_invite.*`)
 
-**Status:** OPEN — decision logged 2026-05-20, code rename deferred
+**Status:** IMPLEMENTED — pending PR review/merge (2026-05-23)
 **Severity:** low (cleanup, not a functional defect)
 **Area:** backend (audit-log action vocabulary)
 **Origin:** Wave 5 closure regression — SUMMARY side finding #2 (`docs/regression/2026-05-20-wave-5/SUMMARY.md` lines 141-146).
@@ -9,7 +9,13 @@
 
 - **Family chosen: (A) snake_prefix** — `user_invite.cancelled` (and any future `user_invite.*` actions). Per Maksim approval.
 - **Rationale:** aligns with the pre-existing `user_invite.created` / `user_invite.accepted` family already on the wire. The dot-prefix `user.invite.cancelled` introduced by [[BUG-REG-046]] is the outlier; normalizing it to snake_prefix keeps a single canonical family and avoids breaking any "all invite actions" prefix-match for filter consumers.
-- **Code rename: deferred** — not in this PR. A separate cleanup ticket may be filed if/when the rename is scheduled; historical AuditLog rows are left as-is (forward-only fix, consistent with the "Discovery checklist" item 4 note below).
+- **Code rename: implemented 2026-05-23** — `UsersService.cancelInvite` now emits `user_invite.cancelled`. Historical AuditLog rows are left as-is; this is a forward-only fix.
+
+## Implementation (2026-05-23)
+
+- Changed the invite-cancel audit action from `user.invite.cancelled` to `user_invite.cancelled`.
+- Updated `backend/test/users-invite-cancel-check.js` to lock the canonical action family.
+- No data migration was added; historical rows keep their original action strings.
 
 ## Scope (from SUMMARY side finding #2, verbatim)
 
@@ -32,9 +38,9 @@ Audit-log action strings are increasingly used as filter keys in `/api/logs/glob
 
 ## Acceptance criteria
 
-- [ ] All new invite-related audit events use one consistent prefix family across create / accept / cancel.
-- [ ] Decision logged in this stub (or in `docs/dev-tasks/`) before the rename lands — PRD literal vs cleanup needs Maksim's sign-off.
-- [ ] If a data migration runs over historical rows, it's reversible and dry-run-tested on staging first.
+- [x] All new invite-related audit events use one consistent prefix family across create / accept / cancel.
+- [x] Decision logged in this stub (or in `docs/dev-tasks/`) before the rename lands — PRD literal vs cleanup needs Maksim's sign-off.
+- [x] No data migration runs over historical rows; forward-only behavior is documented.
 
 ## Out of scope
 
