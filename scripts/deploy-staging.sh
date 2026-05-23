@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deploy / restart staging stack
-# Usage: ./scripts/deploy-staging.sh [build|up|down|logs|restart|seed|psql]
+# Usage: ./scripts/deploy-staging.sh [deploy|build|up|down|logs|restart|seed|psql]
 
 set -e
 
@@ -12,17 +12,47 @@ ENV_FILE=(--env-file .env.staging)
 
 ACTION="${1:-up}"
 
+resolve_version_metadata() {
+  if [ -z "${BUILD_SHA:-}" ]; then
+    BUILD_SHA="$(git rev-parse --short HEAD)"
+  fi
+  if [ -z "${BUILT_AT:-}" ]; then
+    BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  fi
+  export BUILD_SHA BUILT_AT
+}
+
+print_version_metadata() {
+  echo "[deploy-staging] BUILD_SHA=$BUILD_SHA BUILT_AT=$BUILT_AT"
+}
+
+build_images() {
+  resolve_version_metadata
+  echo "[deploy-staging] Building images..."
+  print_version_metadata
+  docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" build --no-cache
+}
+
+start_stack() {
+  resolve_version_metadata
+  echo "[deploy-staging] Starting stack..."
+  print_version_metadata
+  docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" up -d
+  echo ""
+  echo "[deploy-staging] Stack status:"
+  docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" ps
+}
+
 case "$ACTION" in
+  deploy)
+    build_images
+    start_stack
+    ;;
   build)
-    echo "[deploy-staging] Building images..."
-    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" build --no-cache
+    build_images
     ;;
   up)
-    echo "[deploy-staging] Starting stack..."
-    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" up -d
-    echo ""
-    echo "[deploy-staging] Stack status:"
-    docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" ps
+    start_stack
     ;;
   down)
     echo "[deploy-staging] Stopping stack (volumes preserved)..."
@@ -58,11 +88,12 @@ case "$ACTION" in
     docker compose "${COMPOSE_FILES[@]}" "${ENV_FILE[@]}" -p "$PROJECT" ps
     ;;
   *)
-    echo "Usage: $0 [build|up|down|reset|logs|restart|seed|psql|ps]"
+    echo "Usage: $0 [deploy|build|up|down|reset|logs|restart|seed|psql|ps]"
     echo ""
     echo "Common workflows:"
+    echo "  Deploy code:  ./scripts/deploy-staging.sh deploy"
     echo "  First time:   ./scripts/deploy-staging.sh build && ./scripts/deploy-staging.sh up"
-    echo "  Update code:  git pull && ./scripts/deploy-staging.sh build && ./scripts/deploy-staging.sh up"
+    echo "  Update code:  git pull && ./scripts/deploy-staging.sh deploy"
     echo "  Check logs:   ./scripts/deploy-staging.sh logs backend"
     echo "  Reset DB:     ./scripts/deploy-staging.sh reset"
     exit 1
