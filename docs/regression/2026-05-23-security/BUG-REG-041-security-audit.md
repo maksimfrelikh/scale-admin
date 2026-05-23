@@ -30,7 +30,7 @@ Scope: current `main` at `d822052` plus this PR diff. This is an MVP hardening p
 ## Deferred findings
 
 - BUG-REG-065: password hashing currently uses PBKDF2-SHA512, while the stricter baseline asks for Argon2id or bcrypt. This needs a compatibility and rehash rollout, so it is not a safe micro-fix.
-- BUG-REG-066: production invite/password-reset responses omit raw tokens, but non-production responses can still include raw invite/reset tokens to support local verification with disabled email. Tightening this needs a replacement QA/local delivery path.
+- BUG-REG-066: non-production raw invite/password-reset response tokens were deferred from this audit and are handled in `docs/regression/2026-05-23-security/BUG-REG-066-nonprod-raw-auth-token-responses.md`.
 
 ## Manual review points
 

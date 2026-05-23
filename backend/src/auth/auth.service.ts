@@ -335,7 +335,6 @@ export class AuthService {
         acceptedAt: invite.acceptedAt?.toISOString() ?? null,
         createdAt: invite.createdAt.toISOString(),
       },
-      ...(this.appConfig.nodeEnv === 'production' ? {} : { token }),
     };
   }
 
@@ -500,7 +499,6 @@ export class AuthService {
     return {
       accepted: true,
       tokenExpiresAt: resetToken.expiresAt.toISOString(),
-      ...(this.appConfig.nodeEnv === 'production' ? {} : { token }),
     };
   }
 

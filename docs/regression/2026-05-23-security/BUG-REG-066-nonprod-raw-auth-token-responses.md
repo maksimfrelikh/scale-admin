@@ -1,6 +1,6 @@
 # BUG-REG-066 — Remove non-production raw invite/reset token responses
 
-Status: deferred from BUG-REG-041
+Status: implemented in branch bug-reg-066-remove-raw-auth-token-responses; validation passed
 
 ## Finding
 
@@ -16,3 +16,17 @@ The current non-production behavior exists to support local/manual verification 
 - Remove raw `token` fields from invite and password-reset API responses in every environment.
 - Update frontend types, local docs, and regression scripts that assume non-production raw-token responses.
 - Add a regression check that response keys never include raw invite/reset token fields.
+
+## Implementation notes
+
+- Replacement verification path: backend tests use an explicit test-only email-service harness that captures the outgoing one-time token before delivery; manual end-to-end verification should use a real email provider/test mailbox rather than an API response token.
+- Raw `token` fields are removed from invite and password-reset API responses in every environment.
+- Frontend types already model the tokenless response shape.
+- Regression coverage: `backend/src/auth/auth.service.spec.ts` asserts invite/password-reset responses never include raw auth token fields while the email delivery path still receives the generated token.
+
+## Verification
+
+- `git diff --check` passed.
+- `npm --prefix backend run build` passed.
+- `node --test --experimental-strip-types 'src/**/*.spec.ts'` passed: 120 tests, 0 failures.
+- `npm --prefix frontend run build` passed.
