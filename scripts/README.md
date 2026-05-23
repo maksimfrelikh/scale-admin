@@ -8,6 +8,7 @@ for anything that needs setup beyond `./scripts/<name>.sh`.
 
 | Script | Purpose |
 | --- | --- |
+| `backup-postgres.sh` | Create a timestamped custom-format PostgreSQL dump from the Compose postgres service. |
 | `deploy-staging.sh` | Build / start / stop / restart the staging compose stack. |
 | `docker-prune.sh` | Weekly Docker build-cache + image retention pruning (see below). |
 | `docker-prune.cron` | Cron snippet that invokes `docker-prune.sh` on a weekly schedule. |
@@ -15,7 +16,29 @@ for anything that needs setup beyond `./scripts/<name>.sh`.
 | `openclaw-after-task-check.sh` | Post-task verification used by OpenClaw automation. |
 | `openclaw-docker-verify.sh` | Verify Docker-side state for OpenClaw automation. |
 | `openclaw-preflight.sh` | Preflight checks (JSON-aware) used by OpenClaw automation. |
+| `restore-postgres-smoke.sh` | Restore a dump into disposable PostgreSQL and verify table metadata. |
 | `test-secret-hook.sh` | Test fixture for the gitleaks pre-commit hook. |
+
+## PostgreSQL backups
+
+`backup-postgres.sh` writes custom-format dumps to `./backups/postgres` by
+default, enforces private directory/file permissions, and deletes old matching
+dumps after `BACKUP_RETENTION_DAYS` days. `BACKUP_DRY_RUN=1` checks the Compose
+target and shows the planned output path without creating a dump.
+
+```bash
+./scripts/backup-postgres.sh
+BACKUP_DRY_RUN=1 ./scripts/backup-postgres.sh
+```
+
+`restore-postgres-smoke.sh` only restores into a temporary Docker container with
+no published ports. It never targets the live Compose `postgres` service.
+
+```bash
+./scripts/restore-postgres-smoke.sh backups/postgres/scale-admin-postgres-YYYYMMDDTHHMMSSZ.dump
+```
+
+Full operator notes are in `docs/ops/postgres-backups.md`.
 
 ## docker-prune.sh
 

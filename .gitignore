@@ -9,3 +9,8 @@ npm-debug.log*
 *.tsbuildinfo
 uploads/
 frontend/.env
+
+# Local database/upload backups are operational artifacts, not source.
+backups/
+*.dump
+*.sql.gz
