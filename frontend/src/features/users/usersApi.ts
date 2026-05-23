@@ -26,7 +26,6 @@ export type UserInvite = {
 
 export type CreateInviteResponse = {
   invite: UserInvite;
-  token?: string;
 };
 
 export type StoreAccess = {

@@ -70,6 +70,20 @@ describe('validateEnvironment — required vars (BUG-REG-049)', () => {
     );
   });
 
+  it('throws when FRONTEND_ORIGIN is not an origin-only value', () => {
+    assert.throws(
+      () => validateEnvironment({ ...validBase(), FRONTEND_ORIGIN: 'https://example.com/admin?next=1' }),
+      /FRONTEND_ORIGIN must be an origin without path, query, hash, credentials, or trailing slash/,
+    );
+  });
+
+  it('throws when production FRONTEND_ORIGIN does not use HTTPS', () => {
+    assert.throws(
+      () => validateEnvironment({ ...validBase(), NODE_ENV: 'production', FRONTEND_ORIGIN: 'http://example.com' }),
+      /FRONTEND_ORIGIN must use https:\/\/ when NODE_ENV=production/,
+    );
+  });
+
   it('throws when EMAIL_PROVIDER is not supported', () => {
     assert.throws(
       () => validateEnvironment({ ...validBase(), EMAIL_PROVIDER: 'sendgrid' }),
@@ -172,6 +186,7 @@ describe('validateEnvironment — insecure default password (BUG-REG-049)', () =
     const config = {
       ...validBase(),
       NODE_ENV: 'production',
+      FRONTEND_ORIGIN: 'https://maksimfrelikh.ru',
       DATABASE_URL: 'postgresql://scale_admin:owAfjDYLszWKVyZUYjnr6ZH9yD4MJds@postgres:5432/scale_admin',
     };
     const result = validateEnvironment(config);

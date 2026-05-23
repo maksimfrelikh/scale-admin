@@ -157,6 +157,12 @@ export function validateEnvironment(config: Record<string, unknown>): Environmen
       if (!['http:', 'https:'].includes(url.protocol)) {
         errors.push('FRONTEND_ORIGIN must use the http:// or https:// protocol');
       }
+      if (url.origin !== frontendOrigin) {
+        errors.push('FRONTEND_ORIGIN must be an origin without path, query, hash, credentials, or trailing slash');
+      }
+      if (nodeEnv === 'production' && url.protocol !== 'https:') {
+        errors.push('FRONTEND_ORIGIN must use https:// when NODE_ENV=production');
+      }
     } catch {
       errors.push('FRONTEND_ORIGIN must be a valid URL origin');
     }

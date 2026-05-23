@@ -19,7 +19,6 @@ export class ScaleApiAuthGuard implements CanActivate {
       socket?: { remoteAddress?: string };
       headers?: Record<string, string | string[] | undefined>;
       body?: { deviceCode?: unknown; apiToken?: unknown };
-      query?: { deviceCode?: unknown; apiToken?: unknown };
       scaleDevice?: AuthenticatedScaleDevice;
     }>();
 
@@ -44,7 +43,6 @@ export class ScaleApiAuthGuard implements CanActivate {
     request: {
       headers?: Record<string, string | string[] | undefined>;
       body?: Record<string, unknown>;
-      query?: Record<string, unknown>;
     },
     fieldName: 'deviceCode' | 'apiToken',
     headerName: string,
@@ -57,11 +55,6 @@ export class ScaleApiAuthGuard implements CanActivate {
     const headerValue = getHeader(request, headerName);
     if (headerValue) {
       return headerValue;
-    }
-
-    const queryValue = request.query?.[fieldName];
-    if (typeof queryValue === 'string') {
-      return queryValue;
     }
 
     return '';

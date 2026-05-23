@@ -2,6 +2,8 @@ import { BadRequestException, Controller, Post, Req, UploadedFile, UseGuards, Us
 import { FileInterceptor } from '@nestjs/platform-express';
 import { getHeader } from '../auth/cookie.util';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { RateLimit } from '../auth/rate-limit.decorator';
+import { RateLimitGuard } from '../auth/rate-limit.guard';
 import { RequireRoles } from '../auth/roles.decorator';
 import { RolesGuard } from '../auth/roles.guard';
 import { SessionGuard } from '../auth/session.guard';
@@ -17,12 +19,13 @@ type UploadedMultipartFile = {
 };
 
 @Controller('files')
-@UseGuards(SessionGuard, RolesGuard)
+@UseGuards(SessionGuard, RolesGuard, RateLimitGuard)
 @RequireRoles('admin', 'operator')
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
 
   @Post('images')
+  @RateLimit({ bucket: 'upload' })
   @UseInterceptors(
     FileInterceptor('file', {
       limits: { fileSize: MAX_IMAGE_SIZE_BYTES },

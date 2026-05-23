@@ -3169,7 +3169,7 @@ function InviteForm() {
   const [role, setRole] = useState<AuthUser['role']>('operator');
   const [expiresAt, setExpiresAt] = useState(getDefaultInviteExpiry());
   const [formError, setFormError] = useState<string | null>(null);
-  const [createdInvite, setCreatedInvite] = useState<{ id: string; email: string; token?: string; expiresAt: string } | null>(null);
+  const [createdInvite, setCreatedInvite] = useState<{ id: string; email: string; expiresAt: string } | null>(null);
   const [cancelledInviteEmail, setCancelledInviteEmail] = useState<string | null>(null);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [createInvite, { isLoading }] = useCreateInviteMutation();
@@ -3201,7 +3201,7 @@ function InviteForm() {
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
-      setCreatedInvite({ id: response.invite.id, email: response.invite.email, token: response.token, expiresAt: response.invite.expiresAt });
+      setCreatedInvite({ id: response.invite.id, email: response.invite.email, expiresAt: response.invite.expiresAt });
       setEmail('');
       setFullName('');
       setRole('operator');
@@ -3228,11 +3228,7 @@ function InviteForm() {
       {createdInvite && (
         <div className="status status-ok" role="status">
           Приглашение для <strong>{createdInvite.email}</strong> действует до {formatDateTime(createdInvite.expiresAt)}.<br />
-          {createdInvite.token ? (
-            <>Токен: <code>{createdInvite.token}</code></>
-          ) : (
-            'Приглашение создано. В production токен приглашения не показывается.'
-          )}
+          Письмо с безопасной ссылкой отправлено пользователю.
           <div style={{ marginTop: '0.5rem' }}>
             <button
               type="button"
