@@ -1,0 +1,101 @@
+name: Deploy staging
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-deploy
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    name: Deploy main to staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Check required SSH secrets
+        env:
+          STAGING_SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          STAGING_SSH_USER: ${{ secrets.STAGING_SSH_USER }}
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+        run: |
+          set -euo pipefail
+
+          missing=()
+          [[ -n "${STAGING_SSH_HOST}" ]] || missing+=(STAGING_SSH_HOST)
+          [[ -n "${STAGING_SSH_USER}" ]] || missing+=(STAGING_SSH_USER)
+          [[ -n "${STAGING_SSH_KEY}" ]] || missing+=(STAGING_SSH_KEY)
+
+          if (( ${#missing[@]} > 0 )); then
+            echo "::error::Missing required GitHub secrets: ${missing[*]}"
+            exit 1
+          fi
+
+          if [[ "${STAGING_SSH_USER}" != "clawd" ]]; then
+            echo "::error::STAGING_SSH_USER must be clawd for staging deploys."
+            exit 1
+          fi
+
+      - name: Configure SSH
+        env:
+          STAGING_SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+          STAGING_SSH_PORT: ${{ secrets.STAGING_SSH_PORT }}
+        run: |
+          set -euo pipefail
+
+          SSH_PORT="${STAGING_SSH_PORT:-22}"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "${STAGING_SSH_KEY}" > ~/.ssh/staging_deploy_key
+          chmod 600 ~/.ssh/staging_deploy_key
+
+          if ! ssh-keyscan -p "${SSH_PORT}" -H "${STAGING_SSH_HOST}" 2>/dev/null >> ~/.ssh/known_hosts; then
+            echo "::error::Failed to scan staging SSH host key."
+            exit 1
+          fi
+          chmod 600 ~/.ssh/known_hosts
+
+          echo "STAGING_SSH_PORT=${SSH_PORT}" >> "${GITHUB_ENV}"
+
+      - name: Deploy current main to staging
+        env:
+          STAGING_SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          STAGING_SSH_USER: ${{ secrets.STAGING_SSH_USER }}
+        run: |
+          set -euo pipefail
+
+          ssh \
+            -i ~/.ssh/staging_deploy_key \
+            -p "${STAGING_SSH_PORT}" \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            "${STAGING_SSH_USER}@${STAGING_SSH_HOST}" \
+            'bash -s' <<'REMOTE'
+          set -euo pipefail
+
+          cd /home/clawd/projects/scale-admin
+          git fetch origin
+          git checkout main
+          git pull --ff-only origin main
+          ./scripts/deploy-staging.sh deploy
+          curl -sS https://staging.maksimfrelikh.ru/api/version
+          echo
+          REMOTE
+
+      - name: Remove SSH key
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f ~/.ssh/staging_deploy_key
