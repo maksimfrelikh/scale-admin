@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { PrismaService } from '../prisma/prisma.service';
@@ -102,73 +102,95 @@ export class CatalogPublishingService {
     const versionId = randomUUID();
     const publishedAt = new Date();
 
-    const version = await this.prisma.$transaction(
-      async (tx) => {
-        const latest = await tx.catalogVersion.aggregate({
-          where: { catalogId: catalog.id },
-          _max: { versionNumber: true },
-        });
-        const versionNumber = (latest._max.versionNumber ?? 0) + 1;
-        const packageDataWithVersion = this.withVersionMetadata(draftPackage.packageData, {
-          id: versionId,
-          versionNumber,
-          publishedAt,
-          checksum: null,
-        });
-        const packageChecksum = this.catalogPackageService.calculatePackageChecksum(packageDataWithVersion);
-        const finalPackageData = this.withVersionMetadata(packageDataWithVersion, { checksum: packageChecksum });
-
-        const createdVersion = await tx.catalogVersion.create({
-          data: {
+    let version;
+    try {
+      version = await this.prisma.$transaction(
+        async (tx) => {
+          const latest = await tx.catalogVersion.aggregate({
+            where: { catalogId: catalog.id },
+            _max: { versionNumber: true },
+          });
+          const versionNumber = (latest._max.versionNumber ?? 0) + 1;
+          const packageDataWithVersion = this.withVersionMetadata(draftPackage.packageData, {
             id: versionId,
-            catalogId: catalog.id,
-            storeId: catalog.storeId,
             versionNumber,
-            status: 'published',
-            publishedByUserId: actorUser?.id,
             publishedAt,
-            basedOnVersionId: catalog.currentVersionId,
-            packageData: finalPackageData as unknown as Prisma.InputJsonValue,
-            packageChecksum,
-          },
-        });
+            checksum: null,
+          });
+          const packageChecksum = this.catalogPackageService.calculatePackageChecksum(packageDataWithVersion);
+          const finalPackageData = this.withVersionMetadata(packageDataWithVersion, { checksum: packageChecksum });
 
-        if (options.failAfterVersionCreate) {
-          throw new Error('Simulated publish failure after CatalogVersion creation');
-        }
-
-        await tx.storeCatalog.update({
-          where: { id_storeId: { id: catalog.id, storeId: catalog.storeId } },
-          data: { currentVersionId: createdVersion.id },
-        });
-
-        await this.auditLogs.create(tx, {
-          data: {
-            actorUserId: actorUser?.id,
-            action: 'catalog_version.published',
-            entityType: 'CatalogVersion',
-            entityId: createdVersion.id,
-            storeId: catalog.storeId,
-            beforeData: { currentVersionId: catalog.currentVersionId },
-            afterData: {
-              currentVersionId: createdVersion.id,
+          const createdVersion = await tx.catalogVersion.create({
+            data: {
+              id: versionId,
               catalogId: catalog.id,
-              versionNumber: createdVersion.versionNumber,
-              packageChecksum: createdVersion.packageChecksum,
+              storeId: catalog.storeId,
+              versionNumber,
+              status: 'published',
+              publishedByUserId: actorUser?.id,
+              publishedAt,
+              basedOnVersionId: catalog.currentVersionId,
+              packageData: finalPackageData as unknown as Prisma.InputJsonValue,
+              packageChecksum,
             },
-            metadata: {
-              validationSummary: validation.summary,
-              warningCount: validation.warnings.length,
-            },
-            ipAddress: context.ipAddress,
-            userAgent: context.userAgent,
-          },
-        });
+          });
 
-        return createdVersion;
-      },
-      { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
-    );
+          if (options.failAfterVersionCreate) {
+            throw new Error('Simulated publish failure after CatalogVersion creation');
+          }
+
+          await tx.storeCatalog.update({
+            where: { id_storeId: { id: catalog.id, storeId: catalog.storeId } },
+            data: { currentVersionId: createdVersion.id },
+          });
+
+          await this.auditLogs.create(tx, {
+            data: {
+              actorUserId: actorUser?.id,
+              action: 'catalog_version.published',
+              entityType: 'CatalogVersion',
+              entityId: createdVersion.id,
+              storeId: catalog.storeId,
+              beforeData: { currentVersionId: catalog.currentVersionId },
+              afterData: {
+                currentVersionId: createdVersion.id,
+                catalogId: catalog.id,
+                versionNumber: createdVersion.versionNumber,
+                packageChecksum: createdVersion.packageChecksum,
+              },
+              metadata: {
+                validationSummary: validation.summary,
+                warningCount: validation.warnings.length,
+              },
+              ipAddress: context.ipAddress,
+              userAgent: context.userAgent,
+            },
+          });
+
+          return createdVersion;
+        },
+        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+      );
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError
+        && (error.code === 'P2002' || error.code === 'P2034')
+      ) {
+        // Two concurrent publishes computed the same next versionNumber.
+        // P2002 = unique-constraint violation on `[catalogId, versionNumber]`
+        // (immediate, from `tx.catalogVersion.create`).
+        // P2034 = PostgreSQL Serializable serialization_failure (surfaces at
+        // COMMIT, after the callback returns). Either way the DB has rejected
+        // the loser cleanly — only one CatalogVersion was actually created.
+        // Convert to a 409 with a structured code so clients can refetch +
+        // retry. Closes BUG-REG-070.
+        throw new ConflictException({
+          code: 'CATALOG_VERSION_RACE_CONFLICT',
+          message: 'Кто-то уже опубликовал новую версию каталога. Обновите страницу и повторите.',
+        });
+      }
+      throw error;
+    }
 
     return {
       catalog: {
