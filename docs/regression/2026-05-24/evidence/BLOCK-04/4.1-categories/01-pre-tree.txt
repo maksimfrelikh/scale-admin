@@ -1,0 +1,3 @@
+=== probe-1: GET /catalog/categories (pre-fixture) ===
+200
+{"catalog":{"id":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","name":"Main Catalog","status":"active"},"categories":[]}

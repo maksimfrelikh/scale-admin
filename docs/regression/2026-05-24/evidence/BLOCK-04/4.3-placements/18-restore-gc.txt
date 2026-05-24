@@ -1,0 +1,3 @@
+=== 4.3.18 PATCH GC status=active (restore) ===
+200
+{"category":{"id":"08ebe4c4-1770-4195-8afe-98dbb7b42923","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":"af8b357b-6915-4226-b2eb-2d8090bad402","name":"Wave4-Grandchild","shortName":"W4GC","sortOrder":30,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:56:49.612Z","updatedAt":"2026-05-24T13:00:43.656Z"},"cascade":null}

@@ -1,0 +1,3 @@
+=== 4.3.7 POST /move Apples Child→Grandchild ===
+201
+{"placement":{"id":"01222d41-ca35-46e1-b9cd-4c0c7e4df082","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"08ebe4c4-1770-4195-8afe-98dbb7b42923","productId":"1a20dbea-abd4-4894-99df-e28840c1faf7","sortOrder":5,"status":"active","createdAt":"2026-05-24T12:59:42.552Z","updatedAt":"2026-05-24T12:59:43.249Z"}}

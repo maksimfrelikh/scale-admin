@@ -1,0 +1,2 @@
+{"product":{"id":"a5e20177-cf3a-4330-83bb-b7f016eb7566","defaultPluCode":"W5T-41574-3","name":"Wave5 Product 3","shortName":"W5P3","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-24T13:49:52.453Z","updatedAt":"2026-05-24T13:49:52.453Z"}}
+HTTP 201

@@ -1,0 +1,28 @@
+=== R6 raw session cookies (LIVE credentials — strict) ===
+0
+
+=== R6b Netscape-format tab-separated sessions ===
+0
+
+=== R7 raw csrf cookies ===
+0
+
+=== R7b Netscape-format tab-separated csrf ===
+0
+
+=== R8 'x-csrf-token: ' header followed by raw token ===
+0
+
+=== R9 apiToken JSON non-redacted ===
+0
+
+=== R10 x-scale-api-token header non-redacted ===
+0
+
+=== R11 invite/reset token JSON non-redacted ===
+0
+
+=== Bearer-style tokens ===
+0
+
+=== EXPECTED: all zeros ===

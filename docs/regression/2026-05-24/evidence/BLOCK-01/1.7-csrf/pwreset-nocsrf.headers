@@ -1,0 +1,12 @@
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:02:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 192
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"c0-VWrHeiVuC2QD+i0qZgFmg3Wot10"
+

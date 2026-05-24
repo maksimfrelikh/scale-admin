@@ -1,0 +1,3 @@
+=== 4.8.7 CLEANUP — archive Unicode category ===
+200
+{"category":{"id":"97e84bfd-f284-4580-8942-b8ce19533418","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Овощи и фрукты — категория тест","shortName":"Овощи","sortOrder":0,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T13:09:58.776Z","updatedAt":"2026-05-24T13:11:24.084Z"},"cascade":{"correlationId":"98489b77-622b-46ca-9a78-374cc7a20dd5","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

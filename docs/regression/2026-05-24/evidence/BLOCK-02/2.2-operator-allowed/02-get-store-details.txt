@@ -1,0 +1,14 @@
+# GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/details
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:47:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 758
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"2f6-dImWAb0+p3YcSd5gfrml67A66iQ"
+
+{"store":{"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001","name":"Sample Store 001","address":"Local development sample store","timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-19T17:19:06.403Z","updatedAt":"2026-05-23T20:44:31.457Z"},"activeCatalog":{"id":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","name":"Main Catalog","status":"active","currentVersionId":null,"createdAt":"2026-05-19T17:19:06.411Z","updatedAt":"2026-05-23T20:44:31.470Z"},"overview":{"catalogCount":1,"activeCatalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","currentVersionId":null,"scaleDeviceCount":0,"activeScaleDeviceCount":0,"recentSyncLogCount":0},"scales":{"total":0,"active":0},"syncLogs":{"recent":[]}}

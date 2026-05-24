@@ -1,0 +1,14 @@
+=== OPR 01 GET /api/users 403 operator-not-admin ===
+HTTP 403
+=== OPR 02 GET /api/auth/invites 403 admin-only ===
+HTTP 404
+=== OPR 03 POST /api/stores 403 admin-only ===
+HTTP 403
+=== OPR 04 GET foreign store 403 ===
+HTTP 403
+=== OPR 05 GET /api/logs/global 403 admin-only ===
+HTTP 403
+=== OPR 06 POST /api/products bad body ===
+HTTP 400
+=== OPR 07 POST /api/products w/ valid format but missing storeId ===
+HTTP 400

@@ -1,0 +1,14 @@
+🔴 packageChecksum watchpoint — §6.4 probe 02
+Method: sha256(stableStringify(packageData with version.checksum=null))
+       per backend/src/publishing/catalog-package.service.ts:172 + catalog-publishing.service.ts:118-120
+
+stored (top.packageChecksum)            = 46265c3afa234df69b00d20e81d225e1a8f8f1c039e8627c75e5fc5f4fe1c720
+echoed (packageData.version.checksum)   = 46265c3afa234df69b00d20e81d225e1a8f8f1c039e8627c75e5fc5f4fe1c720
+recomputed sha256                       = 46265c3afa234df69b00d20e81d225e1a8f8f1c039e8627c75e5fc5f4fe1c720
+echoed == stored                        : true
+recomputed == stored                    : true
+
+🔴 WATCHPOINT VERDICT: CLEAN ✓
+
+CatalogVersion ref: v#5 id=7da29b48-4f9a-491a-8490-176a7f631ddb published 2026-05-24T14:03:13.354Z (Wave 5 §5.8 final state).
+stableStringify impl: catalog-package.service.ts:349-365 (key-sorted recursive JSON).

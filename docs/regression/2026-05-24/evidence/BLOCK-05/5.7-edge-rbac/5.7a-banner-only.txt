@@ -1,0 +1,3 @@
+=== 5.7.A: banner-only change creates new version ===
+PATCH banner sortOrder: HTTP 200
+Publish v3 (banner-only): HTTP 201

@@ -1,0 +1,5 @@
+=== 4.3.11a POST Milk→Grandchild active ===
+201
+{"placement":{"id":"eefd1f21-835f-4907-bf9e-e1831a29ae16","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"08ebe4c4-1770-4195-8afe-98dbb7b42923","productId":"04faf50f-c31b-4ed5-aca2-a0f09bf8bbb6","sortOrder":2,"status":"active","createdAt":"2026-05-24T13:00:18.316Z","updatedAt":"2026-05-24T13:00:18.316Z"}}=== 4.3.11b POST /placements/reorder [milk,bananas] in Grandchild ===
+201
+{"placements":[{"id":"eefd1f21-835f-4907-bf9e-e1831a29ae16","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"08ebe4c4-1770-4195-8afe-98dbb7b42923","productId":"04faf50f-c31b-4ed5-aca2-a0f09bf8bbb6","sortOrder":0,"status":"active","createdAt":"2026-05-24T13:00:18.316Z","updatedAt":"2026-05-24T13:00:18.476Z"},{"id":"829cf56b-6ded-40f2-b27c-3335205b35e7","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"08ebe4c4-1770-4195-8afe-98dbb7b42923","productId":"c0f0cd12-045d-48cb-b953-d32d18793d69","sortOrder":1,"status":"active","createdAt":"2026-05-24T12:59:42.721Z","updatedAt":"2026-05-24T13:00:18.476Z"}]}

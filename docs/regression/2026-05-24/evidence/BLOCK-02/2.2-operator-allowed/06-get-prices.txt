@@ -1,0 +1,14 @@
+# GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/prices
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:47:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 197
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"c5-SyENoU5QW5CsySJVHttqSyyr1D0"
+
+{"catalog":{"id":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","name":"Main Catalog","status":"active"},"data":[],"meta":{"total":0,"limit":50,"offset":0}}

@@ -1,0 +1,2 @@
+{"fileAsset":{"id":"9135d4c7-518b-4ea3-9bd5-4309e1ea9cc1","originalFileName":"w5-banner.jpg","storedFilename":"7dddfe37-1452-4840-83ec-b16470d715cd.jpg","storagePath":"uploads/images/7dddfe37-1452-4840-83ec-b16470d715cd.jpg","publicUrl":"/uploads/images/7dddfe37-1452-4840-83ec-b16470d715cd.jpg","mimeType":"image/jpeg","sizeBytes":633,"uploadedByUserId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","createdAt":"2026-05-24T13:54:28.581Z"}}
+HTTP 201

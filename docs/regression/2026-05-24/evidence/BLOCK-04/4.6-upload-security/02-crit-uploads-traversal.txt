@@ -1,0 +1,16 @@
+=== 4.6.2 CRIT GET /uploads/images/../../etc/passwd ===
+HTTP=200
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Администратор весов</ti
+=== 4.6.2b CRIT GET /uploads/images/%2e%2e%2f%2e%2e%2fetc%2fpasswd ===
+HTTP=200
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Администратор весов</ti

@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:09:31 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 262
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"106-LBs7YJpetoWl5CbkBv2uI5UpBcA"
+
+{"store":{"id":"2fcd6729-abad-4378-a5dc-ce0c5a8e6e50","code":"STORE-WAVE3-02","name":"Wave3 Inactive","address":null,"timezone":"Europe/Moscow","status":"inactive","createdAt":"2026-05-24T12:09:31.016Z","updatedAt":"2026-05-24T12:09:31.016Z"},"mainCatalog":null}

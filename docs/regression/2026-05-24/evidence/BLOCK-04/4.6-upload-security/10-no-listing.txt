@@ -1,0 +1,6 @@
+=== 4.6.10 GET /uploads/ (no listing) ===
+HTTP=404
+{"message":"Cannot GET /uploads/","error":"Not Found","statusCode":404}
+=== 4.6.10b GET /uploads/images/ ===
+HTTP=404
+{"message":"Cannot GET /uploads/images/","error":"Not Found","statusCode":404}

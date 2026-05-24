@@ -1,0 +1,16 @@
+=== pre-cleanup state ===
+PRE active placements: 1
+PRE active banners: 1
+Archive banner: HTTP 200
+Archive Wave5-Test root: HTTP 200
+Archive foreign test store: HTTP 200
+=== post-cleanup state ===
+POST active placements: 0
+POST active banners: 0
+POST category count (incl archived): 8
+POST canPublish: True
+POST warnings: ['NO_ACTIVE_ADVERTISING_BANNERS', 'EMPTY_CATALOG']
+POST blocking: []
+POST total CatalogVersion rows: 5
+POST currentVersion v#: 5 id= 7da29b48-4f9a-491a-8490-176a7f631ddb
+---end-probe staging+prod---

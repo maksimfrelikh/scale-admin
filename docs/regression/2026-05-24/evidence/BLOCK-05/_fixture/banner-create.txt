@@ -1,0 +1,2 @@
+{"banner":{"id":"5e2b476c-26f9-4853-bcd3-23e68c72fede","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://staging.maksimfrelikh.ru/uploads/images/7dddfe37-1452-4840-83ec-b16470d715cd.jpg","imageFileAssetId":"9135d4c7-518b-4ea3-9bd5-4309e1ea9cc1","status":"active","sortOrder":1,"createdAt":"2026-05-24T13:54:52.928Z","updatedAt":"2026-05-24T13:54:52.928Z"}}
+HTTP 201

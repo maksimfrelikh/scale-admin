@@ -1,0 +1,2 @@
+{"product":{"id":"3d142296-935d-4bb5-adbe-89b786318401","defaultPluCode":"W5T-19064-4","name":"Wave5 Product 4","shortName":"W5P4","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-24T13:49:52.544Z","updatedAt":"2026-05-24T13:49:52.544Z"}}
+HTTP 201

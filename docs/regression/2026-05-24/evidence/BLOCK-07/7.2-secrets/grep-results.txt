@@ -1,0 +1,35 @@
+=== R1 plain '12345678' (admin/operator password) ===
+11
+
+=== R2 'admin12345' (var name + password combos) ===
+6
+
+=== R3 'qa-admin12345' ===
+4
+
+=== R4 'QaRegression' ===
+8
+
+=== R5 'scale-token-w6' ===
+8
+
+=== R6 raw session cookies (43-char base64url after =) ===
+17
+
+=== R7 raw csrf cookies ===
+0
+
+=== R8 'x-csrf-token: ' header followed by raw token ===
+0
+
+=== R9 plain apiToken (NOT 'API_TOKEN_REDACTED') ===
+0
+
+=== R10 x-scale-api-token header ===
+0
+
+=== R11 invite/reset 'token' JSON value (non-redacted) ===
+0
+
+=== R12 password JSON value (non-redacted) ===
+2

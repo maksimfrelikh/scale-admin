@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:16:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 269
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"10d-tkXPbFA3T6tbRDm8E6TSiWMu5N0"
+
+{"stores":[{"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001","name":"Sample Store 001","address":"Local development sample store","timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-19T17:19:06.403Z","updatedAt":"2026-05-23T20:44:31.457Z"}]}

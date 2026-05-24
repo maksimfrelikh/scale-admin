@@ -1,0 +1,22 @@
+=== 401 bodies (from 2.1 + 2.6 + 2.7) ===
+2.1-anon/01-get-users                                        | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/02-get-stores                                       | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/03-get-catalog                                      | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/04-get-products                                     | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/05-get-prices                                       | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/06-get-advertising                                  | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/07-get-logs-global                                  | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.1-anon/08-get-scales                                       | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.6-session-lifecycle/02-post-logout-session                 | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.6-session-lifecycle/03-post-logout-protected               | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.6-session-lifecycle/05-tampered-session                    | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.6-session-lifecycle/06-no-cookie-session                   | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.7-blocked-user/04-old-session-after-block                  | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+2.7-blocked-user/05-old-session-protected-after-block        | {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+
+--- unique 401 bodies (set count) ---
+{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}
+
+--- 401 on login endpoint (different family — for reference, NOT mixed with auth-required 401s) ---
+{"message":"Неверный email или пароль","error":"Unauthorized","statusCode":401}

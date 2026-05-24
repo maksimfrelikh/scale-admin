@@ -1,0 +1,3 @@
+=== 4.3.8 PATCH Apples categoryId=Child (alt move) ===
+200
+{"placement":{"id":"01222d41-ca35-46e1-b9cd-4c0c7e4df082","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"af8b357b-6915-4226-b2eb-2d8090bad402","productId":"1a20dbea-abd4-4894-99df-e28840c1faf7","sortOrder":5,"status":"active","createdAt":"2026-05-24T12:59:42.552Z","updatedAt":"2026-05-24T12:59:43.375Z"}}

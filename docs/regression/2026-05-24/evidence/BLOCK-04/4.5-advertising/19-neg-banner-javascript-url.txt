@@ -1,0 +1,3 @@
+=== 4.5.19 NEG banner javascript URL (BUG-REG-040 regression) ===
+400
+{"message":"imageUrl должен быть корректным URL с протоколом http(s)","error":"Bad Request","statusCode":400}

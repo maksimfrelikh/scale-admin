@@ -1,0 +1,16 @@
+=== 5.1.h: invalid banner (write-time blocked) ===
+POST banner javascript: HTTP 400
+{"message":"imageUrl должен быть корректным URL с протоколом http(s)","error":"Bad Request","statusCode":400}
+HTTP 400
+
+POST banner data: HTTP 400
+{"message":"imageUrl должен быть корректным URL с протоколом http(s)","error":"Bad Request","statusCode":400}
+HTTP 400
+
+POST banner with bogus FileAssetId: HTTP 500
+{"statusCode":500,"message":"Internal server error"}
+HTTP 500
+
+POST banner empty url: HTTP 400
+{"message":"imageUrl обязателен","error":"Bad Request","statusCode":400}
+HTTP 400

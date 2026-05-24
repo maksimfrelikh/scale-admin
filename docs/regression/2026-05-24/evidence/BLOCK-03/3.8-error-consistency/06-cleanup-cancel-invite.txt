@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:32:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 68
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"44-EE2X7t6723x81V+VQ5ZhZAEyNWk"
+
+{"inviteId":"7f76afd2-ea19-42f2-93aa-fd73a942dec1","cancelled":true}

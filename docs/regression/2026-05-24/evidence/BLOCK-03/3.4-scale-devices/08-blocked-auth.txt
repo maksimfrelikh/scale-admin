@@ -1,0 +1,13 @@
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:18:41 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 161
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"a1-RMdyt2pIIdxM8ULDm2wSa3bAsE8"
+
+{"message":"Устройству весов запрещена синхронизация","error":"Forbidden","code":"SCALE_DEVICE_NOT_ACTIVE","statusCode":403}

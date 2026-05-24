@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 18:38:40 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 171
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"ab-6iBjQ3BmNe7xafYyvrNL/e1HmBQ"
+
+{"authenticated":true,"device":{"id":"a74c4951-3140-413f-85b4-67d2961db1dd","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","deviceCode":"SCALE-W6-01","status":"active"}}

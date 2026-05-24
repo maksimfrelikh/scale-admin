@@ -1,0 +1,14 @@
+=== END PROBE GMT+2 ===
+wall clock: 2026-05-24 15:12:14 CEST
+--- prod /api/version ---
+{"commit":"3538b7c","builtAt":"2026-05-22T08:05:35Z","version":"0.1.0","environment":"production"}
+HTTP=200
+--- prod /api/health ---
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T13:12:15.102Z"}
+HTTP=200
+--- staging /api/version ---
+{"commit":"0cf0966","builtAt":"2026-05-23T20:42:10Z","version":"0.1.0","environment":"production"}
+HTTP=200
+--- staging /api/health ---
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T13:12:15.193Z"}
+HTTP=200

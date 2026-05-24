@@ -1,0 +1,3 @@
+=== 4.8.8 CLEANUP — archive Emoji category ===
+200
+{"category":{"id":"bd5bb3ef-2f57-491e-b81e-9965785e39c1","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"🥑 Avocados/Авокадо 🍌","shortName":"🥑Авок","sortOrder":0,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T13:09:58.929Z","updatedAt":"2026-05-24T13:11:24.203Z"},"cascade":{"correlationId":"7a890ce7-4989-40c6-9bd7-917d9eddff3e","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

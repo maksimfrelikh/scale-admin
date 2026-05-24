@@ -1,0 +1,14 @@
+# GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:47:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1951
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"79f-812P6TrjzbqXMBbajIHDEPVuCe4"
+
+{"data":[{"id":"3c608aaf-55d0-4834-9e5d-d120ee6b5176","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://example.com/banner2.png","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.371Z","updatedAt":"2026-05-19T20:12:17.611Z"},{"id":"724e5d37-eaac-4bb5-99d4-169fe067b4ef","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"javascript:alert(1)","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.394Z","updatedAt":"2026-05-19T20:13:04.872Z"},{"id":"b4acb2af-a100-4d70-86e4-355d18abb14f","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"data:image/png;base64,iVBORw0KGgo...","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.412Z","updatedAt":"2026-05-19T20:13:04.895Z"},{"id":"4ca47d1c-cf3d-462b-ab80-d4612c284e27","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"not-a-url","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.430Z","updatedAt":"2026-05-19T20:13:04.915Z"},{"id":"3d1f0113-35d7-47ae-aa1a-e586f6332148","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"ftp://example.com/x.png","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.468Z","updatedAt":"2026-05-19T20:13:04.938Z"},{"id":"124147e2-8855-42c7-95a8-89295f581602","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://example.com/banner2.png","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:57:42.756Z","updatedAt":"2026-05-19T20:57:42.958Z"},{"id":"1cea76b6-8fab-4e8e-8576-a90cdf8b3fe3","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://example.com/wave5-probe.png","imageFileAssetId":null,"status":"archived","sortOrder":99,"createdAt":"2026-05-20T10:18:40.736Z","updatedAt":"2026-05-20T10:18:57.106Z"}],"meta":{"total":7,"limit":50,"offset":0}}

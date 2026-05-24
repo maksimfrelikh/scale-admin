@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:15:44 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 505
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"1f9-pu85z2Rwa/8hgzFCj9CdpRRY0zI"
+
+{"storeAccesses":[{"id":"decaeb5c-f759-4d5a-b896-47c85e59625d","userId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","grantedByUserId":"344721ea-0eba-4759-af8b-7e2f0343ae26","createdAt":"2026-05-24T11:23:20.866Z","revokedAt":null,"store":{"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001","name":"Sample Store 001","status":"active"},"grantedBy":{"id":"344721ea-0eba-4759-af8b-7e2f0343ae26","email":"frelikhmax@gmail.com","fullName":"frelikhmax"}}]}

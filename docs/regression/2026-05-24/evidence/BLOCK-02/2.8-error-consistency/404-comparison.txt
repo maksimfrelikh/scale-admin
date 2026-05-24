@@ -1,0 +1,7 @@
+=== 404 bodies — comparison across operator-cross-store-DELETE and admin-bogus ===
+2.4-cross-store/09-w2-delete-store                           | {"message":"Cannot DELETE /api/stores/f728a42b-49f0-4668-a78b-68cfb711b711","error":"Not Found","statusCode":404}
+2.5-admin-global/12-get-bogus-store                          | {"message":"Магазин не найден","error":"Not Found","statusCode":404}
+2.5-admin-global/13-get-bogus-catalog                        | {"message":"Активный каталог магазина не найден","error":"Not Found","statusCode":404}
+
+--- unique 404 bodies ---
+{"message":"Cannot DELETE /api/stores/f728a42b-49f0-4668-a78b-68cfb711b711","error":"Not Found","statusCode":404}{"message":"Магазин не найден","error":"Not Found","statusCode":404}{"message":"Активный каталог магазина не найден","error":"Not Found","statusCode":404}

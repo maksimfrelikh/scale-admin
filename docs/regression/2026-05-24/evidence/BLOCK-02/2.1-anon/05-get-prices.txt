@@ -1,0 +1,16 @@
+### 05-get-prices
+# GET /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/prices
+
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:46:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 95
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"5f-+94SQFqS/R/BIOkgl6n7+qWImZ4"
+
+{"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}

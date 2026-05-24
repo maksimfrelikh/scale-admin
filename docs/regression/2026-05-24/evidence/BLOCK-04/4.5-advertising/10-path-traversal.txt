@@ -1,0 +1,4 @@
+=== 4.5.10 POST /files/images with traversal originalFilename '../../etc/passwd.png' ===
+201
+{"fileAsset":{"id":"13884186-b868-48fd-a977-8572ac979875","originalFileName":"passwd.png","storedFilename":"a2b70910-2042-43c0-ac4a-a7823239b540.png","storagePath":"uploads/images/a2b70910-2042-43c0-ac4a-a7823239b540.png","publicUrl":"/uploads/images/a2b70910-2042-43c0-ac4a-a7823239b540.png","mimeType":"image/png","sizeBytes":69,"uploadedByUserId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","createdAt":"2026-05-24T13:04:38.323Z"}}STORED: a2b70910-2042-43c0-ac4a-a7823239b540.png | /uploads/images/a2b70910-2042-43c0-ac4a-a7823239b540.png | uploads/images/a2b70910-2042-43c0-ac4a-a7823239b540.png
+ORIG_RECORDED: passwd.png

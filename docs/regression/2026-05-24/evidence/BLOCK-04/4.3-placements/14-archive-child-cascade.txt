@@ -1,0 +1,3 @@
+=== 4.3.14 ARCHIVE Wave4-Child (cascade test) ===
+200
+{"category":{"id":"af8b357b-6915-4226-b2eb-2d8090bad402","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":"ea7a3f62-1c98-4797-a80a-d52e66d2819d","name":"Wave4-Child","shortName":"W4Child","sortOrder":99,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T12:56:49.458Z","updatedAt":"2026-05-24T13:00:18.875Z"},"cascade":{"correlationId":"86201879-29fc-4671-abf8-b20ccf011ffa","storeCatalogs":[],"categories":["08ebe4c4-1770-4195-8afe-98dbb7b42923"],"placements":["eefd1f21-835f-4907-bf9e-e1831a29ae16","829cf56b-6ded-40f2-b27c-3335205b35e7","01222d41-ca35-46e1-b9cd-4c0c7e4df082"],"prices":[],"banners":[],"scaleDevices":[]}}

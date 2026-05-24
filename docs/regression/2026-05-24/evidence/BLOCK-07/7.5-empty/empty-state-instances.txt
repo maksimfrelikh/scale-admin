@@ -1,0 +1,25 @@
+828:       {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">Доступных магазинов нет.</div>}
+937:         {auditEntries.length === 0 ? <div className="empty-state">По выбранным фильтрам записей аудита нет.</div> 
+967:         {syncEntries.length === 0 ? <div className="empty-state">По выбранным фильтрам записей синхронизации нет.</div> 
+1335:       {!isLoading && banners.length === 0 && <div className="empty-state">Рекламных баннеров пока нет.</div>}
+1724:         {!selectedCategoryId && <div className="empty-state">Создайте или активируйте категорию перед добавлением товаров.</div>}
+1725:         {selectedCategoryId && !placementsLoading && placements.length === 0 && <div className="empty-state">В этой категории пока нет активных товаров.</div>}
+1751:       {!isLoading && !errorMessage && categories.length === 0 && <div className="empty-state">Категорий пока нет. Создайте первую корневую категорию выше.</div>}
+2136:       {!isLoading && !errorMessage && devices.length === 0 && <div className="empty-state">Для этого магазина весы ещё не зарегистрированы.</div>}
+2339:           <IssueList title="Блокирующие ошибки" issues={validation.blockingErrors} emptyText="Блокирующих ошибок нет." tone="error" />
+2340:           <IssueList title="Предупреждения" issues={validation.warnings} emptyText="Предупреждений нет." tone="warning" />
+2343:         <div className="empty-state">Запустите проверку, чтобы увидеть ошибки, предупреждения и готовность к публикации.</div>
+2345:         <div className="empty-state">Операторы могут отслеживать опубликованную версию и статус синхронизации весов. Публикация доступна только администраторам.</div>
+2360:       {!versionsLoading && !versionsErrorMessage && versions.length === 0 && <div className="empty-state">Опубликованных версий пока нет.</div>}
+2389: function IssueList({ title, issues, emptyText, tone }
+2394:         <p className="muted">{emptyText}</p>
+2493:       {!isLoading && !errorMessage && prices.length === 0 && <div className="empty-state">По этим фильтрам товаров нет.</div>}
+2690:       {!isLoading && !errorMessage && products.length === 0 && <div className="empty-state">Товары не найдены.</div>}
+3154:       {!isLoading && !errorMessage && users.length === 0 && <div className="empty-state">Пользователи не найдены.</div>}
+3400:       {!accessLoading && activeAccesses.length === 0 && <div className="empty-state">Активные магазины не назначены.</div>}
+3454:             <DashboardList title="Последние опубликованные версии" emptyText="Опубликованных версий каталога пока нет.">
+3466:             <DashboardList title="Последние ошибки синхронизации" emptyText="Недавних ошибок синхронизации нет.">
+3481:               <div className="empty-state">Проблемные весы не найдены.</div>
+3515: function DashboardList({ title, emptyText, children }
+3522:       {isEmpty ? <div className="empty-state">{emptyText}</div> 
+3595:       {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">Вашей учётной записи не назначены магазины.</div>}

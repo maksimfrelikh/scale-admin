@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:24:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 310
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"136-XqvxeIwJa/ahoUp3DSpMRWTIkrg"
+
+{"session":{"id":"4d0b4603-0f05-42b6-bb32-2f4425066af5","createdAt":"2026-05-24T12:08:18.618Z","lastUsedAt":"2026-05-24T12:24:56.580Z","expiresAt":"2026-06-07T12:08:18.618Z"},"user":{"id":"f10ed250-ccae-4fd5-b69f-793a07c6b3d2","email":"qorxoes@gmail.com","fullName":"qorxoes","role":"admin","status":"active"}}

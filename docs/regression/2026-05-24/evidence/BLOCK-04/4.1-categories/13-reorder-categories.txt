@@ -1,0 +1,6 @@
+=== 4.1.11a — Create Wave4-Root2 ===
+201
+{"category":{"id":"c9238264-582b-4fb1-b2bd-5d37a0f069b7","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root2","shortName":"W4R2","sortOrder":50,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:57:19.157Z","updatedAt":"2026-05-24T12:57:19.157Z"}}ROOT2_ID=c9238264-582b-4fb1-b2bd-5d37a0f069b7
+=== 4.1.11b — reorderCategories [root2, root] (swap) ===
+201
+{"categories":[{"id":"c9238264-582b-4fb1-b2bd-5d37a0f069b7","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root2","shortName":"W4R2","sortOrder":0,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:57:19.157Z","updatedAt":"2026-05-24T12:57:19.327Z"},{"id":"ea7a3f62-1c98-4797-a80a-d52e66d2819d","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root-Renamed","shortName":"W4Root","sortOrder":1,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:56:49.295Z","updatedAt":"2026-05-24T12:57:19.327Z"}]}

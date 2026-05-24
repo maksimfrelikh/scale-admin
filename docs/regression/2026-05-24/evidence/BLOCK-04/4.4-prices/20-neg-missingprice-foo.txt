@@ -1,0 +1,3 @@
+=== 4.4.20 NEG: missingPrice=foo ===
+400
+{"message":"missingPrice должно быть true или false","error":"Bad Request","statusCode":400}

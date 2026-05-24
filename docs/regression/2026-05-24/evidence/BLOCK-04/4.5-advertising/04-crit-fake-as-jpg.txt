@@ -1,0 +1,3 @@
+=== 4.5.4 🔴 POST /files/images fake-as.jpg (txt content) ===
+400
+{"message":"Поддерживаются только изображения jpg, png или webp","error":"Bad Request","statusCode":400}

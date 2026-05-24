@@ -1,0 +1,3 @@
+=== 4.1.1 CREATE Wave4-Root (parentId=null, sortOrder=10) ===
+201
+{"category":{"id":"ea7a3f62-1c98-4797-a80a-d52e66d2819d","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root","shortName":"W4Root","sortOrder":10,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:56:49.295Z","updatedAt":"2026-05-24T12:56:49.295Z"}}ROOT_ID=ea7a3f62-1c98-4797-a80a-d52e66d2819d

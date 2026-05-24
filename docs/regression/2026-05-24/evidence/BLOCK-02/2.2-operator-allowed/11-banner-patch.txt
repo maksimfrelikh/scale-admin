@@ -1,0 +1,14 @@
+# PATCH /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/advertising/banners/3c608aaf-55d0-4834-9e5d-d120ee6b5176 -d {sortOrder:0}
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:48:39 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 286
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"11e-nEsZ04+tCBhfPuVcN03Znq1C1Gs"
+
+{"banner":{"id":"3c608aaf-55d0-4834-9e5d-d120ee6b5176","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://example.com/banner2.png","imageFileAssetId":null,"status":"archived","sortOrder":0,"createdAt":"2026-05-19T20:12:17.371Z","updatedAt":"2026-05-24T11:48:39.079Z"}}

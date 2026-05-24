@@ -1,0 +1,3 @@
+=== 4.2.7 NEG: reorderCategories with duplicate IDs ===
+400
+{"message":"categoryIds не должен содержать дубликаты","error":"Bad Request","statusCode":400}

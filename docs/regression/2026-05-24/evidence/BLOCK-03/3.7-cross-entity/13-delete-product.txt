@@ -1,0 +1,13 @@
+HTTP/1.1 404 Not Found
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:27:36 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 115
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"73-284epBaXE23QPDW0c2tf4rUW6Ck"
+
+{"message":"Cannot DELETE /api/products/a98a4325-60dd-4398-8db5-9bcd1f65f75e","error":"Not Found","statusCode":404}

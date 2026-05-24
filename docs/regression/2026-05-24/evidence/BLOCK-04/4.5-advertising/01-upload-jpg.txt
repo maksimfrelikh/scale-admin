@@ -1,0 +1,3 @@
+=== 4.5.1 POST /files/images valid.jpg ===
+201
+{"fileAsset":{"id":"f1a16923-680b-4456-aa69-781279c44956","originalFileName":"valid.jpg","storedFilename":"3c69f055-b0b3-4680-bd42-a8a6872e074f.jpg","storagePath":"uploads/images/3c69f055-b0b3-4680-bd42-a8a6872e074f.jpg","publicUrl":"/uploads/images/3c69f055-b0b3-4680-bd42-a8a6872e074f.jpg","mimeType":"image/jpeg","sizeBytes":332,"uploadedByUserId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","createdAt":"2026-05-24T13:04:04.965Z"}}JPG_ASSET_ID=f1a16923-680b-4456-aa69-781279c44956 JPG_URL=/uploads/images/3c69f055-b0b3-4680-bd42-a8a6872e074f.jpg

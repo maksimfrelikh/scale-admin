@@ -1,0 +1,3 @@
+=== 4.4.9 default currency (no field) → RUB ===
+200
+{"price":{"id":"4e90817b-c971-45d9-a003-1ae7665dd64e","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","productId":"04faf50f-c31b-4ed5-aca2-a0f09bf8bbb6","price":"150","currency":"RUB","status":"active","createdAt":"2026-05-24T13:01:51.275Z","updatedAt":"2026-05-24T13:01:51.275Z"}}

@@ -1,0 +1,3 @@
+=== 4.4.3 PUT /prices Apples → 450.50 RUB ===
+200
+{"price":{"id":"370d0b04-8f5c-4c21-a7ad-a6e1abc71c33","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","productId":"1a20dbea-abd4-4894-99df-e28840c1faf7","price":"450.5","currency":"RUB","status":"active","createdAt":"2026-05-24T13:01:50.537Z","updatedAt":"2026-05-24T13:01:50.537Z"}}

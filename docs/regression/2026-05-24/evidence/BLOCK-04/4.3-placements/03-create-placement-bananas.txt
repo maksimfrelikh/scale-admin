@@ -1,0 +1,3 @@
+=== 4.3.3 POST placement Bananas→Grandchild active ===
+201
+{"placement":{"id":"829cf56b-6ded-40f2-b27c-3335205b35e7","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"08ebe4c4-1770-4195-8afe-98dbb7b42923","productId":"c0f0cd12-045d-48cb-b953-d32d18793d69","sortOrder":1,"status":"active","createdAt":"2026-05-24T12:59:42.721Z","updatedAt":"2026-05-24T12:59:42.721Z"}}

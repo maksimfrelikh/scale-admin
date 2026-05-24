@@ -1,0 +1,16 @@
+=== 5.7.B: operator publishes foreign store (RBAC) ===
+{"store":{"id":"bb6c1d1c-92bd-4dbb-ad98-442dca670c12","code":"W5T-FOREIGN-001","name":"Wave5 Foreign Test Store","address":null,"timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-24T14:02:17.438Z","updatedAt":"2026-05-24T14:02:17.438Z"},"mainCatalog":{"id":"f93fac1d-f3d9-45bd-bdb2-235582010255","storeId":"bb6c1d1c-92bd-4dbb-ad98-442dca670c12","name":"Основной каталог","status":"active","currentVersionId":null,"createdAt":"2026-05-24T14:02:17.440Z","updatedAt":"2026-05-24T14:02:17.440Z"}}
+HTTP 201
+FS_ID=bb6c1d1c-92bd-4dbb-ad98-442dca670c12
+
+operator POST /stores/bb6c1d1c-92bd-4dbb-ad98-442dca670c12/publishing/catalog-publish:
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+HTTP 403
+
+operator GET /stores/bb6c1d1c-92bd-4dbb-ad98-442dca670c12/publishing/catalog-validation:
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+HTTP 403
+
+operator GET /stores/bb6c1d1c-92bd-4dbb-ad98-442dca670c12/publishing/catalog-versions:
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+HTTP 403

@@ -1,0 +1,3 @@
+=== 4.1.7 NEG: create with empty name ===
+400
+{"message":"Название категории обязательно и должно быть не длиннее 255 символов","error":"Bad Request","statusCode":400}

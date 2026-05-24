@@ -1,0 +1,38 @@
+=== ADM 01 GET /api/auth/me (200) ===
+HTTP 404
+=== ADM 02 GET /api/stores (200) ===
+HTTP 200
+=== ADM 03 GET nonexistent store 404 ===
+HTTP 404
+=== ADM 04 GET bad-UUID 400 ===
+HTTP 500
+=== ADM 05 POST /api/stores without CSRF 403 ===
+HTTP 403
+=== ADM 06 POST /api/stores empty body w/CSRF 400 ===
+HTTP 400
+=== ADM 07 POST /api/stores dup code 409 ===
+HTTP 409
+=== ADM 08 POST /api/products bad payload ===
+HTTP 400
+=== ADM 09 POST /api/products bad UUID category ===
+HTTP 400
+=== ADM 10 GET /api/users/foreign 404 ===
+HTTP 404
+=== ADM 11 DELETE nonexistent invite 404 ===
+HTTP 404
+=== ADM 12 POST /api/auth/invites no body ===
+HTTP 400
+=== ADM 13 GET /api/products/not-uuid ===
+HTTP 500
+=== ADM 14 GET /api/scales/devices/not-uuid ===
+HTTP 404
+=== ADM 15 GET /api/catalog/versions/not-uuid ===
+HTTP 404
+=== ADM 16 PATCH /api/stores/not-uuid w/CSRF ===
+HTTP 500
+=== ADM 17 GET /api/logs/global?limit=invalid ===
+HTTP 200
+=== ADM 18 GET /api/users/00000000-0000-0000-0000-000000000001 valid-format unknown ===
+HTTP 404
+=== ADM 19 POST /api/auth/invites bad role ===
+HTTP 400

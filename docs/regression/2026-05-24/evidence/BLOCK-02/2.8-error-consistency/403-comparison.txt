@@ -1,0 +1,30 @@
+=== 403 bodies — admin-only family (from 2.3 minus the 200 on stores-list) ===
+01-get-users                                                 | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+02-post-auth-invites                                         | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+04-post-stores                                               | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+05-patch-store                                               | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+06-patch-user-role                                           | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+07-patch-user-block                                          | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+08-delete-user                                               | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+09-post-store-scales                                         | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+10-get-logs-global                                           | {"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+
+--- unique admin-only 403 bodies ---
+{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}{"message":"Недостаточно прав","error":"Forbidden","statusCode":403}
+
+=== 403 bodies — cross-store family (from 2.4, minus the 404 on DELETE) ===
+01-w2-get-store                                              | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+02-w2-get-store-details                                      | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+03-w2-get-catalog                                            | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+04-w2-get-prices                                             | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+05-w2-get-advertising                                        | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+06-w2-get-scales                                             | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+07-w2-get-logs                                               | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+08-w2-patch-banner                                           | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+10-bogus-get-store                                           | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+11-bogus-get-catalog                                         | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+12-bogus-get-prices                                          | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+13-bogus-get-advertising                                     | {"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}
+
+--- unique cross-store 403 bodies ---
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}

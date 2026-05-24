@@ -1,0 +1,8 @@
+=== 5.1.f: product missing shortName (write-time required) ===
+POST product with empty shortName: HTTP 400
+{"message":"Короткое название товара обязательно и должно быть не длиннее 128 символов","error":"Bad Request","statusCode":400}
+HTTP 400
+
+PATCH P1 shortName=empty: HTTP 400
+{"message":"Короткое название товара обязательно и должно быть не длиннее 128 символов","error":"Bad Request","statusCode":400}
+HTTP 400

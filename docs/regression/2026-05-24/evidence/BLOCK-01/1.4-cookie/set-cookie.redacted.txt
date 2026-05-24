@@ -1,0 +1,1 @@
+Set-Cookie: scale_admin_staging_session=SESSION_VALUE_REDACTED; Max-Age=1209600; Path=/; Expires=Sun, 07 Jun 2026 10:56:30 GMT; HttpOnly; Secure; SameSite=Lax

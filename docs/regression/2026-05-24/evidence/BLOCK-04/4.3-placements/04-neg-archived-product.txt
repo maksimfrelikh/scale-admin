@@ -1,0 +1,3 @@
+=== 4.3.4 NEG: archived product in active placement ===
+400
+{"message":"Архивный или неактивный товар нельзя использовать в активном размещении","error":"Bad Request","statusCode":400}

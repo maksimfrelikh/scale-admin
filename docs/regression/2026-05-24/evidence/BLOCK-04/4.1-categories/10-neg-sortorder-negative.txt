@@ -1,0 +1,3 @@
+=== 4.1.8 NEG: sortOrder=-5 ===
+400
+{"message":"sortOrder категории должен быть целым числом от 0 до 1000000","error":"Bad Request","statusCode":400}

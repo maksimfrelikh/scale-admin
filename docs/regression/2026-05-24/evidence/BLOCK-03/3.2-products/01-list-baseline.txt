@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:11:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1352
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"548-/jstE3Yx6UIde0q4+IYfwgW7p6A"
+
+{"data":[{"id":"1a20dbea-abd4-4894-99df-e28840c1faf7","defaultPluCode":"1001","name":"Apples Red Weighted","shortName":"Red Apples","description":"Local development sample weighted apples","imageUrl":null,"imageFileAssetId":null,"barcode":"4600000000011","sku":"APL-RED-001","unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-19T17:19:06.415Z","updatedAt":"2026-05-23T20:44:31.477Z"},{"id":"c0f0cd12-045d-48cb-b953-d32d18793d69","defaultPluCode":"1002","name":"Bananas Weighted","shortName":"Bananas","description":"Local development sample bananas","imageUrl":null,"imageFileAssetId":null,"barcode":"4600000000028","sku":"BAN-001","unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-19T17:19:06.420Z","updatedAt":"2026-05-23T20:44:31.485Z"},{"id":"04faf50f-c31b-4ed5-aca2-a0f09bf8bbb6","defaultPluCode":"2001","name":"Milk Bottle 1L","shortName":"Milk 1L","description":"Local development sample piece product","imageUrl":null,"imageFileAssetId":null,"barcode":"4600000000035","sku":"MILK-1L-001","unit":"piece","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-19T17:19:06.422Z","updatedAt":"2026-05-23T20:44:31.488Z"}],"meta":{"total":3,"limit":50,"offset":0}}

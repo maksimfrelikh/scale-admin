@@ -1,0 +1,3 @@
+=== 4.4.16 GET /api/products/Apples (verify Product unchanged) ===
+200
+{"product":{"id":"1a20dbea-abd4-4894-99df-e28840c1faf7","defaultPluCode":"1001","name":"Apples Red Weighted","shortName":"Red Apples","description":"Local development sample weighted apples","imageUrl":null,"imageFileAssetId":null,"barcode":"4600000000011","sku":"APL-RED-001","unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":1,"createdAt":"2026-05-19T17:19:06.415Z","updatedAt":"2026-05-23T20:44:31.477Z"}}

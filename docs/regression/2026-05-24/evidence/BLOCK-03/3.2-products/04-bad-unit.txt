@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:11:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 121
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"79-B1h0vFVp5l47oQn0AxDJ5KOF26A"
+
+{"message":"Единица товара должна быть kg, g или piece","error":"Bad Request","statusCode":400}

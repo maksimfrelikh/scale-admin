@@ -1,0 +1,11 @@
+=== 5.1.d: active placement in archived category ===
+{"placement":{"id":"7f47decd-1de6-40f7-a4ef-a718dc665398","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"9ccffd12-5b83-4326-8cfd-9c47a7ff30a0","productId":"3d142296-935d-4bb5-adbe-89b786318401","sortOrder":1,"status":"active","createdAt":"2026-05-24T13:52:08.703Z","updatedAt":"2026-05-24T13:52:08.703Z"}}
+HTTP 201
+
+Archive CHILD response:
+{"category":{"id":"9ccffd12-5b83-4326-8cfd-9c47a7ff30a0","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":"f5de3e30-1b03-4385-9c2b-fd5de2b37893","name":"Wave5-Test-Child","shortName":"W5Child","sortOrder":1,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T13:49:52.189Z","updatedAt":"2026-05-24T13:52:08.955Z"},"cascade":{"correlationId":"5e53e990-1416-4f32-943d-f76dbeaeff45","storeCatalogs":[],"categories":[],"placements":["7f47decd-1de6-40f7-a4ef-a718dc665398"],"prices":[],"banners":[],"scaleDevices":[]}}
+HTTP 200
+
+Placement P4 after CHILD archive:
+{"placement":{"id":"7f47decd-1de6-40f7-a4ef-a718dc665398","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"9ccffd12-5b83-4326-8cfd-9c47a7ff30a0","productId":"3d142296-935d-4bb5-adbe-89b786318401","sortOrder":1,"status":"archived","category":{"id":"9ccffd12-5b83-4326-8cfd-9c47a7ff30a0","name":"Wave5-Test-Child","shortName":"W5Child","status":"archived"},"product":{"id":"3d142296-935d-4bb5-adbe-89b786318401","defaultPluCode":"W5T-19064-4","name":"Wave5 Product 4","shortName":"W5P4","status":"active"},"createdAt":"2026-05-24T13:52:08.703Z","updatedAt":"2026-05-24T13:52:08.959Z"}}
+HTTP 200

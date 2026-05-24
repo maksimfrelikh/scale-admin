@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:09:13 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 520
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"208-UAScbmol2Jm3Q2O9uULvHFSjG4M"
+
+{"store":{"id":"3e38beb9-10cc-47d0-b700-d18e91fd351f","code":"STORE-WAVE3-01","name":"Wave3 Test Store 1","address":"W3 addr","timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-24T12:09:13.855Z","updatedAt":"2026-05-24T12:09:13.855Z"},"mainCatalog":{"id":"f023319f-e2c5-476e-91cd-888df97bb62f","storeId":"3e38beb9-10cc-47d0-b700-d18e91fd351f","name":"Основной каталог","status":"active","currentVersionId":null,"createdAt":"2026-05-24T12:09:13.863Z","updatedAt":"2026-05-24T12:09:13.863Z"}}

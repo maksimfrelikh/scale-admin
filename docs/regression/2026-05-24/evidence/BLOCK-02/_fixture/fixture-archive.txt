@@ -1,0 +1,14 @@
+# PATCH /api/stores/f728a42b-49f0-4668-a78b-68cfb711b711 -d {status:archived} (admin)
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:56:31 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 402
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"192-UtIEjOgDoIMlz0U4LBkqpeDiFv8"
+
+{"store":{"id":"f728a42b-49f0-4668-a78b-68cfb711b711","code":"STORE-WAVE2","name":"RBAC test store","address":null,"timezone":"Europe/Moscow","status":"archived","createdAt":"2026-05-24T11:50:28.828Z","updatedAt":"2026-05-24T11:56:31.912Z"},"cascade":{"correlationId":"a3bef323-d502-48d5-bc01-0d5c17ce5fdf","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

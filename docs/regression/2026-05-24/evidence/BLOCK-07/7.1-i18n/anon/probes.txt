@@ -1,0 +1,28 @@
+=== A1 anon GET /api/auth/me (401) ===
+HTTP 404
+=== A2 anon POST /api/auth/login bad (401) ===
+HTTP 403
+=== A3 anon POST /api/auth/login malformed body (400) ===
+HTTP 403
+=== A4 anon GET /api/stores (401) ===
+HTTP 401
+=== A5 anon nonexistent /api/foobar (404) ===
+HTTP 404
+=== A6 anon non-API /random-path 404 ===
+HTTP 200
+HTTP 404
+CSRF: …
+=== A7 anon bad-login with CSRF (expect 401 Russian) ===
+HTTP 403
+=== A8 anon empty body with CSRF (expect 400 Russian validation) ===
+HTTP 403
+=== A9 anon invalid email format ===
+HTTP 403
+HTTP 200
+CSRF cookie: ASGmDwnr…
+=== A7 anon bad-login w/CSRF (expect 401 Russian) ===
+HTTP 401
+=== A8 anon empty body w/CSRF (validation) ===
+HTTP 401
+=== A9 anon bad email format ===
+HTTP 401

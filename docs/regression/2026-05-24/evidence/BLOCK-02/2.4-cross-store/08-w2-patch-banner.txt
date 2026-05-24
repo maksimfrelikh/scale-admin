@@ -1,0 +1,14 @@
+# PATCH /api/stores/f728a42b-49f0-4668-a78b-68cfb711b711/advertising/banners/00000000-0000-0000-0000-000000000999
+HTTP/1.1 403 Forbidden
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:50:54 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 92
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"5c-++iZG9bxpF6fne54tNMPitq8+rI"
+
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}

@@ -1,0 +1,40 @@
+=== 5.1.c: archived product in active placement (Path-A: write-time block) ===
+Archive P3: HTTP 200
+{"product":{"id":"a5e20177-cf3a-4330-83bb-b7f016eb7566","defaultPluCode":"W5T-41574-3","name":"Wave5 Product 3","shortName":"W5P3","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"kg","status":"archived","unavailableForNewActivePlacements":true,"activePlacementCount":0,"createdAt":"2026-05-24T13:49:52.453Z","updatedAt":"2026-05-24T13:51:20.946Z"},"warning":null,"cascade":{"correlationId":"c5fa7dbc-5474-45b0-ac14-2651a04366f4","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}
+HTTP 200
+
+Attempt to place archived P3 (expect 4xx): HTTP 400
+{"message":"Архивный или неактивный товар нельзя использовать в активном размещении","error":"Bad Request","statusCode":400}
+HTTP 400
+
+=== Path-B: archive P2 while placement P2 exists ===
+{"product":{"id":"9801d248-343a-4826-8dd4-bd22309682eb","defaultPluCode":"W5T-42662-2","name":"Wave5 Product 2","shortName":"W5P2","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"kg","status":"archived","unavailableForNewActivePlacements":true,"activePlacementCount":0,"createdAt":"2026-05-24T13:49:52.365Z","updatedAt":"2026-05-24T13:51:21.447Z"},"warning":{"code":"PRODUCT_USED_IN_ACTIVE_CATALOG_PLACEMENTS","message":"Товар используется в активных размещениях каталога; изменение может повлиять на потребителей каталога.","activePlacementCount":1},"cascade":{"correlationId":"a46ffe33-6082-44fd-8f74-6e90604ae948","storeCatalogs":[],"categories":[],"placements":["3bcb2fee-dfa5-4f82-9b3d-df82a824c000"],"prices":["4633297e-6f44-4a87-bc82-2baa32d60109"],"banners":[],"scaleDevices":[]}}
+HTTP 200
+
+=== validate ===
+{
+    "catalog": {
+        "id": "8de2b1d0-bba3-4a52-aa8d-35dec9475d1c",
+        "storeId": "e4d711db-dddd-4749-9a4c-0c2aed2f4f77",
+        "name": "Main Catalog",
+        "status": "active",
+        "currentVersionId": null
+    },
+    "canPublish": true,
+    "blockingErrors": [],
+    "warnings": [
+        {
+            "code": "NO_ACTIVE_ADVERTISING_BANNERS",
+            "message": "\u0412 \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u0435 \u043d\u0435\u0442 \u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0445 \u0440\u0435\u043a\u043b\u0430\u043c\u043d\u044b\u0445 \u0431\u0430\u043d\u043d\u0435\u0440\u043e\u0432. \u041f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u044e \u043c\u043e\u0436\u043d\u043e \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0431\u0435\u0437 \u0440\u0435\u043a\u043b\u0430\u043c\u044b.",
+            "entityType": "AdvertisingBanner"
+        }
+    ],
+    "summary": {
+        "categoryCount": 8,
+        "activePlacementCount": 1,
+        "activeBannerCount": 0,
+        "catalogVersionCount": 0
+    }
+}
+{"placement":{"id":"3bcb2fee-dfa5-4f82-9b3d-df82a824c000","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"f5de3e30-1b03-4385-9c2b-fd5de2b37893","productId":"9801d248-343a-4826-8dd4-bd22309682eb","sortOrder":2,"status":"archived","category":{"id":"f5de3e30-1b03-4385-9c2b-fd5de2b37893","name":"Wave5-Test","shortName":"Wave5","status":"active"},"product":{"id":"9801d248-343a-4826-8dd4-bd22309682eb","defaultPluCode":"W5T-42662-2","name":"Wave5 Product 2","shortName":"W5P2","status":"archived"},"createdAt":"2026-05-24T13:51:21.194Z","updatedAt":"2026-05-24T13:51:21.453Z"}}
+HTTP 200

@@ -1,0 +1,2 @@
+{"price":{"id":"115d7de3-b25b-4acc-ae1e-34c6a8db9573","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","productId":"108816a8-5d00-4f1d-adf6-29c73c7d6d0a","price":"99.99","currency":"RUB","status":"active","createdAt":"2026-05-24T13:50:54.403Z","updatedAt":"2026-05-24T13:50:54.403Z"}}
+HTTP 200

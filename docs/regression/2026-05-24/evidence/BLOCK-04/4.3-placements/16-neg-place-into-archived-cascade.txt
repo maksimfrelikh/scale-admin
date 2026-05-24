@@ -1,0 +1,3 @@
+=== 4.3.16 NEG: place into archived Child ===
+400
+{"message":"Архивную или неактивную категорию нельзя использовать в активном размещении","error":"Bad Request","statusCode":400}

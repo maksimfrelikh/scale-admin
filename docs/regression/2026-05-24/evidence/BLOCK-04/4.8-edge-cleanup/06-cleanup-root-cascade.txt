@@ -1,0 +1,3 @@
+=== 4.8.6 CLEANUP — cascade-archive Wave4-Root-Renamed (will archive Child, GC, 3 placements) ===
+200
+{"category":{"id":"ea7a3f62-1c98-4797-a80a-d52e66d2819d","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root-Renamed","shortName":"W4Root","sortOrder":1,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T12:56:49.295Z","updatedAt":"2026-05-24T13:11:23.938Z"},"cascade":{"correlationId":"505b3654-c4a8-4af6-be5a-8599366b10d1","storeCatalogs":[],"categories":["af8b357b-6915-4226-b2eb-2d8090bad402","08ebe4c4-1770-4195-8afe-98dbb7b42923"],"placements":["eefd1f21-835f-4907-bf9e-e1831a29ae16","829cf56b-6ded-40f2-b27c-3335205b35e7","01222d41-ca35-46e1-b9cd-4c0c7e4df082"],"prices":[],"banners":[],"scaleDevices":[]}}

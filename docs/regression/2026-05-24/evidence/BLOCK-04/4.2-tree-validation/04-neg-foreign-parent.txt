@@ -1,0 +1,3 @@
+=== 4.2.4 NEG: parentId=foreign UUID ===
+400
+{"message":"Родительская категория не найдена в активном каталоге","error":"Bad Request","statusCode":400}

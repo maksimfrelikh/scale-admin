@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:12:13 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 318
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"13e-tKRNl/RynJD32RpJhctI9W8wpPE"
+
+{"category":{"id":"a0d054d8-5838-41ae-88e7-d4fde100d3bd","catalogId":"f023319f-e2c5-476e-91cd-888df97bb62f","parentId":null,"name":"Wave3 Test Category","shortName":"W3 Cat","sortOrder":0,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T12:12:13.369Z","updatedAt":"2026-05-24T12:12:13.369Z"}}

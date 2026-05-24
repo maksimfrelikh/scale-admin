@@ -1,0 +1,2 @@
+=== 4.6.7 anonymous (no session) fetch of public image ===
+HTTP=200 CT=image/jpeg SIZE=332

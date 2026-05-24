@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:25:41 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 349
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"15d-Bxtjje296iX70JbWOuR25PhcoxE"
+
+{"user":{"id":"da5fc991-346c-4fef-9a0a-026b8c362b7a","email":"unit-cusp-slam@duck.com","fullName":"unit-cusp-slam","role":"operator","status":"blocked","emailVerifiedAt":"2026-05-24T11:21:31.559Z","lastLoginAt":"2026-05-24T12:16:04.709Z","createdAt":"2026-05-24T11:21:31.676Z","updatedAt":"2026-05-24T12:25:41.665Z","deletedAt":null},"changed":true}

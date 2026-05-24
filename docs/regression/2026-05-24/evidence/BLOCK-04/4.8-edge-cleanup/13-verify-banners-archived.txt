@@ -1,0 +1,3 @@
+=== 4.8.13 VERIFY — banners (should show 2 W4 banners archived) ===
+200
+{"data":[],"meta":{"total":0,"limit":50,"offset":0}}

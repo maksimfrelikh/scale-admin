@@ -1,0 +1,13 @@
+HTTP/1.1 409 Conflict
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:11:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 106
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"6a-M7rGf1Mt5xpCzDJFBeY44UjcduY"
+
+{"message":"Товар с таким PLU уже существует","error":"Conflict","statusCode":409}

@@ -1,0 +1,22 @@
+=== Final consolidated redact-grep over entire 2026-05-24/ ===
+
+--- R6 Set-Cookie raw session ---
+0
+--- R6b Netscape tab session ---
+0
+--- R7 Set-Cookie raw csrf ---
+0
+--- R7b Netscape tab csrf ---
+0
+--- R8 x-csrf-token raw ---
+0
+--- R9 apiToken JSON raw ---
+0
+--- R10 x-scale-api-token raw ---
+0
+--- R11 invite/reset token JSON raw ---
+0
+--- Bearer ---
+0
+
+=== ALL ZEROS expected ===

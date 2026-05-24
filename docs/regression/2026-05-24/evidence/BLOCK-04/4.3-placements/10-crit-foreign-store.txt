@@ -1,0 +1,3 @@
+=== 4.3.10 CRIT: operator POST /stores/<bogus>/catalog/placements ===
+403
+{"message":"Нет доступа к магазину","error":"Forbidden","statusCode":403}

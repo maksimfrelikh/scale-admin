@@ -1,0 +1,1 @@
+{"message":"Cannot POST /api/scale-api/auth-check","error":"Not Found","statusCode":404}

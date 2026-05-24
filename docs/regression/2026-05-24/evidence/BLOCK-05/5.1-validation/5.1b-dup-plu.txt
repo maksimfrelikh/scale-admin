@@ -1,0 +1,7 @@
+=== 5.1.b: duplicate PLU (WRITE-TIME GUARDED probe) ===
+P1_PLU=W5T-42108-1
+{"message":"Товар с таким PLU уже существует","error":"Conflict","statusCode":409}
+HTTP 409
+
+Validator codepath: catalog-validation.service.ts:316-337 (defense-in-depth — fires only if DB has dup PLU; product PATCH/POST rejects dup PLU at write-time)
+Product write-time PLU uniqueness: products.service.ts (see grep below)

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:12:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 584
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"248-vnnl7R0zD0Q4F++To8drSXEkWes"
+
+{"product":{"id":"95938fd0-7e4d-4608-b713-dfaec72681dd","defaultPluCode":"PRODUCT-WAVE3-02","name":"Wave3 Test Banana","shortName":"W3 Banana","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"piece","status":"archived","unavailableForNewActivePlacements":true,"activePlacementCount":0,"createdAt":"2026-05-24T12:12:34.649Z","updatedAt":"2026-05-24T12:12:34.830Z"},"warning":null,"cascade":{"correlationId":"c5b40bf2-266b-4f64-b2c4-47c4fe27d5d3","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

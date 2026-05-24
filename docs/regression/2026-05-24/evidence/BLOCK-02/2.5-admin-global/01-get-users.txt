@@ -1,0 +1,14 @@
+# GET /api/users
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:52:23 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1586
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"632-Nc8EaDdSZnfc+ok7BkcrtOOkwhg"
+
+{"users":[{"id":"da5fc991-346c-4fef-9a0a-026b8c362b7a","email":"unit-cusp-slam@duck.com","fullName":"unit-cusp-slam","role":"operator","status":"active","emailVerifiedAt":"2026-05-24T11:21:31.559Z","lastLoginAt":"2026-05-24T11:46:29.157Z","createdAt":"2026-05-24T11:21:31.676Z","updatedAt":"2026-05-24T11:46:29.276Z","deletedAt":null},{"id":"f10ed250-ccae-4fd5-b69f-793a07c6b3d2","email":"qorxoes@gmail.com","fullName":"qorxoes","role":"admin","status":"active","emailVerifiedAt":"2026-05-21T17:14:02.662Z","lastLoginAt":"2026-05-24T11:46:15.764Z","createdAt":"2026-05-21T17:14:02.793Z","updatedAt":"2026-05-24T11:46:15.875Z","deletedAt":null},{"id":"344721ea-0eba-4759-af8b-7e2f0343ae26","email":"frelikhmax@gmail.com","fullName":"frelikhmax","role":"admin","status":"active","emailVerifiedAt":"2026-05-21T16:58:31.514Z","lastLoginAt":"2026-05-24T11:22:48.466Z","createdAt":"2026-05-21T16:58:31.634Z","updatedAt":"2026-05-24T11:22:48.591Z","deletedAt":null},{"id":"ce6d6252-4055-4569-acc9-78dd18cc0387","email":"qa-admin@example.com","fullName":"QA Admin","role":"admin","status":"active","emailVerifiedAt":"2026-05-20T10:02:27.347Z","lastLoginAt":"2026-05-24T11:11:00.837Z","createdAt":"2026-05-20T10:02:27.348Z","updatedAt":"2026-05-24T11:11:00.964Z","deletedAt":null},{"id":"450d3b7a-3de6-4f9c-b133-6a9486232c0d","email":"admin@example.com","fullName":"Local Admin","role":"admin","status":"active","emailVerifiedAt":"2026-05-19T17:19:06.177Z","lastLoginAt":"2026-05-24T10:53:55.848Z","createdAt":"2026-05-19T17:19:06.178Z","updatedAt":"2026-05-24T10:53:55.959Z","deletedAt":null}]}

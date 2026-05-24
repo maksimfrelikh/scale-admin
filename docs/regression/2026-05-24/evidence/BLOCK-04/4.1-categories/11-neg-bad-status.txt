@@ -1,0 +1,3 @@
+=== 4.1.9 NEG: status=foo ===
+400
+{"message":"Статус категории должен быть active, inactive или archived","error":"Bad Request","statusCode":400}

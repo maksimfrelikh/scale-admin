@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 10:56:53 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 179
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Set-Cookie: scale_admin_staging_session=SESSION_VALUE_REDACTED; Max-Age=1209600; Path=/; Expires=Sun, 07 Jun 2026 10:56:53 GMT; HttpOnly; Secure; SameSite=Lax
+ETag: W/"b3-ebG/3PVaxIcS5u9Mz6frSoptAQQ"
+

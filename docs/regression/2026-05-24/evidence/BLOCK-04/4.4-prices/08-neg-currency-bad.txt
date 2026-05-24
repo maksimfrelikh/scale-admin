@@ -1,0 +1,3 @@
+=== 4.4.8 NEG: currency=XXX ===
+400
+{"message":"Валюта не поддерживается","code":"PRICE_CURRENCY_NOT_SUPPORTED","allowedCurrencies":["RUB"],"received":"XXX"}

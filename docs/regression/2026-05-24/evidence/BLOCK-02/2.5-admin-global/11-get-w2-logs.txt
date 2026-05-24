@@ -1,0 +1,14 @@
+# GET /api/stores/f728a42b-49f0-4668-a78b-68cfb711b711/logs
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:52:24 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 741
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"2e5-RvKNZ8K936/vXAxJ+DA7tdX9efU"
+
+{"storeId":"f728a42b-49f0-4668-a78b-68cfb711b711","auditLogs":{"data":[{"id":"3f35687e-5369-4408-a5a0-8b25efa75ca5","action":"store.created","entityType":"Store","entityId":"f728a42b-49f0-4668-a78b-68cfb711b711","storeId":"f728a42b-49f0-4668-a78b-68cfb711b711","createdAt":"2026-05-24T11:50:28.831Z","actor":{"id":"f10ed250-ccae-4fd5-b69f-793a07c6b3d2","email":"qorxoes@gmail.com","fullName":"qorxoes"},"store":{"id":"f728a42b-49f0-4668-a78b-68cfb711b711","code":"STORE-WAVE2","name":"RBAC test store"}}],"meta":{"total":1,"limit":50,"offset":0}},"scaleSyncLogs":{"data":[],"meta":{"total":0,"limit":50,"offset":0}},"filters":{"storeId":null,"entityType":null,"action":null,"status":null,"dateFrom":null,"dateTo":null,"limit":50,"offset":0}}

@@ -1,0 +1,1 @@
+{"message":"Статус устройства весов должен быть active, inactive, blocked или archived","error":"Bad Request","statusCode":400}

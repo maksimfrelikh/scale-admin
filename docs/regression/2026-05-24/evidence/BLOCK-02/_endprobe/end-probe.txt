@@ -1,0 +1,59 @@
+# End-of-block re-probe (BLOCK-02 close)
+# captured: 2026-05-24T11:56:59Z
+
+## staging /api/version
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:56:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 98
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"62-BtzIRQqjAnECozKSXL9U3vHQNZ0"
+
+{"commit":"0cf0966","builtAt":"2026-05-23T20:42:10Z","version":"0.1.0","environment":"production"}
+## staging /api/health
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:56:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 86
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"56-1L8bWFC0So+rsFHsQMm/rdBdi6s"
+
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T11:56:59.652Z"}
+## prod /api/version
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:56:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 98
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"62-yjkh2tphfUaQagKseuaN/di0vsI"
+
+{"commit":"3538b7c","builtAt":"2026-05-22T08:05:35Z","version":"0.1.0","environment":"production"}
+## prod /api/health
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 11:56:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 86
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"56-wqNo6Cd5Bq+DGqbqc+5iXweJ0+I"
+
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T11:56:59.748Z"}

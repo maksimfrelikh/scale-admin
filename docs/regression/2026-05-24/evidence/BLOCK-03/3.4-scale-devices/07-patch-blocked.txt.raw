@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:18:41 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 427
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"1ab-LpKVrlvIdYU0siG123w5dVCXVFw"
+
+{"device":{"id":"3a052480-e326-4900-b53e-b615743c9cca","storeId":"3e38beb9-10cc-47d0-b700-d18e91fd351f","deviceCode":"SCALE-WAVE3-01","name":"Wave3 Test Scale 1","model":"CAS LP-V2","status":"blocked","lastSeenAt":"2026-05-24T12:18:22.827Z","lastSyncAt":null,"currentCatalogVersionId":null,"lastSyncStatus":null,"lastSyncError":null,"createdAt":"2026-05-24T12:17:43.860Z","updatedAt":"2026-05-24T12:18:41.020Z"},"changed":true}

@@ -1,0 +1,3 @@
+=== 4.4.21 NEG: set price for non-placed product (W3 archived) ===
+400
+{"message":"Перед назначением цены товар должен быть активен и размещён в активном каталоге","error":"Bad Request","statusCode":400}

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:32:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 620
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"26c-y+H/4QfA8lOEH5QJd6JCZkpxv1Q"
+
+{"product":{"id":"a98a4325-60dd-4398-8db5-9bcd1f65f75e","defaultPluCode":"PRODUCT-WAVE3-01","name":"Wave3 Test Apple — Renamed","shortName":"W3 Apple","description":"W3 test desc","imageUrl":null,"imageFileAssetId":null,"barcode":"4900000000031","sku":"W3-SKU-001","unit":"kg","status":"archived","unavailableForNewActivePlacements":true,"activePlacementCount":0,"createdAt":"2026-05-24T12:11:34.087Z","updatedAt":"2026-05-24T12:32:33.369Z"},"warning":null,"cascade":{"correlationId":"c1cc87f9-15f2-4582-b90f-8e34c1cd356e","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

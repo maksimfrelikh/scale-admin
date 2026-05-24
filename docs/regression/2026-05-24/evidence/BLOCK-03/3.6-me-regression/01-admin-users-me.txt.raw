@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:24:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 240
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"f0-w1uSFHE+fo71mSK6OIfdzNgMkLc"
+
+{"message":"'me' — зарезервированное слово, а не ID пользователя. Для текущего пользователя используйте GET /api/auth/session.","error":"Bad Request","statusCode":400}

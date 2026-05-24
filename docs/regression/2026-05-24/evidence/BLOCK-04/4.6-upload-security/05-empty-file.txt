@@ -1,0 +1,3 @@
+=== 4.6.5 NEG empty file ===
+400
+{"message":"Файл изображения обязателен","error":"Bad Request","statusCode":400}

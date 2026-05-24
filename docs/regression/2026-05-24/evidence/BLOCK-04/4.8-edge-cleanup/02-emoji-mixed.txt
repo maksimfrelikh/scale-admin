@@ -1,0 +1,3 @@
+=== 4.8.2 Emoji + mixed-script category ===
+201
+{"category":{"id":"bd5bb3ef-2f57-491e-b81e-9965785e39c1","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"🥑 Avocados/Авокадо 🍌","shortName":"🥑Авок","sortOrder":0,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T13:09:58.929Z","updatedAt":"2026-05-24T13:09:58.929Z"}}

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:25:42 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 191
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Set-Cookie: scale_admin_staging_session=SESSION_VALUE_REDACTED; Max-Age=1209600; Path=/; Expires=Sun, 07 Jun 2026 12:25:42 GMT; HttpOnly; Secure; SameSite=Lax
+ETag: W/"bf-wefhIkJ7v51HnFDFO3txbEIdt5o"
+
+{"user":{"id":"da5fc991-346c-4fef-9a0a-026b8c362b7a","email":"unit-cusp-slam@duck.com","fullName":"unit-cusp-slam","role":"operator","status":"active"},"expiresAt":"2026-06-07T12:25:42.109Z"}

@@ -1,0 +1,2 @@
+{"category":{"id":"9ccffd12-5b83-4326-8cfd-9c47a7ff30a0","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":"f5de3e30-1b03-4385-9c2b-fd5de2b37893","name":"Wave5-Test-Child","shortName":"W5Child","sortOrder":1,"status":"active","canAcceptActivePlacements":true,"createdAt":"2026-05-24T13:49:52.189Z","updatedAt":"2026-05-24T13:49:52.189Z"}}
+HTTP 201

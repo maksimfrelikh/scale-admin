@@ -1,0 +1,3 @@
+=== 4.2.3 NEG: PATCH root parentId=child (descendant cycle) ===
+400
+{"message":"Изменение родительской категории создаст цикл","error":"Bad Request","statusCode":400}

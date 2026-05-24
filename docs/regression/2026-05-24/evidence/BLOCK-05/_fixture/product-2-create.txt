@@ -1,0 +1,2 @@
+{"product":{"id":"9801d248-343a-4826-8dd4-bd22309682eb","defaultPluCode":"W5T-42662-2","name":"Wave5 Product 2","shortName":"W5P2","description":null,"imageUrl":null,"imageFileAssetId":null,"barcode":null,"sku":null,"unit":"kg","status":"active","unavailableForNewActivePlacements":false,"activePlacementCount":0,"createdAt":"2026-05-24T13:49:52.365Z","updatedAt":"2026-05-24T13:49:52.365Z"}}
+HTTP 201

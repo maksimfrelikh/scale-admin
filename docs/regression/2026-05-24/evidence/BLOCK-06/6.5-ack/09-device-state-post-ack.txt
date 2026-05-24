@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 18:33:01 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 619
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"26b-yHyoJd+hMT90QhScC7gzm/fUqco"
+
+{"devices":[{"id":"a74c4951-3140-413f-85b4-67d2961db1dd","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","deviceCode":"SCALE-W6-01","name":"Wave6 Test Scale 01","model":"TestScale-Pro","status":"active","lastSeenAt":"2026-05-24T18:32:29.652Z","lastSyncAt":"2026-05-24T18:32:29.655Z","currentCatalogVersionId":"7da29b48-4f9a-491a-8490-176a7f631ddb","lastSyncStatus":"auth_failed","lastSyncError":{"status":"auth_failed","message":"device_blocked","requestedVersionId":null,"deliveredVersionId":null,"createdAt":"2026-05-24T18:32:44.233Z"},"createdAt":"2026-05-24T16:17:19.680Z","updatedAt":"2026-05-24T18:32:44.351Z"}]}

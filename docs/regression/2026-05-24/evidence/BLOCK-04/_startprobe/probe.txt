@@ -1,0 +1,14 @@
+=== STARTUP PROBE 14:53 GMT+2 ===
+--- prod /api/version ---
+{"commit":"3538b7c","builtAt":"2026-05-22T08:05:35Z","version":"0.1.0","environment":"production"}
+HTTP=200
+--- prod /api/health ---
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T12:54:41.230Z"}
+HTTP=200
+--- staging /api/version ---
+{"commit":"0cf0966","builtAt":"2026-05-23T20:42:10Z","version":"0.1.0","environment":"production"}
+HTTP=200
+--- staging /api/health ---
+{"status":"ok","service":"scale-admin-backend","timestamp":"2026-05-24T12:54:41.317Z"}
+HTTP=200
+--- wall clock: 2026-05-24 14:54:41 CEST

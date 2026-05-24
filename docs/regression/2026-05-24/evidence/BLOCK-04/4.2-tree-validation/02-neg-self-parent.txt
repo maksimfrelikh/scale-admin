@@ -1,0 +1,3 @@
+=== 4.2.2 NEG: PATCH root parentId=self ===
+400
+{"message":"Категория не может быть родительской для самой себя","error":"Bad Request","statusCode":400}

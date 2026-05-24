@@ -1,0 +1,1 @@
+{"message":"Устройству весов запрещена синхронизация","error":"Forbidden","code":"SCALE_DEVICE_NOT_ACTIVE","statusCode":403}

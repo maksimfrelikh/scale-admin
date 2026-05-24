@@ -1,0 +1,3 @@
+=== 4.2.1 NEG: create 4th-level (depth=4 attempt) ===
+400
+{"message":"Глубина категории не может превышать 3 уровней","error":"Bad Request","statusCode":400}

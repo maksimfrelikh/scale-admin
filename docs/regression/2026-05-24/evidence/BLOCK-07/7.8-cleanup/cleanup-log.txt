@@ -1,0 +1,10 @@
+=== Archive 3 orphan Wave5 products ===
+  797150ef-88d2-490e-8978-2c367e695b25 → HTTP 200
+  108816a8-5d00-4f1d-adf6-29c73c7d6d0a → HTTP 200
+  3d142296-935d-4bb5-adbe-89b786318401 → HTTP 200
+=== Verify 0 active Wave5 products ===
+  active Wave5 products: 0
+=== Verify SCALE-W6-01 still archived ===
+  - SCALE-W6-01 status=archived
+=== Verify 0 active Wave4-* categories ===
+  Active Wave4-*: 0

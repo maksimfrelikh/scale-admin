@@ -70,4 +70,21 @@ paths = [
   '''(^|/)package-lock\.json$''',
   '''(^|/)\.gitleaks\.toml$''',
   '''(^|/)\.gitleaks-tests/''',
+  '''(^|/)docs/regression/''',  # audit artifacts pre-redacted by scripts/redact.sh + Wave 7 §7.2
+]
+
+# -----------------------------------------------------------------------------
+# Regression workspace audit artifacts
+# -----------------------------------------------------------------------------
+# Per-regression docs/regression/YYYY-MM-DD/ folders contain markdown reports,
+# bug write-ups, per-block SUMMARY tables, and .txt/.json evidence files.
+# Secret redaction happens via scripts/redact.sh during the regression plus
+# final cross-wave grep audits (e.g. Wave 7 §7.2 — 9-pattern strict, 0 hits).
+# The default generic-api-key entropy rule (>=3.5) occasionally flags the
+# literal "REDACTED" placeholder string and algorithm-name constants like
+# 'pbkdf2_sha512' in these documentation artifacts. Skip globally.
+[[allowlists]]
+description = "regression workspace audit artifacts (pre-redacted documentation)"
+paths = [
+  '''(^|/)docs/regression/''',
 ]

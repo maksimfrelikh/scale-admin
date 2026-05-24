@@ -1,0 +1,3 @@
+=== 4.5.12 PATCH banner/:id/status inactive ===
+200
+{"banner":{"id":"b4868845-258c-4243-92db-a49814bacdbd","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","imageUrl":"https://staging.maksimfrelikh.ru/uploads/images/3c69f055-b0b3-4680-bd42-a8a6872e074f.jpg","imageFileAssetId":"f1a16923-680b-4456-aa69-781279c44956","status":"inactive","sortOrder":1,"createdAt":"2026-05-24T13:04:05.802Z","updatedAt":"2026-05-24T13:04:38.687Z"}}

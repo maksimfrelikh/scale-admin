@@ -1,0 +1,13 @@
+HTTP/1.1 429 Too Many Requests
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 18:37:38 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 200
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"c8-+PL9d61CqieQ1F/+tY2NxhKPj7Q"
+
+{"message":"Слишком много запросов. Повторите попытку позже.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":38,"statusCode":429}

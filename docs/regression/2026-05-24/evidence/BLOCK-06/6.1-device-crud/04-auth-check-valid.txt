@@ -1,0 +1,1 @@
+{"authenticated":true,"device":{"id":"a74c4951-3140-413f-85b4-67d2961db1dd","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","deviceCode":"SCALE-W6-01","status":"active"}}

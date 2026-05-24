@@ -1,0 +1,3 @@
+=== 4.5.18 NEG banner sortOrder=-1 ===
+400
+{"message":"sortOrder должен быть неотрицательным целым числом","error":"Bad Request","statusCode":400}

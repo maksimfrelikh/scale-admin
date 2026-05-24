@@ -1,0 +1,10 @@
+=== 5.1.e: broken tree (write-time block) ===
+self-parent: HTTP 400
+{"message":"Категория не может быть родительской для самой себя","error":"Bad Request","statusCode":400}
+HTTP 400
+
+bogus parent: HTTP 400
+{"message":"Родительская категория не найдена в активном каталоге","error":"Bad Request","statusCode":400}
+HTTP 400
+
+depth>3 attempt: see W4 §4.2 (already proved 400)

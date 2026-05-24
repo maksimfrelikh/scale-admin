@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:09:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 744
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"2e8-1iYrqQNSLqa72jIoqBo11KHclmY"
+
+{"stores":[{"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001","name":"Sample Store 001","address":"Local development sample store","timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-19T17:19:06.403Z","updatedAt":"2026-05-23T20:44:31.457Z"},{"id":"2fcd6729-abad-4378-a5dc-ce0c5a8e6e50","code":"STORE-WAVE3-02","name":"Wave3 Inactive","address":null,"timezone":"Europe/Moscow","status":"inactive","createdAt":"2026-05-24T12:09:31.016Z","updatedAt":"2026-05-24T12:09:31.016Z"},{"id":"3e38beb9-10cc-47d0-b700-d18e91fd351f","code":"STORE-WAVE3-01","name":"Wave3 Test Store 1","address":"W3 addr","timezone":"Europe/Moscow","status":"active","createdAt":"2026-05-24T12:09:13.855Z","updatedAt":"2026-05-24T12:09:13.855Z"}]}

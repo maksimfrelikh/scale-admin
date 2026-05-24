@@ -1,0 +1,3 @@
+=== 4.1.14 ARCHIVE Wave4-Root2 (empty leaf) ===
+200
+{"category":{"id":"c9238264-582b-4fb1-b2bd-5d37a0f069b7","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","parentId":null,"name":"Wave4-Root2","shortName":"W4R2","sortOrder":0,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T12:57:19.157Z","updatedAt":"2026-05-24T12:57:38.107Z"},"cascade":{"correlationId":"5d857ad2-969a-416c-a7ac-42563d6c3d35","storeCatalogs":[],"categories":[],"placements":[],"prices":[],"banners":[],"scaleDevices":[]}}

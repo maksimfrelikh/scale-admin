@@ -1,0 +1,3 @@
+=== 4.2.9 NEG: reorderCategories empty array ===
+400
+{"message":"categoryIds должен содержать хотя бы один ID категории","error":"Bad Request","statusCode":400}

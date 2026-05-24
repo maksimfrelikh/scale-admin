@@ -1,0 +1,16 @@
+# Wave 6 fixture IDs (captured 2026-05-24 18:16 GMT+2)
+
+STORE_ID=e4d711db-dddd-4749-9a4c-0c2aed2f4f77 (STORE-001 Sample Store 001)
+ADMIN_USER_ID=f10ed250-ccae-4fd5-b69f-793a07c6b3d2 (qorxoes@gmail.com)
+OPERATOR_USER_ID=da5fc991-346c-4fef-9a0a-026b8c362b7a (unit-cusp-slam@duck.com STORE-001 scoped)
+CURRENT_CATALOG_VERSION_ID=7da29b48-4f9a-491a-8490-176a7f631ddb (v#5)
+CURRENT_PACKAGE_CHECKSUM=46265c3afa234df69b00d20e81d225e1a8f8f1c039e8627c75e5fc5f4fe1c720
+TOTAL_VERSIONS=5 (v#1-v#5 from W5)
+
+# Scales to be created
+SCALE_W6_01_DEVICE_CODE=SCALE-W6-01
+SCALE_W6_02_DEVICE_CODE=SCALE-W6-02 (optional, for multi-device probes)
+
+# Plain apiToken storage (chmod 600, OUTSIDE evidence dir)
+TOKEN_FILE=/tmp/scale-token-w6.txt
+SCALE_W6_01_ID=a74c4951-3140-413f-85b4-67d2961db1dd

@@ -1,0 +1,17 @@
+--- Pre-login cookie jar (names only, values redacted) ---
+scale_admin_staging_csrf
+Pre-login session cookie present: no
+Pre-login CSRF cookie present: yes, length=43
+
+--- Post-login ---
+Session cookie present: no, length=0
+Session value distinct from pre-login session: no
+CSRF cookie present: yes, length=43
+CSRF value changed by login: no
+
+--- Test B: planted cookie fixation defense ---
+Planted login response status: HTTP/1.1 403 Forbidden
+New Set-Cookie value equals planted 'attacker_planted_session_value_zzz': no
+New Set-Cookie value length: 0
+Planted value length: 34
+Session-check using PLANTED value: {"message":"Требуется авторизация","error":"Unauthorized","statusCode":401}

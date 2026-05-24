@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 18:31:24 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 112
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"70-iYnI4HXu3IsTpNS+FaUGpvsns4U"
+
+{"message":"Статус ACK должен быть success или error","error":"Bad Request","statusCode":400}

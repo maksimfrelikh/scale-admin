@@ -1,0 +1,11 @@
+=== 4.6.6 rate-limit probe (10 rapid uploads) ===
+1: 201
+2: 201
+3: 201
+4: 201
+5: 201
+6: 201
+7: 201
+8: 201
+9: 429  rate-limited
+{"message":"Слишком много запросов. Повторите попытку позже.","error":"Too Many Requests","code":"RATE_LIMIT_EXCEEDED","retryAfterSeconds":59,"statusCode":429}

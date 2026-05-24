@@ -1,0 +1,3 @@
+=== 4.2.8 NEG: reorderCategories with mixed-parent IDs ===
+400
+{"message":"Все категории для сортировки должны быть в одном каталоге и на одном уровне","error":"Bad Request","statusCode":400}

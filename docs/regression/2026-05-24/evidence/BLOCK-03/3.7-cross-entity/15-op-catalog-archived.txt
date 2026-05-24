@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:28:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 503
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"1f7-kOxpHdy9ckCHVEuNUeVFiF3b7R8"
+
+{"catalog":{"id":"f023319f-e2c5-476e-91cd-888df97bb62f","storeId":"3e38beb9-10cc-47d0-b700-d18e91fd351f","name":"Основной каталог","status":"active"},"categories":[{"id":"a0d054d8-5838-41ae-88e7-d4fde100d3bd","catalogId":"f023319f-e2c5-476e-91cd-888df97bb62f","parentId":null,"name":"Wave3 Test Category","shortName":"W3 Cat","sortOrder":0,"status":"archived","canAcceptActivePlacements":false,"createdAt":"2026-05-24T12:12:13.369Z","updatedAt":"2026-05-24T12:26:31.492Z","children":[]}]}

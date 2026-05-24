@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Sun, 24 May 2026 12:16:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1026
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: https://staging.maksimfrelikh.ru
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"402-ftdrRp++sq8gC/HRmiaKU0AtbMg"
+
+{"storeAccesses":[{"id":"3c0610a6-d172-4080-9702-a953bf506432","userId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","storeId":"3e38beb9-10cc-47d0-b700-d18e91fd351f","grantedByUserId":"f10ed250-ccae-4fd5-b69f-793a07c6b3d2","createdAt":"2026-05-24T12:15:44.901Z","revokedAt":"2026-05-24T12:16:04.487Z","store":{"id":"3e38beb9-10cc-47d0-b700-d18e91fd351f","code":"STORE-WAVE3-01","name":"Wave3 Test Store 1 — Renamed","status":"active"},"grantedBy":{"id":"f10ed250-ccae-4fd5-b69f-793a07c6b3d2","email":"qorxoes@gmail.com","fullName":"qorxoes"}},{"id":"decaeb5c-f759-4d5a-b896-47c85e59625d","userId":"da5fc991-346c-4fef-9a0a-026b8c362b7a","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","grantedByUserId":"344721ea-0eba-4759-af8b-7e2f0343ae26","createdAt":"2026-05-24T11:23:20.866Z","revokedAt":null,"store":{"id":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","code":"STORE-001","name":"Sample Store 001","status":"active"},"grantedBy":{"id":"344721ea-0eba-4759-af8b-7e2f0343ae26","email":"frelikhmax@gmail.com","fullName":"frelikhmax"}}]}

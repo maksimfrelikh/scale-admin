@@ -1,0 +1,1 @@
+{"message":"Авторизация Scale API не выполнена","error":"Unauthorized","code":"SCALE_API_AUTH_FAILED","statusCode":401}

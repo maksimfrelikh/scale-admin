@@ -1,0 +1,1 @@
+{"message":"currentCatalogVersionId должен быть корректным UUID","error":"Bad Request","statusCode":400}

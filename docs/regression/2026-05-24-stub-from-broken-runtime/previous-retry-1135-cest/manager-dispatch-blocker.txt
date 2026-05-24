@@ -1,0 +1,25 @@
+REGRESSION-2026-05-24 Wave 1 retry — Manager dispatch blocker
+Recorded: 2026-05-24 11:35 CEST
+
+Read-only liveness probes:
+- Staging GET /api/version: 200, commit 0cf0966, builtAt 2026-05-23T20:42:10Z.
+- Staging GET /api/health: 200.
+- Production GET /api/version: 200, commit 3538b7c, builtAt 2026-05-22T08:05:35Z.
+- Production GET /api/health: 200.
+
+Dispatch summary:
+- Manager retry 1: failed before usable output due unsupported reasoning setting.
+- Manager retry 2: failed before usable output due unsupported reasoning setting.
+- Manager retry 3: failed before usable output due model/API write-permission startup failure.
+- Manager retry 4 with model override: failed before usable output due model/API write-permission startup failure.
+
+Tester coverage:
+- No Tester block-plan was produced.
+- No Tester run started.
+- No QA account login was attempted.
+- No functional auth/session lifecycle coverage was executed.
+
+Classification:
+- BLOCKED by execution infrastructure.
+- Not an app PASS/FAIL verdict.
+- No product BUG-REG filed.

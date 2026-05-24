@@ -1,0 +1,13 @@
+=== 5.1.a: placement without price ===
+ADD placement P1:
+{"placement":{"id":"ad343eaa-0685-4d23-9867-099f5cceace5","catalogId":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","categoryId":"f5de3e30-1b03-4385-9c2b-fd5de2b37893","productId":"108816a8-5d00-4f1d-adf6-29c73c7d6d0a","sortOrder":1,"status":"active","createdAt":"2026-05-24T13:50:33.063Z","updatedAt":"2026-05-24T13:50:33.063Z"}}
+HTTP 201
+PLACE_P1=ad343eaa-0685-4d23-9867-099f5cceace5
+
+=== validate ===
+{"catalog":{"id":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","name":"Main Catalog","status":"active","currentVersionId":null},"canPublish":false,"blockingErrors":[{"code":"ACTIVE_PLACEMENT_PRICE_MISSING","message":"У товара в активном размещении нет активной положительной цены для магазина.","entityType":"CatalogProductPlacement","entityId":"ad343eaa-0685-4d23-9867-099f5cceace5","metadata":{"productId":"108816a8-5d00-4f1d-adf6-29c73c7d6d0a","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77"}}],"warnings":[{"code":"NO_ACTIVE_ADVERTISING_BANNERS","message":"В каталоге нет активных рекламных баннеров. Публикацию можно продолжить без рекламы.","entityType":"AdvertisingBanner"}],"summary":{"categoryCount":8,"activePlacementCount":1,"activeBannerCount":0,"catalogVersionCount":0}}
+HTTP 200
+
+=== publish (expect 400) ===
+{"message":"В каталоге есть блокирующие ошибки проверки, поэтому его нельзя опубликовать","validation":{"catalog":{"id":"8de2b1d0-bba3-4a52-aa8d-35dec9475d1c","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77","name":"Main Catalog","status":"active","currentVersionId":null},"canPublish":false,"blockingErrors":[{"code":"ACTIVE_PLACEMENT_PRICE_MISSING","message":"У товара в активном размещении нет активной положительной цены для магазина.","entityType":"CatalogProductPlacement","entityId":"ad343eaa-0685-4d23-9867-099f5cceace5","metadata":{"productId":"108816a8-5d00-4f1d-adf6-29c73c7d6d0a","storeId":"e4d711db-dddd-4749-9a4c-0c2aed2f4f77"}}],"warnings":[{"code":"NO_ACTIVE_ADVERTISING_BANNERS","message":"В каталоге нет активных рекламных баннеров. Публикацию можно продолжить без рекламы.","entityType":"AdvertisingBanner"}],"summary":{"categoryCount":8,"activePlacementCount":1,"activeBannerCount":0,"catalogVersionCount":0}}}
+HTTP 400

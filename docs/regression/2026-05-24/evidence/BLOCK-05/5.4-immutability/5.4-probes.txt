@@ -1,0 +1,31 @@
+=== 5.4 immutability probes ===
+PATCH publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot PATCH /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+PATCH publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish → 
+HTTP 404 body={"message":"Cannot PATCH /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish","error":"Not Found","statusCode":404}
+PATCH publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status → 
+HTTP 404 body={"message":"Cannot PATCH /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status","error":"Not Found","statusCode":404}
+PUT publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot PUT /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+PUT publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish → 
+HTTP 404 body={"message":"Cannot PUT /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish","error":"Not Found","statusCode":404}
+PUT publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status → 
+HTTP 404 body={"message":"Cannot PUT /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status","error":"Not Found","statusCode":404}
+DELETE publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot DELETE /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+DELETE publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish → 
+HTTP 404 body={"message":"Cannot DELETE /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish","error":"Not Found","statusCode":404}
+DELETE publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status → 
+HTTP 404 body={"message":"Cannot DELETE /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status","error":"Not Found","statusCode":404}
+POST publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot POST /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+POST publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish → 
+HTTP 404 body={"message":"Cannot POST /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/republish","error":"Not Found","statusCode":404}
+POST publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status → 
+HTTP 404 body={"message":"Cannot POST /api/stores/e4d711db-dddd-4749-9a4c-0c2aed2f4f77/publishing/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717/status","error":"Not Found","statusCode":404}
+PATCH /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot PATCH /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+PUT /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot PUT /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
+DELETE /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717 → 
+HTTP 404 body={"message":"Cannot DELETE /api/catalog-versions/532847b6-348a-44c4-ba0b-a40305abe717","error":"Not Found","statusCode":404}
