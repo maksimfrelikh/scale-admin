@@ -16,7 +16,7 @@ import { hashPassword, verifyPassword } from '../../src/auth/password.util.ts';
 describe('BUG-REG-068 — login timing leak', () => {
   describe('DUMMY_CREDENTIAL shape', () => {
     it('uses production hash params (pbkdf2_sha512 / 210000 / sha512 / 64-byte key)', () => {
-      assert.equal(DUMMY_CREDENTIAL.passwordHashAlgorithm, 'pbkdf2_sha512');
+      assert.equal(DUMMY_CREDENTIAL.passwordHashAlgorithm, 'pbkdf2_sha512'); // gitleaks:allow
       assert.equal(DUMMY_CREDENTIAL.passwordHashParams.iterations, 210_000);
       assert.equal(DUMMY_CREDENTIAL.passwordHashParams.keyLength, 64);
       assert.equal(DUMMY_CREDENTIAL.passwordHashParams.digest, 'sha512');
