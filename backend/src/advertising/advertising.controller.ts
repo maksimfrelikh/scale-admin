@@ -7,6 +7,7 @@ import { SessionGuard } from '../auth/session.guard';
 import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { AdvertisingService } from './advertising.service';
 
 type ListBannersQuery = {
@@ -38,7 +39,7 @@ export class AdvertisingController {
   constructor(private readonly advertisingService: AdvertisingService) {}
 
   @Get()
-  listBanners(@Param('storeId') storeId: string, @Query() query: ListBannersQuery) {
+  listBanners(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Query() query: ListBannersQuery) {
     return this.advertisingService.listBanners(storeId, {
       status: query.status,
       limit: query.limit,
@@ -48,7 +49,7 @@ export class AdvertisingController {
 
   @Post()
   createBanner(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: BannerBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -68,7 +69,7 @@ export class AdvertisingController {
 
   @Post('reorder')
   reorderBanners(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: ReorderBannersBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -82,14 +83,14 @@ export class AdvertisingController {
   }
 
   @Get(':bannerId')
-  getBanner(@Param('storeId') storeId: string, @Param('bannerId') bannerId: string) {
+  getBanner(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Param('bannerId', RussianParseUUIDPipe) bannerId: string) {
     return this.advertisingService.getBanner(storeId, bannerId);
   }
 
   @Patch(':bannerId')
   updateBanner(
-    @Param('storeId') storeId: string,
-    @Param('bannerId') bannerId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('bannerId', RussianParseUUIDPipe) bannerId: string,
     @Body() body: BannerBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -110,8 +111,8 @@ export class AdvertisingController {
 
   @Patch(':bannerId/status')
   changeBannerStatus(
-    @Param('storeId') storeId: string,
-    @Param('bannerId') bannerId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('bannerId', RussianParseUUIDPipe) bannerId: string,
     @Body() body: ChangeStatusBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,

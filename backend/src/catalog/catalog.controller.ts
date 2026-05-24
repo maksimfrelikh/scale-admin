@@ -7,6 +7,7 @@ import { SessionGuard } from '../auth/session.guard';
 import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { CatalogService } from './catalog.service';
 
 export type CategoryBody = {
@@ -51,13 +52,13 @@ export class CatalogController {
   constructor(private readonly catalogService: CatalogService) {}
 
   @Get('categories')
-  listCategoryTree(@Param('storeId') storeId: string, @Query() query: CategoryQuery) {
+  listCategoryTree(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Query() query: CategoryQuery) {
     return this.catalogService.listCategoryTree(storeId, { status: query.status });
   }
 
   @Post('categories')
   createCategory(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: CategoryBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -78,8 +79,8 @@ export class CatalogController {
 
   @Patch('categories/:categoryId')
   updateCategory(
-    @Param('storeId') storeId: string,
-    @Param('categoryId') categoryId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('categoryId', RussianParseUUIDPipe) categoryId: string,
     @Body() body: CategoryBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -101,7 +102,7 @@ export class CatalogController {
 
   @Post('categories/reorder')
   reorderCategories(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: ReorderCategoriesBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -119,7 +120,7 @@ export class CatalogController {
 
 
   @Get('placements')
-  listPlacements(@Param('storeId') storeId: string, @Query() query: PlacementQuery) {
+  listPlacements(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Query() query: PlacementQuery) {
     return this.catalogService.listPlacements(storeId, {
       categoryId: query.categoryId,
       status: query.status,
@@ -128,7 +129,7 @@ export class CatalogController {
 
   @Post('placements')
   createPlacement(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: PlacementBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -148,7 +149,7 @@ export class CatalogController {
 
   @Post('placements/reorder')
   reorderPlacements(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: ReorderPlacementsBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -165,14 +166,14 @@ export class CatalogController {
   }
 
   @Get('placements/:placementId')
-  getPlacement(@Param('storeId') storeId: string, @Param('placementId') placementId: string) {
+  getPlacement(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Param('placementId', RussianParseUUIDPipe) placementId: string) {
     return this.catalogService.getPlacement(storeId, placementId);
   }
 
   @Patch('placements/:placementId')
   updatePlacement(
-    @Param('storeId') storeId: string,
-    @Param('placementId') placementId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('placementId', RussianParseUUIDPipe) placementId: string,
     @Body() body: PlacementBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -192,8 +193,8 @@ export class CatalogController {
 
   @Post('placements/:placementId/move')
   movePlacement(
-    @Param('storeId') storeId: string,
-    @Param('placementId') placementId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('placementId', RussianParseUUIDPipe) placementId: string,
     @Body() body: PlacementBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,

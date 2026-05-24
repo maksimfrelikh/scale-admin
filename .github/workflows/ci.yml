@@ -36,11 +36,12 @@ jobs:
         run: npm run build
       - name: Run backend specs (node --test)
         # node:test runner + --experimental-strip-types covers the
-        # 23 *.spec.ts suites under backend/src/ that the repo has today.
+        # *.spec.ts suites under backend/src/ (unit) and
+        # backend/test/regression/ (BUG-REG-* regression pins).
         # Some suites import compiled dist/* (NestJS @Injectable + param
         # properties cannot be stripped on the fly), so build runs first.
         working-directory: backend
-        run: node --test --experimental-strip-types 'src/**/*.spec.ts'
+        run: node --test --experimental-strip-types 'src/**/*.spec.ts' 'test/regression/**/*.spec.ts'
 
   frontend-build:
     name: Frontend (tsc + vite build)

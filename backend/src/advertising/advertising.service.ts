@@ -92,6 +92,8 @@ export class AdvertisingService {
       sortOrder: this.requireSortOrder(input.sortOrder ?? 0),
     };
 
+    await this.assertFileAssetExists(data.imageFileAssetId);
+
     const created = await this.prisma.$transaction(async (tx) => {
       const banner = await tx.advertisingBanner.create({ data });
       await this.auditLogs.create(tx, {
@@ -128,6 +130,7 @@ export class AdvertisingService {
     }
     if (input.imageFileAssetId !== undefined) {
       data.imageFileAssetId = input.imageFileAssetId === null ? null : this.normalizeOptionalId(input.imageFileAssetId);
+      await this.assertFileAssetExists(data.imageFileAssetId ?? null);
     }
     if (input.status !== undefined) {
       data.status = this.requireBannerStatus(input.status);
@@ -219,6 +222,22 @@ export class AdvertisingService {
     });
 
     return { banners: updated.map((banner) => this.toBannerResponse(banner)) };
+  }
+
+  private async assertFileAssetExists(imageFileAssetId: string | null | undefined): Promise<void> {
+    if (!imageFileAssetId) {
+      return;
+    }
+    const exists = await this.prisma.fileAsset.findUnique({
+      where: { id: imageFileAssetId },
+      select: { id: true },
+    });
+    if (!exists) {
+      throw new BadRequestException({
+        code: 'FILE_ASSET_NOT_FOUND',
+        message: 'imageFileAssetId ссылается на отсутствующий файл',
+      });
+    }
   }
 
   private async findBanner(storeId: string, bannerId: string): Promise<BannerRecord> {

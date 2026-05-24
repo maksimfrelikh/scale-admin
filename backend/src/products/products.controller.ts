@@ -5,6 +5,7 @@ import { RequireRoles } from '../auth/roles.decorator';
 import { RolesGuard } from '../auth/roles.guard';
 import { SessionGuard } from '../auth/session.guard';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { ProductsService } from './products.service';
 
 type ProductBody = {
@@ -61,13 +62,13 @@ export class ProductsController {
   }
 
   @Get(':productId')
-  getProduct(@Param('productId') productId: string) {
+  getProduct(@Param('productId', RussianParseUUIDPipe) productId: string) {
     return this.productsService.getProduct(productId);
   }
 
   @Patch(':productId')
   updateProduct(
-    @Param('productId') productId: string,
+    @Param('productId', RussianParseUUIDPipe) productId: string,
     @Body() body: ProductBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,

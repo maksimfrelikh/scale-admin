@@ -7,6 +7,7 @@ import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
 import { getHeader } from '../auth/cookie.util';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { ScalesService } from './scales.service';
 
 type RegisterDeviceBody = {
@@ -28,14 +29,14 @@ export class ScalesController {
   @Get('stores/:storeId/scales')
   @RequireRoles('admin', 'operator')
   @RequireStoreAccess('storeId', 'params')
-  listStoreDevices(@Param('storeId') storeId: string) {
+  listStoreDevices(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.scalesService.listStoreDevices(storeId);
   }
 
   @Post('stores/:storeId/scales')
   @RequireRoles('admin')
   registerDevice(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: RegisterDeviceBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -56,7 +57,7 @@ export class ScalesController {
   @Patch('scales/:deviceId/status')
   @RequireRoles('admin')
   updateDeviceStatus(
-    @Param('deviceId') deviceId: string,
+    @Param('deviceId', RussianParseUUIDPipe) deviceId: string,
     @Body() body: UpdateDeviceStatusBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -71,7 +72,7 @@ export class ScalesController {
 
   @Post('scales/:deviceId/regenerate-token')
   @RequireRoles('admin')
-  regenerateApiToken(@Param('deviceId') deviceId: string, @Req() request: any, @CurrentUser() user: AuthenticatedUser) {
+  regenerateApiToken(@Param('deviceId', RussianParseUUIDPipe) deviceId: string, @Req() request: any, @CurrentUser() user: AuthenticatedUser) {
     return this.scalesService.regenerateApiToken(deviceId, user.id, this.getRequestContext(request));
   }
 

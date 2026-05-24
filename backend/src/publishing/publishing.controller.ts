@@ -7,6 +7,7 @@ import { RolesGuard } from '../auth/roles.guard';
 import { SessionGuard } from '../auth/session.guard';
 import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { CatalogPackageService } from './catalog-package.service';
 import { CatalogPublishingService } from './catalog-publishing.service';
 import { CatalogValidationService } from './catalog-validation.service';
@@ -23,33 +24,33 @@ export class PublishingController {
   ) {}
 
   @Post('catalog-validation')
-  validateActiveCatalog(@Param('storeId') storeId: string) {
+  validateActiveCatalog(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.catalogValidationService.validateActiveCatalog(storeId);
   }
 
   @Get('catalog-validation')
-  getActiveCatalogValidation(@Param('storeId') storeId: string) {
+  getActiveCatalogValidation(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.catalogValidationService.validateActiveCatalog(storeId);
   }
 
   @Post('catalog-package')
-  generateActiveCatalogPackage(@Param('storeId') storeId: string) {
+  generateActiveCatalogPackage(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.catalogPackageService.generateActiveCatalogPackage(storeId);
   }
 
   @Get('catalog-package')
-  getActiveCatalogPackage(@Param('storeId') storeId: string) {
+  getActiveCatalogPackage(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.catalogPackageService.generateActiveCatalogPackage(storeId);
   }
 
   @Get('catalog-versions')
-  listCatalogVersions(@Param('storeId') storeId: string) {
+  listCatalogVersions(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.catalogPublishingService.listCatalogVersions(storeId);
   }
 
   @Post('catalog-publish')
   publishActiveCatalog(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
   ) {

@@ -6,6 +6,7 @@ import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { StoresService } from './stores.service';
 
 type CreateStoreBody = {
@@ -61,20 +62,20 @@ export class StoresController {
   @Get(':storeId')
   @RequireRoles('admin', 'operator')
   @RequireStoreAccess('storeId', 'params')
-  getStore(@Param('storeId') storeId: string) {
+  getStore(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.storesService.getStore(storeId);
   }
 
   @Get(':storeId/details')
   @RequireRoles('admin', 'operator')
   @RequireStoreAccess('storeId', 'params')
-  getStoreDetails(@Param('storeId') storeId: string) {
+  getStoreDetails(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.storesService.getStoreDetails(storeId);
   }
 
   @Patch(':storeId')
   @RequireRoles('admin')
-  updateStore(@Param('storeId') storeId: string, @Body() body: UpdateStoreBody, @Req() request: any, @CurrentUser() user: AuthenticatedUser) {
+  updateStore(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Body() body: UpdateStoreBody, @Req() request: any, @CurrentUser() user: AuthenticatedUser) {
     return this.storesService.updateStore(
       storeId,
       {
@@ -92,7 +93,7 @@ export class StoresController {
   @Get(':storeId/access-check')
   @RequireRoles('admin', 'operator')
   @RequireStoreAccess('storeId', 'params')
-  getStoreAccessCheck(@Param('storeId') storeId: string, @CurrentUser() user: AuthenticatedUser) {
+  getStoreAccessCheck(@Param('storeId', RussianParseUUIDPipe) storeId: string, @CurrentUser() user: AuthenticatedUser) {
     return {
       ok: true,
       storeId,

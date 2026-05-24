@@ -7,6 +7,7 @@ import { SessionGuard } from '../auth/session.guard';
 import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
 import type { AuthenticatedUser } from '../auth/auth.types';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { PricesService } from './prices.service';
 
 type ListPricesQuery = {
@@ -31,7 +32,7 @@ export class PricesController {
   constructor(private readonly pricesService: PricesService) {}
 
   @Get()
-  listStorePrices(@Param('storeId') storeId: string, @Query() query: ListPricesQuery) {
+  listStorePrices(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Query() query: ListPricesQuery) {
     return this.pricesService.listStorePrices(storeId, {
       search: query.search,
       categoryId: query.categoryId,
@@ -42,13 +43,13 @@ export class PricesController {
   }
 
   @Get('categories')
-  listStorePriceCategories(@Param('storeId') storeId: string) {
+  listStorePriceCategories(@Param('storeId', RussianParseUUIDPipe) storeId: string) {
     return this.pricesService.listStorePriceCategories(storeId);
   }
 
   @Put()
   setStoreProductPrice(
-    @Param('storeId') storeId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
     @Body() body: SetPriceBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,
@@ -67,8 +68,8 @@ export class PricesController {
 
   @Put(':productId')
   setStoreProductPriceByParam(
-    @Param('storeId') storeId: string,
-    @Param('productId') productId: string,
+    @Param('storeId', RussianParseUUIDPipe) storeId: string,
+    @Param('productId', RussianParseUUIDPipe) productId: string,
     @Body() body: SetPriceBody,
     @Req() request: any,
     @CurrentUser() user: AuthenticatedUser,

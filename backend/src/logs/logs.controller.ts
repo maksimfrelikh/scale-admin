@@ -4,6 +4,7 @@ import { RolesGuard } from '../auth/roles.guard';
 import { SessionGuard } from '../auth/session.guard';
 import { RequireStoreAccess } from '../auth/store-access.decorator';
 import { StoreAccessGuard } from '../auth/store-access.guard';
+import { RussianParseUUIDPipe } from '../shared/uuid-param.pipe';
 import { LogsService } from './logs.service';
 
 type LogsQuery = {
@@ -31,7 +32,7 @@ export class LogsController {
   @Get('stores/:storeId/logs')
   @RequireRoles('admin', 'operator')
   @RequireStoreAccess('storeId', 'params')
-  listStoreLogs(@Param('storeId') storeId: string, @Query() query: LogsQuery) {
+  listStoreLogs(@Param('storeId', RussianParseUUIDPipe) storeId: string, @Query() query: LogsQuery) {
     return this.logsService.listStoreLogs(storeId, this.normalizeQuery(query));
   }
 
