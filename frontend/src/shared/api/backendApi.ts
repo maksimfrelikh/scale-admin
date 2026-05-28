@@ -261,13 +261,15 @@ export function clearProtectedClientState(dispatch: Dispatch, shouldBroadcast = 
   }
 }
 
+export function setLocaleHeader(headers: Headers): Headers {
+  headers.set('X-Locale', i18n.resolvedLanguage ?? DEFAULT_LOCALE);
+  return headers;
+}
+
 const rawBaseQuery = fetchBaseQuery({
   baseUrl: `${backendBaseUrl}/api`,
   credentials: 'include',
-  prepareHeaders: (headers) => {
-    headers.set('X-Locale', i18n.resolvedLanguage ?? DEFAULT_LOCALE);
-    return headers;
-  },
+  prepareHeaders: setLocaleHeader,
 });
 
 function messageFromData(data: unknown): string | undefined {
