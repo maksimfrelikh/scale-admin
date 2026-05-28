@@ -190,6 +190,64 @@ async function testCreateInviteDeletesRowWhenEmailDeliveryFails() {
   assert.equal(created.length, 0, 'undelivered invite row should be deleted');
 }
 
+async function testCreateInviteForwardsLocaleDefault() {
+  const sent = [];
+  const { service } = buildService({
+    sendInviteEmail: async (input) => sent.push(input),
+  });
+  await service.createInvite(buildInput('default@example.test'), 'actor-id', {});
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].locale, undefined, 'no locale supplied → forwarded as undefined (RU fallback)');
+}
+
+async function testCreateInviteForwardsLocaleRu() {
+  const sent = [];
+  const { service } = buildService({
+    sendInviteEmail: async (input) => sent.push(input),
+  });
+  await service.createInvite(
+    { ...buildInput('ru@example.test'), locale: 'ru' },
+    'actor-id',
+    {},
+  );
+  assert.equal(sent[0].locale, 'ru');
+}
+
+async function testCreateInviteForwardsLocaleEn() {
+  const sent = [];
+  const { service } = buildService({
+    sendInviteEmail: async (input) => sent.push(input),
+  });
+  await service.createInvite(
+    { ...buildInput('en@example.test'), locale: 'en' },
+    'actor-id',
+    {},
+  );
+  assert.equal(sent[0].locale, 'en');
+}
+
+async function testCreateInviteForwardsInvalidLocaleUnchanged() {
+  // AuthService is downstream of the controller's sanitization layer;
+  // it should forward whatever locale value it receives. The EmailService
+  // then falls back to RU for anything that isn't literally 'en'.
+  for (const invalidLocale of ['fr', '', null, 42]) {
+    const sent = [];
+    const { service } = buildService({
+      sendInviteEmail: async (input) => sent.push(input),
+    });
+    await service.createInvite(
+      { ...buildInput('invalid@example.test'), locale: invalidLocale },
+      'actor-id',
+      {},
+    );
+    assert.equal(
+      sent[0].locale,
+      invalidLocale,
+      `AuthService must forward locale=${JSON.stringify(invalidLocale)} unchanged (controller-layer sanitization)`,
+    );
+  }
+}
+
 (async () => {
   testValidatorRejectsBadInputs();
   testValidatorAcceptsValidInputs();
@@ -198,6 +256,10 @@ async function testCreateInviteDeletesRowWhenEmailDeliveryFails() {
   await testCreateInviteAcceptsValidEmail();
   await testCreateInviteAcceptsPlusAddressing();
   await testCreateInviteDeletesRowWhenEmailDeliveryFails();
+  await testCreateInviteForwardsLocaleDefault();
+  await testCreateInviteForwardsLocaleRu();
+  await testCreateInviteForwardsLocaleEn();
+  await testCreateInviteForwardsInvalidLocaleUnchanged();
   console.log('AUTH_INVITES_EMAIL_VALIDATION=PASS');
 })().catch((error) => {
   console.error(error);

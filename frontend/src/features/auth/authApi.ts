@@ -4,6 +4,7 @@ import {
   publishAuthSessionEvent,
   type ApiError,
 } from '../../shared/api/backendApi';
+import type { SupportedLocale } from '../../i18n';
 
 export type UserRole = 'admin' | 'operator';
 export type UserStatus = 'active' | 'blocked' | string;
@@ -65,6 +66,7 @@ export type AcceptInviteResponse = {
 
 export type RequestPasswordResetRequest = {
   email: string;
+  locale: SupportedLocale;
   csrfToken: string;
   csrfHeaderName: string;
 };
@@ -143,13 +145,13 @@ export const authApi = backendApi.injectEndpoints({
       }),
     }),
     requestPasswordReset: builder.mutation<RequestPasswordResetResponse, RequestPasswordResetRequest>({
-      query: ({ email, csrfToken, csrfHeaderName }) => ({
+      query: ({ email, locale, csrfToken, csrfHeaderName }) => ({
         url: '/auth/password-reset/request',
         method: 'POST',
         headers: {
           [csrfHeaderName]: csrfToken,
         },
-        body: { email },
+        body: { email, locale },
       }),
     }),
     confirmPasswordReset: builder.mutation<ConfirmPasswordResetResponse, ConfirmPasswordResetRequest>({

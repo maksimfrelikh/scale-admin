@@ -548,6 +548,7 @@ function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => vo
     try {
       await requestPasswordReset({
         email: trimmedEmail,
+        locale: normalizeLocale(i18n.resolvedLanguage ?? i18n.language),
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
@@ -3208,6 +3209,7 @@ function InviteForm() {
         fullName: fullName.trim() || undefined,
         role,
         expiresAt: new Date(expiresAt).toISOString(),
+        locale: normalizeLocale(i18n.resolvedLanguage ?? i18n.language),
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();

@@ -2,7 +2,7 @@ import { BadRequestException, ConflictException, HttpException, HttpStatus, Inje
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
-import { EmailService } from '../email/email.service';
+import { EmailService, type EmailLocale } from '../email/email.service';
 import type { AppConfiguration } from '../config/app.config';
 import { DUMMY_CREDENTIAL } from './dummy-credential';
 import { hashPassword, verifyPassword } from './password.util';
@@ -35,6 +35,7 @@ type CreateInviteInput = {
   role: string;
   expiresAt: string;
   fullName?: string;
+  locale?: EmailLocale;
 };
 
 type AcceptInviteInput = {
@@ -325,6 +326,7 @@ export class AuthService {
         to: invite.email,
         token,
         expiresAt: invite.expiresAt,
+        locale: input.locale,
       });
     } catch {
       await this.deleteUndeliveredInvite(invite.id);
@@ -437,7 +439,7 @@ export class AuthService {
     };
   }
 
-  async requestPasswordReset(emailInput: string, context: RequestContext) {
+  async requestPasswordReset(emailInput: string, context: RequestContext, locale?: EmailLocale) {
     const email = this.requireEmail(emailInput);
     const emailNormalized = this.normalizeEmail(email);
     const now = new Date();
@@ -496,6 +498,7 @@ export class AuthService {
         to: user.email,
         token,
         expiresAt: resetToken.expiresAt,
+        locale,
       });
     } catch {
       await this.deleteUndeliveredPasswordResetToken(resetToken.id);

@@ -26,9 +26,9 @@ function configService(nodeEnv = 'production') {
   };
 }
 
-async function testInviteCleanupOnDeliveryFailure() {
+function buildInviteScenario() {
   const inviteId = '11111111-1111-4111-8111-111111111111';
-  let inviteRow = null;
+  const state = { inviteRow: null };
   const prisma = {
     user: {
       findFirst: async () => null,
@@ -37,31 +37,38 @@ async function testInviteCleanupOnDeliveryFailure() {
       deleteMany: async ({ where }) => {
         assert.equal(where.id, inviteId);
         assert.equal(where.acceptedAt, null);
-        const count = inviteRow ? 1 : 0;
-        inviteRow = null;
+        const count = state.inviteRow ? 1 : 0;
+        state.inviteRow = null;
         return { count };
       },
     },
     $transaction: async (callback) => callback({
       userInvite: {
         create: async ({ data }) => {
-          inviteRow = {
+          state.inviteRow = {
             id: inviteId,
             ...data,
             acceptedAt: null,
             createdAt: new Date('2026-05-21T12:00:00.000Z'),
           };
-          return inviteRow;
+          return state.inviteRow;
         },
       },
     }),
   };
+  return { prisma, state };
+}
+
+async function testInviteCleanupOnDeliveryFailure() {
+  const { prisma, state } = buildInviteScenario();
+  const capturedInputs = [];
   const auth = new AuthService(
     prisma,
     { create: async () => undefined },
     configService(),
     {
-      sendInviteEmail: async () => {
+      sendInviteEmail: async (input) => {
+        capturedInputs.push(input);
         throw new Error('mock delivery failure');
       },
     },
@@ -79,12 +86,51 @@ async function testInviteCleanupOnDeliveryFailure() {
       return true;
     },
   );
-  assert.equal(inviteRow, null, 'failed delivery must delete the invite row');
+  assert.equal(state.inviteRow, null, 'failed delivery must delete the invite row');
+  assert.equal(capturedInputs.length, 1);
+  assert.equal(capturedInputs[0].locale, undefined, 'no locale supplied → forwarded as undefined (RU fallback)');
 }
 
-async function testPasswordResetCleanupOnDeliveryFailure() {
+async function testInviteCleanupForwardsLocale() {
+  for (const localeCase of [
+    { input: 'ru', expected: 'ru' },
+    { input: 'en', expected: 'en' },
+    { input: 'fr', expected: 'fr' },
+  ]) {
+    const { prisma } = buildInviteScenario();
+    const capturedInputs = [];
+    const auth = new AuthService(
+      prisma,
+      { create: async () => undefined },
+      configService(),
+      {
+        sendInviteEmail: async (input) => {
+          capturedInputs.push(input);
+          throw new Error('mock delivery failure');
+        },
+      },
+    );
+
+    await assert.rejects(
+      () => auth.createInvite({
+        email: 'operator@example.test',
+        role: 'operator',
+        expiresAt: '2026-05-28T12:00:00.000Z',
+        locale: localeCase.input,
+      }, 'actor-id', {}),
+      ServiceUnavailableException,
+    );
+    assert.equal(
+      capturedInputs[0].locale,
+      localeCase.expected,
+      `AuthService must forward locale=${localeCase.input} to EmailService`,
+    );
+  }
+}
+
+function buildPasswordResetScenario() {
   const resetTokenId = '22222222-2222-4222-8222-222222222222';
-  let resetTokenRow = null;
+  const state = { resetTokenRow: null };
   const prisma = {
     user: {
       findFirst: async () => ({ id: '33333333-3333-4333-8333-333333333333', email: 'admin@example.test' }),
@@ -93,31 +139,38 @@ async function testPasswordResetCleanupOnDeliveryFailure() {
       deleteMany: async ({ where }) => {
         assert.equal(where.id, resetTokenId);
         assert.equal(where.usedAt, null);
-        const count = resetTokenRow ? 1 : 0;
-        resetTokenRow = null;
+        const count = state.resetTokenRow ? 1 : 0;
+        state.resetTokenRow = null;
         return { count };
       },
     },
     $transaction: async (callback) => callback({
       passwordResetToken: {
         create: async ({ data }) => {
-          resetTokenRow = {
+          state.resetTokenRow = {
             id: resetTokenId,
             ...data,
             usedAt: null,
             createdAt: new Date('2026-05-21T12:00:00.000Z'),
           };
-          return resetTokenRow;
+          return state.resetTokenRow;
         },
       },
     }),
   };
+  return { prisma, state };
+}
+
+async function testPasswordResetCleanupOnDeliveryFailure() {
+  const { prisma, state } = buildPasswordResetScenario();
+  const capturedInputs = [];
   const auth = new AuthService(
     prisma,
     { create: async () => undefined },
     configService(),
     {
-      sendPasswordResetEmail: async () => {
+      sendPasswordResetEmail: async (input) => {
+        capturedInputs.push(input);
         throw new Error('mock delivery failure');
       },
     },
@@ -131,12 +184,48 @@ async function testPasswordResetCleanupOnDeliveryFailure() {
       return true;
     },
   );
-  assert.equal(resetTokenRow, null, 'failed delivery must delete the reset token row');
+  assert.equal(state.resetTokenRow, null, 'failed delivery must delete the reset token row');
+  assert.equal(capturedInputs.length, 1);
+  assert.equal(capturedInputs[0].locale, undefined, 'no locale supplied → forwarded as undefined (RU fallback)');
+}
+
+async function testPasswordResetCleanupForwardsLocale() {
+  for (const localeCase of [
+    { input: 'ru', expected: 'ru' },
+    { input: 'en', expected: 'en' },
+    { input: 'fr', expected: 'fr' },
+  ]) {
+    const { prisma } = buildPasswordResetScenario();
+    const capturedInputs = [];
+    const auth = new AuthService(
+      prisma,
+      { create: async () => undefined },
+      configService(),
+      {
+        sendPasswordResetEmail: async (input) => {
+          capturedInputs.push(input);
+          throw new Error('mock delivery failure');
+        },
+      },
+    );
+
+    await assert.rejects(
+      () => auth.requestPasswordReset('admin@example.test', {}, localeCase.input),
+      ServiceUnavailableException,
+    );
+    assert.equal(
+      capturedInputs[0].locale,
+      localeCase.expected,
+      `AuthService must forward locale=${localeCase.input} to EmailService`,
+    );
+  }
 }
 
 (async () => {
   await testInviteCleanupOnDeliveryFailure();
+  await testInviteCleanupForwardsLocale();
   await testPasswordResetCleanupOnDeliveryFailure();
+  await testPasswordResetCleanupForwardsLocale();
   console.log('email-delivery-cleanup-check: OK');
 })().catch((error) => {
   console.error('email-delivery-cleanup-check: FAIL');

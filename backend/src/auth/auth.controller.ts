@@ -20,6 +20,7 @@ type CreateInviteBody = {
   role?: unknown;
   expiresAt?: unknown;
   fullName?: unknown;
+  locale?: unknown;
 };
 
 type AcceptInviteBody = {
@@ -30,7 +31,12 @@ type AcceptInviteBody = {
 
 type RequestPasswordResetBody = {
   email?: unknown;
+  locale?: unknown;
 };
+
+function coerceEmailLocale(value: unknown): 'ru' | 'en' {
+  return value === 'en' ? 'en' : 'ru';
+}
 
 type ConfirmPasswordResetBody = {
   token?: unknown;
@@ -84,6 +90,7 @@ export class AuthController {
         role: String(body.role ?? ''),
         expiresAt: String(body.expiresAt ?? ''),
         fullName: typeof body.fullName === 'string' ? body.fullName : undefined,
+        locale: coerceEmailLocale(body.locale),
       },
       user.id,
       {
@@ -116,10 +123,14 @@ export class AuthController {
   @UseGuards(RateLimitGuard)
   @RateLimit({ bucket: 'password-reset' })
   async requestPasswordReset(@Body() body: RequestPasswordResetBody, @Req() request: any) {
-    return this.authService.requestPasswordReset(String(body.email ?? ''), {
-      ipAddress: this.getRequestIp(request),
-      userAgent: this.getHeader(request, 'user-agent'),
-    });
+    return this.authService.requestPasswordReset(
+      String(body.email ?? ''),
+      {
+        ipAddress: this.getRequestIp(request),
+        userAgent: this.getHeader(request, 'user-agent'),
+      },
+      coerceEmailLocale(body.locale),
+    );
   }
 
   @Post('password-reset/confirm')
