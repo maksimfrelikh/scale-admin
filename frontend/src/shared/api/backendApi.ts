@@ -7,6 +7,8 @@ import {
 } from '@reduxjs/toolkit/query/react';
 import type { Dispatch } from '@reduxjs/toolkit';
 
+import i18n, { DEFAULT_LOCALE } from '../../i18n';
+
 type BackendErrorData = {
   message?: string | string[];
   error?: string;
@@ -262,6 +264,10 @@ export function clearProtectedClientState(dispatch: Dispatch, shouldBroadcast = 
 const rawBaseQuery = fetchBaseQuery({
   baseUrl: `${backendBaseUrl}/api`,
   credentials: 'include',
+  prepareHeaders: (headers) => {
+    headers.set('X-Locale', i18n.resolvedLanguage ?? DEFAULT_LOCALE);
+    return headers;
+  },
 });
 
 function messageFromData(data: unknown): string | undefined {
