@@ -29,6 +29,7 @@
       "address": "Address",
       "timezone": "Timezone",
       "publishedCatalog": "Published catalog",
+      "noPublishedVersion": "No published version",
       "createdAt": "Created",
       "updatedAt": "Updated"
     },

@@ -1161,7 +1161,7 @@ function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: 
           <dl className="details-grid">
             <div><dt>{t('details.fields.address')}</dt><dd>{store.address || '—'}</dd></div>
             <div><dt>{t('details.fields.timezone')}</dt><dd>{store.timezone}</dd></div>
-            <div><dt>{t('details.fields.publishedCatalog')}</dt><dd>{versionsLoading ? t('details.versionLoading') : formatVersionLabel(currentVersion)}</dd></div>
+            <div><dt>{t('details.fields.publishedCatalog')}</dt><dd>{versionsLoading ? t('details.versionLoading') : formatVersionLabel(currentVersion, t('details.fields.noPublishedVersion'))}</dd></div>
             <div><dt>{t('details.fields.createdAt')}</dt><dd>{new Date(store.createdAt).toLocaleString('ru-RU')}</dd></div>
             <div><dt>{t('details.fields.updatedAt')}</dt><dd>{new Date(store.updatedAt).toLocaleString('ru-RU')}</dd></div>
           </dl>
@@ -2248,9 +2248,9 @@ function ScaleSyncStatusCell({ device }: { device: ScaleDevice }) {
   );
 }
 
-function formatVersionLabel(version: CatalogVersionHistoryItem | null | undefined) {
+function formatVersionLabel(version: CatalogVersionHistoryItem | null | undefined, noneLabel: string) {
   if (!version) {
-    return 'Нет опубликованной версии';
+    return noneLabel;
   }
 
   return `v${version.versionNumber} (${version.id})`;
@@ -2265,6 +2265,7 @@ function shortChecksum(value: string | null | undefined) {
 }
 
 function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string; userRole: AuthUser['role']; currentVersion: CatalogVersionHistoryItem | null }) {
+  const { t } = useTranslation('publishing');
   const { data: versionsData, error: versionsError, isLoading: versionsLoading, isFetching: versionsFetching, refetch } = useGetCatalogVersionsQuery(storeId);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [validateCatalog, { isLoading: validating }] = useValidateCatalogMutation();
@@ -2282,7 +2283,7 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
   async function getCsrfOrThrow() {
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      throw new Error('Не удалось подготовить защищённую форму. Повторите попытку.');
+      throw new Error(t('errors.csrf'));
     }
     return csrfData;
   }
@@ -2302,7 +2303,7 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
     } catch (error) {
       const message = error && typeof error === 'object' && 'message' in error
         ? String(error.message)
-        : 'Не удалось выполнить проверку каталога.';
+        : t('errors.validateFailed');
       setActionError(message);
     }
   }
@@ -2311,7 +2312,7 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
     setActionError(null);
 
     if (!canPublish) {
-      setActionError('Перед публикацией запустите проверку и исправьте блокирующие ошибки.');
+      setActionError(t('errors.notReady'));
       return;
     }
 
@@ -2327,7 +2328,7 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
     } catch (error) {
       const message = error && typeof error === 'object' && 'message' in error
         ? String(error.message)
-        : 'Не удалось опубликовать каталог.';
+        : t('errors.publishFailed');
       setActionError(message);
     }
   }
@@ -2336,73 +2337,73 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
     <section className="publishing-tab" aria-labelledby="publishing-title">
       <div className="panel-heading publishing-heading">
         <div>
-          <p className="eyebrow">Версии и публикация</p>
-          <h3 id="publishing-title">Проверка и публикация версий каталога</h3>
-          <p className="muted">После публикации каталога последующие изменения требуют новой проверки и новой версии.</p>
+          <p className="eyebrow">{t('tab.eyebrow')}</p>
+          <h3 id="publishing-title">{t('tab.title')}</h3>
+          <p className="muted">{t('tab.description')}</p>
         </div>
         {isAdmin && (
           <div className="action-row">
             <button className="secondary-button" type="button" onClick={handleValidate} disabled={validating || publishing}>
-              {validating ? 'Проверяем...' : 'Запустить проверку'}
+              {validating ? t('actions.validating') : t('actions.validate')}
             </button>
             <button type="button" onClick={handlePublish} disabled={publishing || validating || !canPublish}>
-              {publishing ? 'Публикуем...' : 'Опубликовать каталог'}
+              {publishing ? t('actions.publishing') : t('actions.publish')}
             </button>
           </div>
         )}
       </div>
 
       <div className="publication-status-card">
-        <strong>Текущий опубликованный каталог</strong>
-        <span>{formatVersionLabel(displayedCurrentVersion)}</span>
-        {displayedCurrentVersion?.publishedAt && <small>Опубликован {formatDateTime(displayedCurrentVersion.publishedAt)}</small>}
+        <strong>{t('currentVersion.heading')}</strong>
+        <span>{formatVersionLabel(displayedCurrentVersion, t('currentVersion.none'))}</span>
+        {displayedCurrentVersion?.publishedAt && <small>{t('currentVersion.publishedAt', { date: formatDateTime(displayedCurrentVersion.publishedAt) })}</small>}
       </div>
 
       {actionError && <div className="form-error" role="alert">{actionError}</div>}
       {lastPublished && (
         <div className="status status-ok" role="status">
-          Версия <strong>v{lastPublished.versionNumber}</strong> опубликована {formatDateTime(lastPublished.publishedAt)}.
+          {t('notices.published', { versionNumber: lastPublished.versionNumber, date: formatDateTime(lastPublished.publishedAt) })}
         </div>
       )}
 
       {isAdmin && validation ? (
         <div className="validation-grid">
           <div className={`validation-summary ${validation.canPublish ? 'validation-summary-ok' : 'validation-summary-blocked'}`}>
-            <strong>{validation.canPublish ? 'Готово к публикации' : 'Публикация заблокирована'}</strong>
-            <span>{validation.blockingErrors.length} блокирующих ошибок · {validation.warnings.length} предупреждений</span>
-            <span>{validation.summary.categoryCount} категорий · {validation.summary.activePlacementCount} активных товаров · {validation.summary.activeBannerCount} активных баннеров</span>
+            <strong>{validation.canPublish ? t('validation.ready') : t('validation.blocked')}</strong>
+            <span>{t('validation.issueCounts', { errors: validation.blockingErrors.length, warnings: validation.warnings.length })}</span>
+            <span>{t('validation.counts', { categories: validation.summary.categoryCount, products: validation.summary.activePlacementCount, banners: validation.summary.activeBannerCount })}</span>
           </div>
-          <IssueList title="Блокирующие ошибки" issues={validation.blockingErrors} emptyText="Блокирующих ошибок нет." tone="error" />
-          <IssueList title="Предупреждения" issues={validation.warnings} emptyText="Предупреждений нет." tone="warning" />
+          <IssueList title={t('issues.errorsTitle')} issues={validation.blockingErrors} emptyText={t('issues.errorsEmpty')} tone="error" />
+          <IssueList title={t('issues.warningsTitle')} issues={validation.warnings} emptyText={t('issues.warningsEmpty')} tone="warning" />
         </div>
       ) : isAdmin ? (
-        <div className="empty-state">Запустите проверку, чтобы увидеть ошибки, предупреждения и готовность к публикации.</div>
+        <div className="empty-state">{t('emptyState.adminPreValidate')}</div>
       ) : (
-        <div className="empty-state">Операторы могут отслеживать опубликованную версию и статус синхронизации весов. Публикация доступна только администраторам.</div>
+        <div className="empty-state">{t('emptyState.operator')}</div>
       )}
 
       <div className="version-history-heading">
         <div>
-          <h4>История версий</h4>
-          <p className="muted">Опубликованные версии содержат номер, дату публикации, автора и контрольную сумму пакета.</p>
+          <h4>{t('history.heading')}</h4>
+          <p className="muted">{t('history.description')}</p>
         </div>
         <button className="secondary-button" type="button" onClick={() => refetch()} disabled={versionsFetching}>
-          {versionsFetching ? 'Обновляем...' : 'Обновить историю'}
+          {versionsFetching ? t('history.refreshing') : t('history.refresh')}
         </button>
       </div>
 
-      {versionsLoading && <div className="status status-loading">Загружаем историю версий...</div>}
+      {versionsLoading && <div className="status status-loading">{t('history.loading')}</div>}
       {versionsErrorMessage && <div className="form-error" role="alert">{versionsErrorMessage}</div>}
-      {!versionsLoading && !versionsErrorMessage && versions.length === 0 && <div className="empty-state">Опубликованных версий пока нет.</div>}
+      {!versionsLoading && !versionsErrorMessage && versions.length === 0 && <div className="empty-state">{t('history.empty')}</div>}
       {versions.length > 0 && (
         <div className="version-table-wrap">
           <table className="version-table">
             <thead>
               <tr>
-                <th>Версия</th>
-                <th>Опубликована</th>
-                <th>Автор</th>
-                <th>Контрольная сумма</th>
+                <th>{t('history.columns.version')}</th>
+                <th>{t('history.columns.publishedAt')}</th>
+                <th>{t('history.columns.author')}</th>
+                <th>{t('history.columns.checksum')}</th>
               </tr>
             </thead>
             <tbody>
@@ -2410,7 +2411,7 @@ function PublishingTab({ storeId, userRole, currentVersion }: { storeId: string;
                 <tr key={version.id}>
                   <td>v{version.versionNumber}</td>
                   <td>{formatDateTime(version.publishedAt)}</td>
-                  <td>{version.publishedBy ?? 'Система'}</td>
+                  <td>{version.publishedBy ?? t('history.row.systemAuthor')}</td>
                   <td><code title={version.checksum}>{shortChecksum(version.checksum)}</code></td>
                 </tr>
               ))}
@@ -3678,7 +3679,7 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
       {(versionsLoading || scalesLoading) && <div className="status status-loading">{t('operator.storeCard.loadingPanel')}</div>}
 
       <dl className="compact-details">
-        <div><dt>{t('operator.storeCard.currentVersion')}</dt><dd>{versionsLoading ? t('operator.storeCard.versionLoading') : formatVersionLabel(currentVersion)}</dd></div>
+        <div><dt>{t('operator.storeCard.currentVersion')}</dt><dd>{versionsLoading ? t('operator.storeCard.versionLoading') : formatVersionLabel(currentVersion, t('operator.storeCard.noVersion'))}</dd></div>
         <div><dt>{t('operator.storeCard.publicationStatus')}</dt><dd>{currentVersion?.status ? formatStatusLabel(currentVersion.status) : t('operator.storeCard.publicationNone')}</dd></div>
         <div><dt>{t('operator.storeCard.syncStatus')}</dt><dd>
           {devices.length === 0

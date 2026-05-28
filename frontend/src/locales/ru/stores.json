@@ -29,6 +29,7 @@
       "address": "Адрес",
       "timezone": "Часовой пояс",
       "publishedCatalog": "Опубликованный каталог",
+      "noPublishedVersion": "Нет опубликованной версии",
       "createdAt": "Создан",
       "updatedAt": "Обновлён"
     },

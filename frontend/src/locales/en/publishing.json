@@ -1,1 +1,60 @@
-{}
+{
+  "tab": {
+    "eyebrow": "Versions and publishing",
+    "title": "Catalog version validation and publishing",
+    "description": "After a catalog is published, subsequent changes require another validation and a new version."
+  },
+  "actions": {
+    "validate": "Run validation",
+    "validating": "Validating…",
+    "publish": "Publish catalog",
+    "publishing": "Publishing…"
+  },
+  "currentVersion": {
+    "heading": "Currently published catalog",
+    "publishedAt": "Published {{date}}",
+    "none": "No published version"
+  },
+  "notices": {
+    "published": "Version v{{versionNumber}} published {{date}}."
+  },
+  "validation": {
+    "ready": "Ready to publish",
+    "blocked": "Publishing blocked",
+    "issueCounts": "{{errors}} blocking errors · {{warnings}} warnings",
+    "counts": "{{categories}} categories · {{products}} active products · {{banners}} active banners"
+  },
+  "issues": {
+    "errorsTitle": "Blocking errors",
+    "errorsEmpty": "No blocking errors.",
+    "warningsTitle": "Warnings",
+    "warningsEmpty": "No warnings."
+  },
+  "emptyState": {
+    "adminPreValidate": "Run validation to see errors, warnings, and publish readiness.",
+    "operator": "Operators can monitor the published version and scale sync status. Publishing is admin-only."
+  },
+  "history": {
+    "heading": "Version history",
+    "description": "Published versions include the number, publication date, author, and bundle checksum.",
+    "refresh": "Refresh history",
+    "refreshing": "Refreshing…",
+    "loading": "Loading version history…",
+    "empty": "No published versions yet.",
+    "columns": {
+      "version": "Version",
+      "publishedAt": "Published",
+      "author": "Author",
+      "checksum": "Checksum"
+    },
+    "row": {
+      "systemAuthor": "System"
+    }
+  },
+  "errors": {
+    "csrf": "Could not prepare the secured form. Try again.",
+    "validateFailed": "Could not run catalog validation.",
+    "publishFailed": "Could not publish the catalog.",
+    "notReady": "Run validation and fix the blocking errors before publishing."
+  }
+}

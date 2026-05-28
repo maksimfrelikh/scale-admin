@@ -45,6 +45,7 @@
       "loadingPanel": "Loading store panel…",
       "currentVersion": "Current version",
       "versionLoading": "Loading…",
+      "noVersion": "No published version",
       "publicationStatus": "Publication status",
       "publicationNone": "not published",
       "syncStatus": "Sync status",

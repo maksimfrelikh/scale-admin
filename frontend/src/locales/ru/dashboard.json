@@ -45,6 +45,7 @@
       "loadingPanel": "Загружаем панель магазина…",
       "currentVersion": "Текущая версия",
       "versionLoading": "Загружаем…",
+      "noVersion": "Нет опубликованной версии",
       "publicationStatus": "Статус публикации",
       "publicationNone": "не опубликовано",
       "syncStatus": "Статус синхронизации",
