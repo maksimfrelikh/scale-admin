@@ -1,1 +1,75 @@
-{}
+{
+  "page": {
+    "eyebrow": "Users and access",
+    "title": "Invitations, roles, and operator stores",
+    "description": "Create invitations, change roles, block users, and assign stores to operators.",
+    "showDeleted": "Show deleted",
+    "refresh": "Refresh users",
+    "refreshing": "Refreshing…",
+    "loading": "Loading users…",
+    "empty": "No users found."
+  },
+  "roles": {
+    "operator": "Operator",
+    "admin": "Administrator"
+  },
+  "invite": {
+    "eyebrow": "Invite user",
+    "description": "The invitation will be sent to the user's email.",
+    "fields": {
+      "email": "Email",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Optional",
+      "role": "Role",
+      "expiresAt": "Valid until"
+    },
+    "submit": "Invite user",
+    "submitting": "Creating invitation…",
+    "created": {
+      "message": "Invitation for <1>{{email}}</1> is valid until {{date}}.",
+      "emailNote": "An email with a secure link has been sent to the user."
+    },
+    "cancel": {
+      "confirm": "Cancel the invitation? The token will become invalid and cannot be used to register.",
+      "button": "Cancel invitation",
+      "cancelling": "Cancelling…"
+    },
+    "cancelled": "Invitation for <1>{{email}}</1> has been cancelled.",
+    "errors": {
+      "missingEmail": "Enter an email address.",
+      "csrf": "Could not prepare the secured form. Try again.",
+      "createFailed": "Could not create the invitation.",
+      "cancelFailed": "Could not cancel the invitation."
+    }
+  },
+  "card": {
+    "noName": "No name",
+    "createdAndLastLogin": "Created {{created}} · Last login {{lastLogin}}",
+    "role": "Role",
+    "block": "Block",
+    "blocking": "Blocking…",
+    "unblock": "Unblock",
+    "unblocking": "Unblocking…",
+    "errors": {
+      "csrf": "Could not prepare the secured form. Try again.",
+      "updateFailed": "Could not update the user."
+    }
+  },
+  "access": {
+    "heading": "Operator store access",
+    "storeSelectAriaLabel": "Store to assign",
+    "storeSelectPlaceholder": "Select a store",
+    "grant": "Assign store",
+    "granting": "Assigning…",
+    "loading": "Loading store access…",
+    "empty": "No active stores assigned.",
+    "revoke": "Revoke",
+    "revoking": "Revoking…",
+    "errors": {
+      "csrf": "Could not prepare the secured form. Try again.",
+      "selectStore": "Select a store to assign.",
+      "grantFailed": "Could not assign the store.",
+      "revokeFailed": "Could not revoke store access."
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { type ChangeEvent, type FormEvent, type ReactNode, StrictMode, Suspense, useEffect, useMemo, useState } from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { store } from './app/store';
 import './i18n';
 import i18n, { normalizeLocale } from './i18n';
@@ -3173,6 +3173,7 @@ function getDefaultInviteExpiry() {
 }
 
 function UsersAccessPage({ currentUser }: { currentUser: AuthUser }) {
+  const { t } = useTranslation('users');
   const [includeDeleted, setIncludeDeleted] = useState(false);
   const { data, error, isLoading, isFetching, refetch } = useListUsersQuery({ includeDeleted });
   const users = data?.users ?? [];
@@ -3182,26 +3183,26 @@ function UsersAccessPage({ currentUser }: { currentUser: AuthUser }) {
     <section className="panel" aria-labelledby="users-access-title">
       <div className="panel-heading">
         <div>
-          <p className="eyebrow">Пользователи и доступ</p>
-          <h2 id="users-access-title">Приглашения, роли и магазины операторов</h2>
-          <p className="muted">Создавайте приглашения, меняйте роли, блокируйте пользователей и назначайте магазины операторам.</p>
+          <p className="eyebrow">{t('page.eyebrow')}</p>
+          <h2 id="users-access-title">{t('page.title')}</h2>
+          <p className="muted">{t('page.description')}</p>
         </div>
         <div className="action-row">
           <label className="compact-checkbox">
             <input type="checkbox" checked={includeDeleted} onChange={(event) => setIncludeDeleted(event.target.checked)} />
-            Показывать удалённых
+            {t('page.showDeleted')}
           </label>
           <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-            {isFetching ? 'Обновляем...' : 'Обновить пользователей'}
+            {isFetching ? t('page.refreshing') : t('page.refresh')}
           </button>
         </div>
       </div>
 
       <InviteForm />
 
-      {isLoading && <div className="status status-loading">Загружаем пользователей...</div>}
+      {isLoading && <div className="status status-loading">{t('page.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
-      {!isLoading && !errorMessage && users.length === 0 && <div className="empty-state">Пользователи не найдены.</div>}
+      {!isLoading && !errorMessage && users.length === 0 && <div className="empty-state">{t('page.empty')}</div>}
       {users.length > 0 && (
         <div className="users-list">
           {users.map((managedUser) => (
@@ -3214,6 +3215,7 @@ function UsersAccessPage({ currentUser }: { currentUser: AuthUser }) {
 }
 
 function InviteForm() {
+  const { t } = useTranslation('users');
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [role, setRole] = useState<AuthUser['role']>('operator');
@@ -3232,13 +3234,13 @@ function InviteForm() {
     setCancelledInviteEmail(null);
 
     if (!email.trim()) {
-      setFormError('Укажите адрес электронной почты.');
+      setFormError(t('invite.errors.missingEmail'));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму. Повторите попытку.');
+      setFormError(t('invite.errors.csrf'));
       return;
     }
 
@@ -3257,7 +3259,7 @@ function InviteForm() {
       setRole('operator');
       setExpiresAt(getDefaultInviteExpiry());
     } catch (error) {
-      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : 'Не удалось создать приглашение.';
+      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : t('invite.errors.createFailed');
       setFormError(message);
     }
   }
@@ -3265,33 +3267,39 @@ function InviteForm() {
   return (
     <form className="invite-form" onSubmit={handleSubmit}>
       <div>
-        <p className="eyebrow">Пригласить пользователя</p>
-        <p className="muted">Приглашение будет отправлено на адрес электронной почты пользователя.</p>
+        <p className="eyebrow">{t('invite.eyebrow')}</p>
+        <p className="muted">{t('invite.description')}</p>
       </div>
       <div className="invite-grid">
-        <label>Электронная почта<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="operator@example.com" /></label>
-        <label>Полное имя<input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Необязательно" /></label>
-        <label>Роль<select value={role} onChange={(event) => setRole(event.target.value as AuthUser['role'])}><option value="operator">Оператор</option><option value="admin">Администратор</option></select></label>
-        <label>Действует до<input type="datetime-local" value={expiresAt} onChange={(event) => setExpiresAt(event.target.value)} /></label>
+        <label>{t('invite.fields.email')}<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="operator@example.com" /></label>
+        <label>{t('invite.fields.fullName')}<input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder={t('invite.fields.fullNamePlaceholder')} /></label>
+        <label>{t('invite.fields.role')}<select value={role} onChange={(event) => setRole(event.target.value as AuthUser['role'])}><option value="operator">{t('roles.operator')}</option><option value="admin">{t('roles.admin')}</option></select></label>
+        <label>{t('invite.fields.expiresAt')}<input type="datetime-local" value={expiresAt} onChange={(event) => setExpiresAt(event.target.value)} /></label>
       </div>
       {formError && <div className="form-error" role="alert">{formError}</div>}
       {createdInvite && (
         <div className="status status-ok" role="status">
-          Приглашение для <strong>{createdInvite.email}</strong> действует до {formatDateTime(createdInvite.expiresAt)}.<br />
-          Письмо с безопасной ссылкой отправлено пользователю.
+          <Trans
+            i18nKey="invite.created.message"
+            ns="users"
+            values={{ email: createdInvite.email, date: formatDateTime(createdInvite.expiresAt) }}
+            components={{ 1: <strong /> }}
+          />
+          <br />
+          {t('invite.created.emailNote')}
           <div style={{ marginTop: '0.5rem' }}>
             <button
               type="button"
               className="secondary-button"
               disabled={isCancelling}
               onClick={async () => {
-                const confirmed = window.confirm('Отменить приглашение? Токен станет недействительным, и по нему нельзя будет зарегистрироваться.');
+                const confirmed = window.confirm(t('invite.cancel.confirm'));
                 if (!confirmed) return;
                 setFormError(null);
                 try {
                   const csrfData = csrf ?? (await refetchCsrf()).data;
                   if (!csrfData) {
-                    setFormError('Не удалось подготовить защищённую форму. Повторите попытку.');
+                    setFormError(t('invite.errors.csrf'));
                     return;
                   }
                   await cancelInvite({
@@ -3302,27 +3310,33 @@ function InviteForm() {
                   setCancelledInviteEmail(createdInvite.email);
                   setCreatedInvite(null);
                 } catch (error) {
-                  const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : 'Не удалось отменить приглашение.';
+                  const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : t('invite.errors.cancelFailed');
                   setFormError(message);
                 }
               }}
             >
-              {isCancelling ? 'Отменяем...' : 'Отменить приглашение'}
+              {isCancelling ? t('invite.cancel.cancelling') : t('invite.cancel.button')}
             </button>
           </div>
         </div>
       )}
       {cancelledInviteEmail && (
         <div className="status status-ok" role="status">
-          Приглашение для <strong>{cancelledInviteEmail}</strong> отменено.
+          <Trans
+            i18nKey="invite.cancelled"
+            ns="users"
+            values={{ email: cancelledInviteEmail }}
+            components={{ 1: <strong /> }}
+          />
         </div>
       )}
-      <button type="submit" disabled={isLoading}>{isLoading ? 'Создаём приглашение...' : 'Пригласить пользователя'}</button>
+      <button type="submit" disabled={isLoading}>{isLoading ? t('invite.submitting') : t('invite.submit')}</button>
     </form>
   );
 }
 
 function UserAccessCard({ user, currentUser }: { user: ManagedUser; currentUser: AuthUser }) {
+  const { t } = useTranslation('users');
   const [rowError, setRowError] = useState<string | null>(null);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [changeRole, { isLoading: changingRole }] = useChangeUserRoleMutation();
@@ -3334,7 +3348,7 @@ function UserAccessCard({ user, currentUser }: { user: ManagedUser; currentUser:
 
   async function getCsrfOrThrow() {
     const csrfData = csrf ?? (await refetchCsrf()).data;
-    if (!csrfData) throw new Error('Не удалось подготовить защищённую форму. Повторите попытку.');
+    if (!csrfData) throw new Error(t('card.errors.csrf'));
     return csrfData;
   }
 
@@ -3343,7 +3357,7 @@ function UserAccessCard({ user, currentUser }: { user: ManagedUser; currentUser:
     try {
       await action(await getCsrfOrThrow());
     } catch (error) {
-      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : 'Не удалось обновить пользователя.';
+      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : t('card.errors.updateFailed');
       setRowError(message);
     }
   }
@@ -3353,29 +3367,29 @@ function UserAccessCard({ user, currentUser }: { user: ManagedUser; currentUser:
       <div className="user-card-main">
         <div>
           <p className="store-code">{user.email}</p>
-          <h3>{user.fullName || 'Без имени'}</h3>
-          <p className="muted">Создан {formatDateTime(user.createdAt)} · Последний вход {formatDateTime(user.lastLoginAt)}</p>
+          <h3>{user.fullName || t('card.noName')}</h3>
+          <p className="muted">{t('card.createdAndLastLogin', { created: formatDateTime(user.createdAt), lastLogin: formatDateTime(user.lastLoginAt) })}</p>
         </div>
         <div className="store-actions">
           <span className={`badge ${statusClass}`}>{formatStatusLabel(isDeleted ? 'deleted' : user.status)}</span>
           <label className="role-control">
-            Роль
+            {t('card.role')}
             <select
               value={user.role}
               disabled={isDeleted || changingRole}
               onChange={(event) => runAction((csrfData) => changeRole({ userId: user.id, role: event.target.value as AuthUser['role'], csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap())}
             >
-              <option value="operator">Оператор</option>
-              <option value="admin">Администратор</option>
+              <option value="operator">{t('roles.operator')}</option>
+              <option value="admin">{t('roles.admin')}</option>
             </select>
           </label>
           {user.status === 'blocked' ? (
             <button className="secondary-button" type="button" disabled={isDeleted || unblocking} onClick={() => runAction((csrfData) => unblockUser({ userId: user.id, csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap())}>
-              {unblocking ? 'Разблокируем...' : 'Разблокировать'}
+              {unblocking ? t('card.unblocking') : t('card.unblock')}
             </button>
           ) : (
             <button className="secondary-button" type="button" disabled={isDeleted || blocking || isSelf} onClick={() => runAction((csrfData) => blockUser({ userId: user.id, csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap())}>
-              {blocking ? 'Блокируем...' : 'Заблокировать'}
+              {blocking ? t('card.blocking') : t('card.block')}
             </button>
           )}
         </div>
@@ -3387,6 +3401,7 @@ function UserAccessCard({ user, currentUser }: { user: ManagedUser; currentUser:
 }
 
 function OperatorStoreAccess({ userId }: { userId: string }) {
+  const { t } = useTranslation('users');
   const [storeId, setStoreId] = useState('');
   const [actionError, setActionError] = useState<string | null>(null);
   const { data: accessData, error: accessError, isLoading: accessLoading } = useListUserStoreAccessesQuery(userId);
@@ -3401,14 +3416,14 @@ function OperatorStoreAccess({ userId }: { userId: string }) {
 
   async function getCsrfOrThrow() {
     const csrfData = csrf ?? (await refetchCsrf()).data;
-    if (!csrfData) throw new Error('Не удалось подготовить защищённую форму. Повторите попытку.');
+    if (!csrfData) throw new Error(t('access.errors.csrf'));
     return csrfData;
   }
 
   async function handleGrant() {
     setActionError(null);
     if (!storeId) {
-      setActionError('Выберите магазин для назначения.');
+      setActionError(t('access.errors.selectStore'));
       return;
     }
     try {
@@ -3416,7 +3431,7 @@ function OperatorStoreAccess({ userId }: { userId: string }) {
       await grantStoreAccess({ userId, storeId, csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap();
       setStoreId('');
     } catch (error) {
-      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : 'Не удалось назначить магазин.';
+      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : t('access.errors.grantFailed');
       setActionError(message);
     }
   }
@@ -3427,7 +3442,7 @@ function OperatorStoreAccess({ userId }: { userId: string }) {
       const csrfData = await getCsrfOrThrow();
       await revokeStoreAccess({ userId, storeId: revokeStoreId, csrfToken: csrfData.csrfToken, csrfHeaderName: csrfData.headerName }).unwrap();
     } catch (error) {
-      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : 'Не удалось отозвать доступ к магазину.';
+      const message = error && typeof error === 'object' && 'message' in error ? String(error.message) : t('access.errors.revokeFailed');
       setActionError(message);
     }
   }
@@ -3435,26 +3450,26 @@ function OperatorStoreAccess({ userId }: { userId: string }) {
   return (
     <div className="store-access-box">
       <div className="store-access-header">
-        <h4>Доступ оператора к магазинам</h4>
+        <h4>{t('access.heading')}</h4>
         <div className="access-grant-row">
-          <select value={storeId} onChange={(event) => setStoreId(event.target.value)} aria-label="Магазин для назначения">
-            <option value="">Выберите магазин</option>
+          <select value={storeId} onChange={(event) => setStoreId(event.target.value)} aria-label={t('access.storeSelectAriaLabel')}>
+            <option value="">{t('access.storeSelectPlaceholder')}</option>
             {availableStores.map((store) => <option key={store.id} value={store.id}>{store.code} · {store.name}</option>)}
           </select>
-          <button type="button" disabled={granting || !storeId} onClick={handleGrant}>{granting ? 'Назначаем...' : 'Назначить магазин'}</button>
+          <button type="button" disabled={granting || !storeId} onClick={handleGrant}>{granting ? t('access.granting') : t('access.grant')}</button>
         </div>
       </div>
-      {accessLoading && <div className="status status-loading">Загружаем доступ к магазинам...</div>}
+      {accessLoading && <div className="status status-loading">{t('access.loading')}</div>}
       {accessErrorMessage && <div className="form-error" role="alert">{accessErrorMessage}</div>}
       {actionError && <div className="inline-error" role="alert">{actionError}</div>}
-      {!accessLoading && activeAccesses.length === 0 && <div className="empty-state">Активные магазины не назначены.</div>}
+      {!accessLoading && activeAccesses.length === 0 && <div className="empty-state">{t('access.empty')}</div>}
       {activeAccesses.length > 0 && (
         <div className="access-list">
           {activeAccesses.map((access) => (
             <div className="access-item" key={access.id}>
               <span><strong>{access.store.code}</strong> · {access.store.name}</span>
               <button className="secondary-button" type="button" disabled={revoking} onClick={() => handleRevoke(access.storeId)}>
-                {revoking ? 'Отзываем...' : 'Отозвать'}
+                {revoking ? t('access.revoking') : t('access.revoke')}
               </button>
             </div>
           ))}
