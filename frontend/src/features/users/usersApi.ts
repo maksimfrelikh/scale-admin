@@ -1,4 +1,5 @@
 import { backendApi } from '../../shared/api/backendApi';
+import type { SupportedLocale } from '../../i18n';
 import type { Store } from '../stores/storesApi';
 import type { UserRole, UserStatus } from '../auth/authApi';
 
@@ -49,6 +50,7 @@ export type CreateInviteRequest = CsrfRequest & {
   role: UserRole;
   expiresAt: string;
   fullName?: string;
+  locale: SupportedLocale;
 };
 
 export type ChangeUserRoleRequest = CsrfRequest & {
