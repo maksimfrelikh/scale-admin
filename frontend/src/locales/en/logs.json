@@ -1,1 +1,66 @@
-{}
+{
+  "filters": {
+    "ariaLabel": "Log filters",
+    "store": "Store",
+    "storeAll": "All stores",
+    "entityType": "Entity type",
+    "entityTypePlaceholder": "product, store, scale…",
+    "action": "Action / audit status",
+    "actionPlaceholder": "create, update, login…",
+    "syncStatus": "Sync status",
+    "statusAny": "Any status",
+    "dateFrom": "Date from",
+    "dateTo": "Date to",
+    "reset": "Reset filters"
+  },
+  "tables": {
+    "paginationLabel": "records",
+    "audit": {
+      "title": "Audit log",
+      "empty": "No audit records match these filters.",
+      "columns": {
+        "time": "Time",
+        "store": "Store",
+        "user": "User",
+        "entity": "Entity",
+        "action": "Action"
+      },
+      "row": {
+        "allStores": "All stores",
+        "systemActor": "System"
+      }
+    },
+    "sync": {
+      "title": "Scale sync log",
+      "empty": "No sync records match these filters.",
+      "columns": {
+        "time": "Time",
+        "store": "Store",
+        "scale": "Scale",
+        "status": "Status",
+        "versions": "Versions / error"
+      },
+      "row": {
+        "unknownScale": "Unknown scale",
+        "requestedVersion": "requested: {{id}}",
+        "deliveredVersion": "delivered: {{id}}"
+      }
+    }
+  },
+  "global": {
+    "eyebrow": "Admin only",
+    "title": "Global logs",
+    "description": "Audit and scale sync logs are read-only. Sensitive fields are hidden.",
+    "refresh": "Refresh logs",
+    "refreshing": "Refreshing…",
+    "loading": "Loading logs…"
+  },
+  "storeTab": {
+    "eyebrow": "Store logs",
+    "title": "Logs",
+    "description": "Activity for this store only. Operators see only the stores assigned to them.",
+    "refresh": "Refresh logs",
+    "refreshing": "Refreshing…",
+    "loading": "Loading store logs…"
+  }
+}

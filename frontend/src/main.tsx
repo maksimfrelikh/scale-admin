@@ -896,45 +896,46 @@ function LogsFiltersForm({
   stores?: Store[];
   showStoreFilter?: boolean;
 }) {
+  const { t } = useTranslation('logs');
   function setFilter(key: keyof LogsFilters, value: string) {
     onChange({ ...filters, [key]: value || undefined });
   }
 
   return (
-    <div className="logs-filters" aria-label="Фильтры журналов">
+    <div className="logs-filters" aria-label={t('filters.ariaLabel')}>
       {showStoreFilter && (
         <label>
-          Магазин
+          {t('filters.store')}
           <select value={filters.storeId ?? ''} onChange={(event) => setFilter('storeId', event.target.value)}>
-            <option value="">Все магазины</option>
+            <option value="">{t('filters.storeAll')}</option>
             {(stores ?? []).map((store) => <option key={store.id} value={store.id}>{store.code} · {store.name}</option>)}
           </select>
         </label>
       )}
       <label>
-        Тип сущности
-        <input value={filters.entityType ?? ''} onChange={(event) => setFilter('entityType', event.target.value)} placeholder="товар, магазин, весы…" />
+        {t('filters.entityType')}
+        <input value={filters.entityType ?? ''} onChange={(event) => setFilter('entityType', event.target.value)} placeholder={t('filters.entityTypePlaceholder')} />
       </label>
       <label>
-        Действие / статус аудита
-        <input value={filters.action ?? ''} onChange={(event) => setFilter('action', event.target.value)} placeholder="создание, изменение, вход…" />
+        {t('filters.action')}
+        <input value={filters.action ?? ''} onChange={(event) => setFilter('action', event.target.value)} placeholder={t('filters.actionPlaceholder')} />
       </label>
       <label>
-        Статус синхронизации
+        {t('filters.syncStatus')}
         <select value={filters.status ?? ''} onChange={(event) => setFilter('status', event.target.value)}>
-          <option value="">Любой статус</option>
+          <option value="">{t('filters.statusAny')}</option>
           {scaleSyncStatuses.map((status) => <option key={status} value={status}>{formatSyncStatusLabel(status)}</option>)}
         </select>
       </label>
       <label>
-        Дата с
+        {t('filters.dateFrom')}
         <input type="date" value={filters.dateFrom ?? ''} onChange={(event) => setFilter('dateFrom', event.target.value)} />
       </label>
       <label>
-        Дата по
+        {t('filters.dateTo')}
         <input type="date" value={filters.dateTo ?? ''} onChange={(event) => setFilter('dateTo', event.target.value)} />
       </label>
-      <button className="secondary-button" type="button" onClick={() => onChange({})}>Сбросить фильтры</button>
+      <button className="secondary-button" type="button" onClick={() => onChange({})}>{t('filters.reset')}</button>
     </div>
   );
 }
@@ -950,30 +951,31 @@ function LogsTables({
   onOffsetChange: (offset: number) => void;
   onLimitChange: (limit: number) => void;
 }) {
+  const { t } = useTranslation('logs');
   const auditEntries = auditLogs.data;
   const syncEntries = scaleSyncLogs.data;
   return (
     <div className="logs-grid">
       <section className="logs-card" aria-labelledby="audit-logs-title">
-        <h4 id="audit-logs-title">Журнал аудита</h4>
+        <h4 id="audit-logs-title">{t('tables.audit.title')}</h4>
         <Pagination
           meta={auditLogs.meta}
           onOffsetChange={onOffsetChange}
           onLimitChange={onLimitChange}
-          label="записей"
+          label={t('tables.paginationLabel')}
         />
-        {auditEntries.length === 0 ? <div className="empty-state">По выбранным фильтрам записей аудита нет.</div> : (
+        {auditEntries.length === 0 ? <div className="empty-state">{t('tables.audit.empty')}</div> : (
           <div className="logs-table-wrap">
             <table className="logs-table">
               <thead>
-                <tr><th>Время</th><th>Магазин</th><th>Пользователь</th><th>Сущность</th><th>Действие</th></tr>
+                <tr><th>{t('tables.audit.columns.time')}</th><th>{t('tables.audit.columns.store')}</th><th>{t('tables.audit.columns.user')}</th><th>{t('tables.audit.columns.entity')}</th><th>{t('tables.audit.columns.action')}</th></tr>
               </thead>
               <tbody>
                 {auditEntries.map((log) => (
                   <tr key={log.id}>
                     <td>{formatDateTime(log.createdAt)}</td>
-                    <td>{log.store ? `${log.store.code} · ${log.store.name}` : 'Все магазины'}</td>
-                    <td>{log.actor ? (log.actor.fullName || log.actor.email) : 'Система'}</td>
+                    <td>{log.store ? `${log.store.code} · ${log.store.name}` : t('tables.audit.row.allStores')}</td>
+                    <td>{log.actor ? (log.actor.fullName || log.actor.email) : t('tables.audit.row.systemActor')}</td>
                     <td><strong>{log.entityType}</strong>{log.entityId ? <span className="muted block">{log.entityId}</span> : null}</td>
                     <td><span className="badge badge-neutral">{log.action}</span></td>
                   </tr>
@@ -985,29 +987,29 @@ function LogsTables({
       </section>
 
       <section className="logs-card" aria-labelledby="sync-logs-title">
-        <h4 id="sync-logs-title">Журнал синхронизации весов</h4>
+        <h4 id="sync-logs-title">{t('tables.sync.title')}</h4>
         <Pagination
           meta={scaleSyncLogs.meta}
           onOffsetChange={onOffsetChange}
           onLimitChange={onLimitChange}
-          label="записей"
+          label={t('tables.paginationLabel')}
         />
-        {syncEntries.length === 0 ? <div className="empty-state">По выбранным фильтрам записей синхронизации нет.</div> : (
+        {syncEntries.length === 0 ? <div className="empty-state">{t('tables.sync.empty')}</div> : (
           <div className="logs-table-wrap">
             <table className="logs-table">
               <thead>
-                <tr><th>Время</th><th>Магазин</th><th>Весы</th><th>Статус</th><th>Версии / ошибка</th></tr>
+                <tr><th>{t('tables.sync.columns.time')}</th><th>{t('tables.sync.columns.store')}</th><th>{t('tables.sync.columns.scale')}</th><th>{t('tables.sync.columns.status')}</th><th>{t('tables.sync.columns.versions')}</th></tr>
               </thead>
               <tbody>
                 {syncEntries.map((log) => (
                   <tr key={log.id}>
                     <td>{formatDateTime(log.createdAt)}</td>
                     <td>{log.store ? `${log.store.code} · ${log.store.name}` : '—'}</td>
-                    <td>{log.scaleDevice ? `${log.scaleDevice.deviceCode} · ${log.scaleDevice.name}` : 'Неизвестные весы'}</td>
+                    <td>{log.scaleDevice ? `${log.scaleDevice.deviceCode} · ${log.scaleDevice.name}` : t('tables.sync.row.unknownScale')}</td>
                     <td><span className={`badge ${log.status === 'error' || log.status === 'auth_failed' ? 'badge-danger' : 'badge-neutral'}`}>{formatSyncStatusLabel(log.status)}</span></td>
                     <td>
-                      <span className="muted block">запрошена: {log.requestedVersionId ?? '—'}</span>
-                      <span className="muted block">доставлена: {log.deliveredVersionId ?? '—'}</span>
+                      <span className="muted block">{t('tables.sync.row.requestedVersion', { id: log.requestedVersionId ?? '—' })}</span>
+                      <span className="muted block">{t('tables.sync.row.deliveredVersion', { id: log.deliveredVersionId ?? '—' })}</span>
                       {log.errorMessage && <span className="inline-error block">{log.errorMessage}</span>}
                     </td>
                   </tr>
@@ -1022,6 +1024,7 @@ function LogsTables({
 }
 
 function GlobalLogsPage({ user }: { user: AuthUser }) {
+  const { t } = useTranslation('logs');
   const [filters, setFilters] = useState<LogsFilters>({});
   const [limit, setLimit] = useState<number>(50);
   const [offset, setOffset] = useState<number>(0);
@@ -1048,14 +1051,14 @@ function GlobalLogsPage({ user }: { user: AuthUser }) {
     <section className="panel" aria-labelledby="global-logs-title">
       <div className="panel-heading">
         <div>
-          <p className="eyebrow">Только администратор</p>
-          <h2 id="global-logs-title">Общие журналы</h2>
-          <p className="muted">Журнал аудита и синхронизации весов доступен только для чтения. Чувствительные поля не показываются.</p>
+          <p className="eyebrow">{t('global.eyebrow')}</p>
+          <h2 id="global-logs-title">{t('global.title')}</h2>
+          <p className="muted">{t('global.description')}</p>
         </div>
-        <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>{isFetching ? 'Обновляем...' : 'Обновить журналы'}</button>
+        <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>{isFetching ? t('global.refreshing') : t('global.refresh')}</button>
       </div>
       <LogsFiltersForm filters={filters} onChange={handleFiltersChange} stores={storesData?.stores ?? []} showStoreFilter />
-      {isLoading && <div className="status status-loading">Загружаем журналы...</div>}
+      {isLoading && <div className="status status-loading">{t('global.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
       {data && (
         <LogsTables
@@ -1070,6 +1073,7 @@ function GlobalLogsPage({ user }: { user: AuthUser }) {
 }
 
 function StoreLogsTab({ storeId }: { storeId: string }) {
+  const { t } = useTranslation('logs');
   const [filters, setFilters] = useState<LogsFilters>({});
   const [limit, setLimit] = useState<number>(50);
   const [offset, setOffset] = useState<number>(0);
@@ -1091,14 +1095,14 @@ function StoreLogsTab({ storeId }: { storeId: string }) {
     <section className="logs-tab" aria-labelledby="store-logs-title">
       <div className="panel-heading logs-heading">
         <div>
-          <p className="eyebrow">Журналы магазина</p>
-          <h3 id="store-logs-title">Журналы</h3>
-          <p className="muted">Активность только по этому магазину. Операторы видят только назначенные им магазины.</p>
+          <p className="eyebrow">{t('storeTab.eyebrow')}</p>
+          <h3 id="store-logs-title">{t('storeTab.title')}</h3>
+          <p className="muted">{t('storeTab.description')}</p>
         </div>
-        <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>{isFetching ? 'Обновляем...' : 'Обновить журналы'}</button>
+        <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>{isFetching ? t('storeTab.refreshing') : t('storeTab.refresh')}</button>
       </div>
       <LogsFiltersForm filters={filters} onChange={handleFiltersChange} />
-      {isLoading && <div className="status status-loading">Загружаем журналы магазина...</div>}
+      {isLoading && <div className="status status-loading">{t('storeTab.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
       {data && (
         <LogsTables
