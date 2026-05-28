@@ -1,1 +1,43 @@
-{}
+{
+  "tab": {
+    "eyebrow": "Advertising",
+    "title": "Advertising banners",
+    "description": "Upload JPG, PNG, or WebP banners up to 2 MB.",
+    "refresh": "Refresh banners",
+    "refreshing": "Refreshing…",
+    "publicationRequiredNotice": "Banner uploads, status changes, and reordering require a new catalog publication before they reach the scales.",
+    "loading": "Loading advertising banners…",
+    "empty": "No advertising banners yet.",
+    "paginationLabel": "banners"
+  },
+  "form": {
+    "newStatus": "New banner status",
+    "image": "Banner image"
+  },
+  "columns": {
+    "preview": "Preview",
+    "status": "Status",
+    "order": "Order",
+    "updatedAt": "Updated",
+    "actions": "Actions"
+  },
+  "row": {
+    "previewAlt": "Advertising banner preview",
+    "statusAriaLabel": "Status for banner {{id}}",
+    "moveUp": "Up",
+    "moveDown": "Down"
+  },
+  "notices": {
+    "uploaded": "Banner uploaded and added. Publish a new catalog version to push the change to the scales.",
+    "statusChanged": "Banner status updated. Publish a new catalog version to push the change to the scales.",
+    "reordered": "Banner order updated. Publish a new catalog version to push the change to the scales."
+  },
+  "errors": {
+    "csrf": "Could not prepare the secured action. Try again.",
+    "unsupportedFormat": "Banner format is not supported. Upload JPG, PNG, or WebP.",
+    "fileTooLarge": "Banner file is too large. Upload an image up to 2 MB.",
+    "uploadFailed": "Could not upload the banner.",
+    "statusFailed": "Could not change the banner status.",
+    "reorderFailed": "Could not change the banner order."
+  }
+}

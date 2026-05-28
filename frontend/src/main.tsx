@@ -1198,6 +1198,7 @@ const supportedBannerExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
 const maxBannerImageBytes = 2 * 1024 * 1024;
 
 function AdvertisingTab({ storeId }: { storeId: string }) {
+  const { t } = useTranslation('advertising');
   const [limit, setLimit] = useState<number>(50);
   const [offset, setOffset] = useState<number>(0);
   const handleLimitChange = (next: number) => {
@@ -1221,7 +1222,7 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
   async function getCsrfOrThrow() {
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      throw new Error('Не удалось подготовить защищённое действие. Повторите попытку.');
+      throw new Error(t('errors.csrf'));
     }
     return csrfData;
   }
@@ -1232,11 +1233,11 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
     const hasSupportedMimeType = file.type === '' || supportedBannerMimeTypes.has(file.type);
 
     if (!hasSupportedExtension || !hasSupportedMimeType) {
-      return 'Формат баннера не поддерживается. Загрузите JPG, PNG или WebP.';
+      return t('errors.unsupportedFormat');
     }
 
     if (file.size > maxBannerImageBytes) {
-      return 'Файл баннера слишком большой. Загрузите изображение до 2 МБ.';
+      return t('errors.fileTooLarge');
     }
 
     return null;
@@ -1274,9 +1275,9 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
-      setActionNotice('Баннер загружен и добавлен. Опубликуйте новую версию каталога, чтобы отправить изменение на весы.');
+      setActionNotice(t('notices.uploaded'));
     } catch (uploadError) {
-      setActionError(errorMessageFromUnknown(uploadError, 'Не удалось загрузить баннер.'));
+      setActionError(errorMessageFromUnknown(uploadError, t('errors.uploadFailed')));
     }
   }
 
@@ -1295,9 +1296,9 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
-      setActionNotice('Статус баннера изменён. Опубликуйте новую версию каталога, чтобы отправить изменение на весы.');
+      setActionNotice(t('notices.statusChanged'));
     } catch (statusError) {
-      setActionError(errorMessageFromUnknown(statusError, 'Не удалось изменить статус баннера.'));
+      setActionError(errorMessageFromUnknown(statusError, t('errors.statusFailed')));
     }
   }
 
@@ -1320,9 +1321,9 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
         csrfToken: csrfData.csrfToken,
         csrfHeaderName: csrfData.headerName,
       }).unwrap();
-      setActionNotice('Порядок баннеров изменён. Опубликуйте новую версию каталога, чтобы отправить изменение на весы.');
+      setActionNotice(t('notices.reordered'));
     } catch (reorderError) {
-      setActionError(errorMessageFromUnknown(reorderError, 'Не удалось изменить порядок баннеров.'));
+      setActionError(errorMessageFromUnknown(reorderError, t('errors.reorderFailed')));
     }
   }
 
@@ -1330,51 +1331,51 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
     <section className="advertising-tab" aria-labelledby="advertising-title">
       <div className="panel-heading advertising-heading">
         <div>
-          <p className="eyebrow">Реклама</p>
-          <h3 id="advertising-title">Рекламные баннеры</h3>
-          <p className="muted">Загружайте баннеры JPG, PNG или WebP размером до 2 МБ.</p>
+          <p className="eyebrow">{t('tab.eyebrow')}</p>
+          <h3 id="advertising-title">{t('tab.title')}</h3>
+          <p className="muted">{t('tab.description')}</p>
         </div>
         <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-          {isFetching ? 'Обновляем...' : 'Обновить баннеры'}
+          {isFetching ? t('tab.refreshing') : t('tab.refresh')}
         </button>
       </div>
 
       <div className="status status-warning publication-required" role="note">
-        Загрузка баннеров, изменение статуса и порядка требуют новой публикации каталога перед отправкой на весы.
+        {t('tab.publicationRequiredNotice')}
       </div>
 
       {listError && <div className="form-error" role="alert">{listError}</div>}
       {actionError && <div className="form-error" role="alert">{actionError}</div>}
       {actionNotice && <div className="status status-ok">{actionNotice}</div>}
-      {isLoading && <div className="status status-loading">Загружаем рекламные баннеры...</div>}
+      {isLoading && <div className="status status-loading">{t('tab.loading')}</div>}
 
       <div className="banner-upload-card">
         <label>
-          Статус нового баннера
+          {t('form.newStatus')}
           <select value={newStatus} onChange={(event) => setNewStatus(event.target.value as BannerStatus)} disabled={busy}>
             {bannerStatuses.map((status) => <option key={status} value={status}>{formatStatusLabel(status)}</option>)}
           </select>
         </label>
         <label>
-          Изображение баннера
+          {t('form.image')}
           <input accept="image/png,image/jpeg,image/webp" disabled={busy} onChange={handleBannerUpload} type="file" />
         </label>
       </div>
 
-      {!isLoading && banners.length === 0 && <div className="empty-state">Рекламных баннеров пока нет.</div>}
+      {!isLoading && banners.length === 0 && <div className="empty-state">{t('tab.empty')}</div>}
 
-      <Pagination meta={bannersMeta} onOffsetChange={setOffset} onLimitChange={handleLimitChange} label="баннеров" />
+      <Pagination meta={bannersMeta} onOffsetChange={setOffset} onLimitChange={handleLimitChange} label={t('tab.paginationLabel')} />
 
       {banners.length > 0 && (
         <div className="banner-table-wrap">
           <table className="banner-table">
             <thead>
               <tr>
-                <th>Превью</th>
-                <th>Статус</th>
-                <th>Порядок</th>
-                <th>Обновлён</th>
-                <th>Действия</th>
+                <th>{t('columns.preview')}</th>
+                <th>{t('columns.status')}</th>
+                <th>{t('columns.order')}</th>
+                <th>{t('columns.updatedAt')}</th>
+                <th>{t('columns.actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -1382,13 +1383,13 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
                 <tr key={banner.id}>
                   <td>
                     <div className="banner-preview">
-                      <img src={banner.imageUrl} alt="Превью рекламного баннера" />
+                      <img src={banner.imageUrl} alt={t('row.previewAlt')} />
                       <small>{banner.imageUrl}</small>
                     </div>
                   </td>
                   <td>
                     <select
-                      aria-label={`Статус баннера ${banner.id}`}
+                      aria-label={t('row.statusAriaLabel', { id: banner.id })}
                       value={banner.status}
                       onChange={(event) => handleStatusChange(banner, event.target.value as BannerStatus)}
                       disabled={busy}
@@ -1400,8 +1401,8 @@ function AdvertisingTab({ storeId }: { storeId: string }) {
                   <td>{new Date(banner.updatedAt).toLocaleString()}</td>
                   <td>
                     <div className="table-actions">
-                      <button className="secondary-button table-action" type="button" disabled={busy || index === 0} onClick={() => moveBanner(index, -1)}>Выше</button>
-                      <button className="secondary-button table-action" type="button" disabled={busy || index === banners.length - 1} onClick={() => moveBanner(index, 1)}>Ниже</button>
+                      <button className="secondary-button table-action" type="button" disabled={busy || index === 0} onClick={() => moveBanner(index, -1)}>{t('row.moveUp')}</button>
+                      <button className="secondary-button table-action" type="button" disabled={busy || index === banners.length - 1} onClick={() => moveBanner(index, 1)}>{t('row.moveDown')}</button>
                     </div>
                   </td>
                 </tr>
