@@ -1,5 +1,6 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { CascadeArchiveService, type CascadeSummary } from '../shared/cascade-archive.service';
@@ -56,6 +57,7 @@ export class ProductsService {
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService,
     private readonly cascadeArchive: CascadeArchiveService,
+    private readonly i18n: I18nService,
   ) {}
 
   async listProducts(input: ListProductsInput) {
@@ -139,7 +141,7 @@ export class ProductsService {
       return { product: this.toProductResponse(product, 0) };
     } catch (error) {
       if (this.isUniqueConstraintError(error)) {
-        throw new ConflictException('Товар с таким PLU уже существует');
+        throw new ConflictException(this.i18n.t('errors.products.productPluAlreadyExists'));
       }
 
       throw error;
@@ -182,7 +184,7 @@ export class ProductsService {
     }
 
     if (Object.keys(data).length === 0) {
-      throw new BadRequestException('Укажите хотя бы одно поле товара');
+      throw new BadRequestException(this.i18n.t('errors.products.noFieldsToUpdate'));
     }
 
     const activePlacementCount = await this.countActivePlacements(product.id);
@@ -247,7 +249,7 @@ export class ProductsService {
       };
     } catch (error) {
       if (this.isUniqueConstraintError(error)) {
-        throw new ConflictException('Товар с таким PLU уже существует');
+        throw new ConflictException(this.i18n.t('errors.products.productPluAlreadyExists'));
       }
 
       throw error;
@@ -256,12 +258,12 @@ export class ProductsService {
 
   private async findProductById(productId: string): Promise<ProductRecord> {
     if (!productId) {
-      throw new BadRequestException('ID товара обязателен');
+      throw new BadRequestException(this.i18n.t('errors.products.productIdRequired'));
     }
 
     const product = await this.prisma.product.findUnique({ where: { id: productId } });
     if (!product) {
-      throw new NotFoundException('Товар не найден');
+      throw new NotFoundException(this.i18n.t('errors.products.productNotFound'));
     }
 
     return product;
@@ -279,7 +281,7 @@ export class ProductsService {
   private requireDefaultPluCode(defaultPluCode: string): string {
     const normalizedValue = typeof defaultPluCode === 'string' ? defaultPluCode.trim().toUpperCase() : '';
     if (!normalizedValue || normalizedValue.length > 64) {
-      throw new BadRequestException('PLU товара обязателен и должен быть не длиннее 64 символов');
+      throw new BadRequestException(this.i18n.t('errors.products.pluCodeTooLongOrEmpty'));
     }
 
     return normalizedValue;
@@ -288,7 +290,7 @@ export class ProductsService {
   private requireName(name: string): string {
     const normalizedValue = typeof name === 'string' ? name.trim() : '';
     if (!normalizedValue || normalizedValue.length > 255) {
-      throw new BadRequestException('Название товара обязательно и должно быть не длиннее 255 символов');
+      throw new BadRequestException(this.i18n.t('errors.products.nameTooLongOrEmpty'));
     }
 
     return normalizedValue;
@@ -297,7 +299,7 @@ export class ProductsService {
   private requireShortName(shortName: string): string {
     const normalizedValue = typeof shortName === 'string' ? shortName.trim() : '';
     if (!normalizedValue || normalizedValue.length > 128) {
-      throw new BadRequestException('Короткое название товара обязательно и должно быть не длиннее 128 символов');
+      throw new BadRequestException(this.i18n.t('errors.products.shortNameTooLongOrEmpty'));
     }
 
     return normalizedValue;
@@ -308,7 +310,7 @@ export class ProductsService {
       return unit;
     }
 
-    throw new BadRequestException('Единица товара должна быть kg, g или piece');
+    throw new BadRequestException(this.i18n.t('errors.products.invalidUnit'));
   }
 
   private requireProductStatus(status: string): 'active' | 'inactive' | 'archived' {
@@ -316,7 +318,7 @@ export class ProductsService {
       return status;
     }
 
-    throw new BadRequestException('Статус товара должен быть active, inactive или archived');
+    throw new BadRequestException(this.i18n.t('errors.products.invalidStatus'));
   }
 
   private normalizeOptionalString(value: string | undefined): string | null {

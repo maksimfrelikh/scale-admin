@@ -48,5 +48,16 @@
     "nameTooLongOrEmpty": "Название магазина обязательно и должно быть не длиннее 255 символов",
     "timezoneTooLong": "Часовой пояс магазина должен быть не длиннее 128 символов",
     "invalidStatus": "Статус магазина должен быть active, inactive или archived"
+  },
+  "products": {
+    "productPluAlreadyExists": "Товар с таким PLU уже существует",
+    "noFieldsToUpdate": "Укажите хотя бы одно поле товара",
+    "productIdRequired": "ID товара обязателен",
+    "productNotFound": "Товар не найден",
+    "pluCodeTooLongOrEmpty": "PLU товара обязателен и должен быть не длиннее 64 символов",
+    "nameTooLongOrEmpty": "Название товара обязательно и должно быть не длиннее 255 символов",
+    "shortNameTooLongOrEmpty": "Короткое название товара обязательно и должно быть не длиннее 128 символов",
+    "invalidUnit": "Единица товара должна быть kg, g или piece",
+    "invalidStatus": "Статус товара должен быть active, inactive или archived"
   }
 }

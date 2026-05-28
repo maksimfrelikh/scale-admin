@@ -48,5 +48,16 @@
     "nameTooLongOrEmpty": "Store name is required and must be no longer than 255 characters",
     "timezoneTooLong": "Store timezone must be no longer than 128 characters",
     "invalidStatus": "Store status must be active, inactive, or archived"
+  },
+  "products": {
+    "productPluAlreadyExists": "A product with this PLU already exists",
+    "noFieldsToUpdate": "Provide at least one product field to update",
+    "productIdRequired": "Product ID is required",
+    "productNotFound": "Product not found",
+    "pluCodeTooLongOrEmpty": "Product PLU is required and must be no longer than 64 characters",
+    "nameTooLongOrEmpty": "Product name is required and must be no longer than 255 characters",
+    "shortNameTooLongOrEmpty": "Product short name is required and must be no longer than 128 characters",
+    "invalidUnit": "Product unit must be kg, g, or piece",
+    "invalidStatus": "Product status must be active, inactive, or archived"
   }
 }
