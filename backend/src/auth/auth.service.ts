@@ -208,9 +208,16 @@ export class AuthService {
     });
   }
 
-  async getCurrentSession(sessionToken: string | undefined) {
+  async getCurrentSession(sessionToken: string | undefined, lang?: string) {
+    // `lang` is threaded in from guard-scope callers (SessionGuard) because
+    // nestjs-i18n's I18nContext is null inside Nest guard execution, so
+    // `this.i18n.t(key)` without an explicit `{ lang }` falls back to the
+    // default locale regardless of X-Locale. Non-guard callers (controllers)
+    // pass nothing and continue to rely on I18nContext.
+    const t = (key: string) => this.i18n.t(key, lang ? { lang } : undefined);
+
     if (!sessionToken) {
-      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
+      throw new UnauthorizedException(t('errors.auth.authRequired'));
     }
 
     const sessionTokenHash = hashSessionToken(sessionToken);
@@ -220,24 +227,24 @@ export class AuthService {
     });
 
     if (!session || session.revokedAt) {
-      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
+      throw new UnauthorizedException(t('errors.auth.authRequired'));
     }
 
     const now = new Date();
     if (session.expiresAt <= now) {
       await this.revokeSessionById(session.id, 'absolute_timeout');
-      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
+      throw new UnauthorizedException(t('errors.auth.authRequired'));
     }
 
     const lastUsedAt = session.lastUsedAt ?? session.createdAt;
     if (now.getTime() - lastUsedAt.getTime() > this.idleTimeoutMs) {
       await this.revokeSessionById(session.id, 'idle_timeout');
-      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
+      throw new UnauthorizedException(t('errors.auth.authRequired'));
     }
 
     if (session.user.deletedAt || session.user.status !== 'active') {
       await this.revokeSessionById(session.id, 'user_inactive');
-      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
+      throw new UnauthorizedException(t('errors.auth.authRequired'));
     }
 
     await this.prisma.userSession.update({
