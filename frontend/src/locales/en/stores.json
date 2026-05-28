@@ -1,1 +1,87 @@
-{}
+{
+  "list": {
+    "eyebrow": {
+      "admin": "Store administration",
+      "operator": "Assigned stores"
+    },
+    "title": "Stores",
+    "description": {
+      "admin": "Administrators see every non-archived store and manage their cards.",
+      "operator": "Operators see only the stores assigned to their account."
+    },
+    "refresh": "Refresh",
+    "refreshing": "Refreshing…",
+    "create": "Create store",
+    "loading": "Loading stores…",
+    "empty": "No stores available.",
+    "addressMissing": "Address not specified",
+    "actions": {
+      "details": "Details",
+      "edit": "Edit"
+    }
+  },
+  "details": {
+    "back": "← Back to stores",
+    "eyebrow": "Store details",
+    "loading": "Loading store details…",
+    "editStore": "Edit store",
+    "fields": {
+      "address": "Address",
+      "timezone": "Timezone",
+      "publishedCatalog": "Published catalog",
+      "createdAt": "Created",
+      "updatedAt": "Updated"
+    },
+    "versionLoading": "Loading…"
+  },
+  "form": {
+    "back": "← Back to stores",
+    "eyebrow": {
+      "create": "Create store",
+      "edit": "Edit store"
+    },
+    "titleCreate": "New store",
+    "fields": {
+      "code": "Store code",
+      "name": "Store name",
+      "address": "Address",
+      "timezone": "Timezone",
+      "status": "Status"
+    },
+    "placeholders": {
+      "code": "STORE-002",
+      "name": "Central store",
+      "address": "City, street",
+      "timezone": "Europe/Moscow"
+    },
+    "statusOptions": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "archived": "Archived"
+    },
+    "errors": {
+      "missingFields": "Enter the store code and name.",
+      "csrf": "Could not prepare the secured form. Try again.",
+      "saveFailed": "Could not save the store."
+    },
+    "submit": "Save store",
+    "saving": "Saving…",
+    "cancel": "Cancel"
+  },
+  "edit": {
+    "loading": "Loading the store for editing…",
+    "notFound": "Store not found."
+  },
+  "routeNotFound": {
+    "detailsInvalid": "The store link is empty or invalid. Open a store from the list.",
+    "editInvalid": "The edit store link is empty or invalid. Open a store from the list.",
+    "listInvalid": "The store link is unavailable. Open a store from the list.",
+    "eyebrow": "Not found",
+    "title": "Section unavailable",
+    "backToList": "Back to stores"
+  },
+  "accessDenied": {
+    "heading": "Store management is admin-only",
+    "description": "Operators cannot create or edit stores. Contact an administrator if a store needs to change."
+  }
+}

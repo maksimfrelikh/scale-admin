@@ -818,6 +818,7 @@ function Navigation({ user, activeView, onNavigate }: { user: AuthUser; activeVi
 }
 
 function StoresList({ user, onNavigate }: { user: AuthUser; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('stores');
   const { data, error, isLoading, isFetching, refetch } = useListStoresQuery(undefined, {
     refetchOnFocus: true,
     refetchOnReconnect: true,
@@ -830,29 +831,29 @@ function StoresList({ user, onNavigate }: { user: AuthUser; onNavigate: (view: D
     <section className="panel" aria-labelledby="stores-title">
       <div className="panel-heading">
         <div>
-          <p className="eyebrow">{user.role === 'admin' ? 'Администрирование магазинов' : 'Назначенные магазины'}</p>
-          <h2 id="stores-title">Магазины</h2>
+          <p className="eyebrow">{user.role === 'admin' ? t('list.eyebrow.admin') : t('list.eyebrow.operator')}</p>
+          <h2 id="stores-title">{t('list.title')}</h2>
           <p className="muted">
             {user.role === 'admin'
-              ? 'Администраторы видят все неархивные магазины и управляют их карточками.'
-              : 'Операторы видят только магазины, назначенные их учётной записи.'}
+              ? t('list.description.admin')
+              : t('list.description.operator')}
           </p>
         </div>
         <div className="action-row">
           <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-            {isFetching ? 'Обновляем...' : 'Обновить'}
+            {isFetching ? t('list.refreshing') : t('list.refresh')}
           </button>
           {user.role === 'admin' && (
             <button type="button" onClick={() => onNavigate({ name: 'store-create' })}>
-              Создать магазин
+              {t('list.create')}
             </button>
           )}
         </div>
       </div>
 
-      {isLoading && <div className="status status-loading">Загружаем магазины...</div>}
+      {isLoading && <div className="status status-loading">{t('list.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
-      {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">Доступных магазинов нет.</div>}
+      {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">{t('list.empty')}</div>}
 
       {stores.length > 0 && (
         <div className="store-list" data-testid="stores-list">
@@ -861,16 +862,16 @@ function StoresList({ user, onNavigate }: { user: AuthUser; onNavigate: (view: D
               <div>
                 <p className="store-code">{store.code}</p>
                 <h3>{store.name}</h3>
-                <p className="muted">{store.address || 'Адрес не указан'} · {store.timezone}</p>
+                <p className="muted">{store.address || t('list.addressMissing')} · {store.timezone}</p>
               </div>
               <div className="store-actions">
                 <span className={`badge badge-${store.status}`}>{formatStatusLabel(store.status)}</span>
                 <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'store-details', storeId: store.id })}>
-                  Детали
+                  {t('list.actions.details')}
                 </button>
                 {user.role === 'admin' && (
                   <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'store-edit', storeId: store.id })}>
-                    Изменить
+                    {t('list.actions.edit')}
                   </button>
                 )}
               </div>
@@ -1112,6 +1113,7 @@ function StoreLogsTab({ storeId }: { storeId: string }) {
 }
 
 function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: string; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('stores');
   const hasValidStoreId = isValidRouteId(storeId);
   const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
     skip: !hasValidStoreId,
@@ -1128,22 +1130,22 @@ function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: 
   const versionsErrorMessage = store && versionsError && 'message' in versionsError ? versionsError.message : null;
 
   if (!hasValidStoreId) {
-    return <RouteNotFoundPanel returnTo="stores" message="Ссылка на магазин пустая или некорректная. Откройте магазин из списка." onNavigate={onNavigate} />;
+    return <RouteNotFoundPanel returnTo="stores" message={t('routeNotFound.detailsInvalid')} onNavigate={onNavigate} />;
   }
 
   return (
     <section className="panel store-details-panel" aria-labelledby="store-details-title">
       <button className="link-button" type="button" onClick={() => onNavigate({ name: 'stores' })}>
-        ← Назад к магазинам
+        {t('details.back')}
       </button>
-      {isLoading && <div className="status status-loading">Загружаем детали магазина...</div>}
+      {isLoading && <div className="status status-loading">{t('details.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
       {versionsErrorMessage && <div className="form-error" role="alert">{versionsErrorMessage}</div>}
       {store && (
         <>
           <div className="panel-heading">
             <div>
-              <p className="eyebrow">Детали магазина</p>
+              <p className="eyebrow">{t('details.eyebrow')}</p>
               <h2 id="store-details-title">{store.name}</h2>
               <p className="muted">{store.code}</p>
             </div>
@@ -1151,17 +1153,17 @@ function StoreDetails({ user, storeId, onNavigate }: { user: AuthUser; storeId: 
               <span className={`badge badge-${store.status}`}>{formatStatusLabel(store.status)}</span>
               {user.role === 'admin' && (
                 <button type="button" onClick={() => onNavigate({ name: 'store-edit', storeId: store.id })}>
-                  Изменить магазин
+                  {t('details.editStore')}
                 </button>
               )}
             </div>
           </div>
           <dl className="details-grid">
-            <div><dt>Адрес</dt><dd>{store.address || '—'}</dd></div>
-            <div><dt>Часовой пояс</dt><dd>{store.timezone}</dd></div>
-            <div><dt>Опубликованный каталог</dt><dd>{versionsLoading ? 'Загружаем…' : formatVersionLabel(currentVersion)}</dd></div>
-            <div><dt>Создан</dt><dd>{new Date(store.createdAt).toLocaleString('ru-RU')}</dd></div>
-            <div><dt>Обновлён</dt><dd>{new Date(store.updatedAt).toLocaleString('ru-RU')}</dd></div>
+            <div><dt>{t('details.fields.address')}</dt><dd>{store.address || '—'}</dd></div>
+            <div><dt>{t('details.fields.timezone')}</dt><dd>{store.timezone}</dd></div>
+            <div><dt>{t('details.fields.publishedCatalog')}</dt><dd>{versionsLoading ? t('details.versionLoading') : formatVersionLabel(currentVersion)}</dd></div>
+            <div><dt>{t('details.fields.createdAt')}</dt><dd>{new Date(store.createdAt).toLocaleString('ru-RU')}</dd></div>
+            <div><dt>{t('details.fields.updatedAt')}</dt><dd>{new Date(store.updatedAt).toLocaleString('ru-RU')}</dd></div>
           </dl>
           <CatalogTab storeId={store.id} />
           <AdvertisingTab storeId={store.id} />
@@ -2973,6 +2975,7 @@ function ProductEditRoute({ productId, onNavigate }: { productId: string; onNavi
 }
 
 function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'; store?: Store; onCancel: () => void; onSaved: (store: Store) => void }) {
+  const { t } = useTranslation('stores');
   const [values, setValues] = useState<StoreFormValues>({
     code: store?.code ?? '',
     name: store?.name ?? '',
@@ -2995,13 +2998,13 @@ function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'
     setFormError(null);
 
     if (!values.code.trim() || !values.name.trim()) {
-      setFormError('Укажите код и название магазина.');
+      setFormError(t('form.errors.missingFields'));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму. Повторите попытку.');
+      setFormError(t('form.errors.csrf'));
       return;
     }
 
@@ -3024,47 +3027,47 @@ function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'
     } catch (error) {
       const message = error && typeof error === 'object' && 'message' in error
         ? String(error.message)
-        : 'Не удалось сохранить магазин.';
+        : t('form.errors.saveFailed');
       setFormError(message);
     }
   }
 
   return (
     <section className="panel" aria-labelledby="store-form-title">
-      <button className="link-button" type="button" onClick={onCancel}>← Назад к магазинам</button>
-      <p className="eyebrow">{mode === 'create' ? 'Создание магазина' : 'Редактирование магазина'}</p>
-      <h2 id="store-form-title">{mode === 'create' ? 'Новый магазин' : store?.name}</h2>
+      <button className="link-button" type="button" onClick={onCancel}>{t('form.back')}</button>
+      <p className="eyebrow">{mode === 'create' ? t('form.eyebrow.create') : t('form.eyebrow.edit')}</p>
+      <h2 id="store-form-title">{mode === 'create' ? t('form.titleCreate') : store?.name}</h2>
 
       <form className="store-form" onSubmit={handleSubmit}>
         <label>
-          Код магазина
-          <input value={values.code} onChange={(event) => updateValue('code', event.target.value)} placeholder="STORE-002" />
+          {t('form.fields.code')}
+          <input value={values.code} onChange={(event) => updateValue('code', event.target.value)} placeholder={t('form.placeholders.code')} />
         </label>
         <label>
-          Название магазина
-          <input value={values.name} onChange={(event) => updateValue('name', event.target.value)} placeholder="Центральный магазин" />
+          {t('form.fields.name')}
+          <input value={values.name} onChange={(event) => updateValue('name', event.target.value)} placeholder={t('form.placeholders.name')} />
         </label>
         <label>
-          Адрес
-          <input value={values.address ?? ''} onChange={(event) => updateValue('address', event.target.value)} placeholder="Город, улица" />
+          {t('form.fields.address')}
+          <input value={values.address ?? ''} onChange={(event) => updateValue('address', event.target.value)} placeholder={t('form.placeholders.address')} />
         </label>
         <label>
-          Часовой пояс
-          <input value={values.timezone ?? ''} onChange={(event) => updateValue('timezone', event.target.value)} placeholder="Europe/Moscow" />
+          {t('form.fields.timezone')}
+          <input value={values.timezone ?? ''} onChange={(event) => updateValue('timezone', event.target.value)} placeholder={t('form.placeholders.timezone')} />
         </label>
         <label>
-          Статус
+          {t('form.fields.status')}
           <select value={values.status} onChange={(event) => updateValue('status', event.target.value as StoreStatus)}>
-            <option value="active">Активен</option>
-            <option value="inactive">Неактивен</option>
-            <option value="archived">В архиве</option>
+            <option value="active">{t('form.statusOptions.active')}</option>
+            <option value="inactive">{t('form.statusOptions.inactive')}</option>
+            <option value="archived">{t('form.statusOptions.archived')}</option>
           </select>
         </label>
 
         {formError && <div className="form-error" role="alert">{formError}</div>}
         <div className="action-row">
-          <button type="submit" disabled={isSaving}>{isSaving ? 'Сохраняем...' : 'Сохранить магазин'}</button>
-          <button className="secondary-button" type="button" onClick={onCancel}>Отмена</button>
+          <button type="submit" disabled={isSaving}>{isSaving ? t('form.saving') : t('form.submit')}</button>
+          <button className="secondary-button" type="button" onClick={onCancel}>{t('form.cancel')}</button>
         </div>
       </form>
     </section>
@@ -3072,6 +3075,7 @@ function StoreForm({ mode, store, onCancel, onSaved }: { mode: 'create' | 'edit'
 }
 
 function StoreEditRoute({ storeId, onNavigate }: { storeId: string; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('stores');
   const hasValidStoreId = isValidRouteId(storeId);
   const { currentData, error, isLoading } = useGetStoreQuery(storeId, {
     skip: !hasValidStoreId,
@@ -3082,15 +3086,15 @@ function StoreEditRoute({ storeId, onNavigate }: { storeId: string; onNavigate: 
   const errorMessage = error && 'message' in error ? error.message : null;
 
   if (!hasValidStoreId) {
-    return <RouteNotFoundPanel returnTo="stores" message="Ссылка на редактирование магазина пустая или некорректная. Откройте магазин из списка." onNavigate={onNavigate} />;
+    return <RouteNotFoundPanel returnTo="stores" message={t('routeNotFound.editInvalid')} onNavigate={onNavigate} />;
   }
 
   if (isLoading) {
-    return <section className="panel"><div className="status status-loading">Загружаем магазин для редактирования...</div></section>;
+    return <section className="panel"><div className="status status-loading">{t('edit.loading')}</div></section>;
   }
 
   if (errorMessage || !currentData?.store) {
-    return <section className="panel"><div className="form-error" role="alert">{errorMessage ?? 'Магазин не найден.'}</div></section>;
+    return <section className="panel"><div className="form-error" role="alert">{errorMessage ?? t('edit.notFound')}</div></section>;
   }
 
   return (
