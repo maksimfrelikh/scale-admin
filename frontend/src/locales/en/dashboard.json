@@ -39,7 +39,28 @@
     "refreshing": "Refreshing…",
     "loading": "Loading assigned stores…",
     "empty": "No stores are assigned to your account.",
-    "openCatalog": "Open catalog"
+    "openCatalog": "Open catalog",
+    "storeCard": {
+      "addressMissing": "Address not specified",
+      "loadingPanel": "Loading store panel…",
+      "currentVersion": "Current version",
+      "versionLoading": "Loading…",
+      "publicationStatus": "Publication status",
+      "publicationNone": "not published",
+      "syncStatus": "Sync status",
+      "errors": "Errors",
+      "syncSummary": {
+        "noScales": "No scales connected",
+        "allSynced": "{{count}} synchronized",
+        "attention": "needs attention: {{problematic}} of {{total}}"
+      },
+      "badges": {
+        "errors": "errors: {{count}}",
+        "missingSync": "missing sync: {{count}}",
+        "outdated": "outdated: {{count}}"
+      },
+      "syncErrorFallback": "sync error"
+    }
   },
   "health": {
     "eyebrow": "System status",

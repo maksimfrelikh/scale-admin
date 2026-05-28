@@ -39,7 +39,28 @@
     "refreshing": "Обновляем…",
     "loading": "Загружаем назначенные магазины…",
     "empty": "Вашей учётной записи не назначены магазины.",
-    "openCatalog": "Открыть каталог"
+    "openCatalog": "Открыть каталог",
+    "storeCard": {
+      "addressMissing": "Адрес не указан",
+      "loadingPanel": "Загружаем панель магазина…",
+      "currentVersion": "Текущая версия",
+      "versionLoading": "Загружаем…",
+      "publicationStatus": "Статус публикации",
+      "publicationNone": "не опубликовано",
+      "syncStatus": "Статус синхронизации",
+      "errors": "Ошибки",
+      "syncSummary": {
+        "noScales": "Весы не подключены",
+        "allSynced": "{{count}} синхронизировано",
+        "attention": "требуют внимания: {{problematic}} из {{total}}"
+      },
+      "badges": {
+        "errors": "ошибок: {{count}}",
+        "missingSync": "без синхронизации: {{count}}",
+        "outdated": "устарели: {{count}}"
+      },
+      "syncErrorFallback": "ошибка синхронизации"
+    }
   },
   "health": {
     "eyebrow": "Состояние системы",

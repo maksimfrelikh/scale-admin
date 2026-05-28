@@ -3653,26 +3653,32 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
         <div>
           <p className="store-code">{store.code}</p>
           <h3>{store.name}</h3>
-          <p className="muted">{store.address || 'Адрес не указан'} · {store.timezone}</p>
+          <p className="muted">{store.address || t('operator.storeCard.addressMissing')} · {store.timezone}</p>
         </div>
         <span className={`badge badge-${store.status}`}>{formatStatusLabel(store.status)}</span>
       </div>
 
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
-      {(versionsLoading || scalesLoading) && <div className="status status-loading">Загружаем панель магазина...</div>}
+      {(versionsLoading || scalesLoading) && <div className="status status-loading">{t('operator.storeCard.loadingPanel')}</div>}
 
       <dl className="compact-details">
-        <div><dt>Текущая версия</dt><dd>{versionsLoading ? 'Загружаем…' : formatVersionLabel(currentVersion)}</dd></div>
-        <div><dt>Статус публикации</dt><dd>{currentVersion?.status ? formatStatusLabel(currentVersion.status) : 'не опубликовано'}</dd></div>
-        <div><dt>Статус синхронизации</dt><dd>{syncSummary(devices.length, problematicDeviceIds.size)}</dd></div>
-        <div><dt>Ошибки</dt><dd>{devicesWithErrors.length}</dd></div>
+        <div><dt>{t('operator.storeCard.currentVersion')}</dt><dd>{versionsLoading ? t('operator.storeCard.versionLoading') : formatVersionLabel(currentVersion)}</dd></div>
+        <div><dt>{t('operator.storeCard.publicationStatus')}</dt><dd>{currentVersion?.status ? formatStatusLabel(currentVersion.status) : t('operator.storeCard.publicationNone')}</dd></div>
+        <div><dt>{t('operator.storeCard.syncStatus')}</dt><dd>
+          {devices.length === 0
+            ? t('operator.storeCard.syncSummary.noScales')
+            : problematicDeviceIds.size === 0
+              ? t('operator.storeCard.syncSummary.allSynced', { count: devices.length })
+              : t('operator.storeCard.syncSummary.attention', { problematic: problematicDeviceIds.size, total: devices.length })}
+        </dd></div>
+        <div><dt>{t('operator.storeCard.errors')}</dt><dd>{devicesWithErrors.length}</dd></div>
       </dl>
 
       {hasProblems && (
         <div className="reason-row">
-          {devicesWithErrors.length > 0 && <span className="badge badge-danger">ошибок: {devicesWithErrors.length}</span>}
-          {devicesMissingSync.length > 0 && <span className="badge badge-warning">без синхронизации: {devicesMissingSync.length}</span>}
-          {devicesOutdated.length > 0 && <span className="badge badge-warning">устарели: {devicesOutdated.length}</span>}
+          {devicesWithErrors.length > 0 && <span className="badge badge-danger">{t('operator.storeCard.badges.errors', { count: devicesWithErrors.length })}</span>}
+          {devicesMissingSync.length > 0 && <span className="badge badge-warning">{t('operator.storeCard.badges.missingSync', { count: devicesMissingSync.length })}</span>}
+          {devicesOutdated.length > 0 && <span className="badge badge-warning">{t('operator.storeCard.badges.outdated', { count: devicesOutdated.length })}</span>}
         </div>
       )}
 
@@ -3682,7 +3688,7 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
             <li className="dashboard-list-item dashboard-list-item-danger" key={device.id}>
               <div>
                 <strong>{device.deviceCode} · {device.name}</strong>
-                <span className="inline-error block">{device.lastSyncError?.message ?? formatSyncStatusLabel(device.lastSyncStatus) ?? 'ошибка синхронизации'}</span>
+                <span className="inline-error block">{device.lastSyncError?.message ?? formatSyncStatusLabel(device.lastSyncStatus) ?? t('operator.storeCard.syncErrorFallback')}</span>
               </div>
             </li>
           ))}
@@ -3694,14 +3700,6 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
       </button>
     </article>
   );
-}
-
-function syncSummary(totalDevices: number, problematicCount: number) {
-  if (totalDevices === 0) {
-    return 'Весы не подключены';
-  }
-
-  return problematicCount === 0 ? `${totalDevices} синхронизировано` : `требуют внимания: ${problematicCount} из ${totalDevices}`;
 }
 
 function DashboardContent({ user, view, onNavigate }: { user: AuthUser; view: DashboardView; onNavigate: (view: DashboardView) => void }) {
