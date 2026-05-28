@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "invalidCredentials": "Invalid email or password",
+    "authRequired": "Authentication required",
+    "userWithEmailExists": "A user with this email already exists",
+    "inviteEmailDeliveryFailed": "Failed to send the invitation email. Please try again later.",
+    "inviteNotFound": "Invitation not found",
+    "inviteAlreadyAccepted": "Invitation has already been accepted",
+    "inviteExpired": "Invitation has expired",
+    "passwordResetEmailDeliveryFailed": "Failed to send the password reset email. Please try again later.",
+    "passwordResetLinkInvalid": "Password reset link is invalid",
+    "passwordResetLinkAlreadyUsed": "This password reset link has already been used. If you still need access, request a new link.",
+    "passwordResetLinkExpired": "Password reset link has expired",
+    "loginTemporarilyLocked": "Too many failed login attempts. Please try again later.",
+    "invalidEmail": "Please enter a valid email",
+    "invalidRole": "Role must be admin or operator",
+    "invalidDate": "{field} must be a valid date",
+    "inviteTokenRequired": "Invitation token is required",
+    "passwordResetTokenRequired": "Password reset token is required",
+    "passwordTooShort": "Password must be at least 8 characters long",
+    "storeAccessDenied": "No access to this store",
+    "insufficientPermissions": "Insufficient permissions",
+    "rateLimitExceeded": "Too many requests. Please try again later.",
+    "csrfTokenInvalid": "Form session has expired. Refresh the page and try again."
+  }
+}

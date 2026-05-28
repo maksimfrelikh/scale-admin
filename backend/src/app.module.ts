@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { join } from 'path';
+import { HeaderResolver, I18nJsonLoader, I18nModule } from 'nestjs-i18n';
 import { AdvertisingModule } from './advertising/advertising.module';
 import { AppConfigModule } from './config/config.module';
 import { AuthModule } from './auth/auth.module';
@@ -22,6 +24,15 @@ import { VersionController } from './version.controller';
 @Module({
   imports: [
     AppConfigModule,
+    I18nModule.forRoot({
+      fallbackLanguage: 'ru',
+      loader: I18nJsonLoader,
+      loaderOptions: {
+        path: join(__dirname, '/i18n/'),
+        watch: false,
+      },
+      resolvers: [new HeaderResolver(['x-locale'])],
+    }),
     PrismaModule,
     SharedModule,
     AuthModule,

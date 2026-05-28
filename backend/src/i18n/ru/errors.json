@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "invalidCredentials": "Неверный email или пароль",
+    "authRequired": "Требуется авторизация",
+    "userWithEmailExists": "Пользователь с таким email уже существует",
+    "inviteEmailDeliveryFailed": "Не удалось отправить письмо с приглашением. Повторите попытку позже.",
+    "inviteNotFound": "Приглашение не найдено",
+    "inviteAlreadyAccepted": "Приглашение уже принято",
+    "inviteExpired": "Срок действия приглашения истёк",
+    "passwordResetEmailDeliveryFailed": "Не удалось отправить письмо для сброса пароля. Повторите попытку позже.",
+    "passwordResetLinkInvalid": "Ссылка для сброса пароля недействительна",
+    "passwordResetLinkAlreadyUsed": "Эта ссылка для сброса пароля уже использована. Если доступ всё ещё нужен, запросите новую ссылку.",
+    "passwordResetLinkExpired": "Срок действия ссылки для сброса пароля истёк",
+    "loginTemporarilyLocked": "Слишком много неудачных попыток входа. Повторите попытку позже.",
+    "invalidEmail": "Введите корректный email",
+    "invalidRole": "Роль должна быть admin или operator",
+    "invalidDate": "{field} должен быть корректной датой",
+    "inviteTokenRequired": "Токен приглашения обязателен",
+    "passwordResetTokenRequired": "Токен сброса пароля обязателен",
+    "passwordTooShort": "Пароль должен содержать минимум 8 символов",
+    "storeAccessDenied": "Нет доступа к магазину",
+    "insufficientPermissions": "Недостаточно прав",
+    "rateLimitExceeded": "Слишком много запросов. Повторите попытку позже.",
+    "csrfTokenInvalid": "Сессия формы истекла. Обновите страницу и повторите действие."
+  }
+}
