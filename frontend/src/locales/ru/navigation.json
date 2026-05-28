@@ -3,7 +3,11 @@
     "welcome": "Добро пожаловать, {{name}}",
     "sessionPrefix": "Активная сессия:",
     "rolePrefix": "роль:",
-    "ariaLabel": "Основная навигация"
+    "ariaLabel": "Основная навигация",
+    "roles": {
+      "admin": "Администратор",
+      "operator": "Оператор"
+    }
   },
   "items": {
     "overview": "Обзор",

@@ -3,7 +3,11 @@
     "welcome": "Welcome, {{name}}",
     "sessionPrefix": "Active session:",
     "rolePrefix": "role:",
-    "ariaLabel": "Main navigation"
+    "ariaLabel": "Main navigation",
+    "roles": {
+      "admin": "Administrator",
+      "operator": "Operator"
+    }
   },
   "items": {
     "overview": "Overview",

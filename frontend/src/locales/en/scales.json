@@ -53,6 +53,15 @@
   "syncError": {
     "fallbackMessage": "Scale reported a sync error."
   },
+  "syncStatus": {
+    "no_update": "No updates",
+    "update_available": "Update available",
+    "package_delivered": "Package delivered",
+    "ack_received": "Acknowledged",
+    "auth_failed": "Authentication failed",
+    "error": "Error",
+    "unknown": "No data"
+  },
   "errors": {
     "csrf": "Could not prepare the secured form. Try again.",
     "createFailed": "Could not register the scale.",

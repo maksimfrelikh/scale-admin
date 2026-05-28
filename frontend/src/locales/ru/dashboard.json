@@ -29,7 +29,12 @@
       "globalLogs": "Общие журналы",
       "usersAccess": "Пользователи и доступ"
     },
-    "openStore": "Открыть магазин"
+    "openStore": "Открыть магазин",
+    "problemReasons": {
+      "latest_sync_error": "ошибка синхронизации",
+      "missing_sync": "нет синхронизации",
+      "outdated_catalog_version": "устаревший каталог"
+    }
   },
   "operator": {
     "eyebrow": "Панель оператора",

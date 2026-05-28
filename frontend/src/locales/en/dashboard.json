@@ -29,7 +29,12 @@
       "globalLogs": "Global logs",
       "usersAccess": "Users & access"
     },
-    "openStore": "Open store"
+    "openStore": "Open store",
+    "problemReasons": {
+      "latest_sync_error": "sync error",
+      "missing_sync": "no sync",
+      "outdated_catalog_version": "outdated catalog"
+    }
   },
   "operator": {
     "eyebrow": "Operator panel",

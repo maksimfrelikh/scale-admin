@@ -124,11 +124,6 @@ import {
 } from './routeState';
 import './styles.css';
 
-const ROLE_FALLBACK_LABELS: Record<string, string> = {
-  admin: 'Администратор',
-  operator: 'Оператор',
-};
-
 const STATUS_FALLBACK_LABELS: Record<string, string> = {
   active: 'Активен',
   inactive: 'Неактивен',
@@ -138,36 +133,6 @@ const STATUS_FALLBACK_LABELS: Record<string, string> = {
   deleted: 'Удалён',
   published: 'Опубликован',
 };
-
-const unitLabels: Record<string, string> = {
-  kg: 'кг',
-  g: 'г',
-  piece: 'шт.',
-};
-
-const syncStatusLabels: Record<string, string> = {
-  no_update: 'Обновлений нет',
-  update_available: 'Есть обновление',
-  package_delivered: 'Пакет доставлен',
-  ack_received: 'Подтверждено',
-  auth_failed: 'Ошибка авторизации',
-  error: 'Ошибка',
-  unknown: 'Нет данных',
-};
-
-const problemReasonLabels: Record<string, string> = {
-  latest_sync_error: 'ошибка синхронизации',
-  missing_sync: 'нет синхронизации',
-  outdated_catalog_version: 'устаревший каталог',
-};
-
-function labelFor(value: string | null | undefined, labels: Record<string, string>) {
-  if (!value) {
-    return '—';
-  }
-
-  return labels[value] ?? value;
-}
 
 function formatStatusLabel(status: string | null | undefined) {
   if (!status) {
@@ -181,20 +146,18 @@ function formatStatusLabel(status: string | null | undefined) {
   return STATUS_FALLBACK_LABELS[status] ?? status;
 }
 
-function formatRoleLabel(role: string | null | undefined) {
-  return ROLE_FALLBACK_LABELS[role ?? ''] ?? role ?? '—';
-}
-
 function formatUnitLabel(unit: string | null | undefined) {
-  return labelFor(unit, unitLabels);
+  if (!unit) {
+    return '—';
+  }
+  const t = i18n.getFixedT(null, 'products');
+  return (t as (k: string, opts: { defaultValue: string }) => string)(`unit.${unit}`, { defaultValue: unit });
 }
 
 function formatSyncStatusLabel(status: string | null | undefined) {
-  return labelFor(status ?? 'unknown', syncStatusLabels);
-}
-
-function formatProblemReason(reason: string) {
-  return problemReasonLabels[reason] ?? reason.replace(/_/g, ' ');
+  const key = status ?? 'unknown';
+  const t = i18n.getFixedT(null, 'scales');
+  return (t as (k: string, opts: { defaultValue: string }) => string)(`syncStatus.${key}`, { defaultValue: key });
 }
 
 function HealthStatus() {
@@ -3630,7 +3593,7 @@ function ProblematicScaleCard({ device, onNavigate }: { device: AdminDashboardPr
         <span className={`badge badge-${device.status}`}>{formatStatusLabel(device.status)}</span>
       </div>
       <div className="reason-row">
-        {device.reasons.map((reason) => <span className="badge badge-danger" key={reason}>{formatProblemReason(reason)}</span>)}
+        {device.reasons.map((reason) => <span className="badge badge-danger" key={reason}>{t(`admin.problemReasons.${reason}`, { defaultValue: reason.replace(/_/g, ' ') })}</span>)}
       </div>
       <dl className="compact-details">
         <div><dt>Текущая версия</dt><dd>{device.currentCatalogVersionId ?? '—'}</dd></div>
@@ -3847,7 +3810,7 @@ function Dashboard({ user }: { user: AuthUser }) {
           <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
           <h1>{t('shell.welcome', { ns: 'navigation', name: displayName })}</h1>
           <p className="description">
-            {t('shell.sessionPrefix', { ns: 'navigation' })} {user.email} · {t('shell.rolePrefix', { ns: 'navigation' })} <strong>{formatRoleLabel(user.role)}</strong>
+            {t('shell.sessionPrefix', { ns: 'navigation' })} {user.email} · {t('shell.rolePrefix', { ns: 'navigation' })} <strong>{t(`shell.roles.${user.role}`, { ns: 'navigation' })}</strong>
           </p>
         </div>
         <div className="dashboard-header-actions">
