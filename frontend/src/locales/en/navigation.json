@@ -1,0 +1,21 @@
+{
+  "shell": {
+    "welcome": "Welcome, {{name}}",
+    "sessionPrefix": "Active session:",
+    "rolePrefix": "role:",
+    "ariaLabel": "Main navigation"
+  },
+  "items": {
+    "overview": "Overview",
+    "stores": "Stores",
+    "products": "Products",
+    "createStore": "Create store",
+    "globalLogs": "Global logs",
+    "usersAccess": "Users & access"
+  },
+  "operatorNote": "Operator navigation: assigned stores only",
+  "languageSwitcher": {
+    "label": "Language",
+    "ariaLabel": "Language selector"
+  }
+}

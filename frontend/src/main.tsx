@@ -1,7 +1,11 @@
-import { type ChangeEvent, type FormEvent, type ReactNode, StrictMode, useEffect, useMemo, useState } from 'react';
+import { type ChangeEvent, type FormEvent, type ReactNode, StrictMode, Suspense, useEffect, useMemo, useState } from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
+import { useTranslation } from 'react-i18next';
 import { store } from './app/store';
+import './i18n';
+import i18n, { normalizeLocale } from './i18n';
+import { LanguageSwitcher } from './i18n/LanguageSwitcher';
 import {
   backendApi,
   clearProtectedClientState,
@@ -120,9 +124,12 @@ import {
 } from './routeState';
 import './styles.css';
 
-const productName = 'Администратор весов';
+const ROLE_FALLBACK_LABELS: Record<string, string> = {
+  admin: 'Администратор',
+  operator: 'Оператор',
+};
 
-const statusLabels: Record<string, string> = {
+const STATUS_FALLBACK_LABELS: Record<string, string> = {
   active: 'Активен',
   inactive: 'Неактивен',
   archived: 'В архиве',
@@ -130,11 +137,6 @@ const statusLabels: Record<string, string> = {
   invited: 'Приглашён',
   deleted: 'Удалён',
   published: 'Опубликован',
-};
-
-const roleLabels: Record<string, string> = {
-  admin: 'Администратор',
-  operator: 'Оператор',
 };
 
 const unitLabels: Record<string, string> = {
@@ -168,11 +170,19 @@ function labelFor(value: string | null | undefined, labels: Record<string, strin
 }
 
 function formatStatusLabel(status: string | null | undefined) {
-  return labelFor(status, statusLabels);
+  if (!status) {
+    return '—';
+  }
+  const key = `statuses.${status}`;
+  const t = i18n.getFixedT(null, 'common');
+  if (i18n.exists(key, { ns: 'common' })) {
+    return (t as (k: string) => string)(key);
+  }
+  return STATUS_FALLBACK_LABELS[status] ?? status;
 }
 
 function formatRoleLabel(role: string | null | undefined) {
-  return labelFor(role, roleLabels);
+  return ROLE_FALLBACK_LABELS[role ?? ''] ?? role ?? '—';
 }
 
 function formatUnitLabel(unit: string | null | undefined) {
@@ -231,6 +241,7 @@ function LoginScreen({
   onForgotPassword: () => void;
   onLoginSuccess?: () => void;
 }) {
+  const { t } = useTranslation(['auth', 'common']);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
@@ -243,13 +254,13 @@ function LoginScreen({
 
     const trimmedEmail = email.trim();
     if (!trimmedEmail || !password) {
-      setFormError('Введите адрес электронной почты и пароль.');
+      setFormError(t('login.errors.emptyFields'));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму входа. Повторите попытку.');
+      setFormError(t('login.errors.csrf'));
       return;
     }
 
@@ -265,7 +276,7 @@ function LoginScreen({
     } catch (error) {
       const message = error && typeof error === 'object' && 'message' in error
         ? String(error.message)
-        : 'Не удалось войти. Проверьте адрес электронной почты и пароль.';
+        : t('login.errors.fallback');
       setFormError(message);
     }
   }
@@ -275,9 +286,12 @@ function LoginScreen({
   return (
     <main className="auth-shell">
       <section className="login-card" aria-labelledby="login-title">
-        <p className="eyebrow">{productName}</p>
-        <h1 id="login-title">Вход в систему</h1>
-        <p className="description">Войдите, чтобы открыть защищённую панель администрирования.</p>
+        <div className="auth-language-row">
+          <LanguageSwitcher />
+        </div>
+        <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+        <h1 id="login-title">{t('login.title')}</h1>
+        <p className="description">{t('login.description')}</p>
 
         {notice && (
           <div className="status status-ok" role="status">
@@ -287,24 +301,24 @@ function LoginScreen({
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
-            Электронная почта
+            {t('login.emailLabel')}
             <input
               autoComplete="email"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="admin@example.com"
+              placeholder={t('login.emailPlaceholder')}
               type="email"
               value={email}
             />
           </label>
 
           <label>
-              Пароль
+              {t('login.passwordLabel')}
             <input
               autoComplete="current-password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Введите пароль"
+              placeholder={t('login.passwordPlaceholder')}
               type="password"
               value={password}
             />
@@ -317,12 +331,12 @@ function LoginScreen({
           )}
 
           <button type="submit" disabled={csrfLoading || loginLoading}>
-            {loginLoading ? 'Входим...' : 'Войти'}
+            {loginLoading ? t('login.submitting') : t('login.submit')}
           </button>
         </form>
         <p className="login-help-note">
           <button className="link-button" type="button" onClick={onForgotPassword}>
-            Забыли пароль?
+            {t('login.forgotPasswordLink')}
           </button>
         </p>
       </section>
@@ -355,32 +369,32 @@ function isApiError(error: unknown): error is ApiError {
 
 function acceptInviteErrorMessage(error: unknown) {
   if (!isApiError(error)) {
-    return 'Не удалось принять приглашение. Проверьте ссылку и повторите попытку.';
+    return i18n.t('acceptInvite.errors.fallback', { ns: 'auth' });
   }
 
   if (error.status === 404) {
-    return 'Эта ссылка приглашения недействительна или отменена. Попросите администратора отправить новое приглашение.';
+    return i18n.t('acceptInvite.errors.linkInvalid', { ns: 'auth' });
   }
 
   if (error.status === 409) {
     const backendMessage = error.message.toLowerCase();
     if (backendMessage.includes('user with this email already exists') || backendMessage.includes('пользователь с таким email')) {
-      return 'Для этого адреса электронной почты уже есть учётная запись. Войдите или обратитесь к администратору.';
+      return i18n.t('acceptInvite.errors.emailExists', { ns: 'auth' });
     }
 
-    return 'Это приглашение уже принято. Войдите с заданным паролем или обратитесь к администратору.';
+    return i18n.t('acceptInvite.errors.alreadyAccepted', { ns: 'auth' });
   }
 
   if (error.status === 400) {
     const backendMessage = error.message.toLowerCase();
     if (backendMessage.includes('expired') || backendMessage.includes('истёк')) {
-      return 'Срок действия приглашения истёк. Попросите администратора отправить новое приглашение.';
+      return i18n.t('acceptInvite.errors.expired', { ns: 'auth' });
     }
     if (backendMessage.includes('password') || backendMessage.includes('пароль')) {
-      return 'Пароль должен содержать минимум 8 символов.';
+      return i18n.t('passwordTooShort', { ns: 'validation' });
     }
     if (backendMessage.includes('token') || backendMessage.includes('токен')) {
-      return 'В ссылке приглашения отсутствует токен. Откройте письмо ещё раз или запросите новое приглашение.';
+      return i18n.t('acceptInvite.errors.missingToken', { ns: 'auth' });
     }
   }
 
@@ -394,6 +408,7 @@ function AcceptInviteScreen({
   onAccepted: () => void;
   onBackToLogin: () => void;
 }) {
+  const { t } = useTranslation(['auth', 'common', 'validation']);
   const [inviteToken] = useState(readAuthTokenFromQuery);
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -408,23 +423,23 @@ function AcceptInviteScreen({
     setFormError(null);
 
     if (!inviteToken) {
-      setFormError('В ссылке приглашения отсутствует токен. Откройте письмо ещё раз или запросите новое приглашение.');
+      setFormError(t('acceptInvite.errors.missingToken'));
       return;
     }
 
     if (password.length < 8) {
-      setFormError('Пароль должен содержать минимум 8 символов.');
+      setFormError(t('passwordTooShort', { ns: 'validation' }));
       return;
     }
 
     if (password !== passwordConfirm) {
-      setFormError('Пароли не совпадают.');
+      setFormError(t('passwordsDoNotMatch', { ns: 'validation' }));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму. Обновите страницу и повторите попытку.');
+      setFormError(t('acceptInvite.errors.csrf'));
       return;
     }
 
@@ -449,36 +464,39 @@ function AcceptInviteScreen({
   return (
     <main className="auth-shell">
       <section className="login-card" aria-labelledby="accept-invite-title">
-        <p className="eyebrow">{productName}</p>
-        <h1 id="accept-invite-title">Принять приглашение</h1>
-        <p className="description">Задайте пароль, чтобы завершить создание учётной записи.</p>
+        <div className="auth-language-row">
+          <LanguageSwitcher />
+        </div>
+        <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+        <h1 id="accept-invite-title">{t('acceptInvite.title')}</h1>
+        <p className="description">{t('acceptInvite.description')}</p>
 
         {!inviteToken && (
           <div className="form-error" role="alert">
-            В ссылке приглашения отсутствует токен. Откройте письмо ещё раз или запросите новое приглашение.
+            {t('acceptInvite.errors.missingToken')}
           </div>
         )}
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
-            Пароль
+            {t('acceptInvite.passwordLabel')}
             <input
               autoComplete="new-password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Минимум 8 символов"
+              placeholder={t('acceptInvite.passwordPlaceholder')}
               type="password"
               value={password}
             />
           </label>
 
           <label>
-            Подтверждение пароля
+            {t('acceptInvite.passwordConfirmLabel')}
             <input
               autoComplete="new-password"
               name="password-confirm"
               onChange={(event) => setPasswordConfirm(event.target.value)}
-              placeholder="Повторите пароль"
+              placeholder={t('acceptInvite.passwordConfirmPlaceholder')}
               type="password"
               value={passwordConfirm}
             />
@@ -491,10 +509,10 @@ function AcceptInviteScreen({
           )}
 
           <button type="submit" disabled={submitDisabled}>
-            {acceptLoading ? 'Принимаем...' : 'Задать пароль'}
+            {acceptLoading ? t('acceptInvite.submitting') : t('acceptInvite.submit')}
           </button>
           <button className="secondary-button" type="button" onClick={onBackToLogin}>
-            Назад ко входу
+            {t('acceptInvite.backToLogin')}
           </button>
         </form>
       </section>
@@ -504,11 +522,11 @@ function AcceptInviteScreen({
 
 function passwordResetRequestErrorMessage(error: unknown) {
   if (!isApiError(error)) {
-    return 'Не удалось запросить сброс пароля. Проверьте адрес электронной почты и повторите попытку.';
+    return i18n.t('passwordResetRequest.errors.fallback', { ns: 'auth' });
   }
 
   if (error.status === 400 && error.message.toLowerCase().includes('email')) {
-    return 'Введите корректный адрес электронной почты.';
+    return i18n.t('passwordResetRequest.errors.invalidEmail', { ns: 'auth' });
   }
 
   return error.message;
@@ -516,23 +534,23 @@ function passwordResetRequestErrorMessage(error: unknown) {
 
 function passwordResetConfirmErrorMessage(error: unknown) {
   if (!isApiError(error)) {
-    return 'Не удалось обновить пароль. Проверьте ссылку и повторите попытку.';
+    return i18n.t('passwordResetConfirm.errors.fallback', { ns: 'auth' });
   }
 
   if (error.status === 409) {
-    return 'Эта ссылка для сброса пароля уже использована. Если доступ всё ещё нужен, запросите новую ссылку.';
+    return i18n.t('passwordResetConfirm.errors.alreadyUsed', { ns: 'auth' });
   }
 
   if (error.status === 400 || error.status === 404) {
     const backendMessage = error.message.toLowerCase();
     if (backendMessage.includes('expired') || backendMessage.includes('истёк')) {
-      return 'Срок действия ссылки для сброса пароля истёк. Запросите новую ссылку.';
+      return i18n.t('passwordResetConfirm.errors.expired', { ns: 'auth' });
     }
     if (backendMessage.includes('password') || backendMessage.includes('пароль')) {
-      return 'Пароль должен содержать минимум 8 символов.';
+      return i18n.t('passwordTooShort', { ns: 'validation' });
     }
     if (backendMessage.includes('token') || backendMessage.includes('invalid') || backendMessage.includes('токен') || backendMessage.includes('недействитель')) {
-      return 'Ссылка для сброса пароля недействительна. Запросите новую ссылку.';
+      return i18n.t('passwordResetConfirm.errors.invalidLink', { ns: 'auth' });
     }
   }
 
@@ -540,6 +558,7 @@ function passwordResetConfirmErrorMessage(error: unknown) {
 }
 
 function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => void }) {
+  const { t } = useTranslation(['auth', 'common', 'validation']);
   const [email, setEmail] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -553,13 +572,13 @@ function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => vo
 
     const trimmedEmail = email.trim();
     if (!trimmedEmail) {
-      setFormError('Введите корректный адрес электронной почты.');
+      setFormError(t('passwordResetRequest.errors.invalidEmail'));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму. Обновите страницу и повторите попытку.');
+      setFormError(t('passwordResetRequest.errors.csrf'));
       return;
     }
 
@@ -580,24 +599,27 @@ function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => vo
   return (
     <main className="auth-shell">
       <section className="login-card" aria-labelledby="password-reset-request-title">
-        <p className="eyebrow">{productName}</p>
-        <h1 id="password-reset-request-title">Сбросить пароль</h1>
-        <p className="description">Введите адрес электронной почты учётной записи. Если она активна, мы отправим инструкцию по сбросу.</p>
+        <div className="auth-language-row">
+          <LanguageSwitcher />
+        </div>
+        <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+        <h1 id="password-reset-request-title">{t('passwordResetRequest.title')}</h1>
+        <p className="description">{t('passwordResetRequest.description')}</p>
 
         {submitted && (
           <div className="status status-ok" role="status">
-            Если этот адрес привязан к активной учётной записи, инструкция по сбросу отправлена.
+            {t('passwordResetRequest.submittedNotice')}
           </div>
         )}
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
-            Электронная почта
+            {t('passwordResetRequest.emailLabel')}
             <input
               autoComplete="email"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="admin@example.com"
+              placeholder={t('passwordResetRequest.emailPlaceholder')}
               type="email"
               value={email}
             />
@@ -610,10 +632,10 @@ function PasswordResetRequestScreen({ onBackToLogin }: { onBackToLogin: () => vo
           )}
 
           <button type="submit" disabled={csrfLoading || requestLoading}>
-            {requestLoading ? 'Отправляем...' : 'Отправить ссылку'}
+            {requestLoading ? t('passwordResetRequest.submitting') : t('passwordResetRequest.submit')}
           </button>
           <button className="secondary-button" type="button" onClick={onBackToLogin}>
-            Назад ко входу
+            {t('passwordResetRequest.backToLogin')}
           </button>
         </form>
       </section>
@@ -628,6 +650,7 @@ function PasswordResetConfirmScreen({
   onBackToLogin: () => void;
   onConfirmed: () => void;
 }) {
+  const { t } = useTranslation(['auth', 'common', 'validation']);
   const [resetToken] = useState(readAuthTokenFromQuery);
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -642,23 +665,23 @@ function PasswordResetConfirmScreen({
     setFormError(null);
 
     if (!resetToken) {
-      setFormError('В ссылке сброса пароля отсутствует токен. Запросите новую ссылку.');
+      setFormError(t('passwordResetConfirm.errors.missingToken'));
       return;
     }
 
     if (password.length < 8) {
-      setFormError('Пароль должен содержать минимум 8 символов.');
+      setFormError(t('passwordTooShort', { ns: 'validation' }));
       return;
     }
 
     if (password !== passwordConfirm) {
-      setFormError('Пароли не совпадают.');
+      setFormError(t('passwordsDoNotMatch', { ns: 'validation' }));
       return;
     }
 
     const csrfData = csrf ?? (await refetchCsrf()).data;
     if (!csrfData) {
-      setFormError('Не удалось подготовить защищённую форму. Обновите страницу и повторите попытку.');
+      setFormError(t('passwordResetConfirm.errors.csrf'));
       return;
     }
 
@@ -683,36 +706,39 @@ function PasswordResetConfirmScreen({
   return (
     <main className="auth-shell">
       <section className="login-card" aria-labelledby="password-reset-confirm-title">
-        <p className="eyebrow">{productName}</p>
-        <h1 id="password-reset-confirm-title">Новый пароль</h1>
-        <p className="description">Задайте новый пароль для учётной записи.</p>
+        <div className="auth-language-row">
+          <LanguageSwitcher />
+        </div>
+        <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+        <h1 id="password-reset-confirm-title">{t('passwordResetConfirm.title')}</h1>
+        <p className="description">{t('passwordResetConfirm.description')}</p>
 
         {!resetToken && (
           <div className="form-error" role="alert">
-            В ссылке сброса пароля отсутствует токен. Запросите новую ссылку.
+            {t('passwordResetConfirm.errors.missingToken')}
           </div>
         )}
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
-            Новый пароль
+            {t('passwordResetConfirm.passwordLabel')}
             <input
               autoComplete="new-password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Минимум 8 символов"
+              placeholder={t('passwordResetConfirm.passwordPlaceholder')}
               type="password"
               value={password}
             />
           </label>
 
           <label>
-            Подтверждение пароля
+            {t('passwordResetConfirm.passwordConfirmLabel')}
             <input
               autoComplete="new-password"
               name="password-confirm"
               onChange={(event) => setPasswordConfirm(event.target.value)}
-              placeholder="Повторите пароль"
+              placeholder={t('passwordResetConfirm.passwordConfirmPlaceholder')}
               type="password"
               value={passwordConfirm}
             />
@@ -725,10 +751,10 @@ function PasswordResetConfirmScreen({
           )}
 
           <button type="submit" disabled={submitDisabled}>
-            {confirmLoading ? 'Обновляем...' : 'Обновить пароль'}
+            {confirmLoading ? t('passwordResetConfirm.submitting') : t('passwordResetConfirm.submit')}
           </button>
           <button className="secondary-button" type="button" onClick={onBackToLogin}>
-            Назад ко входу
+            {t('passwordResetConfirm.backToLogin')}
           </button>
         </form>
       </section>
@@ -737,54 +763,55 @@ function PasswordResetConfirmScreen({
 }
 
 function Navigation({ user, activeView, onNavigate }: { user: AuthUser; activeView: DashboardView; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('navigation');
   const storesActive = activeView.name.startsWith('store');
   const productsActive = activeView.name.startsWith('product');
 
   return (
-    <nav className="app-nav" aria-label="Основная навигация">
+    <nav className="app-nav" aria-label={t('shell.ariaLabel')}>
       <button
         className={activeView.name === 'overview' ? 'nav-button nav-button-active' : 'nav-button'}
         type="button"
         onClick={() => onNavigate({ name: 'overview' })}
       >
-        Обзор
+        {t('items.overview')}
       </button>
       <button
         className={storesActive ? 'nav-button nav-button-active' : 'nav-button'}
         type="button"
         onClick={() => onNavigate({ name: 'stores' })}
       >
-        Магазины
+        {t('items.stores')}
       </button>
       <button
         className={productsActive ? 'nav-button nav-button-active' : 'nav-button'}
         type="button"
         onClick={() => onNavigate({ name: 'products' })}
       >
-        Товары
+        {t('items.products')}
       </button>
       {user.role === 'admin' ? (
         <>
           <button className="nav-button" type="button" onClick={() => onNavigate({ name: 'store-create' })}>
-            Создать магазин
+            {t('items.createStore')}
           </button>
           <button
             className={activeView.name === 'global-logs' ? 'nav-button nav-button-active' : 'nav-button'}
             type="button"
             onClick={() => onNavigate({ name: 'global-logs' })}
           >
-            Общие журналы
+            {t('items.globalLogs')}
           </button>
           <button
             className={activeView.name === 'users-access' ? 'nav-button nav-button-active' : 'nav-button'}
             type="button"
             onClick={() => onNavigate({ name: 'users-access' })}
           >
-            Пользователи и доступ
+            {t('items.usersAccess')}
           </button>
         </>
       ) : (
-        <span className="nav-note">Навигация оператора: только назначенные магазины</span>
+        <span className="nav-note">{t('operatorNote')}</span>
       )}
     </nav>
   );
@@ -3422,6 +3449,7 @@ function OverviewDashboard({ user, onNavigate }: { user: AuthUser; onNavigate: (
 }
 
 function AdminDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('dashboard');
   const { data, error, isLoading, isFetching, refetch } = useGetAdminDashboardQuery();
   const errorMessage = error && 'message' in error ? error.message : null;
 
@@ -3429,29 +3457,29 @@ function AdminDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardVi
     <section className="panel dashboard-overview" aria-labelledby="admin-dashboard-title">
       <div className="panel-heading">
         <div>
-          <p className="eyebrow">Панель администратора</p>
-          <h2 id="admin-dashboard-title">Обзор сети</h2>
-          <p className="muted">Магазины, состояние весов, опубликованные версии и последние сбои синхронизации.</p>
+          <p className="eyebrow">{t('admin.eyebrow')}</p>
+          <h2 id="admin-dashboard-title">{t('admin.title')}</h2>
+          <p className="muted">{t('admin.description')}</p>
         </div>
         <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-          {isFetching ? 'Обновляем...' : 'Обновить панель'}
+          {isFetching ? t('admin.refreshing') : t('admin.refresh')}
         </button>
       </div>
 
-      {isLoading && <div className="status status-loading">Загружаем панель администратора...</div>}
+      {isLoading && <div className="status status-loading">{t('admin.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
 
       {data && (
         <>
-          <div className="metric-grid" aria-label="Сводка панели администратора">
-            <MetricCard label="Магазины" value={data.counts.stores} />
-            <MetricCard label="Весы" value={data.counts.scaleDevices} />
-            <MetricCard label="Весы с ошибками" value={data.counts.scaleDevicesWithErrors} tone={data.counts.scaleDevicesWithErrors > 0 ? 'danger' : 'ok'} />
-            <MetricCard label="Без синхронизации" value={data.counts.scaleDevicesWithoutSynchronization} tone={data.counts.scaleDevicesWithoutSynchronization > 0 ? 'warning' : 'ok'} />
+          <div className="metric-grid" aria-label={t('admin.summaryAriaLabel')}>
+            <MetricCard label={t('admin.metrics.stores')} value={data.counts.stores} />
+            <MetricCard label={t('admin.metrics.scales')} value={data.counts.scaleDevices} />
+            <MetricCard label={t('admin.metrics.scalesWithErrors')} value={data.counts.scaleDevicesWithErrors} tone={data.counts.scaleDevicesWithErrors > 0 ? 'danger' : 'ok'} />
+            <MetricCard label={t('admin.metrics.scalesMissingSync')} value={data.counts.scaleDevicesWithoutSynchronization} tone={data.counts.scaleDevicesWithoutSynchronization > 0 ? 'warning' : 'ok'} />
           </div>
 
           <div className="dashboard-section-grid">
-            <DashboardList title="Последние опубликованные версии" emptyText="Опубликованных версий каталога пока нет.">
+            <DashboardList title={t('admin.sections.latestVersions')} emptyText={t('admin.sections.latestVersionsEmpty')}>
               {data.latestPublishedVersions.map((version) => (
                 <li className="dashboard-list-item" key={version.id}>
                   <div>
@@ -3463,7 +3491,7 @@ function AdminDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardVi
               ))}
             </DashboardList>
 
-            <DashboardList title="Последние ошибки синхронизации" emptyText="Недавних ошибок синхронизации нет.">
+            <DashboardList title={t('admin.sections.latestSyncErrors')} emptyText={t('admin.sections.latestSyncErrorsEmpty')}>
               {data.latestSyncErrors.map((syncError) => (
                 <LatestSyncErrorItem error={syncError} key={syncError.id} onNavigate={onNavigate} />
               ))}
@@ -3473,12 +3501,12 @@ function AdminDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardVi
           <section className="dashboard-subsection" aria-labelledby="problematic-scales-title">
             <div className="section-heading-row">
               <div>
-                <h3 id="problematic-scales-title">Проблемные весы</h3>
-                <p className="muted">Показаны весы с ошибкой синхронизации, без синхронизации или с устаревшим каталогом.</p>
+                <h3 id="problematic-scales-title">{t('admin.sections.problemScalesTitle')}</h3>
+                <p className="muted">{t('admin.sections.problemScalesDescription')}</p>
               </div>
             </div>
             {data.problematicScaleDevices.length === 0 ? (
-              <div className="empty-state">Проблемные весы не найдены.</div>
+              <div className="empty-state">{t('admin.sections.problemScalesEmpty')}</div>
             ) : (
               <div className="problem-scale-grid">
                 {data.problematicScaleDevices.map((device) => (
@@ -3489,12 +3517,12 @@ function AdminDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardVi
           </section>
 
           <section className="quick-links" aria-labelledby="quick-links-title">
-            <h3 id="quick-links-title">Быстрые действия</h3>
+            <h3 id="quick-links-title">{t('admin.sections.quickLinksTitle')}</h3>
             <div className="action-row">
-              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'stores' })}>Магазины</button>
-              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'products' })}>Товары</button>
-              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'global-logs' })}>Общие журналы</button>
-              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'users-access' })}>Пользователи и доступ</button>
+              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'stores' })}>{t('admin.quickLinks.stores')}</button>
+              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'products' })}>{t('admin.quickLinks.products')}</button>
+              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'global-logs' })}>{t('admin.quickLinks.globalLogs')}</button>
+              <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'users-access' })}>{t('admin.quickLinks.usersAccess')}</button>
             </div>
           </section>
         </>
@@ -3525,6 +3553,7 @@ function DashboardList({ title, emptyText, children }: { title: string; emptyTex
 }
 
 function LatestSyncErrorItem({ error, onNavigate }: { error: AdminDashboardLatestSyncError; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('dashboard');
   return (
     <li className="dashboard-list-item dashboard-list-item-danger">
       <div>
@@ -3535,7 +3564,7 @@ function LatestSyncErrorItem({ error, onNavigate }: { error: AdminDashboardLates
       <div className="dashboard-list-actions">
         <span className="muted">{formatDateTime(error.createdAt)}</span>
         <button className="secondary-button table-action" type="button" onClick={() => onNavigate({ name: 'store-details', storeId: error.storeId })}>
-          Открыть магазин
+          {t('admin.openStore')}
         </button>
       </div>
     </li>
@@ -3543,6 +3572,7 @@ function LatestSyncErrorItem({ error, onNavigate }: { error: AdminDashboardLates
 }
 
 function ProblematicScaleCard({ device, onNavigate }: { device: AdminDashboardProblematicScaleDevice; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('dashboard');
   return (
     <article className="problem-scale-card">
       <div className="problem-scale-heading">
@@ -3562,13 +3592,14 @@ function ProblematicScaleCard({ device, onNavigate }: { device: AdminDashboardPr
       </dl>
       {device.lastSyncError?.message && <div className="inline-error">{device.lastSyncError.message}</div>}
       <button className="secondary-button" type="button" onClick={() => onNavigate({ name: 'store-details', storeId: device.storeId })}>
-        Открыть магазин
+        {t('admin.openStore')}
       </button>
     </article>
   );
 }
 
 function OperatorDashboardOverview({ onNavigate }: { onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('dashboard');
   const { data, error, isLoading, isFetching, refetch } = useListStoresQuery(undefined, {
     refetchOnFocus: true,
     refetchOnReconnect: true,
@@ -3581,18 +3612,18 @@ function OperatorDashboardOverview({ onNavigate }: { onNavigate: (view: Dashboar
     <section className="panel dashboard-overview" aria-labelledby="operator-dashboard-title">
       <div className="panel-heading">
         <div>
-          <p className="eyebrow">Панель оператора</p>
-          <h2 id="operator-dashboard-title">Назначенные магазины</h2>
-          <p className="muted">Здесь отображаются только магазины, назначенные вашей учётной записи.</p>
+          <p className="eyebrow">{t('operator.eyebrow')}</p>
+          <h2 id="operator-dashboard-title">{t('operator.title')}</h2>
+          <p className="muted">{t('operator.description')}</p>
         </div>
         <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-          {isFetching ? 'Обновляем...' : 'Обновить магазины'}
+          {isFetching ? t('operator.refreshing') : t('operator.refresh')}
         </button>
       </div>
 
-      {isLoading && <div className="status status-loading">Загружаем назначенные магазины...</div>}
+      {isLoading && <div className="status status-loading">{t('operator.loading')}</div>}
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
-      {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">Вашей учётной записи не назначены магазины.</div>}
+      {!isLoading && !errorMessage && stores.length === 0 && <div className="empty-state">{t('operator.empty')}</div>}
 
       {stores.length > 0 && (
         <div className="operator-store-grid">
@@ -3604,6 +3635,7 @@ function OperatorDashboardOverview({ onNavigate }: { onNavigate: (view: Dashboar
 }
 
 function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNavigate: (view: DashboardView) => void }) {
+  const { t } = useTranslation('dashboard');
   const { data: versionsData, error: versionsError, isLoading: versionsLoading } = useGetCatalogVersionsQuery(store.id);
   const { data: scalesData, error: scalesError, isLoading: scalesLoading } = useListScaleDevicesQuery(store.id);
   const currentVersion = versionsData?.currentVersion ?? null;
@@ -3621,26 +3653,32 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
         <div>
           <p className="store-code">{store.code}</p>
           <h3>{store.name}</h3>
-          <p className="muted">{store.address || 'Адрес не указан'} · {store.timezone}</p>
+          <p className="muted">{store.address || t('operator.storeCard.addressMissing')} · {store.timezone}</p>
         </div>
         <span className={`badge badge-${store.status}`}>{formatStatusLabel(store.status)}</span>
       </div>
 
       {errorMessage && <div className="form-error" role="alert">{errorMessage}</div>}
-      {(versionsLoading || scalesLoading) && <div className="status status-loading">Загружаем панель магазина...</div>}
+      {(versionsLoading || scalesLoading) && <div className="status status-loading">{t('operator.storeCard.loadingPanel')}</div>}
 
       <dl className="compact-details">
-        <div><dt>Текущая версия</dt><dd>{versionsLoading ? 'Загружаем…' : formatVersionLabel(currentVersion)}</dd></div>
-        <div><dt>Статус публикации</dt><dd>{currentVersion?.status ? formatStatusLabel(currentVersion.status) : 'не опубликовано'}</dd></div>
-        <div><dt>Статус синхронизации</dt><dd>{syncSummary(devices.length, problematicDeviceIds.size)}</dd></div>
-        <div><dt>Ошибки</dt><dd>{devicesWithErrors.length}</dd></div>
+        <div><dt>{t('operator.storeCard.currentVersion')}</dt><dd>{versionsLoading ? t('operator.storeCard.versionLoading') : formatVersionLabel(currentVersion)}</dd></div>
+        <div><dt>{t('operator.storeCard.publicationStatus')}</dt><dd>{currentVersion?.status ? formatStatusLabel(currentVersion.status) : t('operator.storeCard.publicationNone')}</dd></div>
+        <div><dt>{t('operator.storeCard.syncStatus')}</dt><dd>
+          {devices.length === 0
+            ? t('operator.storeCard.syncSummary.noScales')
+            : problematicDeviceIds.size === 0
+              ? t('operator.storeCard.syncSummary.allSynced', { count: devices.length })
+              : t('operator.storeCard.syncSummary.attention', { problematic: problematicDeviceIds.size, total: devices.length })}
+        </dd></div>
+        <div><dt>{t('operator.storeCard.errors')}</dt><dd>{devicesWithErrors.length}</dd></div>
       </dl>
 
       {hasProblems && (
         <div className="reason-row">
-          {devicesWithErrors.length > 0 && <span className="badge badge-danger">ошибок: {devicesWithErrors.length}</span>}
-          {devicesMissingSync.length > 0 && <span className="badge badge-warning">без синхронизации: {devicesMissingSync.length}</span>}
-          {devicesOutdated.length > 0 && <span className="badge badge-warning">устарели: {devicesOutdated.length}</span>}
+          {devicesWithErrors.length > 0 && <span className="badge badge-danger">{t('operator.storeCard.badges.errors', { count: devicesWithErrors.length })}</span>}
+          {devicesMissingSync.length > 0 && <span className="badge badge-warning">{t('operator.storeCard.badges.missingSync', { count: devicesMissingSync.length })}</span>}
+          {devicesOutdated.length > 0 && <span className="badge badge-warning">{t('operator.storeCard.badges.outdated', { count: devicesOutdated.length })}</span>}
         </div>
       )}
 
@@ -3650,7 +3688,7 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
             <li className="dashboard-list-item dashboard-list-item-danger" key={device.id}>
               <div>
                 <strong>{device.deviceCode} · {device.name}</strong>
-                <span className="inline-error block">{device.lastSyncError?.message ?? formatSyncStatusLabel(device.lastSyncStatus) ?? 'ошибка синхронизации'}</span>
+                <span className="inline-error block">{device.lastSyncError?.message ?? formatSyncStatusLabel(device.lastSyncStatus) ?? t('operator.storeCard.syncErrorFallback')}</span>
               </div>
             </li>
           ))}
@@ -3658,18 +3696,10 @@ function OperatorStoreDashboardCard({ store, onNavigate }: { store: Store; onNav
       )}
 
       <button type="button" onClick={() => onNavigate({ name: 'store-details', storeId: store.id })}>
-        Открыть каталог
+        {t('operator.openCatalog')}
       </button>
     </article>
   );
-}
-
-function syncSummary(totalDevices: number, problematicCount: number) {
-  if (totalDevices === 0) {
-    return 'Весы не подключены';
-  }
-
-  return problematicCount === 0 ? `${totalDevices} синхронизировано` : `требуют внимания: ${problematicCount} из ${totalDevices}`;
 }
 
 function DashboardContent({ user, view, onNavigate }: { user: AuthUser; view: DashboardView; onNavigate: (view: DashboardView) => void }) {
@@ -3725,6 +3755,7 @@ function viewFromLocationHash(): DashboardView {
 }
 
 function Dashboard({ user }: { user: AuthUser }) {
+  const { t } = useTranslation(['navigation', 'common', 'auth']);
   const [view, setView] = useState<DashboardView>(viewFromLocationHash);
   const { data: csrf, refetch: refetchCsrf } = useGetCsrfTokenQuery();
   const [logout, { isLoading: logoutLoading, error: logoutError }] = useLogoutMutation();
@@ -3766,15 +3797,18 @@ function Dashboard({ user }: { user: AuthUser }) {
     <main className="dashboard-shell">
       <section className="dashboard-header">
         <div>
-          <p className="eyebrow">{productName}</p>
-          <h1>Добро пожаловать, {displayName}</h1>
+          <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+          <h1>{t('shell.welcome', { ns: 'navigation', name: displayName })}</h1>
           <p className="description">
-            Активная сессия: {user.email} · роль: <strong>{formatRoleLabel(user.role)}</strong>
+            {t('shell.sessionPrefix', { ns: 'navigation' })} {user.email} · {t('shell.rolePrefix', { ns: 'navigation' })} <strong>{formatRoleLabel(user.role)}</strong>
           </p>
         </div>
-        <button type="button" onClick={handleLogout} disabled={logoutLoading}>
-          {logoutLoading ? 'Выходим...' : 'Выйти'}
-        </button>
+        <div className="dashboard-header-actions">
+          <LanguageSwitcher />
+          <button type="button" onClick={handleLogout} disabled={logoutLoading}>
+            {logoutLoading ? t('logout.submitting', { ns: 'auth' }) : t('logout.submit', { ns: 'auth' })}
+          </button>
+        </div>
       </section>
 
       <Navigation user={user} activeView={view} onNavigate={handleNavigate} />
@@ -3803,13 +3837,13 @@ function isPasswordResetConfirmPath(pathname: string) {
   return normalizedPathname(pathname) === '/reset-password';
 }
 
-function loginNoticeFromQuery() {
+function loginNoticeKindFromQuery(): LoginNoticeKind | null {
   const searchParams = new URLSearchParams(window.location.search);
   if (searchParams.get('passwordReset') === '1') {
-    return 'Пароль обновлён. Войдите с новым паролем.';
+    return 'passwordReset';
   }
   if (searchParams.get('inviteAccepted') === '1') {
-    return 'Приглашение принято. Войдите с новым паролем.';
+    return 'inviteAccepted';
   }
   return null;
 }
@@ -3825,6 +3859,20 @@ function loginNoticeRoute(notice?: LoginNoticeKind) {
 }
 
 function App() {
+  const { t, i18n: i18nInstance } = useTranslation(['auth', 'common']);
+
+  useEffect(() => {
+    const applyHtmlLang = (language: string | undefined) => {
+      document.documentElement.lang = normalizeLocale(language);
+    };
+
+    applyHtmlLang(i18nInstance.resolvedLanguage ?? i18nInstance.language);
+    i18nInstance.on('languageChanged', applyHtmlLang);
+    return () => {
+      i18nInstance.off('languageChanged', applyHtmlLang);
+    };
+  }, [i18nInstance]);
+
   useEffect(() => subscribeAuthSessionEvents((event) => {
     if (event.type === 'session-cleared') {
       clearProtectedClientState(store.dispatch, false);
@@ -3842,7 +3890,12 @@ function App() {
   }), []);
 
   const [pathname, setPathname] = useState(() => window.location.pathname);
-  const [loginNotice, setLoginNotice] = useState<string | null>(loginNoticeFromQuery);
+  const [loginNoticeKind, setLoginNoticeKind] = useState<LoginNoticeKind | null>(loginNoticeKindFromQuery);
+  const loginNotice = loginNoticeKind === 'passwordReset'
+    ? t('notices.passwordReset', { ns: 'auth' })
+    : loginNoticeKind === 'inviteAccepted'
+      ? t('notices.inviteAccepted', { ns: 'auth' })
+      : null;
   const acceptInviteRouteActive = isAcceptInvitePath(pathname);
   const passwordResetRequestRouteActive = isPasswordResetRequestPath(pathname);
   const passwordResetConfirmRouteActive = isPasswordResetConfirmPath(pathname);
@@ -3855,7 +3908,7 @@ function App() {
   useEffect(() => {
     function handlePopState() {
       setPathname(window.location.pathname);
-      setLoginNotice(loginNoticeFromQuery());
+      setLoginNoticeKind(loginNoticeKindFromQuery());
     }
 
     window.addEventListener('popstate', handlePopState);
@@ -3865,13 +3918,13 @@ function App() {
   function routeToLogin(notice?: LoginNoticeKind) {
     window.history.replaceState(null, '', loginNoticeRoute(notice));
     setPathname('/');
-    setLoginNotice(loginNoticeFromQuery());
+    setLoginNoticeKind(loginNoticeKindFromQuery());
   }
 
   function routeToPasswordResetRequest() {
     window.history.pushState(null, '', '/forgot-password');
     setPathname('/forgot-password');
-    setLoginNotice(null);
+    setLoginNoticeKind(null);
   }
 
   function clearLoginNoticeAfterLogin() {
@@ -3880,7 +3933,7 @@ function App() {
       window.history.replaceState(null, '', '/');
       setPathname('/');
     }
-    setLoginNotice(null);
+    setLoginNoticeKind(null);
   }
 
   if (acceptInviteRouteActive) {
@@ -3909,9 +3962,12 @@ function App() {
     return (
       <main className="app-shell">
         <section className="card">
-          <p className="eyebrow">{productName}</p>
-          <h1>Проверяем сессию...</h1>
-          <div className="status status-loading">Загружаем защищённое состояние сессии.</div>
+          <div className="auth-language-row">
+            <LanguageSwitcher />
+          </div>
+          <p className="eyebrow">{t('productName', { ns: 'common' })}</p>
+          <h1>{t('login.sessionCheck.title')}</h1>
+          <div className="status status-loading">{t('login.sessionCheck.description')}</div>
         </section>
       </main>
     );
@@ -3933,7 +3989,9 @@ function App() {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <Suspense fallback={<div className="app-shell"><div className="status status-loading">{i18n.t('states.loading', { ns: 'common' })}</div></div>}>
+        <App />
+      </Suspense>
     </Provider>
   </StrictMode>,
 );

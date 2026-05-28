@@ -1,0 +1,52 @@
+{
+  "productName": "Scale Admin",
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "confirm": "Confirm",
+    "back": "Back",
+    "search": "Search",
+    "filter": "Filter",
+    "apply": "Apply",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "tryAgain": "Try again"
+  },
+  "states": {
+    "loading": "Loading…",
+    "error": "Error",
+    "success": "Success",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "labels": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "status": "Status",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "actions": "Actions"
+  },
+  "statuses": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "archived": "Archived",
+    "blocked": "Blocked",
+    "invited": "Invited"
+  },
+  "errors": {
+    "pageNotFound": "Page not found",
+    "accessDenied": "Access denied",
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Try again"
+  },
+  "empty": {
+    "noData": "No data",
+    "nothingFound": "Nothing found"
+  }
+}

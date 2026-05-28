@@ -1,0 +1,69 @@
+{
+  "admin": {
+    "eyebrow": "Administrator panel",
+    "title": "Network overview",
+    "description": "Stores, scale health, published versions, and recent sync errors.",
+    "refresh": "Refresh dashboard",
+    "refreshing": "Refreshing…",
+    "summaryAriaLabel": "Administrator dashboard summary",
+    "loading": "Loading administrator dashboard…",
+    "metrics": {
+      "stores": "Stores",
+      "scales": "Scales",
+      "scalesWithErrors": "Scales with errors",
+      "scalesMissingSync": "Missing sync"
+    },
+    "sections": {
+      "latestVersions": "Latest published versions",
+      "latestVersionsEmpty": "No published catalog versions yet.",
+      "latestSyncErrors": "Recent sync errors",
+      "latestSyncErrorsEmpty": "No recent sync errors.",
+      "problemScalesTitle": "Problem scales",
+      "problemScalesDescription": "Scales with sync errors, missing sync, or an outdated catalog.",
+      "problemScalesEmpty": "No problem scales found.",
+      "quickLinksTitle": "Quick actions"
+    },
+    "quickLinks": {
+      "stores": "Stores",
+      "products": "Products",
+      "globalLogs": "Global logs",
+      "usersAccess": "Users & access"
+    },
+    "openStore": "Open store"
+  },
+  "operator": {
+    "eyebrow": "Operator panel",
+    "title": "Assigned stores",
+    "description": "Only the stores assigned to your account are shown here.",
+    "refresh": "Refresh stores",
+    "refreshing": "Refreshing…",
+    "loading": "Loading assigned stores…",
+    "empty": "No stores are assigned to your account.",
+    "openCatalog": "Open catalog",
+    "storeCard": {
+      "addressMissing": "Address not specified",
+      "loadingPanel": "Loading store panel…",
+      "currentVersion": "Current version",
+      "versionLoading": "Loading…",
+      "publicationStatus": "Publication status",
+      "publicationNone": "not published",
+      "syncStatus": "Sync status",
+      "errors": "Errors",
+      "syncSummary": {
+        "noScales": "No scales connected",
+        "allSynced": "{{count}} synchronized",
+        "attention": "needs attention: {{problematic}} of {{total}}"
+      },
+      "badges": {
+        "errors": "errors: {{count}}",
+        "missingSync": "missing sync: {{count}}",
+        "outdated": "outdated: {{count}}"
+      },
+      "syncErrorFallback": "sync error"
+    }
+  },
+  "health": {
+    "eyebrow": "System status",
+    "title": "Server check"
+  }
+}

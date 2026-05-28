@@ -1,0 +1,69 @@
+{
+  "admin": {
+    "eyebrow": "Панель администратора",
+    "title": "Обзор сети",
+    "description": "Магазины, состояние весов, опубликованные версии и последние сбои синхронизации.",
+    "refresh": "Обновить панель",
+    "refreshing": "Обновляем…",
+    "summaryAriaLabel": "Сводка панели администратора",
+    "loading": "Загружаем панель администратора…",
+    "metrics": {
+      "stores": "Магазины",
+      "scales": "Весы",
+      "scalesWithErrors": "Весы с ошибками",
+      "scalesMissingSync": "Без синхронизации"
+    },
+    "sections": {
+      "latestVersions": "Последние опубликованные версии",
+      "latestVersionsEmpty": "Опубликованных версий каталога пока нет.",
+      "latestSyncErrors": "Последние ошибки синхронизации",
+      "latestSyncErrorsEmpty": "Недавних ошибок синхронизации нет.",
+      "problemScalesTitle": "Проблемные весы",
+      "problemScalesDescription": "Показаны весы с ошибкой синхронизации, без синхронизации или с устаревшим каталогом.",
+      "problemScalesEmpty": "Проблемные весы не найдены.",
+      "quickLinksTitle": "Быстрые действия"
+    },
+    "quickLinks": {
+      "stores": "Магазины",
+      "products": "Товары",
+      "globalLogs": "Общие журналы",
+      "usersAccess": "Пользователи и доступ"
+    },
+    "openStore": "Открыть магазин"
+  },
+  "operator": {
+    "eyebrow": "Панель оператора",
+    "title": "Назначенные магазины",
+    "description": "Здесь отображаются только магазины, назначенные вашей учётной записи.",
+    "refresh": "Обновить магазины",
+    "refreshing": "Обновляем…",
+    "loading": "Загружаем назначенные магазины…",
+    "empty": "Вашей учётной записи не назначены магазины.",
+    "openCatalog": "Открыть каталог",
+    "storeCard": {
+      "addressMissing": "Адрес не указан",
+      "loadingPanel": "Загружаем панель магазина…",
+      "currentVersion": "Текущая версия",
+      "versionLoading": "Загружаем…",
+      "publicationStatus": "Статус публикации",
+      "publicationNone": "не опубликовано",
+      "syncStatus": "Статус синхронизации",
+      "errors": "Ошибки",
+      "syncSummary": {
+        "noScales": "Весы не подключены",
+        "allSynced": "{{count}} синхронизировано",
+        "attention": "требуют внимания: {{problematic}} из {{total}}"
+      },
+      "badges": {
+        "errors": "ошибок: {{count}}",
+        "missingSync": "без синхронизации: {{count}}",
+        "outdated": "устарели: {{count}}"
+      },
+      "syncErrorFallback": "ошибка синхронизации"
+    }
+  },
+  "health": {
+    "eyebrow": "Состояние системы",
+    "title": "Проверка сервера"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "shell": {
+    "welcome": "Добро пожаловать, {{name}}",
+    "sessionPrefix": "Активная сессия:",
+    "rolePrefix": "роль:",
+    "ariaLabel": "Основная навигация"
+  },
+  "items": {
+    "overview": "Обзор",
+    "stores": "Магазины",
+    "products": "Товары",
+    "createStore": "Создать магазин",
+    "globalLogs": "Общие журналы",
+    "usersAccess": "Пользователи и доступ"
+  },
+  "operatorNote": "Навигация оператора: только назначенные магазины",
+  "languageSwitcher": {
+    "label": "Язык",
+    "ariaLabel": "Выбор языка"
+  }
+}

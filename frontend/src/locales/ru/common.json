@@ -1,0 +1,52 @@
+{
+  "productName": "Администратор весов",
+  "actions": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "create": "Создать",
+    "confirm": "Подтвердить",
+    "back": "Назад",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "apply": "Применить",
+    "reset": "Сбросить",
+    "yes": "Да",
+    "no": "Нет",
+    "tryAgain": "Повторить попытку"
+  },
+  "states": {
+    "loading": "Загружаем…",
+    "error": "Ошибка",
+    "success": "Готово",
+    "required": "Обязательно",
+    "optional": "Необязательно"
+  },
+  "labels": {
+    "name": "Название",
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "status": "Статус",
+    "createdAt": "Создано",
+    "updatedAt": "Обновлено",
+    "actions": "Действия"
+  },
+  "statuses": {
+    "active": "Активен",
+    "inactive": "Неактивен",
+    "archived": "В архиве",
+    "blocked": "Заблокирован",
+    "invited": "Приглашён"
+  },
+  "errors": {
+    "pageNotFound": "Страница не найдена",
+    "accessDenied": "Доступ запрещён",
+    "somethingWentWrong": "Что-то пошло не так",
+    "tryAgain": "Повторите попытку"
+  },
+  "empty": {
+    "noData": "Нет данных",
+    "nothingFound": "Ничего не найдено"
+  }
+}
