@@ -15,7 +15,3 @@ export function isReservedUserIdKeyword(value: unknown): boolean {
   }
   return RESERVED_USER_ID_KEYWORDS.has(value.toLowerCase());
 }
-
-export function reservedUserIdMessage(value: string): string {
-  return `'${value}' — зарезервированное слово, а не ID пользователя. Для текущего пользователя используйте GET /api/auth/session.`;
-}

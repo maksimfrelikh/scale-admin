@@ -1,4 +1,5 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { AuthService } from '../auth/auth.service';
@@ -30,6 +31,7 @@ export class UsersService {
     private readonly prisma: PrismaService,
     private readonly authService: AuthService,
     private readonly auditLogs: AuditLogService,
+    private readonly i18n: I18nService,
   ) {}
 
   async listUsers(includeDeleted = false) {
@@ -162,7 +164,7 @@ export class UsersService {
   async grantStoreAccess(userId: string, storeId: string, actorUserId: string, context: RequestContext) {
     const user = await this.findUserById(userId, false);
     if (user.role !== 'operator') {
-      throw new BadRequestException('Доступ к магазину можно выдать только пользователю с ролью operator');
+      throw new BadRequestException(this.i18n.t('errors.users.grantStoreAccessOperatorOnly'));
     }
 
     const store = await this.findStoreById(storeId);
@@ -229,7 +231,7 @@ export class UsersService {
   async revokeStoreAccess(userId: string, storeId: string, actorUserId: string, context: RequestContext) {
     const user = await this.findUserById(userId, false);
     if (user.role !== 'operator') {
-      throw new BadRequestException('Доступ к магазину можно отозвать только у пользователя с ролью operator');
+      throw new BadRequestException(this.i18n.t('errors.users.revokeStoreAccessOperatorOnly'));
     }
 
     const store = await this.findStoreById(storeId);
@@ -243,7 +245,7 @@ export class UsersService {
     });
 
     if (!existingAccess) {
-      throw new NotFoundException('Активный доступ к магазину не найден');
+      throw new NotFoundException(this.i18n.t('errors.users.activeStoreAccessNotFound'));
     }
 
     const now = new Date();
@@ -293,15 +295,15 @@ export class UsersService {
 
   async cancelInvite(inviteId: string, actorUserId: string, context: RequestContext) {
     if (!inviteId) {
-      throw new BadRequestException('ID приглашения обязателен');
+      throw new BadRequestException(this.i18n.t('errors.users.inviteIdRequired'));
     }
 
     const invite = await this.prisma.userInvite.findUnique({ where: { id: inviteId } });
     if (!invite) {
-      throw new NotFoundException('Приглашение не найдено');
+      throw new NotFoundException(this.i18n.t('errors.users.inviteNotFound'));
     }
     if (invite.acceptedAt) {
-      throw new ConflictException('Принятое приглашение нельзя отменить');
+      throw new ConflictException(this.i18n.t('errors.users.acceptedInviteCannotBeCancelled'));
     }
 
     await this.prisma.$transaction(async (tx) => {
@@ -339,7 +341,7 @@ export class UsersService {
 
   async softDeleteUser(userId: string, actorUserId: string, context: RequestContext) {
     if (userId === actorUserId) {
-      throw new ConflictException('Администратор не может удалить свою учётную запись');
+      throw new ConflictException(this.i18n.t('errors.users.cannotDeleteOwnAccount'));
     }
 
     const user = await this.findUserById(userId, false);
@@ -374,12 +376,12 @@ export class UsersService {
 
   private async findStoreById(storeId: string) {
     if (!storeId) {
-      throw new BadRequestException('ID магазина обязателен');
+      throw new BadRequestException(this.i18n.t('errors.users.storeIdRequired'));
     }
 
     const store = await this.prisma.store.findUnique({ where: { id: storeId } });
     if (!store || store.status === 'archived') {
-      throw new NotFoundException('Магазин не найден');
+      throw new NotFoundException(this.i18n.t('errors.users.storeNotFound'));
     }
 
     return store;
@@ -387,13 +389,13 @@ export class UsersService {
 
   private async findUserById(userId: string, includeDeleted: boolean): Promise<SafeUserRecord> {
     if (!userId) {
-      throw new BadRequestException('ID пользователя обязателен');
+      throw new BadRequestException(this.i18n.t('errors.users.userIdRequired'));
     }
 
     // User.id is a UUID column; a non-UUID string would otherwise raise an
     // unhandled Prisma validation error → 500. Short-circuit to 404.
     if (!isUuid(userId)) {
-      throw new NotFoundException('Пользователь не найден');
+      throw new NotFoundException(this.i18n.t('errors.users.userNotFound'));
     }
 
     const user = await this.prisma.user.findFirst({
@@ -404,7 +406,7 @@ export class UsersService {
     });
 
     if (!user) {
-      throw new NotFoundException('Пользователь не найден');
+      throw new NotFoundException(this.i18n.t('errors.users.userNotFound'));
     }
 
     return user;
@@ -415,7 +417,7 @@ export class UsersService {
       return role;
     }
 
-    throw new BadRequestException('Роль должна быть admin или operator');
+    throw new BadRequestException(this.i18n.t('errors.users.invalidRole'));
   }
 
   private toSafeUser(user: SafeUserRecord) {

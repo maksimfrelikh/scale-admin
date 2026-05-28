@@ -22,5 +22,20 @@
     "insufficientPermissions": "Недостаточно прав",
     "rateLimitExceeded": "Слишком много запросов. Повторите попытку позже.",
     "csrfTokenInvalid": "Сессия формы истекла. Обновите страницу и повторите действие."
+  },
+  "users": {
+    "reservedUserId": "'{value}' — зарезервированное слово, а не ID пользователя. Для текущего пользователя используйте GET /api/auth/session.",
+    "grantStoreAccessOperatorOnly": "Доступ к магазину можно выдать только пользователю с ролью operator",
+    "revokeStoreAccessOperatorOnly": "Доступ к магазину можно отозвать только у пользователя с ролью operator",
+    "activeStoreAccessNotFound": "Активный доступ к магазину не найден",
+    "inviteIdRequired": "ID приглашения обязателен",
+    "inviteNotFound": "Приглашение не найдено",
+    "acceptedInviteCannotBeCancelled": "Принятое приглашение нельзя отменить",
+    "cannotDeleteOwnAccount": "Администратор не может удалить свою учётную запись",
+    "storeIdRequired": "ID магазина обязателен",
+    "storeNotFound": "Магазин не найден",
+    "userIdRequired": "ID пользователя обязателен",
+    "userNotFound": "Пользователь не найден",
+    "invalidRole": "Роль должна быть admin или operator"
   }
 }

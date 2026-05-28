@@ -22,5 +22,20 @@
     "insufficientPermissions": "Insufficient permissions",
     "rateLimitExceeded": "Too many requests. Please try again later.",
     "csrfTokenInvalid": "Form session has expired. Refresh the page and try again."
+  },
+  "users": {
+    "reservedUserId": "'{value}' is a reserved keyword, not a user ID. Use GET /api/auth/session to identify the current user.",
+    "grantStoreAccessOperatorOnly": "Store access can only be granted to a user with the operator role",
+    "revokeStoreAccessOperatorOnly": "Store access can only be revoked from a user with the operator role",
+    "activeStoreAccessNotFound": "Active store access not found",
+    "inviteIdRequired": "Invitation ID is required",
+    "inviteNotFound": "Invitation not found",
+    "acceptedInviteCannotBeCancelled": "An accepted invitation cannot be cancelled",
+    "cannotDeleteOwnAccount": "An administrator cannot delete their own account",
+    "storeIdRequired": "Store ID is required",
+    "storeNotFound": "Store not found",
+    "userIdRequired": "User ID is required",
+    "userNotFound": "User not found",
+    "invalidRole": "Role must be admin or operator"
   }
 }

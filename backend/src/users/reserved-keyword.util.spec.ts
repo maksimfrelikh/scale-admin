@@ -4,7 +4,6 @@ import { describe, it } from 'node:test';
 import {
   isReservedUserIdKeyword,
   RESERVED_USER_ID_KEYWORDS,
-  reservedUserIdMessage,
 } from './reserved-keyword.util.ts';
 
 describe('isReservedUserIdKeyword (BUG-REG-058)', () => {
@@ -60,12 +59,4 @@ describe('isReservedUserIdKeyword (BUG-REG-058)', () => {
     });
   });
 
-  describe('reservedUserIdMessage', () => {
-    it('mentions the rejected keyword and points to /api/auth/session', () => {
-      const message = reservedUserIdMessage('me');
-      assert.match(message, /'me'/);
-      assert.match(message, /\/api\/auth\/session/);
-      assert.match(message, /зарезервированное слово/i);
-    });
-  });
 });
