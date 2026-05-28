@@ -1,5 +1,6 @@
 import { BadRequestException, ConflictException, HttpException, HttpStatus, Injectable, NotFoundException, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { EmailService, type EmailLocale } from '../email/email.service';
@@ -60,6 +61,7 @@ export class AuthService {
     private readonly auditLogs: AuditLogService,
     configService: ConfigService,
     private readonly emails: EmailService,
+    private readonly i18n: I18nService,
   ) {
     this.appConfig = configService.getOrThrow<AppConfiguration>('app');
     this.idleTimeoutMs = this.appConfig.sessionIdleTimeoutMinutes * 60 * 1000;
@@ -89,7 +91,7 @@ export class AuthService {
     const normalizedEmail = this.normalizeEmail(email);
     if (!normalizedEmail || typeof password !== 'string' || password.length === 0) {
       await this.logLoginAttempt(null, normalizedEmail, false, 'invalid_request', context);
-      throw new UnauthorizedException('Неверный email или пароль');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.invalidCredentials'));
     }
 
     const user = await this.prisma.user.findFirst({
@@ -108,7 +110,7 @@ export class AuthService {
       // ignored — this path always 401s.
       verifyPassword(password, DUMMY_CREDENTIAL);
       await this.logLoginAttempt(null, normalizedEmail, false, 'invalid_credentials', context);
-      throw new UnauthorizedException('Неверный email или пароль');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.invalidCredentials'));
     }
 
     const now = new Date();
@@ -121,7 +123,7 @@ export class AuthService {
     if (!passwordValid) {
       await this.recordFailedLogin(user.id, user.credential, now);
       await this.logLoginAttempt(user.id, normalizedEmail, false, 'invalid_credentials', context);
-      throw new UnauthorizedException('Неверный email или пароль');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.invalidCredentials'));
     }
 
     const sessionToken = createSessionToken();
@@ -208,7 +210,7 @@ export class AuthService {
 
   async getCurrentSession(sessionToken: string | undefined) {
     if (!sessionToken) {
-      throw new UnauthorizedException('Требуется авторизация');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
     }
 
     const sessionTokenHash = hashSessionToken(sessionToken);
@@ -218,24 +220,24 @@ export class AuthService {
     });
 
     if (!session || session.revokedAt) {
-      throw new UnauthorizedException('Требуется авторизация');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
     }
 
     const now = new Date();
     if (session.expiresAt <= now) {
       await this.revokeSessionById(session.id, 'absolute_timeout');
-      throw new UnauthorizedException('Требуется авторизация');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
     }
 
     const lastUsedAt = session.lastUsedAt ?? session.createdAt;
     if (now.getTime() - lastUsedAt.getTime() > this.idleTimeoutMs) {
       await this.revokeSessionById(session.id, 'idle_timeout');
-      throw new UnauthorizedException('Требуется авторизация');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
     }
 
     if (session.user.deletedAt || session.user.status !== 'active') {
       await this.revokeSessionById(session.id, 'user_inactive');
-      throw new UnauthorizedException('Требуется авторизация');
+      throw new UnauthorizedException(this.i18n.t('errors.auth.authRequired'));
     }
 
     await this.prisma.userSession.update({
@@ -285,7 +287,7 @@ export class AuthService {
       select: { id: true },
     });
     if (existingUser) {
-      throw new ConflictException('Пользователь с таким email уже существует');
+      throw new ConflictException(this.i18n.t('errors.auth.userWithEmailExists'));
     }
 
     const invite = await this.prisma.$transaction(async (tx) => {
@@ -330,7 +332,7 @@ export class AuthService {
       });
     } catch {
       await this.deleteUndeliveredInvite(invite.id);
-      throw new ServiceUnavailableException('Не удалось отправить письмо с приглашением. Повторите попытку позже.');
+      throw new ServiceUnavailableException(this.i18n.t('errors.auth.inviteEmailDeliveryFailed'));
     }
 
     return {
@@ -354,13 +356,13 @@ export class AuthService {
 
     const invite = await this.prisma.userInvite.findUnique({ where: { tokenHash } });
     if (!invite) {
-      throw new NotFoundException('Приглашение не найдено');
+      throw new NotFoundException(this.i18n.t('errors.auth.inviteNotFound'));
     }
     if (invite.acceptedAt) {
-      throw new ConflictException('Приглашение уже принято');
+      throw new ConflictException(this.i18n.t('errors.auth.inviteAlreadyAccepted'));
     }
     if (invite.expiresAt <= now) {
-      throw new BadRequestException('Срок действия приглашения истёк');
+      throw new BadRequestException(this.i18n.t('errors.auth.inviteExpired'));
     }
 
     const emailNormalized = this.normalizeEmail(invite.email);
@@ -376,7 +378,7 @@ export class AuthService {
         select: { id: true },
       });
       if (existingUser) {
-        throw new ConflictException('Пользователь с таким email уже существует');
+        throw new ConflictException(this.i18n.t('errors.auth.userWithEmailExists'));
       }
 
       const acceptedInvite = await tx.userInvite.update({
@@ -502,7 +504,7 @@ export class AuthService {
       });
     } catch {
       await this.deleteUndeliveredPasswordResetToken(resetToken.id);
-      throw new ServiceUnavailableException('Не удалось отправить письмо для сброса пароля. Повторите попытку позже.');
+      throw new ServiceUnavailableException(this.i18n.t('errors.auth.passwordResetEmailDeliveryFailed'));
     }
 
     return {
@@ -523,16 +525,16 @@ export class AuthService {
       include: { user: true },
     });
     if (!resetToken) {
-      throw new BadRequestException('Ссылка для сброса пароля недействительна');
+      throw new BadRequestException(this.i18n.t('errors.auth.passwordResetLinkInvalid'));
     }
     if (resetToken.usedAt) {
-      throw new ConflictException('Эта ссылка для сброса пароля уже использована. Если доступ всё ещё нужен, запросите новую ссылку.');
+      throw new ConflictException(this.i18n.t('errors.auth.passwordResetLinkAlreadyUsed'));
     }
     if (resetToken.expiresAt <= now) {
-      throw new BadRequestException('Срок действия ссылки для сброса пароля истёк');
+      throw new BadRequestException(this.i18n.t('errors.auth.passwordResetLinkExpired'));
     }
     if (resetToken.user.deletedAt || resetToken.user.status !== 'active') {
-      throw new BadRequestException('Ссылка для сброса пароля недействительна');
+      throw new BadRequestException(this.i18n.t('errors.auth.passwordResetLinkInvalid'));
     }
 
     const passwordData = hashPassword(password);
@@ -546,7 +548,7 @@ export class AuthService {
         data: { usedAt: now },
       });
       if (useTokenResult.count !== 1) {
-        throw new ConflictException('Эта ссылка для сброса пароля уже использована. Если доступ всё ещё нужен, запросите новую ссылку.');
+        throw new ConflictException(this.i18n.t('errors.auth.passwordResetLinkAlreadyUsed'));
       }
 
       await tx.userCredential.update({
@@ -660,7 +662,7 @@ export class AuthService {
     const retryAfterSeconds = Math.max(Math.ceil((lockedUntil.getTime() - Date.now()) / 1000), 1);
     throw new HttpException(
       {
-        message: 'Слишком много неудачных попыток входа. Повторите попытку позже.',
+        message: this.i18n.t('errors.auth.loginTemporarilyLocked'),
         error: 'Too Many Requests',
         code: 'LOGIN_TEMPORARILY_LOCKED',
         retryAfterSeconds,
@@ -702,7 +704,7 @@ export class AuthService {
     const trimmedEmail = typeof email === 'string' ? email.trim() : '';
     const normalizedEmail = this.normalizeEmail(trimmedEmail);
     if (!normalizedEmail || !normalizedEmail.includes('@')) {
-      throw new BadRequestException('Введите корректный email');
+      throw new BadRequestException(this.i18n.t('errors.auth.invalidEmail'));
     }
 
     return trimmedEmail;
@@ -712,7 +714,7 @@ export class AuthService {
     const trimmedEmail = typeof email === 'string' ? email.trim() : '';
     const result = validateInviteEmail(trimmedEmail);
     if (!result.valid) {
-      throw new BadRequestException('Введите корректный email');
+      throw new BadRequestException(this.i18n.t('errors.auth.invalidEmail'));
     }
 
     return trimmedEmail;
@@ -723,13 +725,15 @@ export class AuthService {
       return role;
     }
 
-    throw new BadRequestException('Роль должна быть admin или operator');
+    throw new BadRequestException(this.i18n.t('errors.auth.invalidRole'));
   }
 
   private requireDate(value: string, fieldName: string): Date {
     const date = new Date(value);
     if (!value || Number.isNaN(date.getTime())) {
-      throw new BadRequestException(`${fieldName} должен быть корректной датой`);
+      throw new BadRequestException(
+        this.i18n.t('errors.auth.invalidDate', { args: { field: fieldName } }),
+      );
     }
 
     return date;
@@ -738,7 +742,7 @@ export class AuthService {
   private requireToken(token: string): string {
     const normalizedToken = typeof token === 'string' ? token.trim() : '';
     if (!normalizedToken) {
-      throw new BadRequestException('Токен приглашения обязателен');
+      throw new BadRequestException(this.i18n.t('errors.auth.inviteTokenRequired'));
     }
 
     return normalizedToken;
@@ -747,7 +751,7 @@ export class AuthService {
   private requirePasswordResetToken(token: string): string {
     const normalizedToken = typeof token === 'string' ? token.trim() : '';
     if (!normalizedToken) {
-      throw new BadRequestException('Токен сброса пароля обязателен');
+      throw new BadRequestException(this.i18n.t('errors.auth.passwordResetTokenRequired'));
     }
 
     return normalizedToken;
@@ -755,7 +759,7 @@ export class AuthService {
 
   private requirePassword(password: string): string {
     if (typeof password !== 'string' || password.length < 8) {
-      throw new BadRequestException('Пароль должен содержать минимум 8 символов');
+      throw new BadRequestException(this.i18n.t('errors.auth.passwordTooShort'));
     }
 
     return password;
