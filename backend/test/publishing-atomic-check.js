@@ -78,8 +78,10 @@ function createMockPrisma(seed = {}) {
   };
 }
 
+const i18nStub = { t: (key) => key };
+
 function createService({ validation, packageData = basePackageData, prisma = createMockPrisma() } = {}) {
-  const packageService = new CatalogPackageService({}, {});
+  const packageService = new CatalogPackageService({}, {}, i18nStub);
   const auditLogs = {
     create: async (clientOrArgs, maybeArgs) => {
       const client = maybeArgs ? clientOrArgs : prisma;
@@ -108,7 +110,7 @@ function createService({ validation, packageData = basePackageData, prisma = cre
       return { packageData: clone(packageData), packageChecksum: 'draft-checksum' };
     },
   };
-  return { service: new CatalogPublishingService(prisma, auditLogs, validationService, packageFacade), prisma, validationService, packageFacade };
+  return { service: new CatalogPublishingService(prisma, auditLogs, validationService, packageFacade, i18nStub), prisma, validationService, packageFacade };
 }
 
 async function testValidPublish() {

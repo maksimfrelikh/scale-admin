@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { BannerStatus, CategoryStatus, PlacementStatus, Prisma, ProductStatus } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { ALLOWED_CURRENCIES, AllowedCurrency } from '../shared/currency';
 
@@ -60,7 +61,10 @@ type ActiveBannerRecord = {
 
 @Injectable()
 export class CatalogValidationService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly i18n: I18nService,
+  ) {}
 
   async validateActiveCatalog(storeId: string) {
     const catalog = await this.findActiveCatalog(storeId);
@@ -150,7 +154,7 @@ export class CatalogValidationService {
     });
 
     if (!catalog) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.catalog.activeCatalogNotFound'));
     }
 
     return catalog;
@@ -393,7 +397,7 @@ export class CatalogValidationService {
   private normalizeRequiredId(value: string): string {
     const normalizedValue = typeof value === 'string' ? value.trim() : '';
     if (!normalizedValue) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.catalog.activeCatalogNotFound'));
     }
     return normalizedValue;
   }

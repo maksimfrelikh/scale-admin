@@ -65,6 +65,8 @@ function makeAuditLogs() {
   return { create: async () => ({ id: 'audit-mock' }) };
 }
 
+const i18nStub = { t: (key: string) => key } as never;
+
 describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VERSION_RACE_CONFLICT', () => {
   for (const code of ['P2002', 'P2034']) {
     it(`converts Prisma ${code} surfaced from $transaction to a 409 with the race-conflict code`, async () => {
@@ -78,6 +80,7 @@ describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VER
         makeAuditLogs() as any,
         makeValidationService() as any,
         makePackageService() as any,
+        i18nStub,
       );
 
       await assert.rejects(
@@ -86,7 +89,7 @@ describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VER
           assert.ok(err instanceof ConflictException, `expected ConflictException, got ${(err as Error)?.constructor?.name}`);
           const body = (err as ConflictException).getResponse() as { code?: string; message?: string };
           assert.equal(body.code, 'CATALOG_VERSION_RACE_CONFLICT');
-          assert.match(body.message ?? '', /уже опубликовал/);
+          assert.match(body.message ?? '', /errors\.publishing\.catalogVersionRaceConflict/);
           return true;
         },
       );
@@ -114,6 +117,7 @@ describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VER
       makeAuditLogs() as any,
       makeValidationService() as any,
       makePackageService() as any,
+      i18nStub,
     );
 
     await assert.rejects(
@@ -138,6 +142,7 @@ describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VER
       makeAuditLogs() as any,
       makeValidationService() as any,
       makePackageService() as any,
+      i18nStub,
     );
 
     await assert.rejects(
@@ -161,6 +166,7 @@ describe('BUG-REG-070 — Prisma P2002 / P2034 → ConflictException CATALOG_VER
       makeAuditLogs() as any,
       makeValidationService() as any,
       makePackageService() as any,
+      i18nStub,
     );
 
     await assert.rejects(

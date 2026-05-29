@@ -122,7 +122,7 @@ function validationPrismaFor(activePrice) {
 }
 
 async function testValidatePlacementsBlocksNonRub() {
-  const service = new CatalogValidationService(validationPrismaFor({ id: priceId, productId, currency: 'USD' }));
+  const service = new CatalogValidationService(validationPrismaFor({ id: priceId, productId, currency: 'USD' }), { t: (key) => key });
   const result = await service.validateActiveCatalog(storeId);
 
   const currencyIssues = result.blockingErrors.filter((issue) => issue.code === 'PRICE_CURRENCY_NOT_SUPPORTED');
@@ -137,7 +137,7 @@ async function testValidatePlacementsBlocksNonRub() {
 }
 
 async function testValidatePlacementsAllowsRub() {
-  const service = new CatalogValidationService(validationPrismaFor({ id: priceId, productId, currency: 'RUB' }));
+  const service = new CatalogValidationService(validationPrismaFor({ id: priceId, productId, currency: 'RUB' }), { t: (key) => key });
   const result = await service.validateActiveCatalog(storeId);
 
   const currencyIssues = result.blockingErrors.filter((issue) => issue.code === 'PRICE_CURRENCY_NOT_SUPPORTED');

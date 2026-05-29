@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { ALLOWED_CURRENCIES, AllowedCurrency } from '../shared/currency';
@@ -112,6 +113,7 @@ export class CatalogPackageService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService,
+    private readonly i18n: I18nService,
   ) {}
 
   async generateActiveCatalogPackage(storeId: string) {
@@ -188,7 +190,7 @@ export class CatalogPackageService {
     });
 
     if (!catalog) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.catalog.activeCatalogNotFound'));
     }
 
     return catalog;
@@ -322,7 +324,7 @@ export class CatalogPackageService {
   private normalizeRequiredId(value: string): string {
     const normalizedValue = typeof value === 'string' ? value.trim() : '';
     if (!normalizedValue) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.catalog.activeCatalogNotFound'));
     }
     return normalizedValue;
   }

@@ -1,6 +1,7 @@
 import { randomUUID } from 'crypto';
 import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import type { AuthenticatedUser } from '../auth/auth.types';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
@@ -20,6 +21,7 @@ export class CatalogPublishingService {
     private readonly auditLogs: AuditLogService,
     private readonly catalogValidationService: CatalogValidationService,
     private readonly catalogPackageService: CatalogPackageService,
+    private readonly i18n: I18nService,
   ) {}
 
   async listCatalogVersions(storeId: string) {
@@ -92,7 +94,7 @@ export class CatalogPublishingService {
     const validation = await this.catalogValidationService.validateActiveCatalog(storeId);
     if (!validation.canPublish) {
       throw new BadRequestException({
-        message: 'В каталоге есть блокирующие ошибки проверки, поэтому его нельзя опубликовать',
+        message: this.i18n.t('errors.publishing.catalogHasBlockingErrors'),
         validation,
       });
     }
@@ -186,7 +188,7 @@ export class CatalogPublishingService {
         // retry. Closes BUG-REG-070.
         throw new ConflictException({
           code: 'CATALOG_VERSION_RACE_CONFLICT',
-          message: 'Кто-то уже опубликовал новую версию каталога. Обновите страницу и повторите.',
+          message: this.i18n.t('errors.publishing.catalogVersionRaceConflict'),
         });
       }
       throw error;
@@ -218,7 +220,7 @@ export class CatalogPublishingService {
   private normalizeRequiredId(id: string): string {
     const normalized = id?.trim();
     if (!normalized) {
-      throw new BadRequestException('ID магазина обязателен');
+      throw new BadRequestException(this.i18n.t('errors.stores.storeIdRequired'));
     }
     return normalized;
   }
