@@ -1,20 +1,20 @@
 export type BannerImageUrlValidationResult =
   | { valid: true; value: string }
-  | { valid: false; reason: string };
+  | { valid: false; reasonKey: 'errors.advertising.imageUrlRequired' | 'errors.advertising.imageUrlMustBeHttpUrl' };
 
 export function validateBannerImageUrl(value: unknown): BannerImageUrlValidationResult {
   if (typeof value !== 'string' || value.trim().length === 0) {
-    return { valid: false, reason: 'imageUrl обязателен' };
+    return { valid: false, reasonKey: 'errors.advertising.imageUrlRequired' };
   }
   const trimmed = value.trim();
   let parsed: URL;
   try {
     parsed = new URL(trimmed);
   } catch {
-    return { valid: false, reason: 'imageUrl должен быть корректным URL с протоколом http(s)' };
+    return { valid: false, reasonKey: 'errors.advertising.imageUrlMustBeHttpUrl' };
   }
   if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-    return { valid: false, reason: 'imageUrl должен быть корректным URL с протоколом http(s)' };
+    return { valid: false, reasonKey: 'errors.advertising.imageUrlMustBeHttpUrl' };
   }
   return { valid: true, value: trimmed };
 }

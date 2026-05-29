@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { BannerStatus, Prisma } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { buildMeta, parseLimit, parseOffset } from '../shared/pagination';
@@ -54,6 +55,7 @@ export class AdvertisingService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService,
+    private readonly i18n: I18nService,
   ) {}
 
   async listBanners(storeId: string, input: ListBannersInput = {}) {
@@ -142,7 +144,7 @@ export class AdvertisingService {
     }
 
     if (Object.keys(data).length === 0) {
-      throw new BadRequestException('Укажите хотя бы одно поле баннера');
+      throw new BadRequestException(this.i18n.t('errors.advertising.noFieldsToUpdate'));
     }
 
     const updated = await this.prisma.$transaction(async (tx) => {
@@ -178,12 +180,12 @@ export class AdvertisingService {
 
   async reorderBanners(storeId: string, input: ReorderBannersInput, actorUserId: string, context: RequestContext) {
     if (!Array.isArray(input.bannerIds) || input.bannerIds.length === 0) {
-      throw new BadRequestException('bannerIds должен содержать хотя бы один ID баннера');
+      throw new BadRequestException(this.i18n.t('errors.advertising.bannerIdsCannotBeEmpty'));
     }
 
-    const bannerIds = input.bannerIds.map((id) => this.requireId(id, 'ID баннера обязателен'));
+    const bannerIds = input.bannerIds.map((id) => this.requireId(id, this.i18n.t('errors.advertising.bannerIdRequired')));
     if (new Set(bannerIds).size !== bannerIds.length) {
-      throw new BadRequestException('bannerIds не должен содержать дубликаты');
+      throw new BadRequestException(this.i18n.t('errors.advertising.bannerIdsCannotContainDuplicates'));
     }
 
     const existing = await this.prisma.advertisingBanner.findMany({
@@ -191,7 +193,7 @@ export class AdvertisingService {
       orderBy: [{ sortOrder: 'asc' }, { createdAt: 'asc' }],
     });
     if (existing.length !== bannerIds.length) {
-      throw new NotFoundException('Один или несколько баннеров не найдены для магазина');
+      throw new NotFoundException(this.i18n.t('errors.advertising.bannersNotFoundForStore'));
     }
 
     const beforeById = new Map(existing.map((banner) => [banner.id, banner]));
@@ -235,16 +237,16 @@ export class AdvertisingService {
     if (!exists) {
       throw new BadRequestException({
         code: 'FILE_ASSET_NOT_FOUND',
-        message: 'imageFileAssetId ссылается на отсутствующий файл',
+        message: this.i18n.t('errors.advertising.fileAssetNotFound'),
       });
     }
   }
 
   private async findBanner(storeId: string, bannerId: string): Promise<BannerRecord> {
-    const id = this.requireId(bannerId, 'ID баннера обязателен');
+    const id = this.requireId(bannerId, this.i18n.t('errors.advertising.bannerIdRequired'));
     const banner = await this.prisma.advertisingBanner.findFirst({ where: { id, storeId } });
     if (!banner) {
-      throw new NotFoundException('Баннер не найден для магазина');
+      throw new NotFoundException(this.i18n.t('errors.advertising.bannerNotFoundForStore'));
     }
     return banner;
   }
@@ -252,21 +254,21 @@ export class AdvertisingService {
   private requireImageUrl(value: string): string {
     const result = validateBannerImageUrl(value);
     if (!result.valid) {
-      throw new BadRequestException(result.reason);
+      throw new BadRequestException(this.i18n.t(result.reasonKey));
     }
     return result.value;
   }
 
   private requireBannerStatus(status: string): BannerStatus {
     if (!Object.values(BannerStatus).includes(status as BannerStatus)) {
-      throw new BadRequestException('Статус баннера не поддерживается');
+      throw new BadRequestException(this.i18n.t('errors.advertising.invalidStatus'));
     }
     return status as BannerStatus;
   }
 
   private requireSortOrder(sortOrder: number): number {
     if (!Number.isInteger(sortOrder) || sortOrder < 0) {
-      throw new BadRequestException('sortOrder должен быть неотрицательным целым числом');
+      throw new BadRequestException(this.i18n.t('errors.advertising.invalidSortOrder'));
     }
     return sortOrder;
   }
