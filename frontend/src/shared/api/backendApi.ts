@@ -28,37 +28,6 @@ const backendBaseUrl = import.meta.env.VITE_API_BASE_URL ?? '';
 const authSessionEventName = 'scale-admin:auth-session-event';
 const storeListChangedEventName = 'scale-admin:store-list-changed-event';
 
-const backendMessageTranslations: Record<string, string> = {
-  'Invalid email or password': 'Неверный email или пароль.',
-  'Неверный email или пароль': 'Неверный email или пароль.',
-  'Authentication required': 'Требуется авторизация. Войдите в систему и повторите запрос.',
-  'Требуется авторизация': 'Требуется авторизация. Войдите в систему и повторите запрос.',
-  'CSRF token required or invalid': 'Сессия формы истекла. Обновите страницу и повторите действие.',
-  'Сессия формы истекла. Обновите страницу и повторите действие.': 'Сессия формы истекла. Обновите страницу и повторите действие.',
-  'Too many requests. Please retry later.': 'Слишком много попыток. Подождите немного и повторите действие.',
-  'Слишком много запросов. Повторите попытку позже.': 'Слишком много попыток. Подождите немного и повторите действие.',
-  'User with this email already exists': 'Пользователь с таким email уже существует.',
-  'Invitation not found': 'Приглашение не найдено.',
-  'Invitation has already been accepted': 'Это приглашение уже принято.',
-  'Invitation has expired': 'Срок действия приглашения истёк.',
-  'Invitation token is required': 'В ссылке приглашения отсутствует токен.',
-  'Password reset token is required': 'В ссылке сброса пароля отсутствует токен.',
-  'Password reset token is invalid': 'Ссылка для сброса пароля недействительна.',
-  'Password reset token has already been used': 'Эта ссылка для сброса пароля уже использована. Если доступ всё ещё нужен, запросите новую ссылку.',
-  'Password reset token has expired': 'Срок действия ссылки для сброса пароля истёк. Запросите новую ссылку.',
-  'Password must be at least 8 characters': 'Пароль должен содержать минимум 8 символов.',
-  'Valid email is required': 'Введите корректный email.',
-  'Internal server error': 'Внутренняя ошибка сервера. Попробуйте позже.',
-};
-
-function translateBackendMessage(message: string | undefined): string | undefined {
-  if (!message) {
-    return undefined;
-  }
-
-  return backendMessageTranslations[message] ?? message;
-}
-
 type AuthSessionEvent = {
   id: string;
   type: 'session-cleared' | 'session-changed';
@@ -285,37 +254,9 @@ function messageFromData(data: unknown): string | undefined {
   return message ?? errorData.error;
 }
 
-function normalizeError(error: FetchBaseQueryError): ApiError {
+export function normalizeError(error: FetchBaseQueryError): ApiError {
   const backendMessage = messageFromData(error.data);
   const backendData = error.data && typeof error.data === 'object' ? (error.data as BackendErrorData) : undefined;
-  const translatedMessage = translateBackendMessage(backendMessage);
-
-  if (error.status === 401) {
-    return {
-      status: 401,
-      message:
-        translatedMessage === 'Неверный email или пароль.'
-          ? 'Неверный email или пароль.'
-          : 'Требуется авторизация. Войдите в систему и повторите запрос.',
-    };
-  }
-
-  if (error.status === 403) {
-    return {
-      status: 403,
-      message:
-        translatedMessage === 'Сессия формы истекла. Обновите страницу и повторите действие.'
-          ? 'Сессия формы истекла. Обновите страницу и повторите действие.'
-          : 'Недостаточно прав для выполнения запроса.',
-    };
-  }
-
-  if (error.status === 429) {
-    return {
-      status: 429,
-      message: 'Слишком много попыток. Подождите немного и повторите действие.',
-    };
-  }
 
   if (error.status === 'FETCH_ERROR') {
     return {
@@ -347,7 +288,7 @@ function normalizeError(error: FetchBaseQueryError): ApiError {
 
   return {
     status: error.status,
-    message: translatedMessage ?? `Сервер вернул HTTP ${error.status}`,
+    message: backendMessage ?? `Сервер вернул HTTP ${error.status}`,
     data: backendData,
   };
 }

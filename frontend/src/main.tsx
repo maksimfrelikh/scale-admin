@@ -50,7 +50,6 @@ import {
   type AdminDashboardLatestSyncError,
   type AdminDashboardProblematicScaleDevice,
 } from './features/dashboard/dashboardApi';
-import { useGetHealthQuery } from './features/health/healthApi';
 import {
   useListGlobalLogsQuery,
   useListStoreLogsQuery,
@@ -124,26 +123,12 @@ import {
 } from './routeState';
 import './styles.css';
 
-const STATUS_FALLBACK_LABELS: Record<string, string> = {
-  active: 'Активен',
-  inactive: 'Неактивен',
-  archived: 'В архиве',
-  blocked: 'Заблокирован',
-  invited: 'Приглашён',
-  deleted: 'Удалён',
-  published: 'Опубликован',
-};
-
 function formatStatusLabel(status: string | null | undefined) {
   if (!status) {
     return '—';
   }
-  const key = `statuses.${status}`;
   const t = i18n.getFixedT(null, 'common');
-  if (i18n.exists(key, { ns: 'common' })) {
-    return (t as (k: string) => string)(key);
-  }
-  return STATUS_FALLBACK_LABELS[status] ?? status;
+  return (t as (k: string, opts: { defaultValue: string }) => string)(`statuses.${status}`, { defaultValue: status });
 }
 
 function formatUnitLabel(unit: string | null | undefined) {
@@ -158,41 +143,6 @@ function formatSyncStatusLabel(status: string | null | undefined) {
   const key = status ?? 'unknown';
   const t = i18n.getFixedT(null, 'scales');
   return (t as (k: string, opts: { defaultValue: string }) => string)(`syncStatus.${key}`, { defaultValue: key });
-}
-
-function HealthStatus() {
-  const { data: health, error, isLoading, isFetching, refetch } = useGetHealthQuery();
-  const isHealthy = health?.status === 'ok';
-  const errorMessage = error && 'message' in error ? error.message : 'Неожиданный ответ сервера.';
-
-  return (
-    <section className="panel" aria-labelledby="system-status-title">
-      <div className="panel-heading">
-        <div>
-          <p className="eyebrow">Состояние системы</p>
-          <h2 id="system-status-title">Проверка сервера</h2>
-        </div>
-        <button className="secondary-button" type="button" onClick={() => refetch()} disabled={isFetching}>
-          {isFetching ? 'Проверяем...' : 'Проверить ещё раз'}
-        </button>
-      </div>
-
-      <div
-        className={`status status-${isLoading ? 'loading' : isHealthy ? 'ok' : 'error'}`}
-        data-testid="backend-health-status"
-      >
-        <strong>Сервер:</strong>{' '}
-        {isLoading && 'проверяем...'}
-        {!isLoading && isHealthy && `Работает (${health.service})`}
-        {!isLoading && !isHealthy && `Ошибка: ${errorMessage}`}
-      </div>
-
-      {isHealthy && <p className="timestamp">Последняя проверка: {health.timestamp}</p>}
-      {!isHealthy && !isLoading && (
-        <p className="help-text">Проверка выполняется через общий клиент API.</p>
-      )}
-    </section>
-  );
 }
 
 function LoginScreen({
@@ -486,10 +436,6 @@ function AcceptInviteScreen({
 function passwordResetRequestErrorMessage(error: unknown) {
   if (!isApiError(error)) {
     return i18n.t('passwordResetRequest.errors.fallback', { ns: 'auth' });
-  }
-
-  if (error.status === 400 && error.message.toLowerCase().includes('email')) {
-    return i18n.t('passwordResetRequest.errors.invalidEmail', { ns: 'auth' });
   }
 
   return error.message;
