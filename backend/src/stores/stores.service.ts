@@ -1,5 +1,6 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { CascadeArchiveService, type CascadeSummary } from '../shared/cascade-archive.service';
@@ -37,6 +38,7 @@ export class StoresService {
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService,
     private readonly cascadeArchive: CascadeArchiveService,
+    private readonly i18n: I18nService,
   ) {}
 
   async listVisibleStores(user: AuthenticatedUser) {
@@ -95,7 +97,7 @@ export class StoresService {
     ]);
 
     if (!activeCatalog) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.stores.activeCatalogNotFound'));
     }
 
     return {
@@ -143,7 +145,7 @@ export class StoresService {
 
     const existingStore = await this.prisma.store.findUnique({ where: { code }, select: { id: true } });
     if (existingStore) {
-      throw new ConflictException('Магазин с таким кодом уже существует');
+      throw new ConflictException(this.i18n.t('errors.stores.storeCodeAlreadyExists'));
     }
 
     try {
@@ -208,7 +210,7 @@ export class StoresService {
       };
     } catch (error) {
       if (this.isUniqueConstraintError(error)) {
-        throw new ConflictException('Магазин с таким кодом уже существует');
+        throw new ConflictException(this.i18n.t('errors.stores.storeCodeAlreadyExists'));
       }
 
       throw error;
@@ -236,7 +238,7 @@ export class StoresService {
     }
 
     if (Object.keys(data).length === 0) {
-      throw new BadRequestException('Укажите хотя бы одно поле магазина');
+      throw new BadRequestException(this.i18n.t('errors.stores.noFieldsToUpdate'));
     }
 
     const isCascadeArchive = data.status === 'archived' && store.status !== 'archived';
@@ -292,7 +294,7 @@ export class StoresService {
       return { store: this.toStoreResponse(updated), cascade: cascadeSummary };
     } catch (error) {
       if (this.isUniqueConstraintError(error)) {
-        throw new ConflictException('Магазин с таким кодом уже существует');
+        throw new ConflictException(this.i18n.t('errors.stores.storeCodeAlreadyExists'));
       }
 
       throw error;
@@ -301,12 +303,12 @@ export class StoresService {
 
   private async findStoreById(storeId: string): Promise<StoreRecord> {
     if (!storeId) {
-      throw new BadRequestException('ID магазина обязателен');
+      throw new BadRequestException(this.i18n.t('errors.stores.storeIdRequired'));
     }
 
     const store = await this.prisma.store.findUnique({ where: { id: storeId } });
     if (!store) {
-      throw new NotFoundException('Магазин не найден');
+      throw new NotFoundException(this.i18n.t('errors.stores.storeNotFound'));
     }
 
     return store;
@@ -315,7 +317,7 @@ export class StoresService {
   private requireCode(code: string): string {
     const normalizedCode = typeof code === 'string' ? code.trim().toUpperCase() : '';
     if (!normalizedCode || normalizedCode.length > 64) {
-      throw new BadRequestException('Код магазина обязателен и должен быть не длиннее 64 символов');
+      throw new BadRequestException(this.i18n.t('errors.stores.codeTooLongOrEmpty'));
     }
 
     return normalizedCode;
@@ -324,7 +326,7 @@ export class StoresService {
   private requireName(name: string): string {
     const normalizedName = typeof name === 'string' ? name.trim() : '';
     if (!normalizedName || normalizedName.length > 255) {
-      throw new BadRequestException('Название магазина обязательно и должно быть не длиннее 255 символов');
+      throw new BadRequestException(this.i18n.t('errors.stores.nameTooLongOrEmpty'));
     }
 
     return normalizedName;
@@ -333,7 +335,7 @@ export class StoresService {
   private requireTimezone(timezone: string | undefined): string {
     const normalizedTimezone = typeof timezone === 'string' && timezone.trim() ? timezone.trim() : 'Europe/Moscow';
     if (normalizedTimezone.length > 128) {
-      throw new BadRequestException('Часовой пояс магазина должен быть не длиннее 128 символов');
+      throw new BadRequestException(this.i18n.t('errors.stores.timezoneTooLong'));
     }
 
     return normalizedTimezone;
@@ -344,7 +346,7 @@ export class StoresService {
       return status;
     }
 
-    throw new BadRequestException('Статус магазина должен быть active, inactive или archived');
+    throw new BadRequestException(this.i18n.t('errors.stores.invalidStatus'));
   }
 
   private normalizeOptionalString(value: string | undefined): string | null {
