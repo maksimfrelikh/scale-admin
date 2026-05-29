@@ -1,4 +1,5 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
+import { I18nService } from 'nestjs-i18n';
 import { getHeader } from '../auth/cookie.util';
 import { ScalesService, type RequestContext } from './scales.service';
 
@@ -11,7 +12,10 @@ export type AuthenticatedScaleDevice = {
 
 @Injectable()
 export class ScaleApiAuthGuard implements CanActivate {
-  constructor(private readonly scalesService: ScalesService) {}
+  constructor(
+    private readonly scalesService: ScalesService,
+    private readonly i18n: I18nService,
+  ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<{
@@ -28,7 +32,7 @@ export class ScaleApiAuthGuard implements CanActivate {
     const result = await this.scalesService.authenticateScaleApiRequest(deviceCode, apiToken, this.getRequestContext(request));
     if (!result.authenticated) {
       throw new UnauthorizedException({
-        message: 'Авторизация Scale API не выполнена',
+        message: this.i18n.t('errors.scales.apiAuthFailed', { lang: 'ru' }),
         error: 'Unauthorized',
         code: 'SCALE_API_AUTH_FAILED',
         statusCode: 401,

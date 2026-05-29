@@ -26,7 +26,7 @@ describe('ScaleApiAuthGuard — credential sources (BUG-REG-041)', () => {
           ? { authenticated: true, device }
           : { authenticated: false };
       },
-    });
+    }, { t: (key: string) => key } as never);
     const request: Record<string, unknown> = {
       headers: {
         'x-scale-device-code': 'SCALE-001',
@@ -55,7 +55,7 @@ describe('ScaleApiAuthGuard — credential sources (BUG-REG-041)', () => {
         calls.push({ deviceCode, apiToken, context });
         return { authenticated: false };
       },
-    });
+    }, { t: (key: string) => key } as never);
     const request = {
       headers: {},
       query: {

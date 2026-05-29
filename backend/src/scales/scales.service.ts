@@ -1,5 +1,6 @@
 import { BadRequestException, ConflictException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, type ScaleSyncStatus } from '@prisma/client';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 import { createScaleApiToken, hashScaleApiToken, verifyScaleApiTokenHash } from './scale-token.util';
@@ -65,6 +66,7 @@ export class ScalesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService = new AuditLogService(prisma),
+    private readonly i18n: I18nService,
   ) {}
 
   async listStoreDevices(storeId: string) {
@@ -148,7 +150,7 @@ export class ScalesService {
       };
     } catch (error) {
       if (this.isUniqueConstraintError(error)) {
-        throw new ConflictException('Код устройства весов уже существует');
+        throw new ConflictException(this.i18n.t('errors.scales.deviceCodeAlreadyExists'));
       }
 
       throw error;
@@ -246,7 +248,7 @@ export class ScalesService {
     if (device.status !== 'active') {
       await this.writeScaleAuthFailureLog(device.id, device.storeId, `device_${device.status}`, context);
       throw new ForbiddenException({
-        message: 'Устройству весов запрещена синхронизация',
+        message: this.i18n.t('errors.scales.deviceNotActive', { lang: 'ru' }),
         error: 'Forbidden',
         code: 'SCALE_DEVICE_NOT_ACTIVE',
         statusCode: 403,
@@ -303,7 +305,7 @@ export class ScalesService {
     });
 
     if (!activeCatalog) {
-      throw new NotFoundException('Активный каталог магазина не найден');
+      throw new NotFoundException(this.i18n.t('errors.catalog.activeCatalogNotFound'));
     }
 
     let requestedVersionId: string | null = normalizedRequestedVersionId;
@@ -324,7 +326,7 @@ export class ScalesService {
     const hasUpdate = Boolean(currentVersionId && requestedVersionId !== currentVersionId);
     const deliveryVersion = hasUpdate ? currentVersion : null;
     if (hasUpdate && !deliveryVersion) {
-      throw new NotFoundException('Текущая версия каталога не найдена');
+      throw new NotFoundException(this.i18n.t('errors.scales.currentCatalogVersionNotFound'));
     }
 
     const logStatus: ScaleSyncStatus = hasUpdate ? 'package_delivered' : 'no_update';
@@ -357,7 +359,7 @@ export class ScalesService {
     }
 
     if (!deliveryVersion) {
-      throw new NotFoundException('Текущая версия каталога не найдена');
+      throw new NotFoundException(this.i18n.t('errors.scales.currentCatalogVersionNotFound'));
     }
 
     return {
@@ -380,7 +382,7 @@ export class ScalesService {
       select: { id: true, versionNumber: true, packageChecksum: true },
     });
     if (!catalogVersion) {
-      throw new NotFoundException('Версия каталога не найдена');
+      throw new NotFoundException(this.i18n.t('errors.scales.catalogVersionNotFound'));
     }
 
     await this.prisma.$transaction(async (tx) => {
@@ -460,12 +462,12 @@ export class ScalesService {
 
   private async findStoreById(storeId: string) {
     if (!storeId) {
-      throw new BadRequestException('ID магазина обязателен');
+      throw new BadRequestException(this.i18n.t('errors.stores.storeIdRequired'));
     }
 
     const store = await this.prisma.store.findUnique({ where: { id: storeId } });
     if (!store || store.status === 'archived') {
-      throw new NotFoundException('Магазин не найден');
+      throw new NotFoundException(this.i18n.t('errors.stores.storeNotFound'));
     }
 
     return store;
@@ -473,12 +475,12 @@ export class ScalesService {
 
   private async findDeviceById(deviceId: string): Promise<ScaleDeviceRecord> {
     if (!deviceId) {
-      throw new BadRequestException('ID устройства весов обязателен');
+      throw new BadRequestException(this.i18n.t('errors.scales.deviceIdRequired'));
     }
 
     const device = await this.prisma.scaleDevice.findUnique({ where: { id: deviceId } });
     if (!device) {
-      throw new NotFoundException('Устройство весов не найдено');
+      throw new NotFoundException(this.i18n.t('errors.scales.deviceNotFound'));
     }
 
     return device;
@@ -487,7 +489,7 @@ export class ScalesService {
   private requireDeviceCode(deviceCode: string): string {
     const normalizedCode = typeof deviceCode === 'string' ? deviceCode.trim().toUpperCase() : '';
     if (!normalizedCode || normalizedCode.length > 128) {
-      throw new BadRequestException('Код устройства обязателен и должен быть не длиннее 128 символов');
+      throw new BadRequestException(this.i18n.t('errors.scales.deviceCodeTooLongOrEmpty'));
     }
 
     return normalizedCode;
@@ -496,7 +498,7 @@ export class ScalesService {
   private requireName(name: string): string {
     const normalizedName = typeof name === 'string' ? name.trim() : '';
     if (!normalizedName || normalizedName.length > 255) {
-      throw new BadRequestException('Название устройства обязательно и должно быть не длиннее 255 символов');
+      throw new BadRequestException(this.i18n.t('errors.scales.deviceNameTooLongOrEmpty'));
     }
 
     return normalizedName;
@@ -507,7 +509,7 @@ export class ScalesService {
       return status;
     }
 
-    throw new BadRequestException('Статус устройства весов должен быть active, inactive, blocked или archived');
+    throw new BadRequestException(this.i18n.t('errors.scales.invalidStatus'));
   }
 
   private normalizeOptionalUuid(value: string | undefined, fieldName: string): string | null {
@@ -522,11 +524,11 @@ export class ScalesService {
   private requireUuid(value: string | undefined, fieldName: string): string {
     const normalizedValue = typeof value === 'string' ? value.trim() : '';
     if (!normalizedValue) {
-      throw new BadRequestException(`${fieldName} обязателен`);
+      throw new BadRequestException(this.i18n.t('errors.scales.fieldRequired', { args: { field: fieldName } }));
     }
 
     if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(normalizedValue)) {
-      throw new BadRequestException(`${fieldName} должен быть корректным UUID`);
+      throw new BadRequestException(this.i18n.t('errors.scales.fieldMustBeUuid', { args: { field: fieldName } }));
     }
 
     return normalizedValue;
@@ -537,7 +539,7 @@ export class ScalesService {
       return status;
     }
 
-    throw new BadRequestException('Статус ACK должен быть success или error');
+    throw new BadRequestException(this.i18n.t('errors.scales.invalidAckStatus', { lang: 'ru' }));
   }
 
   private normalizeErrorMessage(errorMessage: string | undefined): string | null {
