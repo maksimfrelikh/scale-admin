@@ -23,42 +23,18 @@
     "rateLimitExceeded": "Слишком много запросов. Повторите попытку позже.",
     "csrfTokenInvalid": "Сессия формы истекла. Обновите страницу и повторите действие."
   },
-  "users": {
-    "reservedUserId": "'{value}' — зарезервированное слово, а не ID пользователя. Для текущего пользователя используйте GET /api/auth/session.",
-    "grantStoreAccessOperatorOnly": "Доступ к магазину можно выдать только пользователю с ролью operator",
-    "revokeStoreAccessOperatorOnly": "Доступ к магазину можно отозвать только у пользователя с ролью operator",
-    "activeStoreAccessNotFound": "Активный доступ к магазину не найден",
-    "inviteIdRequired": "ID приглашения обязателен",
-    "inviteNotFound": "Приглашение не найдено",
-    "acceptedInviteCannotBeCancelled": "Принятое приглашение нельзя отменить",
-    "cannotDeleteOwnAccount": "Администратор не может удалить свою учётную запись",
-    "storeIdRequired": "ID магазина обязателен",
-    "storeNotFound": "Магазин не найден",
-    "userIdRequired": "ID пользователя обязателен",
-    "userNotFound": "Пользователь не найден",
-    "invalidRole": "Роль должна быть admin или operator"
-  },
-  "stores": {
-    "activeCatalogNotFound": "Активный каталог магазина не найден",
-    "storeCodeAlreadyExists": "Магазин с таким кодом уже существует",
-    "noFieldsToUpdate": "Укажите хотя бы одно поле магазина",
-    "storeIdRequired": "ID магазина обязателен",
-    "storeNotFound": "Магазин не найден",
-    "codeTooLongOrEmpty": "Код магазина обязателен и должен быть не длиннее 64 символов",
-    "nameTooLongOrEmpty": "Название магазина обязательно и должно быть не длиннее 255 символов",
-    "timezoneTooLong": "Часовой пояс магазина должен быть не длиннее 128 символов",
-    "invalidStatus": "Статус магазина должен быть active, inactive или archived"
-  },
-  "products": {
-    "productPluAlreadyExists": "Товар с таким PLU уже существует",
-    "noFieldsToUpdate": "Укажите хотя бы одно поле товара",
-    "productIdRequired": "ID товара обязателен",
-    "productNotFound": "Товар не найден",
-    "pluCodeTooLongOrEmpty": "PLU товара обязателен и должен быть не длиннее 64 символов",
-    "nameTooLongOrEmpty": "Название товара обязательно и должно быть не длиннее 255 символов",
-    "shortNameTooLongOrEmpty": "Короткое название товара обязательно и должно быть не длиннее 128 символов",
-    "invalidUnit": "Единица товара должна быть kg, g или piece",
-    "invalidStatus": "Статус товара должен быть active, inactive или archived"
+  "advertising": {
+    "noFieldsToUpdate": "Укажите хотя бы одно поле баннера",
+    "bannerIdsCannotBeEmpty": "bannerIds должен содержать хотя бы один ID баннера",
+    "bannerIdsCannotContainDuplicates": "bannerIds не должен содержать дубликаты",
+    "bannersNotFoundForStore": "Один или несколько баннеров не найдены для магазина",
+    "fileAssetNotFound": "imageFileAssetId ссылается на отсутствующий файл",
+    "bannerNotFoundForStore": "Баннер не найден для магазина",
+    "invalidStatus": "Статус баннера не поддерживается",
+    "invalidSortOrder": "sortOrder должен быть неотрицательным целым числом",
+    "bannerIdRequired": "ID баннера обязателен",
+    "imageUrlRequired": "imageUrl обязателен",
+    "imageUrlMustBeHttpUrl": "imageUrl должен быть корректным URL с протоколом http(s)"
   },
   "catalog": {
     "activeCatalogNotFound": "Активный каталог магазина не найден",
@@ -91,5 +67,80 @@
     "invalidSortOrder": "sortOrder категории должен быть целым числом от 0 до 1000000",
     "invalidCategoryStatus": "Статус категории должен быть active, inactive или archived",
     "invalidPlacementStatus": "Статус размещения должен быть active, inactive или archived"
+  },
+  "common": {
+    "invalidId": "Некорректный идентификатор"
+  },
+  "files": {
+    "imageFileRequired": "Файл изображения обязателен",
+    "imageTooLarge": "Файл изображения должен быть не больше 2 МБ",
+    "unsupportedImageType": "Поддерживаются только изображения jpg, png или webp",
+    "extensionMismatch": "Расширение изображения не совпадает с фактическим типом файла",
+    "uploadFailed": "Не удалось сохранить загруженное изображение",
+    "filenameTooLongOrEmpty": "Исходное имя файла обязательно и должно быть не длиннее 255 символов",
+    "unsupportedImageExtension": "Поддерживаются только расширения изображений jpg, png или webp"
+  },
+  "prices": {
+    "activeCategoryNotFound": "Активная категория не найдена в активном каталоге",
+    "productMustBeActiveAndPlaced": "Перед назначением цены товар должен быть активен и размещён в активном каталоге",
+    "priceMustBeGreaterThanZero": "Цена должна быть больше 0",
+    "currencyNotSupported": "Валюта не поддерживается",
+    "fieldMustBeBoolean": "{field} должно быть true или false"
+  },
+  "products": {
+    "productPluAlreadyExists": "Товар с таким PLU уже существует",
+    "noFieldsToUpdate": "Укажите хотя бы одно поле товара",
+    "productIdRequired": "ID товара обязателен",
+    "productNotFound": "Товар не найден",
+    "pluCodeTooLongOrEmpty": "PLU товара обязателен и должен быть не длиннее 64 символов",
+    "nameTooLongOrEmpty": "Название товара обязательно и должно быть не длиннее 255 символов",
+    "shortNameTooLongOrEmpty": "Короткое название товара обязательно и должно быть не длиннее 128 символов",
+    "invalidUnit": "Единица товара должна быть kg, g или piece",
+    "invalidStatus": "Статус товара должен быть active, inactive или archived"
+  },
+  "publishing": {
+    "catalogHasBlockingErrors": "В каталоге есть блокирующие ошибки проверки, поэтому его нельзя опубликовать",
+    "catalogVersionRaceConflict": "Кто-то уже опубликовал новую версию каталога. Обновите страницу и повторите."
+  },
+  "scales": {
+    "deviceCodeAlreadyExists": "Код устройства весов уже существует",
+    "currentCatalogVersionNotFound": "Текущая версия каталога не найдена",
+    "catalogVersionNotFound": "Версия каталога не найдена",
+    "deviceIdRequired": "ID устройства весов обязателен",
+    "deviceNotFound": "Устройство весов не найдено",
+    "deviceCodeTooLongOrEmpty": "Код устройства обязателен и должен быть не длиннее 128 символов",
+    "deviceNameTooLongOrEmpty": "Название устройства обязательно и должно быть не длиннее 255 символов",
+    "invalidStatus": "Статус устройства весов должен быть active, inactive, blocked или archived",
+    "fieldRequired": "{field} обязателен",
+    "fieldMustBeUuid": "{field} должен быть корректным UUID",
+    "deviceNotActive": "Устройству весов запрещена синхронизация",
+    "invalidAckStatus": "Статус ACK должен быть success или error",
+    "apiAuthFailed": "Авторизация Scale API не выполнена"
+  },
+  "stores": {
+    "activeCatalogNotFound": "Активный каталог магазина не найден",
+    "storeCodeAlreadyExists": "Магазин с таким кодом уже существует",
+    "noFieldsToUpdate": "Укажите хотя бы одно поле магазина",
+    "storeIdRequired": "ID магазина обязателен",
+    "storeNotFound": "Магазин не найден",
+    "codeTooLongOrEmpty": "Код магазина обязателен и должен быть не длиннее 64 символов",
+    "nameTooLongOrEmpty": "Название магазина обязательно и должно быть не длиннее 255 символов",
+    "timezoneTooLong": "Часовой пояс магазина должен быть не длиннее 128 символов",
+    "invalidStatus": "Статус магазина должен быть active, inactive или archived"
+  },
+  "users": {
+    "reservedUserId": "'{value}' — зарезервированное слово, а не ID пользователя. Для текущего пользователя используйте GET /api/auth/session.",
+    "grantStoreAccessOperatorOnly": "Доступ к магазину можно выдать только пользователю с ролью operator",
+    "revokeStoreAccessOperatorOnly": "Доступ к магазину можно отозвать только у пользователя с ролью operator",
+    "activeStoreAccessNotFound": "Активный доступ к магазину не найден",
+    "inviteIdRequired": "ID приглашения обязателен",
+    "inviteNotFound": "Приглашение не найдено",
+    "acceptedInviteCannotBeCancelled": "Принятое приглашение нельзя отменить",
+    "cannotDeleteOwnAccount": "Администратор не может удалить свою учётную запись",
+    "storeIdRequired": "ID магазина обязателен",
+    "storeNotFound": "Магазин не найден",
+    "userIdRequired": "ID пользователя обязателен",
+    "userNotFound": "Пользователь не найден",
+    "invalidRole": "Роль должна быть admin или operator"
   }
 }

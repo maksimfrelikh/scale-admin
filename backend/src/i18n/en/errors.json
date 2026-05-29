@@ -23,42 +23,18 @@
     "rateLimitExceeded": "Too many requests. Please try again later.",
     "csrfTokenInvalid": "Form session has expired. Refresh the page and try again."
   },
-  "users": {
-    "reservedUserId": "'{value}' is a reserved keyword, not a user ID. Use GET /api/auth/session to identify the current user.",
-    "grantStoreAccessOperatorOnly": "Store access can only be granted to a user with the operator role",
-    "revokeStoreAccessOperatorOnly": "Store access can only be revoked from a user with the operator role",
-    "activeStoreAccessNotFound": "Active store access not found",
-    "inviteIdRequired": "Invitation ID is required",
-    "inviteNotFound": "Invitation not found",
-    "acceptedInviteCannotBeCancelled": "An accepted invitation cannot be cancelled",
-    "cannotDeleteOwnAccount": "An administrator cannot delete their own account",
-    "storeIdRequired": "Store ID is required",
-    "storeNotFound": "Store not found",
-    "userIdRequired": "User ID is required",
-    "userNotFound": "User not found",
-    "invalidRole": "Role must be admin or operator"
-  },
-  "stores": {
-    "activeCatalogNotFound": "Active store catalog not found",
-    "storeCodeAlreadyExists": "A store with this code already exists",
-    "noFieldsToUpdate": "Provide at least one store field to update",
-    "storeIdRequired": "Store ID is required",
-    "storeNotFound": "Store not found",
-    "codeTooLongOrEmpty": "Store code is required and must be no longer than 64 characters",
-    "nameTooLongOrEmpty": "Store name is required and must be no longer than 255 characters",
-    "timezoneTooLong": "Store timezone must be no longer than 128 characters",
-    "invalidStatus": "Store status must be active, inactive, or archived"
-  },
-  "products": {
-    "productPluAlreadyExists": "A product with this PLU already exists",
-    "noFieldsToUpdate": "Provide at least one product field to update",
-    "productIdRequired": "Product ID is required",
-    "productNotFound": "Product not found",
-    "pluCodeTooLongOrEmpty": "Product PLU is required and must be no longer than 64 characters",
-    "nameTooLongOrEmpty": "Product name is required and must be no longer than 255 characters",
-    "shortNameTooLongOrEmpty": "Product short name is required and must be no longer than 128 characters",
-    "invalidUnit": "Product unit must be kg, g, or piece",
-    "invalidStatus": "Product status must be active, inactive, or archived"
+  "advertising": {
+    "noFieldsToUpdate": "Provide at least one banner field to update",
+    "bannerIdsCannotBeEmpty": "bannerIds must contain at least one banner ID",
+    "bannerIdsCannotContainDuplicates": "bannerIds must not contain duplicates",
+    "bannersNotFoundForStore": "One or more banners were not found for this store",
+    "fileAssetNotFound": "imageFileAssetId references a missing file",
+    "bannerNotFoundForStore": "Banner not found for this store",
+    "invalidStatus": "Banner status is not supported",
+    "invalidSortOrder": "sortOrder must be a non-negative integer",
+    "bannerIdRequired": "Banner ID is required",
+    "imageUrlRequired": "imageUrl is required",
+    "imageUrlMustBeHttpUrl": "imageUrl must be a valid URL with http(s) protocol"
   },
   "catalog": {
     "activeCatalogNotFound": "Active store catalog not found",
@@ -91,5 +67,80 @@
     "invalidSortOrder": "Category sortOrder must be an integer between 0 and 1000000",
     "invalidCategoryStatus": "Category status must be active, inactive, or archived",
     "invalidPlacementStatus": "Placement status must be active, inactive, or archived"
+  },
+  "common": {
+    "invalidId": "Invalid identifier"
+  },
+  "files": {
+    "imageFileRequired": "Image file is required",
+    "imageTooLarge": "Image file must be no larger than 2 MB",
+    "unsupportedImageType": "Only jpg, png, or webp images are supported",
+    "extensionMismatch": "Image extension does not match the actual file type",
+    "uploadFailed": "Failed to save the uploaded image",
+    "filenameTooLongOrEmpty": "Original file name is required and must be no longer than 255 characters",
+    "unsupportedImageExtension": "Only jpg, png, or webp image extensions are supported"
+  },
+  "prices": {
+    "activeCategoryNotFound": "Active category not found in active catalog",
+    "productMustBeActiveAndPlaced": "Product must be active and placed in the active catalog before a price can be assigned",
+    "priceMustBeGreaterThanZero": "Price must be greater than 0",
+    "currencyNotSupported": "Currency is not supported",
+    "fieldMustBeBoolean": "{field} must be true or false"
+  },
+  "products": {
+    "productPluAlreadyExists": "A product with this PLU already exists",
+    "noFieldsToUpdate": "Provide at least one product field to update",
+    "productIdRequired": "Product ID is required",
+    "productNotFound": "Product not found",
+    "pluCodeTooLongOrEmpty": "Product PLU is required and must be no longer than 64 characters",
+    "nameTooLongOrEmpty": "Product name is required and must be no longer than 255 characters",
+    "shortNameTooLongOrEmpty": "Product short name is required and must be no longer than 128 characters",
+    "invalidUnit": "Product unit must be kg, g, or piece",
+    "invalidStatus": "Product status must be active, inactive, or archived"
+  },
+  "publishing": {
+    "catalogHasBlockingErrors": "The catalog has blocking validation errors and cannot be published",
+    "catalogVersionRaceConflict": "Another publish has already created a new catalog version. Refresh the page and try again."
+  },
+  "scales": {
+    "deviceCodeAlreadyExists": "Scale device code already exists",
+    "currentCatalogVersionNotFound": "Current catalog version not found",
+    "catalogVersionNotFound": "Catalog version not found",
+    "deviceIdRequired": "Scale device ID is required",
+    "deviceNotFound": "Scale device not found",
+    "deviceCodeTooLongOrEmpty": "Device code is required and must be no longer than 128 characters",
+    "deviceNameTooLongOrEmpty": "Device name is required and must be no longer than 255 characters",
+    "invalidStatus": "Scale device status must be active, inactive, blocked, or archived",
+    "fieldRequired": "{field} is required",
+    "fieldMustBeUuid": "{field} must be a valid UUID",
+    "deviceNotActive": "Scale device is not allowed to sync",
+    "invalidAckStatus": "ACK status must be success or error",
+    "apiAuthFailed": "Scale API authentication failed"
+  },
+  "stores": {
+    "activeCatalogNotFound": "Active store catalog not found",
+    "storeCodeAlreadyExists": "A store with this code already exists",
+    "noFieldsToUpdate": "Provide at least one store field to update",
+    "storeIdRequired": "Store ID is required",
+    "storeNotFound": "Store not found",
+    "codeTooLongOrEmpty": "Store code is required and must be no longer than 64 characters",
+    "nameTooLongOrEmpty": "Store name is required and must be no longer than 255 characters",
+    "timezoneTooLong": "Store timezone must be no longer than 128 characters",
+    "invalidStatus": "Store status must be active, inactive, or archived"
+  },
+  "users": {
+    "reservedUserId": "'{value}' is a reserved keyword, not a user ID. Use GET /api/auth/session to identify the current user.",
+    "grantStoreAccessOperatorOnly": "Store access can only be granted to a user with the operator role",
+    "revokeStoreAccessOperatorOnly": "Store access can only be revoked from a user with the operator role",
+    "activeStoreAccessNotFound": "Active store access not found",
+    "inviteIdRequired": "Invitation ID is required",
+    "inviteNotFound": "Invitation not found",
+    "acceptedInviteCannotBeCancelled": "An accepted invitation cannot be cancelled",
+    "cannotDeleteOwnAccount": "An administrator cannot delete their own account",
+    "storeIdRequired": "Store ID is required",
+    "storeNotFound": "Store not found",
+    "userIdRequired": "User ID is required",
+    "userNotFound": "User not found",
+    "invalidRole": "Role must be admin or operator"
   }
 }
