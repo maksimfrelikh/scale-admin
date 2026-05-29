@@ -1,5 +1,6 @@
 import { BadRequestException, Controller, Post, Req, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { I18nService } from 'nestjs-i18n';
 import { getHeader } from '../auth/cookie.util';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { RateLimit } from '../auth/rate-limit.decorator';
@@ -22,7 +23,10 @@ type UploadedMultipartFile = {
 @UseGuards(SessionGuard, RolesGuard, RateLimitGuard)
 @RequireRoles('admin', 'operator')
 export class FilesController {
-  constructor(private readonly filesService: FilesService) {}
+  constructor(
+    private readonly filesService: FilesService,
+    private readonly i18n: I18nService,
+  ) {}
 
   @Post('images')
   @RateLimit({ bucket: 'upload' })
@@ -37,7 +41,7 @@ export class FilesController {
     @CurrentUser() user: AuthenticatedUser,
   ) {
     if (!file) {
-      throw new BadRequestException('Файл изображения обязателен');
+      throw new BadRequestException(this.i18n.t('errors.files.imageFileRequired'));
     }
 
     return this.filesService.uploadImage(file, user.id, this.getRequestContext(request));

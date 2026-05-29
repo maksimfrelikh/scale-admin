@@ -2,6 +2,7 @@ import { BadRequestException, Injectable, InternalServerErrorException } from '@
 import { randomUUID } from 'crypto';
 import { mkdir, unlink, writeFile } from 'fs/promises';
 import { extname, join, relative } from 'path';
+import { I18nService } from 'nestjs-i18n';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuditLogService } from '../logs/audit-log.service';
 
@@ -32,6 +33,7 @@ export class FilesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly auditLogs: AuditLogService,
+    private readonly i18n: I18nService,
   ) {
     const uploadRoot = process.env.FILE_UPLOAD_DIR || join(process.cwd(), 'uploads');
     this.imageUploadDirectory = join(uploadRoot, 'images');
@@ -39,13 +41,13 @@ export class FilesService {
 
   async uploadImage(file: UploadedMultipartFile | undefined, actorUserId: string, context: RequestContext) {
     if (!file?.buffer || file.buffer.length === 0) {
-      throw new BadRequestException('Файл изображения обязателен');
+      throw new BadRequestException(this.i18n.t('errors.files.imageFileRequired'));
     }
 
     const buffer = file.buffer;
 
     if (buffer.length > MAX_IMAGE_SIZE_BYTES || (file.size !== undefined && file.size > MAX_IMAGE_SIZE_BYTES)) {
-      throw new BadRequestException('Файл изображения должен быть не больше 2 МБ');
+      throw new BadRequestException(this.i18n.t('errors.files.imageTooLarge'));
     }
 
     const originalFilename = this.requireOriginalFilename(file.originalname);
@@ -53,11 +55,11 @@ export class FilesService {
     const detectedType = this.detectImageType(buffer);
 
     if (!detectedType) {
-      throw new BadRequestException('Поддерживаются только изображения jpg, png или webp');
+      throw new BadRequestException(this.i18n.t('errors.files.unsupportedImageType'));
     }
 
     if (!this.extensionMatchesType(uploadedExtension, detectedType)) {
-      throw new BadRequestException('Расширение изображения не совпадает с фактическим типом файла');
+      throw new BadRequestException(this.i18n.t('errors.files.extensionMismatch'));
     }
 
     await mkdir(this.imageUploadDirectory, { recursive: true });
@@ -130,14 +132,14 @@ export class FilesService {
         throw error;
       }
 
-      throw new InternalServerErrorException('Не удалось сохранить загруженное изображение');
+      throw new InternalServerErrorException(this.i18n.t('errors.files.uploadFailed'));
     }
   }
 
   private requireOriginalFilename(originalFilename: string | undefined): string {
     const normalized = typeof originalFilename === 'string' ? originalFilename.trim() : '';
     if (!normalized || normalized.length > 255) {
-      throw new BadRequestException('Исходное имя файла обязательно и должно быть не длиннее 255 символов');
+      throw new BadRequestException(this.i18n.t('errors.files.filenameTooLongOrEmpty'));
     }
 
     return normalized;
@@ -146,7 +148,7 @@ export class FilesService {
   private getAllowedExtension(filename: string): string {
     const extension = extname(filename).slice(1).toLowerCase();
     if (!ALLOWED_EXTENSIONS.has(extension)) {
-      throw new BadRequestException('Поддерживаются только расширения изображений jpg, png или webp');
+      throw new BadRequestException(this.i18n.t('errors.files.unsupportedImageExtension'));
     }
 
     return extension;
