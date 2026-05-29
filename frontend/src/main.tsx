@@ -124,26 +124,12 @@ import {
 } from './routeState';
 import './styles.css';
 
-const STATUS_FALLBACK_LABELS: Record<string, string> = {
-  active: 'Активен',
-  inactive: 'Неактивен',
-  archived: 'В архиве',
-  blocked: 'Заблокирован',
-  invited: 'Приглашён',
-  deleted: 'Удалён',
-  published: 'Опубликован',
-};
-
 function formatStatusLabel(status: string | null | undefined) {
   if (!status) {
     return '—';
   }
-  const key = `statuses.${status}`;
   const t = i18n.getFixedT(null, 'common');
-  if (i18n.exists(key, { ns: 'common' })) {
-    return (t as (k: string) => string)(key);
-  }
-  return STATUS_FALLBACK_LABELS[status] ?? status;
+  return (t as (k: string, opts: { defaultValue: string }) => string)(`statuses.${status}`, { defaultValue: status });
 }
 
 function formatUnitLabel(unit: string | null | undefined) {
