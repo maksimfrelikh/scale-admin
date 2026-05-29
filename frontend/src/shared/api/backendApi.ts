@@ -254,7 +254,7 @@ function messageFromData(data: unknown): string | undefined {
   return message ?? errorData.error;
 }
 
-function normalizeError(error: FetchBaseQueryError): ApiError {
+export function normalizeError(error: FetchBaseQueryError): ApiError {
   const backendMessage = messageFromData(error.data);
   const backendData = error.data && typeof error.data === 'object' ? (error.data as BackendErrorData) : undefined;
 
