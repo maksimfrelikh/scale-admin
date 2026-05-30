@@ -49,7 +49,7 @@ refuse_live_name() {
   local value="$2"
 
   case "$value" in
-    scale_admin|scale_admin_staging|scale-admin-postgres|scale-admin-staging-postgres|*maksimfrelikh.ru*)
+    scale_admin|scale_admin_staging|scale-admin-postgres|scale-admin-staging-postgres|*weighly*)
       fail "$label looks like a live Scale Admin database target: $value"
       ;;
   esac
