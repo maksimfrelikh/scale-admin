@@ -7,7 +7,7 @@
 # - Memory limits to prevent prod starvation
 # - Separate volumes (staging_postgres_data, staging_uploads)
 # - SEED_ON_STARTUP=true for fresh DB initialization
-# - FRONTEND_ORIGIN points to staging.maksimfrelikh.ru
+# - FRONTEND_ORIGIN points to staging.weighly.frelikh.dev
 
 services:
   postgres:
@@ -30,7 +30,7 @@ services:
       - "127.0.0.1:4001:3000"
     environment:
       NODE_ENV: production
-      FRONTEND_ORIGIN: https://staging.maksimfrelikh.ru
+      FRONTEND_ORIGIN: https://staging.weighly.frelikh.dev
       SEED_ON_STARTUP: "true"
     volumes: !override
       - staging_uploads:/app/uploads

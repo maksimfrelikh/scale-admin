@@ -90,7 +90,7 @@ jobs:
           git checkout main
           git pull --ff-only origin main
           ./scripts/deploy-staging.sh deploy
-          curl -sS https://staging.maksimfrelikh.ru/api/version
+          curl -sS https://staging.weighly.frelikh.dev/api/version
           echo
           REMOTE
 

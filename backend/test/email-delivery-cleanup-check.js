@@ -18,7 +18,7 @@ function configService(nodeEnv = 'production') {
         authFailedLoginLockMinutes: 10,
         frontendOrigin: 'https://example.test',
         emailProvider: 'resend',
-        emailFrom: 'Администратор весов <invites@maksimfrelikh.ru>',
+        emailFrom: 'Администратор весов <invites@weighly.frelikh.dev>',
         emailReplyTo: 'frelikhmax@gmail.com',
         resendApiKey: 're_test_placeholder',
       };

@@ -19,7 +19,7 @@ function configService(nodeEnv = 'test') {
         authFailedLoginLockMinutes: 10,
         frontendOrigin: 'https://example.test',
         emailProvider: 'resend',
-        emailFrom: 'Администратор весов <invites@maksimfrelikh.ru>',
+        emailFrom: 'Администратор весов <invites@weighly.frelikh.dev>',
         emailReplyTo: 'frelikhmax@gmail.com',
         resendApiKey: 're_test_placeholder',
       };
@@ -107,7 +107,7 @@ const REJECT_CASES = [
 const ACCEPT_CASES = [
   { name: 'minimal valid — a@b.co', email: 'a@b.co' },
   { name: 'plus addressing — qa+filter@example.test', email: 'qa+filter@example.test' },
-  { name: 'happy path — admin@maksimfrelikh.ru', email: 'admin@maksimfrelikh.ru' },
+  { name: 'happy path — admin@weighly.frelikh.dev', email: 'admin@weighly.frelikh.dev' },
   { name: 'local exactly 64 chars', email: `${'a'.repeat(64)}@example.test` },
   { name: 'subdomain — user@mail.example.test', email: 'user@mail.example.test' },
   // BUG-REG-039 acceptance baselines
@@ -156,12 +156,12 @@ async function testCreateInviteAcceptsValidEmail() {
   const { service, created } = buildService({
     sendInviteEmail: async (input) => sent.push(input),
   });
-  const result = await service.createInvite(buildInput('admin@maksimfrelikh.ru'), 'actor-id', {});
+  const result = await service.createInvite(buildInput('admin@weighly.frelikh.dev'), 'actor-id', {});
   assert.equal(created.length, 1, 'invite should be persisted via mock prisma');
-  assert.equal(result.invite.email, 'admin@maksimfrelikh.ru');
+  assert.equal(result.invite.email, 'admin@weighly.frelikh.dev');
   assert.equal(result.invite.role, 'operator');
   assert.equal(sent.length, 1, 'invite email should be sent');
-  assert.equal(sent[0].to, 'admin@maksimfrelikh.ru');
+  assert.equal(sent[0].to, 'admin@weighly.frelikh.dev');
   assert.equal(sent[0].expiresAt.toISOString(), '2026-12-31T20:00:00.000Z');
 }
 

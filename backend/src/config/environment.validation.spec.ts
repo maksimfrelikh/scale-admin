@@ -13,7 +13,7 @@ const validBase = (): Record<string, unknown> => ({
 const resendBase = (): Record<string, unknown> => ({
   ...validBase(),
   EMAIL_PROVIDER: 'resend',
-  EMAIL_FROM: 'Администратор весов <invites@maksimfrelikh.ru>',
+  EMAIL_FROM: 'Администратор весов <invites@weighly.frelikh.dev>',
   EMAIL_REPLY_TO: 'frelikhmax@gmail.com',
   RESEND_API_KEY: 're_test_placeholder',
 });
@@ -186,7 +186,7 @@ describe('validateEnvironment — insecure default password (BUG-REG-049)', () =
     const config = {
       ...validBase(),
       NODE_ENV: 'production',
-      FRONTEND_ORIGIN: 'https://maksimfrelikh.ru',
+      FRONTEND_ORIGIN: 'https://weighly.frelikh.dev',
       DATABASE_URL: 'postgresql://scale_admin:owAfjDYLszWKVyZUYjnr6ZH9yD4MJds@postgres:5432/scale_admin',
     };
     const result = validateEnvironment(config);
@@ -223,7 +223,7 @@ describe('validateEnvironment — happy path and defaults', () => {
     const result = validateEnvironment(resendBase());
 
     assert.equal(result.EMAIL_PROVIDER, 'resend');
-    assert.equal(result.EMAIL_FROM, 'Администратор весов <invites@maksimfrelikh.ru>');
+    assert.equal(result.EMAIL_FROM, 'Администратор весов <invites@weighly.frelikh.dev>');
     assert.equal(result.EMAIL_REPLY_TO, 'frelikhmax@gmail.com');
     assert.equal(result.RESEND_API_KEY, 're_test_placeholder');
   });

@@ -28,7 +28,7 @@ case "$ACTION" in
     echo "Postgres container:"
     docker inspect scale-admin-postgres --format='  Status: {{.State.Status}}' 2>/dev/null || echo "  not running"
     echo ""
-    HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://maksimfrelikh.ru/api/health 2>/dev/null || echo "000")
+    HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://weighly.frelikh.dev/api/health 2>/dev/null || echo "000")
     echo "Health endpoint: HTTP $HEALTH"
     ;;
 
@@ -122,7 +122,7 @@ case "$ACTION" in
     echo "[deploy-prod] Waiting 10s for backend startup..."
     sleep 10
 
-    HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://maksimfrelikh.ru/api/health 2>/dev/null || echo "000")
+    HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://weighly.frelikh.dev/api/health 2>/dev/null || echo "000")
     echo "[deploy-prod] Health endpoint: HTTP $HEALTH"
 
     if [ "$HEALTH" = "200" ]; then
