@@ -132,7 +132,10 @@ export const authApi = backendApi.injectEndpoints({
           // Failed logins must not change auth state in other tabs.
         }
       },
-      invalidatesTags: ['Session'],
+      // Only invalidate Session on success: a failed login does not change session state,
+      // and an unnecessary refetch causes App's loading guard to unmount LoginScreen mid-error,
+      // dropping the form-error state before it can render (BUG-LOGIN-ERR).
+      invalidatesTags: (_result, error) => (error ? [] : ['Session']),
     }),
     acceptInvite: builder.mutation<AcceptInviteResponse, AcceptInviteRequest>({
       query: ({ token, password, csrfToken, csrfHeaderName }) => ({
