@@ -12,7 +12,7 @@ class RecordingEmailProvider {
   }
 }
 
-function configService(frontendOrigin = 'https://staging.maksimfrelikh.ru') {
+function configService(frontendOrigin = 'https://staging.weighly.frelikh.dev') {
   return {
     getOrThrow(key) {
       assert.equal(key, 'app');
@@ -35,7 +35,7 @@ async function testInviteEmailLink() {
   assert.equal(provider.sent.length, 1);
   assert.equal(provider.sent[0].to, 'operator@example.test');
   assert.equal(provider.sent[0].subject, 'Приглашение в Администратор весов');
-  assert.match(provider.sent[0].text, /https:\/\/staging\.maksimfrelikh\.ru\/accept-invite\?token=invite-token-123/);
+  assert.match(provider.sent[0].text, /https:\/\/staging\.weighly\.frelikh\.dev\/accept-invite\?token=invite-token-123/);
   assert.match(provider.sent[0].text, /2026-05-22T12:00:00.000Z/);
   assert.match(provider.sent[0].text, /Вас пригласили/);
   assert.match(provider.sent[0].html, /Вас пригласили/);
@@ -68,7 +68,7 @@ async function testInviteEmailLocaleEn() {
 
   assert.equal(provider.sent[0].subject, 'Invitation to Scale Admin');
   assert.match(provider.sent[0].text, /You have been invited to Scale Admin\./);
-  assert.match(provider.sent[0].text, /Accept invitation: https:\/\/staging\.maksimfrelikh\.ru\/accept-invite\?token=invite-token-en/);
+  assert.match(provider.sent[0].text, /Accept invitation: https:\/\/staging\.weighly\.frelikh\.dev\/accept-invite\?token=invite-token-en/);
   assert.match(provider.sent[0].text, /The link is valid until 2026-05-22T12:00:00\.000Z\./);
   assert.match(provider.sent[0].html, /<p>You have been invited to Scale Admin\.<\/p>/);
   assert.match(provider.sent[0].html, /<a href="[^"]+">Accept invitation<\/a>/);
@@ -96,7 +96,7 @@ async function testInviteEmailInvalidLocaleFallsBackToRu() {
 
 async function testPasswordResetEmailLink() {
   const provider = new RecordingEmailProvider();
-  const service = new EmailService(provider, configService('https://maksimfrelikh.ru'));
+  const service = new EmailService(provider, configService('https://weighly.frelikh.dev'));
   const expiresAt = new Date('2026-05-22T13:00:00.000Z');
 
   await service.sendPasswordResetEmail({
@@ -108,14 +108,14 @@ async function testPasswordResetEmailLink() {
   assert.equal(provider.sent.length, 1);
   assert.equal(provider.sent[0].to, 'admin@example.test');
   assert.equal(provider.sent[0].subject, 'Сброс пароля в Администратор весов');
-  assert.match(provider.sent[0].text, /https:\/\/maksimfrelikh\.ru\/reset-password\?token=reset-token-456/);
+  assert.match(provider.sent[0].text, /https:\/\/weighly\.frelikh\.dev\/reset-password\?token=reset-token-456/);
   assert.match(provider.sent[0].text, /2026-05-22T13:00:00.000Z/);
   assert.match(provider.sent[0].text, /запрошен сброс пароля/);
 }
 
 async function testPasswordResetEmailLocaleRu() {
   const provider = new RecordingEmailProvider();
-  const service = new EmailService(provider, configService('https://maksimfrelikh.ru'));
+  const service = new EmailService(provider, configService('https://weighly.frelikh.dev'));
   await service.sendPasswordResetEmail({
     to: 'admin@example.test',
     token: 'reset-token-ru',
@@ -130,7 +130,7 @@ async function testPasswordResetEmailLocaleRu() {
 
 async function testPasswordResetEmailLocaleEn() {
   const provider = new RecordingEmailProvider();
-  const service = new EmailService(provider, configService('https://maksimfrelikh.ru'));
+  const service = new EmailService(provider, configService('https://weighly.frelikh.dev'));
   await service.sendPasswordResetEmail({
     to: 'admin@example.test',
     token: 'reset-token-en',
@@ -143,7 +143,7 @@ async function testPasswordResetEmailLocaleEn() {
     provider.sent[0].text,
     /A password reset has been requested for your account in Scale Admin\./,
   );
-  assert.match(provider.sent[0].text, /Reset password: https:\/\/maksimfrelikh\.ru\/reset-password\?token=reset-token-en/);
+  assert.match(provider.sent[0].text, /Reset password: https:\/\/weighly\.frelikh\.dev\/reset-password\?token=reset-token-en/);
   assert.match(provider.sent[0].text, /The link is valid until 2026-05-22T13:00:00\.000Z\./);
   assert.match(provider.sent[0].html, /<a href="[^"]+">Reset password<\/a>/);
 }
@@ -151,7 +151,7 @@ async function testPasswordResetEmailLocaleEn() {
 async function testPasswordResetEmailInvalidLocaleFallsBackToRu() {
   for (const invalidLocale of ['fr', '', null, 42, undefined]) {
     const provider = new RecordingEmailProvider();
-    const service = new EmailService(provider, configService('https://maksimfrelikh.ru'));
+    const service = new EmailService(provider, configService('https://weighly.frelikh.dev'));
     await service.sendPasswordResetEmail({
       to: 'admin@example.test',
       token: 'reset-token-fallback',
