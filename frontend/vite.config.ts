@@ -6,12 +6,12 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru', 'staging.maksimfrelikh.ru'],
+    allowedHosts: ['.frelikh.dev'],
   },
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['maksimfrelikh.ru', 'www.maksimfrelikh.ru', 'staging.maksimfrelikh.ru'],
+    allowedHosts: ['.frelikh.dev'],
   },
   test: {
     environment: 'jsdom',
